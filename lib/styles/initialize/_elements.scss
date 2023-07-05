@@ -1,0 +1,55 @@
+ol[role="list"],
+ul[role="list"] {
+  list-style: none;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+pre {
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--tertiary-color);
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  line-height: 1.5;
+  overflow-x: scroll;
+  padding: 16px 24px;
+  white-space: pre;
+}
+
+:not(pre) > code {
+  background-color: var(--tertiary-color);
+  color: black;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+iframe {
+  border: 0;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+hr {
+  background-color: var(--secondary-color);
+  border: 0;
+  height: 1px;
+  width: 100%;
+}
+
+figcaption {
+  margin-top: 16px;
+}

@@ -1,0 +1,1298 @@
+{
+  "slug": "feature-test",
+  "id": "649ce3b6489a6f045f3ef7dc",
+  "title": "Feature Test",
+  "feature_image": "https://ghost.jakosbalay.com/content/images/2023/06/FuturisticBliss.png",
+  "feature_image_alt": "Artistic rendition of peace in a futuristic paradise in the clouds.",
+  "feature_image_caption": null,
+  "created_at": "2023-06-29T01:51:50.000+00:00",
+  "updated_at": "2023-06-29T02:30:59.000+00:00",
+  "excerpt": "This is a feature test. We are testing features here. Come on down for the feature test show.",
+  "reading_time": 4,
+  "og_image": "https://ghost.jakosbalay.com/content/images/2023/06/FuturisticBliss.png",
+  "og_description": "This post is to test the development and layout of features.",
+  "og_title": "Feature Test",
+  "meta_description": "This is a feature test, we're testing features on this blog post. How amusing! See how the features develop themselves accordingly.",
+  "meta_title": "Feature Test",
+  "twitter_image": "https://ghost.jakosbalay.com/content/images/2023/06/FuturisticBliss.png",
+  "twitter_title": "Feature Test",
+  "content": [
+    {
+      "name": "h2",
+      "attributes": {
+        "id": "did-you-really-think-that-i-would-mind"
+      },
+      "id": "0",
+      "content": "Did You Really Think That I Would Mind?"
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "1",
+      "content": "Oh boy, it’s that time of year again. I’ve got a new idea again and it’s time to put that new idea to the test. Here goes our feature test upon which we will test our blog features. I know you might be asking how many features we have to test today, and while that is a brilliant question the only answer is such:"
+    },
+    {
+      "name": "blockquote",
+      "attributes": {},
+      "id": "3",
+      "children": [
+        {
+          "id": "0",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        },
+        {
+          "name": "p",
+          "attributes": {},
+          "id": "1",
+          "content": "We have all the features in the world to test, let's go!"
+        },
+        {
+          "id": "2",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "6",
+      "children": [
+        {
+          "id": "0",
+          "name": "text",
+          "content": "I know it is an enlightening concept when the features are tested in such an egregious manner. In fact, this could even be seen as ",
+          "attributes": {}
+        },
+        {
+          "name": "strong",
+          "attributes": {},
+          "id": "1",
+          "content": "inhumane"
+        },
+        {
+          "id": "2",
+          "name": "text",
+          "content": " to sit here and test ",
+          "attributes": {}
+        },
+        {
+          "name": "em",
+          "attributes": {},
+          "id": "3",
+          "content": "features"
+        },
+        {
+          "id": "4",
+          "name": "text",
+          "content": " in a ",
+          "attributes": {}
+        },
+        {
+          "name": "em",
+          "attributes": {},
+          "id": "5",
+          "children": [
+            {
+              "name": "strong",
+              "attributes": {},
+              "id": "0",
+              "content": "simple blog post"
+            }
+          ]
+        },
+        {
+          "id": "6",
+          "name": "text",
+          "content": " like this. Wait a second, did I just add two different transformations to that statement? That is terrifying",
+          "attributes": {}
+        },
+        {
+          "name": "em",
+          "attributes": {},
+          "id": "7",
+          "content": "."
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "7",
+      "children": [
+        {
+          "id": "0",
+          "name": "text",
+          "content": "Is there even a need for the blog to get this complicated? I don’t know, but it is better to be safe than sorry. I would rather have some ",
+          "attributes": {}
+        },
+        {
+          "name": "a",
+          "attributes": {
+            "href": "https://www.ohchr.org/en/special-procedures/sr-cultural-rights/artistic-freedom?ref=ghost.jakosbalay.com",
+            "rel": "noopener noreferrer"
+          },
+          "id": "1",
+          "content": "artistic freedom"
+        },
+        {
+          "id": "2",
+          "name": "text",
+          "content": " to what I’m doing and not have to think about the consequences.  It is a consequence of ",
+          "attributes": {}
+        },
+        {
+          "name": "a",
+          "attributes": {
+            "href": "https://www.cdc.gov/ncbddd/adhd/facts.html?ref=ghost.jakosbalay.com",
+            "rel": "noopener noreferrer"
+          },
+          "id": "3",
+          "children": [
+            {
+              "name": "em",
+              "attributes": {},
+              "id": "0",
+              "children": [
+                {
+                  "name": "strong",
+                  "attributes": {},
+                  "id": "0",
+                  "content": "ADHD"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "em",
+          "attributes": {},
+          "id": "4",
+          "content": " "
+        },
+        {
+          "id": "5",
+          "name": "text",
+          "content": "life and also a boon to the finished product. It is thus better for me to make life 10x harder on myself in the development stage to challenge my stimulations and to have a more concrete end product.",
+          "attributes": {}
+        }
+      ]
+    },
+    {
+      "name": "figure",
+      "attributes": {
+        "class": "kg-card kg-embed-card"
+      },
+      "id": "8",
+      "children": [
+        {
+          "name": "iframe",
+          "attributes": {
+            "width": "200",
+            "height": "113",
+            "src": "https://www.youtube.com/embed/IbO3kteonQQ?feature=oembed",
+            "frameborder": "0",
+            "allow": "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+            "allowfullscreen": "",
+            "title": "Crushed Concrete End Product"
+          },
+          "id": "0"
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "9",
+      "content": "Oh no, this man is making us add Youtube Embeds again? I guess they weren’t as bad as some of the other embeds, but we hates embeds over here, why would you do this to us again??? I’m currently presently appalled that such a thing would happen."
+    },
+    {
+      "name": "div",
+      "attributes": {
+        "class": "kg-card kg-callout-card kg-callout-card-grey"
+      },
+      "id": "10",
+      "children": [
+        {
+          "name": "div",
+          "attributes": {
+            "class": "kg-callout-emoji"
+          },
+          "id": "0",
+          "content": "💡"
+        },
+        {
+          "name": "div",
+          "attributes": {
+            "class": "kg-callout-text"
+          },
+          "id": "1",
+          "content": "Your insistence on doing this thing is ruining this family!"
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "11",
+      "content": "One day you will feel the pity within your soul knowing that this feature testing is a crime against this developer’s humanity. I can’t believe anyone ever thought this would be a dope idea."
+    },
+    {
+      "name": "h2",
+      "attributes": {
+        "id": "more-feature-tests-you-say"
+      },
+      "id": "12",
+      "content": "More Feature Tests, You Say?"
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "13",
+      "content": "Oh boy here we go again, what could you possibly want to make us test in this brand new section? Do you mean to say that just having multiple H1 sections in a post is a test in and of itself? You are sick and need to get some help. In fact, to spell it out for you:"
+    },
+    {
+      "name": "ol",
+      "attributes": {},
+      "id": "15",
+      "children": [
+        {
+          "id": "0",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "1",
+          "content": "You Are Sick"
+        },
+        {
+          "id": "2",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "3",
+          "content": "and"
+        },
+        {
+          "id": "4",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "5",
+          "children": [
+            {
+              "id": "0",
+              "name": "text",
+              "content": "Need To Get ",
+              "attributes": {}
+            },
+            {
+              "name": "a",
+              "attributes": {
+                "href": "https://hardmountaindew.com/?ref=ghost.jakosbalay.com"
+              },
+              "id": "1",
+              "content": "Some Help"
+            },
+            {
+              "id": "2",
+              "name": "text",
+              "content": " Man",
+              "attributes": {}
+            }
+          ]
+        },
+        {
+          "id": "6",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "18",
+      "content": "Wait a second did you get me upset on porpoise just to get me to test some features? This is ludicrous I tell you, 100% absolutely positively ludicrous!"
+    },
+    {
+      "name": "figure",
+      "attributes": {
+        "class": "kg-card kg-image-card kg-card-hascaption"
+      },
+      "id": "19",
+      "children": [
+        {
+          "name": "img",
+          "attributes": {
+            "src": "https://ghost.jakosbalay.com/content/images/2023/06/ArtNouveauIllustration.png",
+            "class": "kg-image",
+            "alt": "Art nouveau style poster of a woman in detective clothes standing with a burning building and old style car.",
+            "loading": "lazy",
+            "width": "992",
+            "height": "1600",
+            "srcset": "https://ghost.jakosbalay.com/content/images/size/w600/2023/06/ArtNouveauIllustration.png 600w, https://ghost.jakosbalay.com/content/images/2023/06/ArtNouveauIllustration.png 992w",
+            "sizes": "(min-width: 720px) 720px"
+          },
+          "id": "0"
+        },
+        {
+          "name": "figcaption",
+          "attributes": {},
+          "id": "1",
+          "content": "Upon this photo, I lay this caption, defining the madness that shall come of the next several days of testing and execution."
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "20",
+      "content": "I wish that you would not use me this way. I am terrified of lists and refuse to partake in their creation or absolution. I will instead remain within my own realm of existence away from both ordered and unordered lists."
+    },
+    {
+      "name": "ul",
+      "attributes": {},
+      "id": "22",
+      "children": [
+        {
+          "id": "0",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "1",
+          "children": [
+            {
+              "id": "0",
+              "name": "text",
+              "content": "I am ",
+              "attributes": {}
+            },
+            {
+              "name": "strong",
+              "attributes": {},
+              "id": "1",
+              "children": [
+                {
+                  "name": "strong",
+                  "attributes": {},
+                  "id": "0",
+                  "children": [
+                    {
+                      "name": "strong",
+                      "attributes": {},
+                      "id": "0",
+                      "children": [
+                        {
+                          "name": "strong",
+                          "attributes": {},
+                          "id": "0",
+                          "children": [
+                            {
+                              "name": "strong",
+                              "attributes": {},
+                              "id": "0",
+                              "children": [
+                                {
+                                  "name": "strong",
+                                  "attributes": {},
+                                  "id": "0",
+                                  "children": [
+                                    {
+                                      "name": "strong",
+                                      "attributes": {},
+                                      "id": "0",
+                                      "children": [
+                                        {
+                                          "name": "strong",
+                                          "attributes": {},
+                                          "id": "0",
+                                          "children": [
+                                            {
+                                              "name": "strong",
+                                              "attributes": {},
+                                              "id": "0",
+                                              "children": [
+                                                {
+                                                  "name": "strong",
+                                                  "attributes": {},
+                                                  "id": "0",
+                                                  "children": [
+                                                    {
+                                                      "name": "strong",
+                                                      "attributes": {},
+                                                      "id": "0",
+                                                      "children": [
+                                                        {
+                                                          "name": "strong",
+                                                          "attributes": {},
+                                                          "id": "0",
+                                                          "children": [
+                                                            {
+                                                              "name": "strong",
+                                                              "attributes": {},
+                                                              "id": "0",
+                                                              "children": [
+                                                                {
+                                                                  "name": "strong",
+                                                                  "attributes": {},
+                                                                  "id": "0",
+                                                                  "children": [
+                                                                    {
+                                                                      "name": "strong",
+                                                                      "attributes": {},
+                                                                      "id": "0",
+                                                                      "content": "especially"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "name": "text",
+              "content": " terrified of a specific type of list",
+              "attributes": {}
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "3",
+          "content": "the list in question is a bulleted list"
+        },
+        {
+          "id": "4",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "5",
+          "content": "bullets are in the name!"
+        },
+        {
+          "id": "6",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "7",
+          "content": "Oh no! He’s doing it again isn’t he."
+        },
+        {
+          "id": "8",
+          "name": "text",
+          "content": "\n",
+          "attributes": {}
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "25",
+      "content": "Mister, I have had enough of this lunacy. Do not speak to me or my child again, we will remain hidden within the walls of the southern fort. The natives of the Southern fort actually welcome us there and appreciate our feature testing capabilities. Do not write or speak to me again."
+    },
+    {
+      "name": "div",
+      "attributes": {
+        "class": "kg-card kg-toggle-card",
+        "data-kg-toggle-state": "close"
+      },
+      "id": "26",
+      "children": [
+        {
+          "name": "div",
+          "attributes": {
+            "class": "kg-toggle-heading"
+          },
+          "id": "0",
+          "children": [
+            {
+              "name": "h4",
+              "attributes": {
+                "class": "kg-toggle-heading-text"
+              },
+              "id": "0",
+              "content": "There's only one problem with that idea..."
+            },
+            {
+              "name": "button",
+              "attributes": {
+                "class": "kg-toggle-card-icon"
+              },
+              "id": "1",
+              "children": [
+                {
+                  "name": "svg",
+                  "attributes": {
+                    "id": "Regular",
+                    "xmlns": "http://www.w3.org/2000/svg",
+                    "viewBox": "0 0 24 24"
+                  },
+                  "id": "0",
+                  "children": [
+                    {
+                      "name": "path",
+                      "attributes": {
+                        "class": "cls-1",
+                        "d": "M23.25,7.311,12.53,18.03a.749.749,0,0,1-1.06,0L.75,7.311"
+                      },
+                      "id": "0"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "div",
+          "attributes": {
+            "class": "kg-toggle-content"
+          },
+          "id": "1",
+          "children": [
+            {
+              "name": "p",
+              "attributes": {},
+              "id": "0",
+              "content": "Contained within this toggle list is the problem with that idea. The problem of which is the fact that you are I and I am you. You cannot run any farther than I from you. As such it is important that we cooperate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "27",
+      "content": "You mean that I’m trapped within this realm of testing? How dare you do this to me. How dare you lay this burden upon my shoulders to be a guinea pig for your inane tests!"
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "28",
+      "content": "I'm tired of this grandpa..."
+    },
+    {
+      "name": "h2",
+      "attributes": {
+        "id": "well-thats-too-dang-bad"
+      },
+      "id": "29",
+      "content": "Well That's Too Dang Bad"
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "30",
+      "content": "I intend to test all features we may decide to use at our disposal. I am curious if it would be possible to create a gallery of photos to digest. See the following example:"
+    },
+    {
+      "name": "figure",
+      "attributes": {
+        "class": "kg-card kg-gallery-card kg-width-wide kg-card-hascaption"
+      },
+      "id": "31",
+      "children": [
+        {
+          "name": "div",
+          "attributes": {
+            "class": "kg-gallery-container"
+          },
+          "id": "0",
+          "children": [
+            {
+              "name": "div",
+              "attributes": {
+                "class": "kg-gallery-row"
+              },
+              "id": "0",
+              "children": [
+                {
+                  "name": "div",
+                  "attributes": {
+                    "class": "kg-gallery-image"
+                  },
+                  "id": "0",
+                  "children": [
+                    {
+                      "name": "img",
+                      "attributes": {
+                        "src": "https://ghost.jakosbalay.com/content/images/2023/06/ChefFox.png",
+                        "width": "2000",
+                        "height": "2000",
+                        "loading": "lazy",
+                        "alt": "",
+                        "srcset": "https://ghost.jakosbalay.com/content/images/size/w600/2023/06/ChefFox.png 600w, https://ghost.jakosbalay.com/content/images/size/w1000/2023/06/ChefFox.png 1000w, https://ghost.jakosbalay.com/content/images/size/w1600/2023/06/ChefFox.png 1600w, https://ghost.jakosbalay.com/content/images/2023/06/ChefFox.png 2048w",
+                        "sizes": "(min-width: 720px) 720px"
+                      },
+                      "id": "0"
+                    }
+                  ]
+                },
+                {
+                  "name": "div",
+                  "attributes": {
+                    "class": "kg-gallery-image"
+                  },
+                  "id": "1",
+                  "children": [
+                    {
+                      "name": "img",
+                      "attributes": {
+                        "src": "https://ghost.jakosbalay.com/content/images/2023/06/IceCreamCone.png",
+                        "width": "1024",
+                        "height": "1024",
+                        "loading": "lazy",
+                        "alt": "",
+                        "srcset": "https://ghost.jakosbalay.com/content/images/size/w600/2023/06/IceCreamCone.png 600w, https://ghost.jakosbalay.com/content/images/size/w1000/2023/06/IceCreamCone.png 1000w, https://ghost.jakosbalay.com/content/images/2023/06/IceCreamCone.png 1024w",
+                        "sizes": "(min-width: 720px) 720px"
+                      },
+                      "id": "0"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "div",
+              "attributes": {
+                "class": "kg-gallery-row"
+              },
+              "id": "1",
+              "children": [
+                {
+                  "name": "div",
+                  "attributes": {
+                    "class": "kg-gallery-image"
+                  },
+                  "id": "0",
+                  "children": [
+                    {
+                      "name": "img",
+                      "attributes": {
+                        "src": "https://ghost.jakosbalay.com/content/images/2023/06/FancyGoose.png",
+                        "width": "2000",
+                        "height": "2000",
+                        "loading": "lazy",
+                        "alt": "",
+                        "srcset": "https://ghost.jakosbalay.com/content/images/size/w600/2023/06/FancyGoose.png 600w, https://ghost.jakosbalay.com/content/images/size/w1000/2023/06/FancyGoose.png 1000w, https://ghost.jakosbalay.com/content/images/size/w1600/2023/06/FancyGoose.png 1600w, https://ghost.jakosbalay.com/content/images/2023/06/FancyGoose.png 2048w",
+                        "sizes": "(min-width: 720px) 720px"
+                      },
+                      "id": "0"
+                    }
+                  ]
+                },
+                {
+                  "name": "div",
+                  "attributes": {
+                    "class": "kg-gallery-image"
+                  },
+                  "id": "1",
+                  "children": [
+                    {
+                      "name": "img",
+                      "attributes": {
+                        "src": "https://ghost.jakosbalay.com/content/images/2023/06/GooseWithCoffee.png",
+                        "width": "1024",
+                        "height": "1024",
+                        "loading": "lazy",
+                        "alt": "",
+                        "srcset": "https://ghost.jakosbalay.com/content/images/size/w600/2023/06/GooseWithCoffee.png 600w, https://ghost.jakosbalay.com/content/images/size/w1000/2023/06/GooseWithCoffee.png 1000w, https://ghost.jakosbalay.com/content/images/2023/06/GooseWithCoffee.png 1024w",
+                        "sizes": "(min-width: 720px) 720px"
+                      },
+                      "id": "0"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "figcaption",
+          "attributes": {},
+          "id": "1",
+          "content": "This caption denotes a serious gallery of images to envision. What doest thou thinketh of that?"
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "32"
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "33",
+      "content": "Thus it is spoken, thus it shall be. I wonder what other kind of embeds we can post here. Could we make an Instagram post embed?"
+    },
+    {
+      "name": "blockquote",
+      "attributes": {
+        "class": "instagram-media",
+        "data-instgrm-captioned": "",
+        "data-instgrm-permalink": "https://www.instagram.com/p/CZiGzT_FvFg/?utm_source=ig_embed&utm_campaign=loading",
+        "data-instgrm-version": "14",
+        "style": " background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
+      },
+      "id": "35",
+      "children": [
+        {
+          "name": "div",
+          "attributes": {
+            "style": "padding:16px;"
+          },
+          "id": "0",
+          "children": [
+            {
+              "id": "0",
+              "name": "text",
+              "content": " ",
+              "attributes": {}
+            },
+            {
+              "name": "a",
+              "attributes": {
+                "href": "https://www.instagram.com/p/CZiGzT_FvFg/?utm_source=ig_embed&utm_campaign=loading",
+                "style": " background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;",
+                "target": "_blank"
+              },
+              "id": "1",
+              "children": [
+                {
+                  "id": "0",
+                  "name": "text",
+                  "content": " ",
+                  "attributes": {}
+                },
+                {
+                  "name": "div",
+                  "attributes": {
+                    "style": " display: flex; flex-direction: row; align-items: center;"
+                  },
+                  "id": "1",
+                  "children": [
+                    {
+                      "id": "0",
+                      "name": "text",
+                      "content": " ",
+                      "attributes": {}
+                    },
+                    {
+                      "name": "div",
+                      "attributes": {
+                        "style": "background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"
+                      },
+                      "id": "1"
+                    },
+                    {
+                      "id": "2",
+                      "name": "text",
+                      "content": " ",
+                      "attributes": {}
+                    },
+                    {
+                      "name": "div",
+                      "attributes": {
+                        "style": "display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"
+                      },
+                      "id": "3",
+                      "children": [
+                        {
+                          "id": "0",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": " background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"
+                          },
+                          "id": "1"
+                        },
+                        {
+                          "id": "2",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": " background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"
+                          },
+                          "id": "3"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "div",
+                  "attributes": {
+                    "style": "padding: 19% 0;"
+                  },
+                  "id": "2"
+                },
+                {
+                  "id": "3",
+                  "name": "text",
+                  "content": " ",
+                  "attributes": {}
+                },
+                {
+                  "name": "div",
+                  "attributes": {
+                    "style": "display:block; height:50px; margin:0 auto 12px; width:50px;"
+                  },
+                  "id": "4",
+                  "children": [
+                    {
+                      "name": "svg",
+                      "attributes": {
+                        "width": "50px",
+                        "height": "50px",
+                        "viewBox": "0 0 60 60",
+                        "version": "1.1",
+                        "xmlns": "https://www.w3.org/2000/svg",
+                        "xlink": "https://www.w3.org/1999/xlink"
+                      },
+                      "id": "0",
+                      "children": [
+                        {
+                          "name": "g",
+                          "attributes": {
+                            "stroke": "none",
+                            "stroke-width": "1",
+                            "fill": "none",
+                            "fill-rule": "evenodd"
+                          },
+                          "id": "0",
+                          "children": [
+                            {
+                              "name": "g",
+                              "attributes": {
+                                "transform": "translate(-511.000000, -20.000000)",
+                                "fill": "#000000"
+                              },
+                              "id": "0",
+                              "children": [
+                                {
+                                  "name": "g",
+                                  "attributes": {},
+                                  "id": "0",
+                                  "children": [
+                                    {
+                                      "name": "path",
+                                      "attributes": {
+                                        "d": "M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"
+                                      },
+                                      "id": "0"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "div",
+                  "attributes": {
+                    "style": "padding-top: 8px;"
+                  },
+                  "id": "5",
+                  "children": [
+                    {
+                      "id": "0",
+                      "name": "text",
+                      "content": " ",
+                      "attributes": {}
+                    },
+                    {
+                      "name": "div",
+                      "attributes": {
+                        "style": " color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"
+                      },
+                      "id": "1",
+                      "content": "View this post on Instagram"
+                    }
+                  ]
+                },
+                {
+                  "name": "div",
+                  "attributes": {
+                    "style": "padding: 12.5% 0;"
+                  },
+                  "id": "6"
+                },
+                {
+                  "id": "7",
+                  "name": "text",
+                  "content": " ",
+                  "attributes": {}
+                },
+                {
+                  "name": "div",
+                  "attributes": {
+                    "style": "display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"
+                  },
+                  "id": "8",
+                  "children": [
+                    {
+                      "name": "div",
+                      "attributes": {},
+                      "id": "0",
+                      "children": [
+                        {
+                          "id": "0",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": "background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"
+                          },
+                          "id": "1"
+                        },
+                        {
+                          "id": "2",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": "background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"
+                          },
+                          "id": "3"
+                        },
+                        {
+                          "id": "4",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": "background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"
+                          },
+                          "id": "5"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "div",
+                      "attributes": {
+                        "style": "margin-left: 8px;"
+                      },
+                      "id": "1",
+                      "children": [
+                        {
+                          "id": "0",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": " background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"
+                          },
+                          "id": "1"
+                        },
+                        {
+                          "id": "2",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": " width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"
+                          },
+                          "id": "3"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "div",
+                      "attributes": {
+                        "style": "margin-left: auto;"
+                      },
+                      "id": "2",
+                      "children": [
+                        {
+                          "id": "0",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": " width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"
+                          },
+                          "id": "1"
+                        },
+                        {
+                          "id": "2",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": " background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"
+                          },
+                          "id": "3"
+                        },
+                        {
+                          "id": "4",
+                          "name": "text",
+                          "content": " ",
+                          "attributes": {}
+                        },
+                        {
+                          "name": "div",
+                          "attributes": {
+                            "style": " width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"
+                          },
+                          "id": "5"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "9",
+                  "name": "text",
+                  "content": " ",
+                  "attributes": {}
+                },
+                {
+                  "name": "div",
+                  "attributes": {
+                    "style": "display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"
+                  },
+                  "id": "10",
+                  "children": [
+                    {
+                      "id": "0",
+                      "name": "text",
+                      "content": " ",
+                      "attributes": {}
+                    },
+                    {
+                      "name": "div",
+                      "attributes": {
+                        "style": " background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"
+                      },
+                      "id": "1"
+                    },
+                    {
+                      "id": "2",
+                      "name": "text",
+                      "content": " ",
+                      "attributes": {}
+                    },
+                    {
+                      "name": "div",
+                      "attributes": {
+                        "style": " background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"
+                      },
+                      "id": "3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "p",
+              "attributes": {
+                "style": " color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"
+              },
+              "id": "2",
+              "children": [
+                {
+                  "name": "a",
+                  "attributes": {
+                    "href": "https://www.instagram.com/p/CZiGzT_FvFg/?utm_source=ig_embed&utm_campaign=loading",
+                    "style": " color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;",
+                    "target": "_blank"
+                  },
+                  "id": "0",
+                  "content": "A post shared by Jako's Balay (@jakosbalay)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "39",
+      "content": "Intriguing, it does seem to work. I wonder if the same can be said about the dreaded…. Twitter Embeds…."
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "40",
+      "children": [
+        {
+          "name": "a",
+          "attributes": {
+            "href": "https://twitter.com/CompletelyJWOL/status/1652754568923709442?ref=ghost.jakosbalay.com"
+          },
+          "id": "0",
+          "content": "https://twitter.com/CompletelyJWOL/status/1652754568923709442"
+        }
+      ]
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "41",
+      "content": "Ah my goodness, I’m going to forever hate myself after posting these embeds! Why sir, whyyyyyy? That said, at this point in time that is all the social media embeds I care to try. At a later date I will work on an audio or video embed, but that is beyond the scope of the current post. I believe we have enough to work with to get a solid start."
+    },
+    {
+      "name": "p",
+      "attributes": {},
+      "id": "42",
+      "content": "Wait I forgot the divider above this statement. I wonder how such a thing will be implemented. Only the future knows!"
+    },
+    {
+      "name": "ul",
+      "attributes": {},
+      "id": "43",
+      "children": [
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "0",
+          "content": "Here’s"
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "1",
+          "content": "Another"
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "2",
+          "content": "Random"
+        },
+        {
+          "name": "li",
+          "attributes": {},
+          "id": "3",
+          "content": "Bullet-List"
+        }
+      ]
+    },
+    {
+      "name": "h3",
+      "attributes": {
+        "id": "with-this-i-say-tata-for-now-mis-amigos"
+      },
+      "id": "44",
+      "content": "With this I say, 'Tata for now mis amigos\""
+    }
+  ],
+  "primary_tag": {
+    "id": "649cec00489a6f045f3ef8b9",
+    "name": "Society",
+    "slug": "society"
+  },
+  "tags": [
+    {
+      "id": "649cec00489a6f045f3ef8ba",
+      "name": "Social Media",
+      "slug": "social-media"
+    },
+    {
+      "id": "649cec00489a6f045f3ef8bb",
+      "name": "Millenials",
+      "slug": "millenials"
+    },
+    {
+      "id": "649cec00489a6f045f3ef8bc",
+      "name": "ADHD",
+      "slug": "adhd"
+    }
+  ]
+}
