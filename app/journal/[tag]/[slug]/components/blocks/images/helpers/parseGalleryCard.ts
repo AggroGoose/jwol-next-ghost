@@ -1,7 +1,4 @@
-export default function parseGalleryCard(
-  elem: ParseElement | undefined,
-  rows: number = 3
-) {
+export default function parseGalleryCard(elem: ParseElement | undefined) {
   const returnObj: {
     rowArr: {
       elem: ParseElement;
@@ -56,6 +53,13 @@ export default function parseGalleryCard(
     }
   });
 
+  let rows: number;
+  if (imageArr.length <= 4) {
+    rows = 2;
+  } else {
+    rows = 3;
+  }
+
   const rowNum = Math.ceil(imageArr.length / rows);
 
   for (let i = 0; i < rowNum; i++) {
@@ -64,7 +68,7 @@ export default function parseGalleryCard(
       for (let i = 0; i < rows; i++) {
         rowContents.push(imageArr[i]);
       }
-      imageArr = imageArr.splice(3);
+      imageArr = imageArr.splice(rows);
     } else if (imageArr.length <= rows) {
       rowContents.push(...imageArr);
     }

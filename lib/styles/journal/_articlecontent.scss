@@ -1,0 +1,25 @@
+.article__content {
+  grid-row-start: 1;
+  grid-column: post-start/side-start;
+  > * {
+    grid-column: main-start/main-end;
+  }
+
+  ul,
+  ol {
+    margin-left: 24px;
+
+    > li {
+      padding-left: 8px;
+
+      &::marker {
+        font-weight: var(--font-bold-weight);
+        color: var(--tertiary-light);
+      }
+    }
+  }
+
+  h2 {
+    color: var(--tertiary-light);
+  }
+}

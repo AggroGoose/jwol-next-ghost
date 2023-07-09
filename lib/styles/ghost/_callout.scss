@@ -1,10 +1,10 @@
 .article__callout {
   background-color: var(--tertiary-color);
   color: white;
-  padding: 40px;
+  padding: 24px;
   text-align: center;
-  border-radius: 15px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: var(--font-regular);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  font-style: italic;
 }

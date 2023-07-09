@@ -1,4 +1,5 @@
 import FeatureImage from "./featureImage";
+import PostHeadContent from "./postHeadContent";
 import PostMeta from "./postMeta";
 import PrimaryTag from "./primaryTag";
 
@@ -28,22 +29,23 @@ export default function PostHead({
   };
 }) {
   return (
-    <div className="article__head primary-grid">
-      <PrimaryTag primary_tag={primary_tag} />
-      <h1>{title}</h1>
-      <p>{excerpt}</p>
-      <PostMeta
-        created_at={created_at}
-        updated_at={updated_at}
-        reading_time={reading_time}
-      />
-      {feature_image && (
-        <FeatureImage
-          feature_image={feature_image}
-          feature_image_alt={feature_image_alt}
-          feature_image_caption={feature_image_caption}
+    <div className="article__head">
+      <div className="post-head-grid">
+        <PostHeadContent
+          created_at={created_at}
+          excerpt={excerpt}
+          primary_tag={primary_tag}
+          reading_time={reading_time}
+          title={title}
         />
-      )}
+        {feature_image && (
+          <FeatureImage
+            feature_image={feature_image}
+            feature_image_alt={feature_image_alt}
+            feature_image_caption={feature_image_caption}
+          />
+        )}
+      </div>
     </div>
   );
 }

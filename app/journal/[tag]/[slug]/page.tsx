@@ -1,5 +1,6 @@
 import genElements from "@/lib/element/genElems";
 import PostHead from "./components/heading/postHead";
+import PostSide from "./components/side/postSide";
 
 export const dynamicParams = false;
 
@@ -23,6 +24,16 @@ export default async function PostPage({
     { next: { revalidate: 20 } }
   ).then((res) => res.json())) as ResponsePost;
 
+  const morePostsRes = (await fetch(
+    `http://localhost:3000/api/ghost/LatestPosts/ForPost/BySlug/${slug}`,
+    { next: { revalidate: 20 } }
+  ).then((res) => res.json())) as { morePosts: ResponseMore[] };
+  const { morePosts } = morePostsRes;
+  const tagPosts = (await fetch(
+    `http://localhost:3000/api/ghost/LatestPosts/ForPost/ByTag/${post.primary_tag.slug}/${post.slug}`,
+    { next: { revalidate: 20 } }
+  ).then((res) => res.json())) as ResponseMore[];
+
   return (
     <>
       <PostHead
@@ -36,9 +47,11 @@ export default async function PostPage({
         primary_tag={post.primary_tag}
         reading_time={post.reading_time}
       />
-
-      <div className="article__content primary-grid">
-        {post.content.map((elem) => genElements(elem))}
+      <div className="post-side-grid">
+        <PostSide post={post} morePosts={morePosts} />
+        <div className="article__content post-grid">
+          {post.content.map((elem) => genElements(elem))}
+        </div>
       </div>
     </>
   );

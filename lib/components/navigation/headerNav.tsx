@@ -1,18 +1,22 @@
-import JakosBalayLogo from "@/lib/resources/svg/JakosBalayLogo";
-import CenterNav from "./centerNav";
-import RightNav from "./userNav";
+import LeftNav from "./leftNav";
+import UserNav from "./userNav";
 import Link from "next/link";
+import GradientLogo from "@/lib/resources/svg/GradientLogo";
+import RightNav from "./rightNav";
 
 export default function HeaderNav() {
   return (
     <div className="main-nav">
-      <button className="main-nav--logo">
-        <Link href="/">
-          <JakosBalayLogo />
-        </Link>
-      </button>
-      <CenterNav />
-      <RightNav />
+      <div className="nav-grid">
+        <LeftNav />
+        <button className="main-nav--logo">
+          <Link href="/">
+            <GradientLogo />
+          </Link>
+        </button>
+        <RightNav />
+        <UserNav />
+      </div>
     </div>
   );
 }

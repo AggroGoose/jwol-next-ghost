@@ -153,6 +153,12 @@ export function Hut({ className }: { className?: string }) {
 }
 
 export function Map({ className }: { className?: string }) {
+  const divStyle = {
+    fill: "none",
+    stroke: "currentColor",
+    strokeMiterlimit: "10",
+    strokeWidth: "6px",
+  };
   return (
     <svg
       className={className}
@@ -160,9 +166,12 @@ export function Map({ className }: { className?: string }) {
       viewBox="0 0 150 150"
     >
       <g>
-        <polygon points="127.49 34.11 127.49 114.99 100.85 123.07 75.57 114.99 50.78 123.07 22.51 114.99 22.51 34.11 50.78 41.51 75.57 34.11 104.88 40.7 127.49 34.11" />
-        <path d="m104.88,83.5l11.31,13.73-11.31-13.73Z" />
-        <path d="m116.19,83.5l-11.31,13.73,11.31-13.73Z" />
+        <polygon
+          style={divStyle}
+          points="127.49 34.11 127.49 114.99 100.85 123.07 75.57 114.99 50.78 123.07 22.51 114.99 22.51 34.11 50.78 41.51 75.57 34.11 104.88 40.7 127.49 34.11"
+        />
+        <path style={divStyle} d="m104.88,83.5l11.31,13.73-11.31-13.73Z" />
+        <path style={divStyle} d="m116.19,83.5l-11.31,13.73,11.31-13.73Z" />
         <ellipse
           cx="39.8"
           cy="77.82"

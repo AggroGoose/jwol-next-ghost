@@ -38,12 +38,12 @@ export default function ImageModal({
   }
   return (
     <div className="post__modal">
+      <button className="post__modal--image--button" onClick={closeModal}>
+        <ImageClose />
+      </button>
       <div className="post__modal--content">
         <div className="post__modal--image">
           <Image src={src} alt={alt} width={width} height={height} />
-          <button className="post__modal--image--button" onClick={closeModal}>
-            <ImageClose />
-          </button>
         </div>
         {caption && (
           <p className="post__modal--caption">{contentEval(caption)}</p>

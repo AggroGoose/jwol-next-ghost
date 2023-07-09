@@ -1,6 +1,8 @@
 .main-usernav {
+  grid-column: user-nav/nav-end;
+  justify-self: right;
   pointer-events: all;
-  margin: auto;
+  margin: auto 0;
   display: flex;
   align-items: center;
 
@@ -16,9 +18,12 @@
   &--button {
     background: none;
     border-radius: 100%;
-    height: 72px;
-    width: 72px;
     padding: 0;
+
+    img {
+      height: 44px;
+      width: 44px;
+    }
   }
 
   &--img {
@@ -27,9 +32,11 @@
   }
 
   &--login {
-    font-weight: var(--font-bold-weight);
-    font-size: var(--font-normal);
-    border-radius: 8px;
+    font-weight: var(--font-med-weight);
+    font-size: var(--font-smaller);
+    font-family: var(--primary-font);
+    letter-spacing: 0.04em;
+    border-radius: 6px;
     border: 3px solid black;
     padding: 8px 16px;
   }

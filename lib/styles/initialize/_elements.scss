@@ -51,5 +51,9 @@ hr {
 }
 
 figcaption {
-  margin-top: 16px;
+  margin-top: 14px;
+  font-size: var(--font-small);
+  font-style: italic;
+  letter-spacing: normal;
+  text-align: center;
 }

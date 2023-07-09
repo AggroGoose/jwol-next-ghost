@@ -1,30 +1,36 @@
-.primary-grid {
+.nav-grid {
+  display: grid;
+  margin: 0 auto;
+  align-items: center;
+  width: 1200px;
+  grid-template-columns:
+    [nav-start]1fr [left-nav] repeat(4, 1fr) [logo-nav] repeat(2, 1fr)
+    [right-nav] repeat(4, 1fr) [user-nav] 1fr [nav-end];
+}
+
+.post-side-grid {
+  display: grid;
+  margin: 24px auto;
+  width: 1200px;
+  grid-template-columns: [post-start] repeat(9, 1fr) [side-start] repeat(3, 1fr) [side-end];
+}
+
+.post-grid {
   display: grid;
   margin: 0 auto;
   gap: 24px 0;
+  grid-template-columns: [main-start] 100px [min-start] repeat(6, 100px) [min-end] 100px [main-end];
+}
+
+.post-head-grid {
+  display: grid;
+  margin: 0 auto;
+  width: 1200px;
+  align-items: center;
   grid-template-columns:
-    [full-start] 1fr [wide-start] 90px [main-start] 90px [min-start] repeat(
+    [content-start] repeat(6, 1fr) [content-end] 64px [image-start] repeat(
       6,
-      90px
+      1fr
     )
-    [min-end] 90px [main-end] 90px [wide-end] 1fr[full-end];
-}
-
-.side-content-grid {
-  display: grid;
-  margin: 0 auto;
-  gap: 24px 0;
-  grid-template-columns:
-    [left-start] 1fr [content-start] repeat(8, 90px)
-    [content-end] 24px [side-start] repeat(4, 90px)
-    [side-end] 1fr [right-end];
-}
-
-.blog-content-grid {
-  display: grid;
-  margin: 0 auto;
-  gap: 24px 0;
-  grid-template-columns:
-    [main-start] 1fr [module-start] 90px [min-start] repeat(4, 90px)
-    [min-end] 90px [module-end] 1fr [main-end];
+    [image-end];
 }

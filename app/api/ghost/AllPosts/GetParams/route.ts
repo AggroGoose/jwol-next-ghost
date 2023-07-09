@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 import ghost from "@/lib/api/ghost";
 
 export async function GET() {
-  const res = await ghost.posts.browse({ include: "tags" });
+  const res = await ghost.posts.browse({
+    include: "tags",
+  });
   const postArr: Array<{ slug: string; tag: string }> = [];
 
   res.forEach((post) => {

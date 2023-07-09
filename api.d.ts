@@ -91,6 +91,17 @@ type ResponsePost = {
   saves: number;
 };
 
+type ResponseMore = {
+  title: string;
+  excerpt: string;
+  slug: string;
+  tag: string;
+  tagSlug: string;
+  featureImg: string | null;
+  featureImgAlt: string;
+  published: string;
+};
+
 type ParseElement = {
   name: string;
   attributes: ElemAttribs;

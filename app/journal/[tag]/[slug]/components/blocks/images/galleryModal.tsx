@@ -54,13 +54,12 @@ export default function GalleryModal({
   }
 
   const navLeftHandle = useCallback(() => {
-    console.log("Current Image: ", imgRef.current);
     if (imgRef.current <= 0) {
       const endImg = gallery.length - 1;
       setImgValue(endImg);
       return;
     }
-    const prevImg = imgRef.current - 1;
+    const prevImg = Number(imgRef.current) - 1;
     setImgValue(prevImg);
   }, [gallery, imgRef, setImgValue]);
 
@@ -69,12 +68,15 @@ export default function GalleryModal({
       setImgValue(0);
       return;
     }
-    const nextImg = imgRef.current + 1;
+    const nextImg = Number(imgRef.current) + 1;
     setImgValue(nextImg);
   }, [gallery, imgRef, setImgValue]);
 
   return (
     <div className="post__modal">
+      <button className="post__modal--image--button" onClick={closeModal}>
+        <ImageClose />
+      </button>
       <div className="post__modal--content">
         <div className="post__modal--image">
           <Image
@@ -83,9 +85,6 @@ export default function GalleryModal({
             width={Number(gallery[imgValue].width)}
             height={Number(gallery[imgValue].height)}
           />
-          <button className="post__modal--image--button" onClick={closeModal}>
-            <ImageClose />
-          </button>
         </div>
         {caption && (
           <p className="post__modal--caption">{contentEval(caption)}</p>

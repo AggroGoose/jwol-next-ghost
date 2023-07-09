@@ -1,0 +1,117 @@
+.article_side {
+  grid-column: side-start/side-end;
+  grid-row-start: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &_details {
+    background-color: var(--tertiary-color);
+    color: white;
+    font-weight: var(--font-light-weight);
+    font-size: var(--font-small);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 24px;
+    border-radius: 10px;
+
+    &--date {
+      font-style: italic;
+    }
+
+    h2 {
+      font-size: var(--font-larger);
+    }
+
+    hr {
+      background-color: var(--tertiary-highlight);
+    }
+
+    strong {
+      font-weight: var(--font-med-weight);
+      color: var(--secondary-color);
+      font-style: normal;
+      padding-right: 4px;
+    }
+
+    &--tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      justify-content: center;
+
+      a {
+        font-weight: var(--font-med-weight);
+      }
+    }
+  }
+
+  &_more {
+    background-color: var(--tertiary-color);
+    color: white;
+    font-weight: var(--font-light-weight);
+    font-size: var(--font-small);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 24px;
+    border-radius: 10px;
+
+    h2 {
+      font-size: var(--font-larger);
+    }
+
+    hr {
+      background-color: var(--tertiary-highlight);
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    &--card {
+      &:hover {
+        p {
+          color: var(--primary-color);
+        }
+      }
+    }
+
+    &--grid {
+      display: grid;
+      grid-template-columns: 1fr 68px;
+      gap: 24px;
+      align-items: center;
+    }
+
+    &--title {
+      grid-column: 1/2;
+      font-size: var(--font-small);
+      color: var(--secondary-color);
+      font-weight: var(--font-med-weight);
+    }
+
+    &--img {
+      grid-column: 2/3;
+      height: 68px;
+      width: 68px;
+      position: relative;
+
+      img {
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  &_share {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    button:hover {
+      opacity: 70%;
+    }
+  }
+}
