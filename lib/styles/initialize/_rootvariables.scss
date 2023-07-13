@@ -9,8 +9,10 @@
   --tertiary-light-rgb: 50, 0, 135;
 
   // Font Variables
-  --font-primary: "Inter", sans-serif;
-  --font-secondary: "Luducudu", "Inter", sans-serif;
+  // Font Primary and Font Secondary are defined under 'Layout.tsx' from Next/Font import.
+  // --font-primary: "PT Serif"
+  // --font-secondary: "Inter"
+
   --font-color: black;
 
   --font-smaller: 1rem;
