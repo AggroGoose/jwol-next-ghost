@@ -1,10 +1,11 @@
 .article__callout {
-  background-color: var(--tertiary-color);
-  color: white;
+  margin: 12px 0;
   padding: 24px;
   text-align: center;
   font-size: var(--font-regular);
-  font-weight: 300;
   letter-spacing: 0.04em;
   font-style: italic;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+  border-top: 2px solid rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }

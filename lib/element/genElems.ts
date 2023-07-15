@@ -23,7 +23,7 @@ import OtherEmbed from "@/app/journal/[tag]/[slug]/components/blocks/embedCard/o
 import findAudioDetails from "@/app/journal/[tag]/[slug]/components/blocks/audio/helpers/findAudioDetails";
 import Paragraph from "@/app/journal/[tag]/[slug]/components/blocks/generalElements/paragraph";
 
-export default function genElements(elem: ParseElement) {
+export default function genElements(elem: ParseElement, firstPara = false) {
   switch (elem.name) {
     case "h2":
       return specComp(Header2, elem);
@@ -31,6 +31,10 @@ export default function genElements(elem: ParseElement) {
       if (!elem.attributes?.class || !elem.attributes?.id)
         return specComp(BlockQuote, elem);
     case "p":
+      if (firstPara) {
+        elem.attributes.firstChild = true;
+        firstPara = false;
+      }
       return specComp(Paragraph, elem);
     case "h3":
       const textContent = contentEval(elem);

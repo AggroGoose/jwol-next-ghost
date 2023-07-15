@@ -21,8 +21,7 @@ export default function PostHeadContent({
   return (
     <div className="article__head_content">
       <PrimaryTag primary_tag={primary_tag} />
-      <h1 className="gradient-txt">{title}</h1>
-      <p className="article__head_content--excerpt">{excerpt}</p>
+      <h1>{title}</h1>
       <p className="article__head_content--meta">
         <Date dateString={created_at} />
         {` | ${reading_time} Minute Read`}

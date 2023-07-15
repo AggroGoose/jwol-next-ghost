@@ -1,8 +1,17 @@
 .article__content {
-  grid-row-start: 1;
-  grid-column: post-start/side-start;
   > * {
     grid-column: main-start/main-end;
+  }
+
+  figure {
+    margin: 12px 0;
+  }
+
+  p.hasDropCap::first-letter {
+    float: left;
+    font-size: calc(var(--font-regular) * 4);
+    line-height: 0.5;
+    margin: 0.1em 0.1em 0.2em 0;
   }
 
   ul,
@@ -14,12 +23,15 @@
 
       &::marker {
         font-weight: var(--font-bold-weight);
-        color: var(--tertiary-light);
+        color: var(--primary-blue);
       }
     }
   }
 
-  h2 {
-    color: var(--tertiary-light);
+  h2,
+  h3 {
+    font-weight: var(--font-bold-weight);
+    color: var(--primary-blue);
+    letter-spacing: 0.01em;
   }
 }

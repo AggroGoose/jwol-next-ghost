@@ -1,6 +1,7 @@
 import genElements from "@/lib/element/genElems";
 import PostHead from "./components/heading/postHead";
 import PostSide from "./components/side/postSide";
+import PostTags from "./components/components/postTags";
 
 export const dynamicParams = false;
 
@@ -34,6 +35,8 @@ export default async function PostPage({
     { next: { revalidate: 20 } }
   ).then((res) => res.json())) as ResponseMore[];
 
+  let firstPara = true;
+
   return (
     <>
       <PostHead
@@ -49,8 +52,17 @@ export default async function PostPage({
       />
       <div className="post-side-grid">
         <PostSide post={post} morePosts={morePosts} />
-        <div className="article__content post-grid">
-          {post.content.map((elem) => genElements(elem))}
+        <div className="article__main">
+          <PostTags tags={post.tags} />
+          <div className="article__content post-grid">
+            {post.content.map((elem) => {
+              if (firstPara && elem.name === "p") {
+                firstPara = false;
+                return genElements(elem, true);
+              }
+              return genElements(elem);
+            })}
+          </div>
         </div>
       </div>
     </>

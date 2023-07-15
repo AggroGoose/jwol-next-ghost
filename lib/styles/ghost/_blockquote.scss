@@ -19,12 +19,13 @@
 }
 
 .post__quote {
+  margin: 24px 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
 
   &--start {
-    background-color: var(--tertiary-light);
+    background-color: var(--primary-blue);
     height: 25px;
     width: 80px;
     align-self: flex-start;
@@ -37,7 +38,7 @@
   }
 
   &--end {
-    background-color: var(--tertiary-light);
+    background-color: var(--primary-blue);
     height: 25px;
     width: 80px;
     align-self: flex-end;

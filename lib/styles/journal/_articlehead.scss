@@ -1,18 +1,24 @@
 .article {
   &__head {
-    padding: 48px 0;
-    background-color: var(--tertiary-color);
+    margin: 0 auto;
+    padding: 32px 0;
+    width: 1200px;
 
     &_content {
-      grid-column: content-start/content-end;
+      width: 100%;
+      margin: 0 auto 24px;
       display: flex;
-      flex-direction: column;
       gap: 16px;
+      flex-direction: column;
+      align-items: center;
 
       h1 {
         font-size: 3rem;
         line-height: normal;
         width: max-content;
+        color: var(--primary-blue);
+        font-weight: var(--font-med-weight);
+        font-family: var(--font-secondary);
       }
 
       &--excerpt {
@@ -22,31 +28,32 @@
 
       &--primarytag {
         background: none;
-        border: none;
-        padding: 0;
+        border: 2px solid black;
+        padding: 4px 8px;
         text-transform: uppercase;
-        font-size: var(--font-larger);
+        font-size: var(--font-large);
         font-weight: var(--font-bold-weight);
-        color: var(--primary-color);
+        letter-spacing: 0.04em;
+        line-height: normal;
         width: max-content;
       }
 
       &--meta {
-        color: var(--primary-color);
+        font-size: var(--font-small);
         font-weight: var(--font-weight);
       }
     }
   }
 
   &__feature {
-    grid-column: image-start/image-end;
+    margin: 0 auto;
     position: relative;
     width: 100%;
-    aspect-ratio: 3/2;
+    aspect-ratio: 2/1;
 
     img {
       z-index: 1;
-      border-radius: 15px;
+      border-radius: 10px;
       object-fit: cover;
     }
   }

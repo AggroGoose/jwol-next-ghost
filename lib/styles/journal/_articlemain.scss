@@ -1,0 +1,30 @@
+.article__main {
+  grid-row-start: 1;
+  grid-column: post-start/side-start;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.article_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  justify-content: center;
+  font-weight: var(--font-med-weight);
+
+  p {
+    font-family: var(--font-secondary);
+    font-weight: var(--font-bold-weight);
+  }
+
+  a {
+    color: var(--primary-blue);
+    letter-spacing: 0.04em;
+    font-style: italic;
+
+    &:hover {
+      opacity: 70%;
+    }
+  }
+}

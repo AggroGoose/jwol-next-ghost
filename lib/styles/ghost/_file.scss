@@ -50,7 +50,7 @@
 
     &:before {
       display: inline-block;
-      content: "\2022";
+      content: "\2023";
       margin-right: 4px;
     }
   }
@@ -81,7 +81,7 @@
     svg {
       width: 24px;
       height: 24px;
-      color: var(--ghost-accent-color);
+      color: var(--primary-blue);
     }
   }
 

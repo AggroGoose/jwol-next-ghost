@@ -19,7 +19,7 @@ textarea {
 
 pre {
   -webkit-overflow-scrolling: touch;
-  background-color: var(--tertiary-color);
+  background-color: var(--primary-blue);
   -webkit-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
@@ -30,7 +30,7 @@ pre {
 }
 
 :not(pre) > code {
-  background-color: var(--tertiary-color);
+  background-color: var(--primary-blue);
   color: black;
   border-radius: 3px;
   padding: 4px;
@@ -44,7 +44,7 @@ iframe {
 }
 
 hr {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-blue);
   border: 0;
   height: 1px;
   width: 100%;

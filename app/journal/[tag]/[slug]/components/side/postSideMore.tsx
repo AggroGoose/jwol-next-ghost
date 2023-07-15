@@ -16,7 +16,7 @@ export default function PostSideMore({
 }) {
   return (
     <div className="article_side_more">
-      <h2 className="article_side_details--head gradient-txt">Latest Posts</h2>
+      <h2 className="article_side_details--head">Latest Posts</h2>
       <hr />
       {morePosts.map((post) => (
         <>

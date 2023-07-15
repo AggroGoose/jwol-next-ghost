@@ -158,4 +158,5 @@ type ElemAttribs = {
   width?: string;
   height?: string;
   title?: string;
+  firstChild?: boolean;
 };

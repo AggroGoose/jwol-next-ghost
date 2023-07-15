@@ -3,17 +3,25 @@
   grid-row-start: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+
+  &_author {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    p {
+      text-align: center;
+      font-size: var(--font-small);
+    }
+  }
 
   &_details {
-    background-color: var(--tertiary-color);
-    color: white;
     font-weight: var(--font-light-weight);
     font-size: var(--font-small);
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding: 24px;
     border-radius: 10px;
 
     &--date {
@@ -21,16 +29,18 @@
     }
 
     h2 {
-      font-size: var(--font-larger);
+      font-size: var(--font-large);
+      color: var(--primary-blue);
+      line-height: normal;
     }
 
     hr {
-      background-color: var(--tertiary-highlight);
+      background-color: rgba(0, 0, 0, 0.6);
     }
 
     strong {
+      font-family: var(--font-secondary);
       font-weight: var(--font-med-weight);
-      color: var(--secondary-color);
       font-style: normal;
       padding-right: 4px;
     }
@@ -48,22 +58,19 @@
   }
 
   &_more {
-    background-color: var(--tertiary-color);
-    color: white;
-    font-weight: var(--font-light-weight);
     font-size: var(--font-small);
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 24px;
+    gap: 8px;
     border-radius: 10px;
 
     h2 {
-      font-size: var(--font-larger);
+      font-size: var(--font-large);
+      line-height: normal;
     }
 
     hr {
-      background-color: var(--tertiary-highlight);
+      background-color: rgba(0, 0, 0, 0.6);
 
       &:last-child {
         display: none;
@@ -72,8 +79,9 @@
 
     &--card {
       &:hover {
-        p {
-          color: var(--primary-color);
+        p,
+        img {
+          opacity: 70%;
         }
       }
     }
@@ -88,7 +96,7 @@
     &--title {
       grid-column: 1/2;
       font-size: var(--font-small);
-      color: var(--secondary-color);
+      color: var(--primary-blue);
       font-weight: var(--font-med-weight);
     }
 

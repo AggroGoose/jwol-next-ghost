@@ -7,6 +7,8 @@
   --tertiary-highlight: #40128a;
   --tertiary-rgb: 22, 7, 48;
   --tertiary-light-rgb: 50, 0, 135;
+  --primary-blue: #11007c;
+  --primary-blue-rgb: 17, 0, 124;
 
   // Font Variables
   // Font Primary and Font Secondary are defined under 'Layout.tsx' from Next/Font import.
@@ -26,7 +28,7 @@
   --font-med-weight: 600;
   --font-bold-weight: 700;
   --font-head-weight: 600;
-  --font-space: 0.01em;
+  --font-space: 0.02em;
   --font-head-space: 0.08em;
   --font-height: 1.625;
 }

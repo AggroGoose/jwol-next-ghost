@@ -16,7 +16,7 @@ export default function PostDetails({
 }) {
   return (
     <div className="article_side_details">
-      <h2 className="article_side_details--head gradient-txt">Post Details</h2>
+      <h2 className="article_side_details--head">Post Details</h2>
       <hr />
       <p className="article_side_details--date">
         <strong>Updated: </strong>
@@ -26,18 +26,6 @@ export default function PostDetails({
         <strong>Published: </strong>
         <Date dateString={created_at} />
       </p>
-      <hr />
-      <p className="article_side_details--tagHead">
-        <strong>Tags: </strong>
-      </p>
-      <div className="article_side_details--tags gradient-txt">
-        {tags.map((tag) => (
-          <Link
-            key={tag.slug}
-            href={`/journal/${tag.slug}`}
-          >{`#${tag.name}`}</Link>
-        ))}
-      </div>
     </div>
   );
 }

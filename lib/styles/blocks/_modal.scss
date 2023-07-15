@@ -2,14 +2,13 @@
   position: fixed;
   left: 0;
   top: 0;
-
   width: 100vw;
   height: 100vh;
 
   z-index: 15;
 
   &--background {
-    background-color: rgba(var(--tertiary-rgb), 0.95);
+    background-color: rgba(0, 0, 0, 0.9);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -39,7 +38,7 @@
     text-align: center;
     align-self: center;
     justify-self: center;
-    font-weight: 200;
+    font-weight: var(--font-weight);
     font-style: italic;
 
     a {

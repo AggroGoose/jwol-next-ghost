@@ -5,7 +5,7 @@
 
 .kg-toggle-card {
   background: transparent;
-  box-shadow: inset 0 0 0 1px rgba(var(--tertiary-light-rgb), 0.4);
+  box-shadow: inset 0 0 0 1px rgba(var(--primary-blue-rgb), 0.4);
   border-radius: 4px;
   padding: 1.2em;
 }
@@ -41,7 +41,7 @@
 .kg-toggle-card h4.kg-toggle-heading-text {
   font-size: var(--font-large);
   font-weight: var(--font-bold-weight);
-  color: var(--tertiary-light);
+  color: var(--primary-blue);
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -78,7 +78,7 @@
   svg {
     width: 20px;
     aspect-ratio: 1/1;
-    color: rgba(var(--tertiary-light-rgb), 0.7);
+    color: rgba(var(--primary-blue-rgb), 0.7);
     transition: all 0.3s;
     transform: rotate(-180deg);
   }

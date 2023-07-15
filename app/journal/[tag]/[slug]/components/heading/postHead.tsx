@@ -30,22 +30,20 @@ export default function PostHead({
 }) {
   return (
     <div className="article__head">
-      <div className="post-head-grid">
-        <PostHeadContent
-          created_at={created_at}
-          excerpt={excerpt}
-          primary_tag={primary_tag}
-          reading_time={reading_time}
-          title={title}
+      <PostHeadContent
+        created_at={created_at}
+        excerpt={excerpt}
+        primary_tag={primary_tag}
+        reading_time={reading_time}
+        title={title}
+      />
+      {feature_image && (
+        <FeatureImage
+          feature_image={feature_image}
+          feature_image_alt={feature_image_alt}
+          feature_image_caption={feature_image_caption}
         />
-        {feature_image && (
-          <FeatureImage
-            feature_image={feature_image}
-            feature_image_alt={feature_image_alt}
-            feature_image_caption={feature_image_caption}
-          />
-        )}
-      </div>
+      )}
     </div>
   );
 }
