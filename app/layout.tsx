@@ -3,21 +3,21 @@ import HeaderNav from "@/lib/components/navigation/headerNav";
 import "@/lib/styles/global.scss";
 import localFont from "next/font/local";
 
-const montserrat = localFont({
+const nunito = localFont({
   src: [
-    { path: "/font/Montserrat.ttf", style: "normal" },
-    { path: "/font/Montserrat-Italic.ttf", style: "italic" },
+    { path: "/font/Nunito.ttf", style: "normal" },
+    { path: "/font/Nunito-Italic.ttf", style: "italic" },
   ],
-  variable: "--font-secondary",
+  variable: "--font-primary",
   display: "swap",
 });
 
-const bitter = localFont({
+const nunitoSans = localFont({
   src: [
-    { path: "/font/Bitter.ttf", style: "normal" },
-    { path: "/font/Bitter-Italic.ttf", style: "italic" },
+    { path: "/font/NunitoSans.ttf", style: "normal" },
+    { path: "/font/NunitoSans-Italic.ttf", style: "italic" },
   ],
-  variable: "--font-primary",
+  variable: "--font-secondary",
   display: "swap",
 });
 
@@ -33,7 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <AuthProvider>
-      <html lang="en" className={`${montserrat.variable} ${bitter.variable}`}>
+      <html lang="en" className={`${nunito.variable} ${nunitoSans.variable}`}>
         <link rel="icon" href="/favicon/JakosBalay-32.png" sizes="32x32" />
         <link rel="icon" href="/favicon/JakosBalay-128.png" sizes="128x128" />
         <link rel="icon" href="/favicon/JakosBalay-180.png" sizes="180x180" />

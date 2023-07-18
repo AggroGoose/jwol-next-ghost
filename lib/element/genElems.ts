@@ -5,23 +5,25 @@ import {
   FunctionComponent,
 } from "react";
 import childBuilder from "./childBuilder";
-
-import AudioCard from "@/app/journal/[tag]/[slug]/components/blocks/audio/audioCard";
-import BlockQuote from "@/app/journal/[tag]/[slug]/components/blocks/blockQuote/blockQuote";
-import BookmarkCard from "@/app/journal/[tag]/[slug]/components/blocks/bookmark/bookmarkCard";
-import CalloutCard from "@/app/journal/[tag]/[slug]/components/blocks/callout/calloutCard";
-import FileCard from "@/app/journal/[tag]/[slug]/components/blocks/fileCard/fileCard";
-import GalleryCard from "@/app/journal/[tag]/[slug]/components/blocks/images/galleryCard";
-import Header2 from "@/app/journal/[tag]/[slug]/components/blocks/generalElements/header2";
-import SectionHeaderCard from "@/app/journal/[tag]/[slug]/components/blocks/sectionHeader/sectionHeaderCard";
-import ImageCard from "@/app/journal/[tag]/[slug]/components/blocks/images/imageCard";
-import ProductCard from "@/app/journal/[tag]/[slug]/components/blocks/productCard/productCard";
-import ToggleCard from "@/app/journal/[tag]/[slug]/components/blocks/toggleCard/toggleCard";
 import contentEval from "./contentEval";
-import YoutubeCard from "@/app/journal/[tag]/[slug]/components/blocks/embedCard/youtubeCard";
-import OtherEmbed from "@/app/journal/[tag]/[slug]/components/blocks/embedCard/otherEmbed";
-import findAudioDetails from "@/app/journal/[tag]/[slug]/components/blocks/audio/helpers/findAudioDetails";
-import Paragraph from "@/app/journal/[tag]/[slug]/components/blocks/generalElements/paragraph";
+
+import {
+  AudioCard,
+  findAudioDetails,
+  BlockQuote,
+  BookmarkCard,
+  CalloutCard,
+  FileCard,
+  Paragraph,
+  Header2,
+  ProductCard,
+  SectionHeaderCard,
+  ToggleCard,
+  YoutubeCard,
+  OtherEmbed,
+  GalleryCard,
+  ImageCard,
+} from "@/lib/components/article/blocks";
 
 export default function genElements(elem: ParseElement, firstPara = false) {
   switch (elem.name) {

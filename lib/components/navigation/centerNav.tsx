@@ -30,11 +30,11 @@ export default function CenterNav() {
           </Link>
         </button>
 
-        <button className="main-nav_button">
+        {/* <button className="main-nav_button">
           <Link href="/contact">
             <p>Contact</p>
           </Link>
-        </button>
+        </button> */}
       </ul>
     </nav>
   );

@@ -7,10 +7,9 @@
 
 .post-side-grid {
   display: grid;
-  margin: 0 auto;
-  width: max-content;
+  margin-top: 24px;
   gap: 0 75px;
-  grid-template-columns: [post-start] 825px [side-start] 300px [side-end];
+  grid-template-columns: [left-side] 1fr [post-start] 825px [side-start] 300px [side-end] 1fr [right-side];
 }
 
 .post-grid {

@@ -35,6 +35,7 @@ export async function GET(
         featureImg: post.feature_image,
         featureImgAlt: post.feature_image_alt || "",
         published: post.created_at,
+        readTime: post.reading_time,
       };
 
       returnPosts.push(postObj);

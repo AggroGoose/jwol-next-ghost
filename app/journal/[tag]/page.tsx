@@ -1,3 +1,5 @@
+import PostSide from "@/lib/components/article/side/postSide";
+import PostIndex from "@/lib/components/pages/postIndex/postIndex";
 import { Tag } from "@tryghost/content-api";
 
 export async function generateStaticParams() {
@@ -9,10 +11,30 @@ export async function generateStaticParams() {
   });
 }
 
-export default function TagPage({
+export default async function TagPage({
   params: { tag },
 }: {
   params: { tag: string };
 }) {
-  return <h1>Welcome to the {tag} main page!</h1>;
+  const morePostsRes = (await fetch(
+    `http://localhost:3000/api/ghost/LatestPosts/ForPage/LastFive`,
+    { next: { revalidate: 20 } }
+  ).then((res) => res.json())) as { morePosts: ResponseMore[] };
+  const { morePosts } = morePostsRes;
+
+  const indexPostsRes = (await fetch(
+    `http://localhost:3000/api/ghost/LatestPosts/ForPage/TagPosts/${tag}`,
+    { next: { revalidate: 20 } }
+  ).then((res) => res.json())) as { returnPosts: ResponseMore[] };
+  const indexPosts = indexPostsRes.returnPosts;
+
+  return (
+    <div className="post_index post-side-grid">
+      <PostIndex
+        posts={indexPosts}
+        title={`Here Are the Latest Posts from ${indexPosts[0].tag}`}
+      />
+      <PostSide morePosts={morePosts} />
+    </div>
+  );
 }

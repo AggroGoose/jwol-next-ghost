@@ -1,8 +1,7 @@
 .article {
   &__head {
-    margin: 0 auto;
-    padding: 32px 0;
-    width: 1200px;
+    margin: 0;
+    grid-column: post-start/side-start;
 
     &_content {
       width: 100%;
@@ -15,9 +14,8 @@
       h1 {
         font-size: 3rem;
         line-height: normal;
-        width: max-content;
         color: var(--primary-blue);
-        font-weight: var(--font-med-weight);
+        font-weight: var(--font-head-weight);
         font-family: var(--font-secondary);
       }
 

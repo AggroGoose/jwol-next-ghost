@@ -100,6 +100,7 @@ type ResponseMore = {
   featureImg: string | null;
   featureImgAlt: string;
   published: string;
+  readTime: number;
 };
 
 type ParseElement = {
