@@ -1,8 +1,8 @@
 import Link from "next/link";
 import CenterNav from "./centerNav";
 import RightNav from "./rightNav";
-import JoshWithoutLeave from "@/lib/resources/svg/JoshWithoutLeave";
 import MenuNav from "./menuNav";
+import NoLeaveSociety from "@/lib/resources/svg/NoLeaveSociety";
 
 export default function HeaderNav() {
   return (
@@ -11,7 +11,7 @@ export default function HeaderNav() {
         <MenuNav />
         <button className="main-nav--logo">
           <Link href="/">
-            <JoshWithoutLeave />
+            <NoLeaveSociety />
           </Link>
         </button>
         <CenterNav />

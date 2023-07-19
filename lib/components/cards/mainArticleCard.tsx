@@ -21,21 +21,23 @@ export default function MainArticleCard({
   }
 
   return (
-    <Link href={`/journal/${post.tagSlug}/${post.slug}`}>
-      <div className="main_article_card">
+    <div className="main_article_card">
+      <Link href={`/journal/${post.tagSlug}/${post.slug}`}>
         <div className="main_article_card--feature">
           <Image src={image} alt={imageAlt} fill={true} />
         </div>
-        {badge && (
-          <div className="main_article_card--badge">
-            <Link href={`/journal/${post.tagSlug}`}>{post.tag}</Link>
-          </div>
-        )}
         <h2>{post.title}</h2>
-        <p>{post.excerpt}</p>
+      </Link>
+      {badge && (
+        <div className="main_article_card--badge">
+          <Link href={`/journal/${post.tagSlug}`}>{post.tag}</Link>
+        </div>
+      )}
+      <p>{post.excerpt}</p>
+      <div className="main_article_card--meta">
         <Date dateString={post.published} />
         <p className="main_article_card--read">{post.readTime} Minute Read</p>
       </div>
-    </Link>
+    </div>
   );
 }

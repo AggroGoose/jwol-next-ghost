@@ -1,3 +1,5 @@
+@use "../mixins/media";
+
 .post__modal {
   position: fixed;
   left: 0;
@@ -20,6 +22,8 @@
   &--content {
     position: fixed;
     z-index: 45;
+    width: 100%;
+    max-height: 100vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -28,12 +32,18 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 72px;
     gap: 16px;
+
+    @include media.md {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &--caption {
     color: white;
     grid-row: 2/3;
     width: 100%;
+    max-width: 100vw;
     height: 100%;
     text-align: center;
     align-self: center;
@@ -48,8 +58,8 @@
   }
 
   &--image {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     grid-row: 1/2;
     margin: auto;
 
@@ -57,6 +67,11 @@
       max-height: calc(100vh - 74px);
       width: auto;
       margin: auto;
+
+      @include media.md {
+        max-width: 100vw;
+        height: auto;
+      }
     }
 
     &--button {
@@ -75,6 +90,11 @@
 
         &:hover {
           opacity: 80%;
+        }
+
+        @include media.md {
+          height: 20px;
+          width: 20px;
         }
       }
     }
@@ -101,6 +121,11 @@
 
         &:hover {
           opacity: 80%;
+        }
+
+        @include media.md {
+          height: 28px;
+          width: 28px;
         }
       }
     }
