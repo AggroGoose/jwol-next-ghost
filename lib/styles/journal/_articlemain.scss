@@ -1,3 +1,5 @@
+@use "../mixins/media";
+
 .article__main {
   grid-row-start: 1;
   grid-column: post-start/side-start;
@@ -128,6 +130,7 @@
     font-weight: var(--font-bold-weight);
     color: var(--primary-blue);
     font-style: italic;
+    justify-self: left;
   }
 
   &--feature {
@@ -210,6 +213,19 @@
     img {
       object-fit: cover;
       border-radius: 8px;
+    }
+  }
+
+  @include media.md {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+
+    &--content {
+      h2 {
+        font-size: 1.625rem;
+      }
     }
   }
 }

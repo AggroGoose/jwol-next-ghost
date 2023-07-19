@@ -1,3 +1,5 @@
+@use "../mixins/media";
+
 .nav-grid {
   display: grid;
   margin: 0 auto;
@@ -10,6 +12,14 @@
   margin-top: 24px;
   gap: 0 75px;
   grid-template-columns: [left-side] 1fr [post-start] 825px [side-start] 300px [side-end] 1fr [right-side];
+
+  @include media.lg {
+    grid-template-columns: [left-side] 1fr [post-start] 825px [side-start] 1fr [right-side];
+  }
+
+  @include media.md {
+    grid-template-columns: [post-start] 1fr [side-start];
+  }
 }
 
 .post-grid {

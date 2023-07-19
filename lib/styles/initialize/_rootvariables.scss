@@ -1,3 +1,5 @@
+@use "../mixins/media";
+
 :root {
   --primary-color: #e0b12d;
   --secondary-color: #3ccbfb;
@@ -31,4 +33,12 @@
   --font-space: 0.02em;
   --font-head-space: 0.08em;
   --font-height: 1.625;
+
+  @include media.sm {
+    --font-smaller: 0.875rem;
+    --font-small: 1rem;
+    --font-regular: 1.125rem;
+    --font-large: 1.25rem;
+    --font-larger: 1.375rem;
+  }
 }

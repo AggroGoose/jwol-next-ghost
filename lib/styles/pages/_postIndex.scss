@@ -1,3 +1,5 @@
+@use "../mixins/media";
+
 .post_index {
   &_posts {
     grid-column: post-start/side-start;
@@ -8,11 +10,24 @@
     h1 {
       color: var(--primary-blue);
       font-size: 3rem;
+
+      @include media.sm {
+        font-size: 1.8rem;
+        text-align: center;
+      }
     }
 
     &--additional {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+
+      @include media.md {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include media.sm {
+        grid-template-columns: 1fr;
+      }
     }
   }
 }
