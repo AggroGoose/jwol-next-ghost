@@ -71,6 +71,14 @@
   &--container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+
+    @include media.md {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media.sm {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
@@ -120,7 +128,7 @@
     display: -webkit-box;
 
     &.main_article_card--read {
-      font-size: var(--font-smaller);
+      font-size: var(--font-small);
       color: var(--primary-blue);
       font-weight: var(--font-bold-weight);
     }
@@ -132,7 +140,7 @@
   }
 
   time {
-    font-size: var(--font-smaller);
+    font-size: var(--font-small);
     font-weight: var(--font-bold-weight);
     color: var(--primary-blue);
     font-style: italic;

@@ -82,9 +82,8 @@
     }
 
     svg {
-      height: 64px;
-      aspect-ratio: 3/2;
-      fill: var(--primary-blue);
+      height: 60px;
+      aspect-ratio: 2/1;
     }
 
     @include media.sm {
@@ -101,6 +100,19 @@
     line-height: 0;
     position: relative;
 
+    button {
+      background: none;
+      border: none;
+      height: max-content;
+      padding: 0;
+      line-height: 0;
+
+      svg {
+        height: 36px;
+        width: 36px;
+      }
+    }
+
     @include media.lg {
       display: block;
       grid-column: 1/2;
@@ -112,18 +124,12 @@
 
     @include media.sm {
       margin-left: 8px;
-    }
 
-    button {
-      background: none;
-      border: none;
-      height: max-content;
-      padding: 0;
-      line-height: 0;
-
-      svg {
-        height: 28px;
-        width: 28px;
+      button {
+        svg {
+          height: 28px;
+          width: 28px;
+        }
       }
     }
   }

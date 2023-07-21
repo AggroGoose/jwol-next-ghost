@@ -1,0 +1,39 @@
+.main-footer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: black;
+  color: white;
+  width: 100vw;
+  padding: 32px;
+  align-items: center;
+
+  a {
+    line-height: 1;
+  }
+
+  &--social {
+    display: flex;
+    gap: 32px;
+
+    a {
+      line-height: 0;
+    }
+
+    svg {
+      height: 40px;
+      width: 40px;
+      fill: white;
+    }
+  }
+
+  &--links {
+    display: flex;
+    gap: 32px;
+  }
+
+  &--cr {
+    font-size: 0.875rem;
+  }
+}

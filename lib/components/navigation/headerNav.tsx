@@ -1,7 +1,7 @@
 import Link from "next/link";
-import CenterNav from "./centerNav";
-import RightNav from "./rightNav";
-import MenuNav from "./menuNav";
+import CenterNav from "./Header/centerNav";
+import RightNav from "./Header/rightNav";
+import MenuNav from "./Header/menuNav";
 import NoLeaveSociety from "@/lib/resources/svg/NoLeaveSociety";
 
 export default function HeaderNav() {
