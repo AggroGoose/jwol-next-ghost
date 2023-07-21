@@ -10,7 +10,8 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const posts = await fetch(
-    "http://localhost:3000/api/ghost/AllPosts/GetParams"
+    "http://localhost:3000/api/ghost/AllPosts/GetParams",
+    { next: { revalidate: 600 } }
   ).then((res) => res.json());
   return posts.map((post: { slug: string; tag: string }) => ({
     slug: post.slug,
@@ -25,17 +26,17 @@ export default async function PostPage({
 }) {
   const post = (await fetch(
     `http://localhost:3000/api/ghost/SinglePost/${slug}`,
-    { next: { revalidate: 20 } }
+    { next: { revalidate: 600 } }
   ).then((res) => res.json())) as ResponsePost;
 
   const morePostsRes = (await fetch(
     `http://localhost:3000/api/ghost/LatestPosts/ForPost/BySlug/${slug}`,
-    { next: { revalidate: 20 } }
+    { next: { revalidate: 600 } }
   ).then((res) => res.json())) as { morePosts: ResponseMore[] };
   const { morePosts } = morePostsRes;
   const tagPostsRes = (await fetch(
     `http://localhost:3000/api/ghost/LatestPosts/ForPost/ByTag/${post.primary_tag.slug}/${post.slug}`,
-    { next: { revalidate: 20 } }
+    { next: { revalidate: 600 } }
   ).then((res) => res.json())) as { returnPosts: ResponseMore[] };
   const tagPosts = tagPostsRes.returnPosts;
 
