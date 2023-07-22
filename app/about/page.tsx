@@ -1,12 +1,9 @@
+import { ghostLatestFiveGeneral } from "@/lib/api/server/ghostServer";
 import PostSide from "@/lib/components/article/side/postSide";
 import AboutMain from "@/lib/components/pages/about/aboutMain";
 
 export default async function About() {
-  const morePostsRes = (await fetch(
-    `http://${process.env.VERCEL_URL}/api/ghost/LatestPosts/ForPage/LastFive`,
-    { next: { revalidate: 600 } }
-  ).then((res) => res.json())) as { morePosts: ResponseMore[] };
-  const { morePosts } = morePostsRes;
+  const morePosts = await ghostLatestFiveGeneral();
 
   return (
     <div className="page_about post-side-grid">

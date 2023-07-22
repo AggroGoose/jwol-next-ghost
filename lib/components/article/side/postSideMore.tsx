@@ -11,7 +11,7 @@ export default function PostSideMore({
       <hr />
       {morePosts.map((post) => (
         <>
-          <SideArticleCard post={post} />
+          <SideArticleCard post={post} key={post.slug} />
           <hr />
         </>
       ))}

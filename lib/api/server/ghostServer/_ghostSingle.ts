@@ -1,20 +1,20 @@
-import { NextResponse } from "next/server";
-import ghost from "@/lib/api/ghost";
-import parseHTML from "@/lib/html/parseHTML";
-import prisma from "@/lib/api/prisma";
+import prisma from "../../prisma";
+import ghost from "../../ghost";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { slug: string } }
-) {
-  const slug = params.slug;
+//Used to get single post for blog page data then transform information and combine with Database result before sending to client.
+
+export async function ghostGetSinglePost(slug: string) {
   const post = (await ghost.posts
     .read({ slug }, { include: "tags" })
     .catch((err) => {
       console.error(err);
     })) as GhostPost;
 
-  const parsePost = parseHTML(post.html);
+  // Takes raw HTML from ghost and transformse it into JS Objects to be able to manually build components and classes vs the Ghost default classes. May be overkill, might test just using raw Ghost classes at a later date to compare performance.
+  // const parsePost = parseHTML(post.html);
+
+  //Tag objects returned from Ghost contains a lot of bloat. Request object could probably limit this itself, but for ease of use we're stripping the tag objects down here.
+
   const primTag: ResponseTag = {
     id: post.primary_tag.id,
     name: post.primary_tag.name,
@@ -34,6 +34,8 @@ export async function GET(
     }
   });
 
+  // If no database result for post, it will create a new database result which will be used for tracking likes, comments and to add custom fields not provided by Ghost.
+
   const dbPost = await prisma.post.upsert({
     where: { slug: post.slug },
     update: {},
@@ -42,6 +44,8 @@ export async function GET(
       slug: post.slug,
     },
   });
+
+  //Final object returned containing all the post information needed for building the post page, combining DB information, and removing unnecessary API fields.
 
   const postData: ResponsePost = {
     slug: post.slug,
@@ -57,18 +61,10 @@ export async function GET(
     updated_at: post.updated_at,
     excerpt: post.excerpt,
     reading_time: post.reading_time,
-    og_image: post.og_image || post.feature_image || "",
-    og_description:
-      post.og_description || post.meta_description || post.excerpt,
-    og_title: post.og_title || post.title,
-    meta_description: post.meta_description || post.excerpt,
-    meta_title: post.meta_title || post.excerpt,
-    twitter_image: post.twitter_image || post.feature_image || "",
-    twitter_title: post.twitter_title || post.title,
     primary_tag: primTag,
     tags: tagArr,
-    content: parsePost,
+    content: post.html,
   };
 
-  return NextResponse.json(postData);
+  return postData;
 }

@@ -1,12 +1,43 @@
+import {
+  ghostLatestFiveGeneral,
+  ghostMetaTag,
+  ghostPostsforIndex,
+  ghostRouteParams,
+} from "@/lib/api/server/ghostServer";
 import PostSide from "@/lib/components/article/side/postSide";
 import PostIndex from "@/lib/components/pages/postIndex/postIndex";
-import { Tag } from "@tryghost/content-api";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params: { tag },
+}: {
+  params: { tag: string };
+}): Promise<Metadata> {
+  const meta = await ghostMetaTag(tag);
+
+  return {
+    title: meta.meta_title,
+    description: meta.meta_description,
+    openGraph: {
+      siteName: "No Leave Society",
+      type: "article",
+      title: meta.og_title,
+      description: meta.og_description,
+      images: [{ url: meta.og_image }],
+      url: `https://www.noleavesociety.com/journal/${tag}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.twitter_title,
+      description: meta.twitter_description,
+      images: [{ url: meta.twitter_image }],
+      creator: "@CompletelyJWOL",
+    },
+  };
+}
 
 export async function generateStaticParams() {
-  const res = await fetch(`http://${process.env.VERCEL_URL}/api/ghost/Tags`, {
-    next: { revalidate: 600 },
-  });
-  const tags = (await res.json()) as Tag[];
+  const tags = await ghostRouteParams("tag");
 
   return tags.map((tag) => {
     tag: tag.slug;
@@ -18,17 +49,8 @@ export default async function TagPage({
 }: {
   params: { tag: string };
 }) {
-  const morePostsRes = (await fetch(
-    `http://${process.env.VERCEL_URL}/api/ghost/LatestPosts/ForPage/LastFive`,
-    { next: { revalidate: 600 } }
-  ).then((res) => res.json())) as { morePosts: ResponseMore[] };
-  const { morePosts } = morePostsRes;
-
-  const indexPostsRes = (await fetch(
-    `http://${process.env.VERCEL_URL}/api/ghost/LatestPosts/ForPage/TagPosts/${tag}`,
-    { next: { revalidate: 600 } }
-  ).then((res) => res.json())) as { returnPosts: ResponseMore[] };
-  const indexPosts = indexPostsRes.returnPosts;
+  const morePosts = await ghostLatestFiveGeneral();
+  const indexPosts = await ghostPostsforIndex(tag);
 
   return (
     <div className="post_index post-side-grid">

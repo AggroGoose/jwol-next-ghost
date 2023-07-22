@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import GoogleAnalytics from "@/lib/components/googleAnalytics";
 import CookieBanner from "@/lib/components/banners/cookieBanner";
 import FooterNav from "@/lib/components/navigation/footerNav";
+import { Metadata } from "next";
 
 const nunito = localFont({
   src: [
@@ -24,9 +25,10 @@ const nunitoSans = localFont({
   display: "swap",
 });
 
-export const metadata = {
-  title: "Josh Without Leave",
-  description: "No permission needed to be you.",
+export const metadata: Metadata = {
+  title: "No Leave Society",
+  description:
+    "Journal on mental health, food, and society focused on breaking societal expectations, embracing the weird in all of us, and seeking new perspectives.",
 };
 
 export default function RootLayout({
@@ -37,22 +39,6 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <html lang="en" className={`${nunito.variable} ${nunitoSans.variable}`}>
-        <link rel="icon" href="/favicon/No Leave Icon-32.png" sizes="32x32" />
-        <link
-          rel="icon"
-          href="/favicon/No Leave Icon-128.png"
-          sizes="128x128"
-        />
-        <link
-          rel="icon"
-          href="/favicon/No Leave Icon-180.png"
-          sizes="180x180"
-        />
-        <link
-          rel="icon"
-          href="/favicon/No Leave Icon-192.png"
-          sizes="192x192"
-        />
         <GoogleAnalytics GA_MEASUREMENT_ID="G-JC47HREZJY" />
         <body>
           <div id="modalPortal" />

@@ -25,6 +25,7 @@ type GhostPost = {
   og_description: string | null;
   twitter_image: string | null;
   twitter_title: string | null;
+  twitter_description: string | null;
   meta_title: string | null;
   meta_description: string | null;
   email_subject: string | null;
@@ -76,19 +77,24 @@ type ResponsePost = {
   updated_at: string;
   excerpt: string;
   reading_time: number;
-  og_image: string;
-  og_title: string;
-  og_description: string;
-  twitter_image: string;
-  twitter_title: string;
-  meta_title: string;
-  meta_description: string;
-  content: ParseElement[];
+  content: string;
   primary_tag: ResponseTag;
   tags: ResponseTag[];
   audio_url: string | null;
   likes: number;
   saves: number;
+};
+
+type ResponseMeta = {
+  meta_title: string;
+  meta_description: string;
+  primary_tag: string;
+  og_image: string;
+  og_title: string;
+  og_description: string;
+  twitter_image: string;
+  twitter_title: string;
+  twitter_description: string;
 };
 
 type ResponseMore = {

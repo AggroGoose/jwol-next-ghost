@@ -8,6 +8,7 @@ export default function SideAuthor() {
         width={1435}
         height={1640}
         alt={"Styled image of the post author, Josh"}
+        priority={true}
       />
       <p className="article_side_author--first">
         ADHD, millennial writer and wannabe philosopher based in Denver,
