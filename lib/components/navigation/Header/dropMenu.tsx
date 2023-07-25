@@ -1,8 +1,19 @@
+import { useOutsideClick } from "@/lib/hooks/useOutsideClick";
 import Link from "next/link";
+import { Dispatch, SetStateAction } from "react";
 
-export default function DropMenu() {
+export default function DropMenu({
+  setMenuOpen,
+}: {
+  setMenuOpen: Dispatch<SetStateAction<boolean>>;
+}) {
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+  const ref = useOutsideClick(closeMenu);
+
   return (
-    <div className="main-nav-drop">
+    <div ref={ref} className="main-nav-drop">
       <ul>
         <button className="main-nav-drop--button">
           <Link href="/journal">

@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
+import ghostAdmin from "@/lib/api/ghostAdmin";
+import { parseMD } from "@/lib/scripts/parseMobiledoc";
 
 export async function GET() {
-  // const post = (await ghost.posts
-  //   .read({ slug: "small-feature-test" })
-  //   .catch((err) => {
-  //     console.error(err);
-  //   })) as GhostPost;
+  const post = (await ghostAdmin.posts.read({
+    slug: "feature-test",
+  })) as GhostAdminPost;
 
-  return NextResponse.json({ post: "Well Hello There" });
+  const mobiledocObj = (await JSON.parse(post.mobiledoc)) as MDObject;
+  const content = parseMD(mobiledocObj);
+
+  return NextResponse.json({ content });
 }

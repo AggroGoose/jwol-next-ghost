@@ -1,5 +1,5 @@
 import { ghostRouteParams } from "./_ghostParams";
-import { ghostGetSinglePost } from "./_ghostSingle";
+import { ghostGetSinglePost, ghostGetTag } from "./_ghostSingle";
 import {
   ghostPostsforIndex,
   ghostLatestFiveGeneral,
@@ -15,4 +15,5 @@ export {
   ghostLatestFiveforTag,
   ghostMetaSingle,
   ghostMetaTag,
+  ghostGetTag,
 };

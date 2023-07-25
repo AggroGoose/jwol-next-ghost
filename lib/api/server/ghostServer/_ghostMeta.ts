@@ -1,12 +1,16 @@
 import ghost from "../../ghost";
 
-// FETCH Route Parameters for getStaticPaths
-export async function ghostMetaSingle(slug: string) {
-  const post = (await ghost.posts
-    .read({ slug }, { include: "tags" })
-    .catch((err) => {
-      console.error(err);
-    })) as GhostPost;
+export async function ghostMetaSingle(
+  slug: string,
+  type: "post" | "page" = "post"
+) {
+  let client;
+
+  type === "page" ? (client = ghost.pages) : (client = ghost.posts);
+
+  const post = (await client.read({ slug }).catch((err) => {
+    console.error(err);
+  })) as GhostPost;
 
   const metaData: ResponseMeta = {
     meta_title: post.meta_title || post.title,
@@ -15,7 +19,6 @@ export async function ghostMetaSingle(slug: string) {
     og_title: post.og_title || post.title,
     og_description:
       post.og_description || post.meta_description || post.excerpt,
-    primary_tag: post.primary_tag.name,
     twitter_image:
       post.twitter_image ||
       post.og_image ||
@@ -55,7 +58,6 @@ export async function ghostMetaTag(tag: string) {
       post.meta_description ||
       post.description ||
       `Index of journals listed under the tag ${post.name}`,
-    primary_tag: post.name,
     twitter_image:
       post.twitter_image ||
       post.og_image ||

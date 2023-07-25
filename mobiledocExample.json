@@ -1,0 +1,395 @@
+{
+  "devcomment": "Since JSON doesn't allow comments, Ghost stores rich text from their editor as mobiledoc objects under the hood. Mobiledoc objects can only be retrieved through the AdminAPI and not through ContentAPI, but they remove all predefined ghost css and remove the need for third party html parsers to convert the rich text into react modules. Using the mobiledoc object provides greater flexibility for customization and development while using Ghost as a backend.",
+
+  "devcomment2": "Mobiledoc splits into four key sections: atoms, cards, markup and sections. The sections field is an array of 'array objects' that determine where everything goes and has markers to indicate whether it's a text or list field or whether it's a predefined card object. (i.e. embeds, callouts, raw html, or other predefined objects). The text objects in the sections area then contain arrays of rich text fields with markers to indicate 'markup' styling (bold, italic, etc. but also used to mark a tags and links) as well as to 'atoms' which contain arbitrary data like referencing a database id for a user tagged in a comment or some such.",
+
+  "space": "",
+
+  "content": {
+    "version": "0.3.1",
+    "atoms": [],
+    "cards": [
+      [
+        "markdown",
+        {
+          "markdown": "> We have all the features in the world to test, let's go!"
+        }
+      ],
+      [
+        "product",
+        {
+          "productButtonEnabled": true,
+          "productRatingEnabled": true,
+          "productStarRating": "5",
+          "productButton": "Take Action Now!",
+          "productUrl": "https://www.noleavesociety.com/",
+          "productTitle": "The No Leave Society Website",
+          "productDescription": "<p>I give this a 5 out of 5, we stylish man!</p>",
+          "productImageSrc": "https://ghost.jakosbalay.com/content/images/2023/07/No-Leave-Society-Image-Card-10.png",
+          "productImageWidth": 1600,
+          "productImageHeight": 800
+        }
+      ],
+      [
+        "embed",
+        {
+          "url": "https://youtu.be/IbO3kteonQQ",
+          "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/IbO3kteonQQ?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Crushed Concrete End Product\"></iframe>",
+          "type": "video",
+          "metadata": {
+            "title": "Crushed Concrete End Product",
+            "author_name": "avant loader hire",
+            "author_url": "https://www.youtube.com/@deeleysavant",
+            "height": 113,
+            "width": 200,
+            "version": "1.0",
+            "provider_name": "YouTube",
+            "provider_url": "https://www.youtube.com/",
+            "thumbnail_height": 360,
+            "thumbnail_width": 480,
+            "thumbnail_url": "https://i.ytimg.com/vi/IbO3kteonQQ/hqdefault.jpg"
+          },
+          "caption": "How does the embed object look with a caption?"
+        }
+      ],
+      [
+        "callout",
+        {
+          "calloutEmoji": "💡",
+          "calloutText": "Your insistence on doing this thing is ruining this family!",
+          "backgroundColor": "grey"
+        }
+      ],
+      [
+        "embed",
+        {
+          "url": "https://soundcloud.com/nocopyrightsounds/spektrem-shine-original-mix",
+          "html": "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F90858795&show_artwork=true\"></iframe>",
+          "type": "rich",
+          "metadata": {
+            "version": 1,
+            "provider_name": "SoundCloud",
+            "provider_url": "https://soundcloud.com",
+            "height": 400,
+            "width": "100%",
+            "title": "Spektrem - Shine [NCS Release] by NCS",
+            "description": "NoCopyrightSounds: Dedicated to releasing FREE music!\r\nLike the track? Click the [↻ Repost] button!\r\n\r\nOfficial Video: https://www.youtube.com/watch?v=n4tK7LYFxI0\r\n\r\nNCS \r\n➞ Subscribe youtube.com/NoCopyrightSounds \r\n➞ Like facebook.com/NoCopyrightSounds\r\n➞ Follow twitter.com/NCSounds\r\n➞ Listen @nocopyrightsounds\r\n➞ Follow google.com/+nocopyrightsounds\r\n\r\nFollow Spektrem:\r\n➞ Follow https://soundcloud.com/spektrem\r\n➞ Website http://spektrem.net/\r\n➞ Like https://www.facebook.com/Spektrem\r\n➞ Follow https://twitter.com/Spektrem\r\n",
+            "thumbnail_url": "https://i1.sndcdn.com/artworks-000047263551-pkwsxc-t500x500.jpg",
+            "author_name": "NCS",
+            "author_url": "https://soundcloud.com/nocopyrightsounds"
+          },
+          "caption": "Here's another embed caption"
+        }
+      ],
+      [
+        "markdown",
+        {
+          "markdown": "1. You Are Sick\n2. and\n3. Need To Get [Some Help](https://hardmountaindew.com/) Man"
+        }
+      ],
+      [
+        "image",
+        {
+          "src": "https://ghost.jakosbalay.com/content/images/2023/06/ArtNouveauIllustration.png",
+          "width": 992,
+          "height": 1600,
+          "alt": "Art nouveau style poster of a woman in detective clothes standing with a burning building and old style car.",
+          "caption": "Upon this photo, I <a href=\"#captivate-me-capitan\">lay this caption</a>, defining the <strong>madness</strong> that shall come of the next several days of testing and execution."
+        }
+      ],
+      [
+        "markdown",
+        {
+          "markdown": "- I am **especially** terrified of a specific type of list\n- the list in question is a bulleted list\n- bullets are in the name!\n- Oh no! He’s doing it again isn’t he."
+        }
+      ],
+      [
+        "audio",
+        {
+          "loop": false,
+          "src": "https://ghost.jakosbalay.com/content/media/2023/07/ES_Ring-Wear-Saga---Dusty-Decks.mp3",
+          "title": "ES Ring Wear Saga Dusty Decks",
+          "duration": 135.432,
+          "mimeType": "audio/mpeg"
+        }
+      ],
+      [
+        "toggle",
+        {
+          "heading": "There's only one problem with that idea...",
+          "content": "<p>Contained within this toggle list is the problem with that idea. The problem of which is the fact that you are I and I am you. You cannot run any farther than I from you. As such it is important that we cooperate.</p>"
+        }
+      ],
+      [
+        "gallery",
+        {
+          "images": [
+            {
+              "fileName": "ChefFox.png",
+              "row": 0,
+              "width": 2048,
+              "height": 2048,
+              "src": "https://ghost.jakosbalay.com/content/images/2023/06/ChefFox.png"
+            },
+            {
+              "fileName": "IceCreamCone.png",
+              "row": 0,
+              "width": 1024,
+              "height": 1024,
+              "src": "https://ghost.jakosbalay.com/content/images/2023/06/IceCreamCone.png"
+            },
+            {
+              "fileName": "FancyGoose.png",
+              "row": 0,
+              "width": 2048,
+              "height": 2048,
+              "src": "https://ghost.jakosbalay.com/content/images/2023/06/FancyGoose.png"
+            },
+            {
+              "fileName": "GooseWithCoffee.png",
+              "row": 1,
+              "width": 1024,
+              "height": 1024,
+              "src": "https://ghost.jakosbalay.com/content/images/2023/06/GooseWithCoffee.png"
+            }
+          ],
+          "caption": "This caption denotes a serious gallery of images to envision. What doest thou thinketh of that?"
+        }
+      ],
+      ["hr", {}]
+    ],
+    "markups": [
+      ["strong"],
+      ["em"],
+      [
+        "a",
+        [
+          "href",
+          "https://www.ohchr.org/en/special-procedures/sr-cultural-rights/artistic-freedom",
+          "rel",
+          "noopener noreferrer"
+        ]
+      ],
+      [
+        "a",
+        [
+          "href",
+          "https://www.cdc.gov/ncbddd/adhd/facts.html",
+          "rel",
+          "noopener noreferrer"
+        ]
+      ]
+    ],
+    "sections": [
+      [1, "h2", [[0, [], 0, "Did You Really Think That I Would Mind?"]]],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "Oh boy, it’s that time of year again. I’ve got a new idea again and it’s time to put that new idea to the test. Here goes our feature test upon which we will test our blog features. I know you might be asking how many features we have to test today, and while that is a brilliant question the only answer is such:"
+          ]
+        ]
+      ],
+      [10, 0],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "I know it is an enlightening concept when the features are tested in such an egregious manner. In fact, this could even be seen as "
+          ],
+          [0, [0], 1, "inhumane"],
+          [0, [], 0, " to sit here and test "],
+          [0, [1], 1, "features"],
+          [0, [], 0, " in a "],
+          [0, [1, 0], 2, "simple blog post"],
+          [
+            0,
+            [],
+            0,
+            " like this. Wait a second, did I just add two different transformations to that statement? That is terrifying."
+          ]
+        ]
+      ],
+      [10, 1],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "Is there even a need for the blog to get this complicated? I don’t know, but it is better to be safe than sorry. I would rather have some "
+          ],
+          [0, [2], 1, "artistic freedom"],
+          [
+            0,
+            [],
+            0,
+            " to what I’m doing and not have to think about the consequences.  It is a consequence of "
+          ],
+          [0, [3, 1, 0], 3, "ADHD"],
+          [
+            0,
+            [],
+            0,
+            " life and also a boon to the finished product. It is thus better for me to make life 10x harder on myself in the development stage to challenge my stimulations and to have a more concrete end product."
+          ]
+        ]
+      ],
+      [10, 2],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "Oh no, this man is making us add Youtube Embeds again? I guess they weren’t as bad as some of the other embeds, but we hates embeds over here, why would you do this to us again??? I’m currently presently appalled that such a thing would happen."
+          ]
+        ]
+      ],
+      [10, 3],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "One day you will feel the pity within your soul knowing that this feature testing is a crime against this developer’s humanity. I can’t believe anyone ever thought this would be a dope idea."
+          ]
+        ]
+      ],
+      [10, 4],
+      [1, "h2", [[0, [], 0, "More Feature Tests, You Say?"]]],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "Oh boy here we go again, what could you possibly want to make us test in this brand new section? Do you mean to say that just having multiple H1 sections in a post is a test in and of itself? You are sick and need to get some help. In fact, to spell it out for you:"
+          ]
+        ]
+      ],
+      [10, 5],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "Wait a second did you get me upset on porpoise just to get me to test some features? This is ludicrous I tell you, 100% absolutely positively ludicrous!"
+          ]
+        ]
+      ],
+      [10, 6],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "I wish that you would not use me this way. I am terrified of lists and refuse to partake in their creation or absolution. I will instead remain within my own realm of existence away from both ordered and unordered lists."
+          ]
+        ]
+      ],
+      [10, 7],
+      [10, 8],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "Mister, I have had enough of this lunacy. Do not speak to me or my child again, we will remain hidden within the walls of the southern fort. The natives of the Southern fort actually welcome us there and appreciate our feature testing capabilities. Do not write or speak to me again."
+          ]
+        ]
+      ],
+      [10, 9],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "You mean that I’m trapped within this realm of testing? How dare you do this to me. How dare you lay this burden upon my shoulders to be a guinea pig for your inane tests!"
+          ]
+        ]
+      ],
+      [1, "p", [[0, [], 0, "I'm tired of this grandpa..."]]],
+      [1, "h2", [[0, [], 0, "Well That's Too Dang Bad"]]],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "I intend to test all features we may decide to use at our disposal. I am curious if it would be possible to create a gallery of photos to digest. See the following example:"
+          ]
+        ]
+      ],
+      [10, 10],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "Ah my goodness, I’m going to forever hate myself after posting these embeds! Why sir, whyyyyyy? That said, at this point in time that is all the social media embeds I care to try. At a later date I will work on an audio or video embed, but that is beyond the scope of the current post. I believe we have enough to work with to get a solid start."
+          ]
+        ]
+      ],
+      [10, 11],
+      [
+        1,
+        "p",
+        [
+          [
+            0,
+            [],
+            0,
+            "Wait I forgot the divider above this statement. I wonder how such a thing will be implemented. Only the future knows!"
+          ]
+        ]
+      ],
+      [
+        3,
+        "ul",
+        [
+          [[0, [], 0, "Here’s"]],
+          [[0, [], 0, "Another"]],
+          [[0, [], 0, "Random"]],
+          [[0, [], 0, "Bullet-List"]]
+        ]
+      ],
+      [1, "h3", [[0, [], 0, "With this I say, 'Tata for now mis amigos\""]]]
+    ],
+    "ghostVersion": "4.0"
+  }
+}

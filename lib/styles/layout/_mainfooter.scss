@@ -30,10 +30,14 @@
 
   &--links {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 32px;
   }
 
   &--cr {
     font-size: 0.875rem;
+    text-align: center;
   }
 }

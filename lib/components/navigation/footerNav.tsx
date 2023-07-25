@@ -15,11 +15,13 @@ export default function FooterNav() {
           <Pinterest />
         </a>
       </div>
-      <div className="main-footer--links">
+      <nav className="main-footer--links">
         <Link href="/about">About</Link>
-        <Link href="/about/contact">Contact</Link>
+        <Link href="/info/disclaimer">Disclaimer</Link>
         <Link href="/info/cookies">Cookie Policy</Link>
-      </div>
+        <Link href="/info/privacy-policy">Privacy Policy</Link>
+        <Link href="/info/terms-and-conditions">Terms and Conditions</Link>
+      </nav>
       <div className="main-footer--cr">
         © 2023 JWOL Media LLC. All rights reserved
       </div>

@@ -4,4 +4,5 @@ import type { PrismaClient } from "@prisma/client";
 declare global {
   var ghost: GhostAPI;
   var prisma: PrismaClient;
+  var ghostAdmin: GhostAPI;
 }

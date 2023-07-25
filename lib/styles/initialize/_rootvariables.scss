@@ -34,11 +34,15 @@
   --font-head-space: 0.08em;
   --font-height: 1.625;
 
+  --header-height: 90px;
+
   @include media.sm {
     --font-smaller: 0.875rem;
     --font-small: 1rem;
     --font-regular: 1.125rem;
     --font-large: 1.25rem;
     --font-larger: 1.375rem;
+
+    --header-height: 70px;
   }
 }

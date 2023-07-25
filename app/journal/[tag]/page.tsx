@@ -1,4 +1,5 @@
 import {
+  ghostGetTag,
   ghostLatestFiveGeneral,
   ghostMetaTag,
   ghostPostsforIndex,
@@ -51,12 +52,13 @@ export default async function TagPage({
 }) {
   const morePosts = await ghostLatestFiveGeneral();
   const indexPosts = await ghostPostsforIndex(tag);
+  const tagObj = await ghostGetTag(tag);
 
   return (
     <div className="post_index post-side-grid">
       <PostIndex
         posts={indexPosts}
-        title={`Here Are the Latest Posts from ${indexPosts[0].tag}`}
+        title={`Here Are the Latest Posts from ${tagObj.name}`}
       />
       <PostSide morePosts={morePosts} />
     </div>

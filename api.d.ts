@@ -36,6 +36,10 @@ type GhostPost = {
   tags: GhostTag[];
 };
 
+interface GhostAdminPost extends GhostPost {
+  mobiledoc: string;
+}
+
 type GhostTag = {
   id: string;
   name: string;
@@ -58,6 +62,44 @@ type GhostTag = {
   url: string;
 };
 
+type GhostPage = {
+  slug: string;
+  id: string;
+  uuid: string;
+  title: string;
+  html: string;
+  comment_id: string;
+  feature_image: string | null;
+  featured: boolean;
+  visibility: public;
+  created_at: string;
+  updated_at: string;
+  custom_excerpt: string | null;
+  codeinjection_head: null;
+  codeinjection_foot: null;
+  custom_template: null;
+  canonical_url: null;
+  url: string;
+  excerpt: string;
+  reading_time: number;
+  access: boolean;
+  comments: boolean;
+  og_image: string | null;
+  og_title: string | null;
+  og_description: string | null;
+  twitter_image: string | null;
+  twitter_title: string | null;
+  twitter_description: string | null;
+  meta_title: string | null;
+  meta_description: string | null;
+  email_subject: string | null;
+  frontmatter: null;
+  feature_image_alt: string | null;
+  feature_image_caption: string | null;
+  primary_tag: GhostTag;
+  tags: GhostTag[];
+};
+
 interface MainPost extends GhostPost {
   content: ParseElement[];
 }
@@ -65,8 +107,10 @@ type ResponseTag = {
   id: string;
   name: string;
   slug: string;
+  description?: string;
 };
-type ResponsePost = {
+
+type ResponsePage = {
   slug: string;
   id: string;
   title: string;
@@ -76,19 +120,21 @@ type ResponsePost = {
   created_at: string;
   updated_at: string;
   excerpt: string;
+  content: BlockArray;
+};
+
+interface ResponsePost extends ResponsePage {
   reading_time: number;
-  content: string;
   primary_tag: ResponseTag;
   tags: ResponseTag[];
   audio_url: string | null;
   likes: number;
   saves: number;
-};
+}
 
 type ResponseMeta = {
   meta_title: string;
   meta_description: string;
-  primary_tag: string;
   og_image: string;
   og_title: string;
   og_description: string;

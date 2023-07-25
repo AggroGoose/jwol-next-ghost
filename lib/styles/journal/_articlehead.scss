@@ -1,3 +1,5 @@
+@use "../mixins/media";
+
 .article {
   &__head {
     margin: 0;
@@ -17,6 +19,11 @@
         color: var(--primary-blue);
         font-weight: var(--font-head-weight);
         font-family: var(--font-secondary);
+
+        @include media.md {
+          font-size: 2.6rem;
+          text-align: center;
+        }
       }
 
       &--excerpt {
@@ -37,8 +44,8 @@
       }
 
       &--meta {
-        font-size: var(--font-small);
-        font-weight: var(--font-weight);
+        font-size: var(--font-regular);
+        font-weight: var(--font-med-weight);
       }
     }
   }

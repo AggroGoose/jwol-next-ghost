@@ -25,11 +25,15 @@
   },
   "include": [
     "next-env.d.ts",
-    "globals.d.ts",
     "api.d.ts",
+    "blocks.d.ts",
+    "globals.d.ts",
+    "mobiledoc.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "lib/api/ghostAdmin.ts",
+    "app/api/ghost/route.ts"
   ],
   "exclude": ["node_modules"]
 }

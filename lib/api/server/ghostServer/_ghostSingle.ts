@@ -1,17 +1,18 @@
 import prisma from "../../prisma";
-import ghost from "../../ghost";
+import ghost from "../../ghostAdmin";
+import { parseMD } from "@/lib/scripts/parseMobiledoc";
+
+/* Two functions contained: ghostGetSinglePost and ghostGetTag */
 
 //Used to get single post for blog page data then transform information and combine with Database result before sending to client.
 
 export async function ghostGetSinglePost(slug: string) {
-  const post = (await ghost.posts
-    .read({ slug }, { include: "tags" })
-    .catch((err) => {
-      console.error(err);
-    })) as GhostPost;
+  const post = (await ghost.posts.read({ slug }).catch((err: Error) => {
+    console.error(err);
+  })) as GhostAdminPost;
 
-  // Takes raw HTML from ghost and transformse it into JS Objects to be able to manually build components and classes vs the Ghost default classes. May be overkill, might test just using raw Ghost classes at a later date to compare performance.
-  // const parsePost = parseHTML(post.html);
+  const mobiledocObj = (await JSON.parse(post.mobiledoc)) as MDObject;
+  const content = parseMD(mobiledocObj);
 
   //Tag objects returned from Ghost contains a lot of bloat. Request object could probably limit this itself, but for ease of use we're stripping the tag objects down here.
 
@@ -63,8 +64,24 @@ export async function ghostGetSinglePost(slug: string) {
     reading_time: post.reading_time,
     primary_tag: primTag,
     tags: tagArr,
-    content: post.html,
+    content,
   };
 
   return postData;
+}
+
+export async function ghostGetTag(tag: string) {
+  const res = (await ghost.tags.read({ slug: tag }).catch((err: Error) => {
+    console.error(err);
+  })) as GhostTag;
+
+  const responseObj: ResponseTag = {
+    id: res.id,
+    name: res.name,
+    slug: res.slug,
+  };
+
+  if (res.description) responseObj.description = res.description;
+
+  return responseObj;
 }

@@ -10,7 +10,7 @@ import {
   ghostRouteParams,
 } from "@/lib/api/server/ghostServer";
 import MorePagePosts from "@/lib/components/article/main/morePagePosts";
-import PostContent from "@/lib/components/article/main/postContent";
+import BlockContent from "@/lib/components/blocks/blockContent";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -79,7 +79,9 @@ export default async function PostPage({
             reading_time={post.reading_time}
           />
           <PostTags tags={post.tags} />
-          <PostContent content={post.content} />
+          <div className="article__content post-grid">
+            <BlockContent content={post.content} />
+          </div>
           {morePosts.length > 0 && (
             <MorePagePosts posts={morePosts} badge={true} />
           )}

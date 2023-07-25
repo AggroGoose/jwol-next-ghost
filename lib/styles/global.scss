@@ -5,10 +5,8 @@
 
 @use "./fonts/fontprovider";
 
+@use "./blocks/blockProvider";
 @use "./layout/layoutprovider";
-@use "./blog/blogprovider";
-@use "./blocks/blockprovider";
-@use "./ghost/ghostProvider";
 @use "./journal/articleprovider";
 @use "./pages/pageprovider";
 @use "./components/componentProvider";

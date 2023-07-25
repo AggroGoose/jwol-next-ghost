@@ -16,7 +16,7 @@ export default function MenuNav() {
       <button onClick={handleMenu}>
         <MenuIcon />
       </button>
-      {menuOpen && <DropMenu />}
+      {menuOpen && <DropMenu setMenuOpen={setMenuOpen} />}
     </div>
   );
 }
