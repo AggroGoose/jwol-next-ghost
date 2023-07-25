@@ -2,10 +2,7 @@ import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  if (request.ip !== process.env.WEBHOOK_URL) {
-    console.error("Invalid IP Address on Revalidate: " + request.ip);
-    return NextResponse.error();
-  }
+  console.log(request);
 
   console.log("Revalidating Home");
   revalidatePath("/");
