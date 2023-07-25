@@ -1,3 +1,4 @@
+/*
 import React, { createElement, Fragment } from "react";
 import parseBookmark from "./helpers/parseBookmark";
 
@@ -39,3 +40,4 @@ export default function BookmarkCard({ elem }: { elem: ParseElement }) {
     </figure>
   );
 }
+*/

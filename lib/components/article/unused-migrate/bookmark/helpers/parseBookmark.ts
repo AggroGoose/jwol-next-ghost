@@ -1,3 +1,4 @@
+/*
 import contentEval from "@/lib/element/contentEval";
 
 export default function parseBookmark(elem: ParseElement) {
@@ -83,3 +84,4 @@ export default function parseBookmark(elem: ParseElement) {
 
   return bookmarkObj;
 }
+*/

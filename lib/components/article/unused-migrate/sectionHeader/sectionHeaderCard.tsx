@@ -1,3 +1,4 @@
+/*
 export default function SectionHeaderCard({ elem }: { elem: ParseElement }) {
   const elemChildren = elem.children as ParseElement[];
   const headerSection = elemChildren?.find((child) =>
@@ -24,3 +25,4 @@ export default function SectionHeaderCard({ elem }: { elem: ParseElement }) {
     </div>
   );
 }
+*/
