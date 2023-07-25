@@ -2,6 +2,7 @@ import PostHead from "@/lib/components/article/heading/postHead";
 import PostSide from "@/lib/components/article/side/postSide";
 import PostTags from "@/lib/components/article/main/postTags";
 import ArticleReactions from "@/lib/components/article/main/articleReactions";
+
 import {
   ghostGetSinglePost,
   ghostLatestFiveGeneral,
@@ -9,9 +10,12 @@ import {
   ghostMetaSingle,
   ghostRouteParams,
 } from "@/lib/api/server/ghostServer";
+
 import MorePagePosts from "@/lib/components/article/main/morePagePosts";
 import BlockContent from "@/lib/components/blocks/blockContent";
 import { Metadata } from "next";
+
+export const revalidate = 600;
 
 export async function generateMetadata({
   params: { slug },
@@ -40,8 +44,6 @@ export async function generateMetadata({
     },
   };
 }
-
-export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const posts = await ghostRouteParams("post");

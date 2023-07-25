@@ -34,6 +34,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+export const revalidate = 600;
+
 export default async function About() {
   const morePosts = await ghostLatestFiveGeneral();
   const page = await ghostPageData(slug);

@@ -10,6 +10,8 @@ import { Metadata } from "next";
 const slug = "terms-and-conditions";
 const destination = "info/terms-and-conditions";
 
+export const revalidate = 600;
+
 export async function generateMetadata(): Promise<Metadata> {
   const meta = await ghostMetaSingle(slug, "page");
 

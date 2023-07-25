@@ -31,6 +31,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 600;
+
 export default async function Journal() {
   const morePosts = await ghostLatestFiveGeneral();
   const indexPosts = await ghostPostsforIndex();

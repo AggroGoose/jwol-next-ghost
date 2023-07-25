@@ -2,7 +2,12 @@ import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  console.log(request);
+  const requestHeaders = new Headers(request.headers);
+  const req = await request.json();
+
+  console.log(requestHeaders);
+  console.log("----BODY----");
+  console.log(req);
 
   console.log("Revalidating Home");
   revalidatePath("/");

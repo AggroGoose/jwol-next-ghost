@@ -7,6 +7,8 @@ import PostSide from "@/lib/components/article/side/postSide";
 import PageMain from "@/lib/components/pages/pageMain";
 import { Metadata } from "next";
 
+export const revalidate = 600;
+
 const slug = "disclaimer";
 const destination = "info/disclaimer";
 

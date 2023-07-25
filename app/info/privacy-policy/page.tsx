@@ -10,6 +10,8 @@ import { Metadata } from "next";
 const slug = "privacy-policy";
 const destination = "info/privacy-policy";
 
+export const revalidate = 600;
+
 export async function generateMetadata(): Promise<Metadata> {
   const meta = await ghostMetaSingle(slug, "page");
 

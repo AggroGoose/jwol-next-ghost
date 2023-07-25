@@ -37,6 +37,8 @@ export async function generateMetadata({
   };
 }
 
+export const revalidate = 600;
+
 export async function generateStaticParams() {
   const tags = await ghostRouteParams("tag");
 
