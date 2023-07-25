@@ -21,19 +21,19 @@ export default function WideArticleCard({
   }
   return (
     <div className="article_card_wide">
-      <Link href={`/journal/${post.tagSlug}/${post.slug}`}>
+      <Link href={`/journal/${post.slug}`}>
         <div className="article_card_wide--feature">
           <Image src={image} alt={imageAlt} fill={true} />
         </div>
       </Link>
       {badge && (
         <div className="article_card_wide--badge">
-          <Link href={`/journal/${post.tagSlug}`}>{post.tag}</Link>
+          <Link href={`/journal/tag/${post.tagSlug}`}>{post.tag}</Link>
         </div>
       )}
 
       <div className="article_card_wide--content">
-        <Link href={`/journal/${post.tagSlug}/${post.slug}`}>
+        <Link href={`/journal/${post.slug}`}>
           <h2>{post.title}</h2>
         </Link>
         <Date dateString={post.published} />

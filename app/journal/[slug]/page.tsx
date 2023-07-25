@@ -14,9 +14,9 @@ import BlockContent from "@/lib/components/blocks/blockContent";
 import { Metadata } from "next";
 
 export async function generateMetadata({
-  params: { slug, tag },
+  params: { slug },
 }: {
-  params: { slug: string; tag: string };
+  params: { slug: string };
 }): Promise<Metadata> {
   const meta = await ghostMetaSingle(slug);
 
@@ -28,14 +28,14 @@ export async function generateMetadata({
       type: "article",
       title: meta.og_title,
       description: meta.og_description,
-      images: [{ url: meta.og_image }],
-      url: `https://www.noleavesociety.com/journal/${tag}/${slug}`,
+      images: meta.og_image,
+      url: `https://www.noleavesociety.com/journal/${slug}`,
     },
     twitter: {
       card: "summary_large_image",
       title: meta.twitter_title,
       description: meta.twitter_description,
-      images: [{ url: meta.twitter_image }],
+      images: meta.twitter_image,
       creator: "@CompletelyJWOL",
     },
   };
@@ -45,9 +45,8 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const posts = await ghostRouteParams("post");
-  return posts.map((post: { slug: string; tag: string }) => ({
+  return posts.map((post: { slug: string }) => ({
     slug: post.slug,
-    tag: post.tag,
   }));
 }
 

@@ -9,6 +9,15 @@
     margin: 12px 0;
   }
 
+  a {
+    color: var(--primary-blue);
+    font-weight: var(--font-med-weight);
+
+    &:hover {
+      opacity: 80%;
+    }
+  }
+
   p.hasDropCap::first-letter {
     float: left;
     font-size: calc(var(--font-regular) * 4);

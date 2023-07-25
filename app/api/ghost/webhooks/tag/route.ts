@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.error();
   }
   revalidatePath("/journal");
-  revalidatePath("/journal/[tag]");
+  revalidatePath("/journal/tag/[tag]");
 
   return NextResponse.json({ post: "Well Hello There" });
 }

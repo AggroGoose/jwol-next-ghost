@@ -5,10 +5,11 @@ export async function POST(request: NextRequest) {
   if (request.ip !== process.env.WEBHOOK_URL) {
     return NextResponse.error();
   }
+
   revalidatePath("/");
   revalidatePath("/journal");
-  revalidatePath("/journal/[tag]");
-  revalidatePath("/journal/[tag]/[slug]");
+  revalidatePath("/journal/[slug]");
+  revalidatePath("/journal/tag/[tag]");
 
   return NextResponse.json({ post: "Well Hello There" });
 }

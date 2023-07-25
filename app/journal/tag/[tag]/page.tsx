@@ -24,14 +24,14 @@ export async function generateMetadata({
       type: "article",
       title: meta.og_title,
       description: meta.og_description,
-      images: [{ url: meta.og_image }],
-      url: `https://www.noleavesociety.com/journal/${tag}`,
+      images: meta.og_image,
+      url: `https://www.noleavesociety.com/journal/tag/${tag}`,
     },
     twitter: {
       card: "summary_large_image",
       title: meta.twitter_title,
       description: meta.twitter_description,
-      images: [{ url: meta.twitter_image }],
+      images: meta.twitter_image,
       creator: "@CompletelyJWOL",
     },
   };

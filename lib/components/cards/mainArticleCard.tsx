@@ -22,7 +22,7 @@ export default function MainArticleCard({
 
   return (
     <div className="main_article_card">
-      <Link href={`/journal/${post.tagSlug}/${post.slug}`}>
+      <Link href={`/journal/${post.slug}`}>
         <div className="main_article_card--feature">
           <Image src={image} alt={imageAlt} fill={true} />
         </div>
@@ -30,7 +30,7 @@ export default function MainArticleCard({
       </Link>
       {badge && (
         <div className="main_article_card--badge">
-          <Link href={`/journal/${post.tagSlug}`}>{post.tag}</Link>
+          <Link href={`/journal/tag/${post.tagSlug}`}>{post.tag}</Link>
         </div>
       )}
       <p>{post.excerpt}</p>

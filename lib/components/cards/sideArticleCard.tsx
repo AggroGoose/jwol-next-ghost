@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function SideArticleCard({ post }: { post: ResponseMore }) {
   return (
     <div className="article_side_more--card">
-      <Link href={`/journal/${post.tagSlug}/${post.slug}`}>
+      <Link href={`/journal/${post.slug}`}>
         {post.featureImg ? (
           <div className="article_side_more--grid">
             <p className="article_side_more--title">{post.title}</p>

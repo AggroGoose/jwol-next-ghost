@@ -17,7 +17,7 @@ export default function PostTags({
         <div className="article_tags--tag">
           <Link
             key={tag.slug}
-            href={`/journal/${tag.slug}`}
+            href={`/journal/tag/${tag.slug}`}
           >{`#${tag.name}`}</Link>
         </div>
       ))}

@@ -1,7 +1,5 @@
 import FeatureImage from "./featureImage";
 import PostHeadContent from "./postHeadContent";
-import PostMeta from "./postMeta";
-import PrimaryTag from "./primaryTag";
 
 export default function PostHead({
   title,
