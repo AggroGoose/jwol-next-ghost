@@ -63,11 +63,9 @@ export default async function PostPage({
 
   return (
     <>
-      <div className="post-side-grid">
+      <div className="main-site-grid">
         {/* <ArticleReactions /> */}
-        <PostSide morePosts={morePosts} />
-
-        <div className="article__main">
+        <div className="article_main">
           <PostHead
             title={post.title}
             feature_image={post.feature_image}
@@ -80,9 +78,7 @@ export default async function PostPage({
             reading_time={post.reading_time}
           />
           <PostTags tags={post.tags} />
-          <div className="article__content post-grid">
-            <BlockContent content={post.content} />
-          </div>
+          <BlockContent content={post.content} />
           {morePosts.length > 0 && (
             <MorePagePosts posts={morePosts} badge={true} />
           )}

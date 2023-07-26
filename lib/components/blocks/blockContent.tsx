@@ -23,7 +23,7 @@ export default function BlockContent({
 }) {
   const [firstPara, setFirstPara] = useState(false);
   return (
-    <>
+    <div className="block_content post-grid">
       {content.map((elem) => {
         if (elem.type === "p") {
           if (firstPara && dropCap) {
@@ -55,6 +55,6 @@ export default function BlockContent({
         if (elem.type === "markup")
           return <BlockMarkdownCard elem={elem} key={elem.id} />;
       })}
-    </>
+    </div>
   );
 }

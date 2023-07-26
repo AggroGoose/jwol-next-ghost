@@ -1,3 +1,5 @@
+@use "../mixins/media";
+
 .block_quote {
   margin: 24px 0;
   display: flex;
@@ -5,7 +7,7 @@
   gap: 16px;
 
   &--start {
-    background-color: var(--primary-blue);
+    background-color: var(--accent-color);
     height: 25px;
     width: 80px;
     align-self: flex-start;
@@ -15,12 +17,29 @@
     text-align: center;
     font-size: var(--font-larger);
     font-weight: var(--font-med-weight);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
   &--end {
-    background-color: var(--primary-blue);
+    background-color: var(--accent-color);
     height: 25px;
     width: 80px;
     align-self: flex-end;
+  }
+
+  @include media.sm {
+    &--start {
+      height: 16px;
+      width: 60px;
+    }
+    &--content {
+      font-size: var(--font-large);
+    }
+    &--end {
+      height: 16px;
+      width: 60px;
+    }
   }
 }

@@ -36,14 +36,17 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function About() {
-  const morePosts = await ghostLatestFiveGeneral();
+export default async function Disclaimer() {
   const page = await ghostPageData(slug);
 
+  const crumb = {
+    name: "Policies",
+    link: "",
+  };
+
   return (
-    <div className="page_about post-side-grid">
-      <PageMain page={page} />
-      <PostSide morePosts={morePosts} />
+    <div className="page_disclaimer main-site-grid">
+      <PageMain page={page} crumb={crumb} />
     </div>
   );
 }

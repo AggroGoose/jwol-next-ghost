@@ -37,13 +37,16 @@ export async function generateMetadata(): Promise<Metadata> {
 export const revalidate = 600;
 
 export default async function About() {
-  const morePosts = await ghostLatestFiveGeneral();
   const page = await ghostPageData(slug);
 
+  const crumb = {
+    name: "About",
+    link: "",
+  };
+
   return (
-    <div className="page_about post-side-grid">
-      <PageMain page={page} />
-      <PostSide morePosts={morePosts} />
+    <div className="page_about main-site-grid">
+      <PageMain page={page} crumb={crumb} />
     </div>
   );
 }

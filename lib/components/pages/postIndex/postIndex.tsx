@@ -1,3 +1,4 @@
+import Link from "next/link";
 import MainArticleCard from "../../cards/mainArticleCard";
 import WideArticleCard from "../../cards/wideArticleCard";
 
@@ -29,6 +30,9 @@ export default function PostIndex({
 
   return (
     <div className="post_index_posts">
+      <button className="article_head_content--primarytag">
+        <Link href="/journal">Posts</Link>
+      </button>
       <h1>{title}</h1>
       {mainPost && <WideArticleCard post={mainPost} badge={badge} />}
       {additionalPosts.length > 0 && (

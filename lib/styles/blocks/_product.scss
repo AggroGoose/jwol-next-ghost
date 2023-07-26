@@ -23,8 +23,8 @@
     }
 
     &_btn-accent {
-      background-color: var(--primary-blue);
-      color: #fff;
+      background-color: var(--accent-color);
+      color: var(--color-lightest);
     }
   }
 

@@ -12,8 +12,9 @@
 
     h4 {
       font-size: var(--font-large);
-      font-weight: var(--font-bold-weight);
-      color: var(--primary-blue);
+      font-weight: var(--font-head-weight);
+      letter-spacing: var(--font-secondary-space);
+      color: var(--accent-color);
       margin-top: 0;
       margin-bottom: 0;
     }

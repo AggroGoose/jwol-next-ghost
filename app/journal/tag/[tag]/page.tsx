@@ -57,12 +57,11 @@ export default async function TagPage({
   const tagObj = await ghostGetTag(tag);
 
   return (
-    <div className="post_index post-side-grid">
+    <div className="post_index main-site-grid">
       <PostIndex
         posts={indexPosts}
         title={`Here Are the Latest Posts from ${tagObj.name}`}
       />
-      <PostSide morePosts={morePosts} />
     </div>
   );
 }

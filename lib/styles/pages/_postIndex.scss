@@ -2,19 +2,23 @@
 
 .post_index {
   &_posts {
-    grid-column: post-start/side-start;
+    grid-column: content-start/content-end;
     display: flex;
     flex-direction: column;
     gap: 32px;
 
-    h1 {
-      color: var(--primary-blue);
-      font-size: 3rem;
+    & .article_head_content--primarytag {
+      text-align: center;
+      align-self: center;
+    }
 
-      @include media.sm {
-        font-size: 1.8rem;
-        text-align: center;
-      }
+    h1 {
+      font-size: var(--font-head1);
+      font-weight: var(--font-secondary-weight);
+      letter-spacing: var(--font-secondary-space);
+      line-height: normal;
+      color: var(--head-color);
+      text-align: center;
     }
 
     &--additional {

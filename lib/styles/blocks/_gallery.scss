@@ -34,7 +34,7 @@ $picgap: 12px;
   margin: 0 auto;
   grid-column: min-start/min-end !important;
 
-  &_wide {
+  &.block_image_wide {
     grid-column: main-start/main-end !important;
   }
 }

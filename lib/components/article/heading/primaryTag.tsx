@@ -10,7 +10,7 @@ export default function PrimaryTag({
   };
 }) {
   return (
-    <button className="article__head_content--primarytag">
+    <button className="article_head_content--primarytag">
       <Link href={`/journal/tag/${primary_tag.slug}`}>{primary_tag.name}</Link>
     </button>
   );

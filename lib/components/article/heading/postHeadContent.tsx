@@ -19,10 +19,10 @@ export default function PostHeadContent({
   };
 }) {
   return (
-    <div className="article__head_content">
+    <div className="article_head_content">
       <PrimaryTag primary_tag={primary_tag} />
       <h1>{title}</h1>
-      <p className="article__head_content--meta">
+      <p className="article_head_content--meta">
         <Date dateString={created_at} />
         {` | ${reading_time} Minute Read`}
       </p>

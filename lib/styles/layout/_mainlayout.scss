@@ -3,6 +3,7 @@
   flex-direction: column;
 
   &-content {
+    grid-column: content-start/content-end;
     min-height: 100vh;
   }
 }

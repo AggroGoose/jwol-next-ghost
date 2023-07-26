@@ -16,10 +16,10 @@
 
   &--badge {
     background-color: var(--primary-blue);
-    font-size: 0.875rem;
-    font-weight: var(--font-bold-weight);
+    font-size: var(--font-smaller);
+    font-weight: var(--font-head-weight);
     font-family: var(--font-secondary);
-    letter-spacing: 0.06em;
+    letter-spacing: var(--font-badge-space);
     color: white;
     text-transform: uppercase;
     line-height: normal;
@@ -31,9 +31,11 @@
   }
 
   h2 {
-    font-size: var(--font-large);
-    font-weight: var(--font-bold-weight);
-    color: var(--primary-blue);
+    font-size: var(--font-head3);
+    font-weight: var(--font-head-weight);
+    letter-spacing: var(--font-secondary-space);
+    color: var(--head-color);
+    line-height: normal;
   }
 
   p {
@@ -47,7 +49,7 @@
 
     &.main_article_card--read {
       font-size: var(--font-small);
-      color: var(--primary-blue);
+      color: var(--accent-color);
       font-weight: var(--font-bold-weight);
     }
   }
@@ -60,7 +62,7 @@
   time {
     font-size: var(--font-small);
     font-weight: var(--font-bold-weight);
-    color: var(--primary-blue);
+    color: var(--accent-color);
     font-style: italic;
   }
 
@@ -106,12 +108,12 @@
   position: relative;
 
   &--badge {
-    background-color: var(--primary-blue);
+    background-color: var(--badge-color);
     font-size: var(--font-smaller);
-    font-weight: var(--font-bold-weight);
+    font-weight: var(--font-head-weight);
     font-family: var(--font-secondary);
-    letter-spacing: 0.06em;
-    color: white;
+    letter-spacing: var(--font-badge-space);
+    color: var(--color-lightest);
     text-transform: uppercase;
     line-height: normal;
     padding: 4px 12px;
@@ -128,15 +130,17 @@
     gap: 24px;
 
     h2 {
-      font-size: 2.4rem;
-      color: var(--primary-blue);
+      font-size: var(--font-head2);
+      color: var(--head-color);
+      letter-spacing: var(--font-secondary-space);
+      line-height: normal;
     }
 
     time {
       grid-column: left/mid;
       font-size: var(--font-regular);
       font-weight: var(--font-bold-weight);
-      color: var(--primary-blue);
+      color: var(--accent-color);
       font-style: italic;
     }
 
@@ -154,7 +158,7 @@
         grid-column: mid/right;
         justify-self: right;
         font-size: var(--font-small);
-        color: var(--primary-blue);
+        color: var(--accent-color);
         font-weight: var(--font-bold-weight);
       }
     }

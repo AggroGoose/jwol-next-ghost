@@ -1,13 +1,19 @@
+@use "../mixins/media";
+
 .main-footer {
   margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  background-color: black;
-  color: white;
-  width: 100vw;
+  display: none;
+  background-color: var(--color-darkest);
+  color: var(--color-lightest);
+  width: 100%;
   padding: 32px;
   align-items: center;
+
+  @include media.lg {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 
   a {
     line-height: 1;
@@ -24,7 +30,7 @@
     svg {
       height: 40px;
       width: 40px;
-      fill: white;
+      fill: currentColor;
     }
   }
 
@@ -37,7 +43,7 @@
   }
 
   &--cr {
-    font-size: 0.875rem;
+    font-size: var(--font-tiny);
     text-align: center;
   }
 }

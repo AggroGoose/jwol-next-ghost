@@ -27,7 +27,7 @@ export default function PostHead({
   };
 }) {
   return (
-    <div className="article__head">
+    <div className="article_head">
       <PostHeadContent
         created_at={created_at}
         excerpt={excerpt}

@@ -1,6 +1,6 @@
 @use "../mixins/media";
 
-.article__content {
+.block_content {
   > * {
     grid-column: main-start/main-end;
   }
@@ -10,8 +10,8 @@
   }
 
   a {
-    color: var(--primary-blue);
-    font-weight: var(--font-med-weight);
+    color: var(--link-color);
+    font-weight: var(--font-link-weight);
 
     &:hover {
       opacity: 80%;
@@ -34,15 +34,19 @@
 
       &::marker {
         font-weight: var(--font-bold-weight);
-        color: var(--primary-blue);
+        color: var(--accent-color);
       }
     }
   }
 
+  h2 {
+    font-size: var(--font-head2);
+  }
+
   h2,
   h3 {
-    font-weight: var(--font-bold-weight);
-    color: var(--primary-blue);
-    letter-spacing: 0.01em;
+    font-weight: var(--font-head-weight);
+    letter-spacing: var(--font-secondary-space);
+    color: var(--head-color);
   }
 }

@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 15px;
-  background-color: #374151;
+  background-color: var(--banner-color);
   font-size: var(--font-small);
 
   @include media.md {
@@ -32,7 +32,7 @@
 
     a {
       font-weight: var(--font-bold-weight);
-      color: #38bdf8;
+      color: var(--link-color);
     }
   }
 
@@ -43,12 +43,12 @@
     &--decline {
       padding: 4px 16px;
       border-radius: 10px;
-      background-color: #374151;
-      color: #d1d5db;
-      border: 1px solid #111827;
+      background-color: var(--banner-color);
+      color: var(--color-lightest);
+      border: 1px solid var(--banner-dark);
 
       &:hover {
-        background-color: #4b5563;
+        background-color: var(--banner-med);
       }
     }
 
@@ -56,11 +56,11 @@
       padding: 4px 16px;
       border-radius: 10px;
       border-radius: 15px;
-      background-color: #111827;
-      color: white;
-      border: 1px solid #4b5563;
+      background-color: var(--banner-dark);
+      color: var(--color-lightest);
+      border: 1px solid var(--banner-med);
       &:hover {
-        background-color: #1f2937;
+        background-color: var(--color-darkest);
       }
     }
   }

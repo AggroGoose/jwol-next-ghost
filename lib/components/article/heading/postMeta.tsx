@@ -10,7 +10,7 @@ export default function PostMeta({
   reading_time: number;
 }) {
   return (
-    <div className="article__meta">
+    <div className="article_meta">
       <p>
         <strong>Published: </strong>
         <em>
@@ -21,7 +21,7 @@ export default function PostMeta({
           <Date dateString={updated_at} />{" "}
         </em>
         |{" "}
-        <span className="article__meta--readtime">{`${reading_time} minute read`}</span>
+        <span className="article_meta--readtime">{`${reading_time} minute read`}</span>
       </p>
     </div>
   );

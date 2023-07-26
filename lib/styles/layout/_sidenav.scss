@@ -1,0 +1,80 @@
+@use "../mixins/media";
+
+.side_nav {
+  grid-column: side-start/content-start;
+  background-color: var(--color-darkest);
+  width: var(--sidenav-width);
+  height: 100vh;
+  color: var(--color-lightest);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: fixed;
+  top: 0;
+
+  @include media.lg {
+    display: none;
+  }
+
+  button {
+    background: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 16px 0;
+    margin: 0;
+  }
+
+  &--logo {
+    svg {
+      height: 60px;
+      aspect-ratio: 2/1;
+      fill: var(--color-lightest);
+    }
+
+    @include media.sm {
+      svg {
+        height: 40px;
+      }
+    }
+  }
+
+  &_top {
+    width: 100%;
+    line-height: 0;
+    height: var(--header-height);
+  }
+
+  &_main {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      &.side_nav_main--category {
+        font-size: var(--font-head3);
+        font-weight: var(--font-head-weight);
+        font-family: var(--font-secondary);
+        letter-spacing: var(--font-secondary-space);
+      }
+
+      &.side_nav_main--submenu {
+        font-size: var(--font-small);
+        font-weight: var(--font-med-weight);
+        padding-left: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      li {
+        padding: 0;
+      }
+    }
+  }
+}

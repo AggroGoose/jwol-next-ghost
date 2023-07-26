@@ -9,42 +9,9 @@
     gap: 24px;
 
     h1 {
-      font-size: 2.5rem;
-      color: var(--primary-blue);
-
-      @include media.sm {
-        font-size: 1.8rem;
-        text-align: center;
-      }
-    }
-
-    h2 {
-      color: var(--primary-blue);
-      font-size: var(--font-larger);
-    }
-
-    &--content {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-
-      b {
-        color: var(--primary-blue);
-      }
-    }
-
-    &--imageblock {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-
-      img {
-        border-radius: 100%;
-      }
-
-      @include media.sm {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      text-align: center;
+      color: var(--head-color);
+      font-size: var(--font-head1);
     }
   }
 }
