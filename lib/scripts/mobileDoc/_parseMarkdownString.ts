@@ -27,24 +27,29 @@ export default function parseMarkdownString(
 
 // Due to the size of the identify Objects logic and to make it a bit more modular for future expansions, I split it into its own function below.
 
+type IdedObject = {
+  type: "ol" | "ul" | "blockquote";
+  id: number;
+  content: { id: number; content: string }[];
+  author?: string;
+};
+
 function identifyObjects(markdownArray: string[]) {
-  const identifiedObjects: Array<{
-    type: "ol" | "ul" | "blockquote";
-    id: number;
-    content: { id: number; content: string }[];
-  }> = [];
+  const identifiedObjects: Array<IdedObject> = [];
 
   // As the for loop iterates over the strings, we will have an array for each type we're collecting in order to group like items. These are 'mutable' objects because once the loop detects we're looking at a new object, we want to push the below arrays to the identified objects array and reset. This is in case we have multiple groups of an object in a markdown string. It's not common behavior for me to write a markdown card with multiple instances of a markup type, but we want to future proof this in case we find more use cases for markdown cards.
 
   let orderedArray: { id: number; content: string }[] = [];
   let unOrderedArray: { id: number; content: string }[] = [];
   let quoteArray: { id: number; content: string }[] = [];
+  let author: string | null;
 
   // Regex patterns for identifying 'setofnumbers. ' '- ' or '> ' at the start of a string for Ol, Ul, or Quote.
 
   const olPattern = /^[0-9]*[\.]\s/;
   const ulPattern = /^[-]\s/;
   const quotePattern = /^[>]\s/;
+  const authorPattern = /^[>]{2}\s/;
 
   type TypeIndicator = "ol" | "ul" | "quote" | null;
 
@@ -53,12 +58,15 @@ function identifyObjects(markdownArray: string[]) {
   function typeChange(newType: TypeIndicator) {
     lastType = newType;
     if (quoteArray.length > 0) {
-      identifiedObjects.push({
+      const quoteObj: IdedObject = {
         type: "blockquote",
         id: quoteArray[0].id,
         content: quoteArray,
-      });
+      };
+      if (author) quoteObj.author = author;
+      identifiedObjects.push(quoteObj);
       quoteArray = [];
+      author = null;
     }
     if (orderedArray.length > 0) {
       identifiedObjects.push({
@@ -93,10 +101,15 @@ function identifyObjects(markdownArray: string[]) {
       unOrderedArray.push({ id: i, content: outputString[1] });
       continue;
     }
-    if (quotePattern.test(mdString)) {
+    if (quotePattern.test(mdString) || authorPattern.test(mdString)) {
       if (lastType !== "quote") typeChange("quote");
-      const outputString = mdString.split(quotePattern);
-      quoteArray.push({ id: i, content: outputString[1] });
+      if (quotePattern.test(mdString)) {
+        const outputString = mdString.split(quotePattern);
+        quoteArray.push({ id: i, content: outputString[1] });
+      } else if (authorPattern.test(mdString)) {
+        const outputString = mdString.split(authorPattern);
+        author = outputString[1];
+      }
       continue;
     }
   }
@@ -161,6 +174,7 @@ function createQuoteObject(
     type: "blockquote";
     id: number;
     content: { id: number; content: string }[];
+    author?: string;
   },
   index: number
 ) {
@@ -169,6 +183,8 @@ function createQuoteObject(
     id: index,
     content: [],
   };
+
+  if (quote.author) quoteObject.author = quote.author;
 
   for (let i = 0; i < quote.content.length; i++) {
     const { content } = quote.content[i];

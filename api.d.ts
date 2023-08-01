@@ -120,7 +120,7 @@ type ResponsePage = {
   created_at: string;
   updated_at: string;
   excerpt: string;
-  content: BlockArray;
+  content: BlockObject;
 };
 
 interface ResponsePost extends ResponsePage {

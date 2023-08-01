@@ -25,6 +25,18 @@ export default function mdCardtoBlock(
     return callOutObj;
   }
 
+  if (type === "button") {
+    const btnData = card[1];
+    const btnObject: BlockButtonCard = {
+      id: i,
+      type: "button",
+      label: btnData.buttonText,
+      url: btnData.buttonUrl,
+    };
+
+    return btnObject;
+  }
+
   if (type === "markdown") {
     const mdData = card[1].markdown;
     const mdObject = parseMarkdownString(mdData, i);

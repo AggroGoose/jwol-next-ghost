@@ -39,14 +39,11 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Cookies() {
   const page = await ghostPageData(slug);
 
-  const crumb = {
-    name: "Policies",
-    link: "",
-  };
+  const links = [{ title: "Policy", slug: "#" }];
 
   return (
     <div className="page_cookies main-site-grid">
-      <PageMain page={page} crumb={crumb} />
+      <PageMain page={page} links={links} />
     </div>
   );
 }

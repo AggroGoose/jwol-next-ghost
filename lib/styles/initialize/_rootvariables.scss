@@ -3,8 +3,8 @@
 :root {
   --color-lightest: #fff;
   --color-darkest: #140003;
-  --primary-blue: #4200ad;
-  --primary-ruby: #dd3344;
+  --primary-blue: #3c0397;
+  --primary-ruby: #db2033;
   --primary-blue-rgb: 17, 0, 124;
 
   // Font Variables
@@ -16,7 +16,7 @@
   --head-color: var(--color-darkest);
   --link-color: var(--primary-ruby);
   --accent-color: var(--primary-ruby);
-  --badge-color: var(--primary-blue);
+  --accent-alt-color: var(--primary-blue);
   --banner-color: #374151;
   --banner-med: #4b5563;
   --banner-dark: #111827;

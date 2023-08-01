@@ -1,3 +1,5 @@
+import headerDataParse from "./_headerParse";
+
 export default function mdTexttoBlock(
   textObject: MDSectionText,
   i: number,
@@ -7,13 +9,33 @@ export default function mdTexttoBlock(
 
   const content = parseRichTextArray(children, markupArray);
 
-  const textObj: BlockTextCard = {
-    type,
-    content,
-    id: i,
-  };
+  let textObj: BlockTextCard | BlockHeadCard;
+  let headObj: BlockTOCObject | null = null;
 
-  return textObj;
+  if (type === "p") {
+    textObj = {
+      type,
+      content,
+      id: i,
+    };
+  } else {
+    const { tag, plainText } = headerDataParse(content);
+    textObj = {
+      type,
+      content,
+      tag,
+      id: i,
+    };
+    if (type === "h2") {
+      headObj = {
+        id: i,
+        tag,
+        title: plainText,
+      };
+    }
+  }
+
+  return { headObj, textObj };
 }
 
 //Separated this section into its own exported function because mobiledoc List objects also contain Rich Text Arrays.
@@ -68,7 +90,7 @@ function findMarks(markers: number[], markups: MDMarkupArray) {
   let link: { url: string; internal: boolean } | null = null;
 
   for (let i = 0; i < markers.length; i++) {
-    const mark = markups[i];
+    const mark = markups[markers[i]];
 
     /* An 'a' type markup is the only markup that would include a secondary item in the array object. This secondary item is an array of attributes. Every even numbered index attribute (a[0], a[2], etc...) is the attribute label, while the odd numbered index attributes are the value. 
     
@@ -76,8 +98,12 @@ function findMarks(markers: number[], markups: MDMarkupArray) {
 
     if (mark[0] === "a") {
       const objUrl = mark[1][1];
-      link = { url: objUrl, internal: true };
-      if (/(www.noleavesociety)/.test(objUrl)) link.internal = true;
+      link = { url: objUrl, internal: false };
+      if (/(www.noleavesociety)/.test(objUrl)) {
+        link.internal = true;
+        link.url = objUrl.replace("https://www.noleavesociety.com", "");
+      }
+      if (/^\#/.test(objUrl)) link.internal = true;
       continue;
     }
     if (mark[0] === "b" || mark[0] === "strong") {

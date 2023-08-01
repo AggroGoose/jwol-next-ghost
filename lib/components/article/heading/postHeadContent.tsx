@@ -1,5 +1,6 @@
 import Date from "@/lib/components/helpers/date";
 import PrimaryTag from "./primaryTag";
+import PageBadge from "../../badges/pageBadge";
 
 export default function PostHeadContent({
   title,
@@ -20,7 +21,14 @@ export default function PostHeadContent({
 }) {
   return (
     <div className="article_head_content">
-      <PrimaryTag primary_tag={primary_tag} />
+      <PageBadge
+        links={[
+          {
+            slug: `/journal/tag/${primary_tag.slug}`,
+            title: primary_tag.name,
+          },
+        ]}
+      />
       <h1>{title}</h1>
       <p className="article_head_content--meta">
         <Date dateString={created_at} />

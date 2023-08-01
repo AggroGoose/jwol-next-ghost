@@ -1,3 +1,13 @@
+type BlockObject = {
+  content: BlockArray;
+  toc: BlockTOCArray;
+};
+type BlockTOCArray = Array<BlockTOCObject>;
+type BlockTOCObject = {
+  id: number | string;
+  title: string;
+  tag: string;
+};
 type BlockArray = Array<
   | BlockEmbedCard
   | BlockCalloutCard
@@ -11,7 +21,15 @@ type BlockArray = Array<
   | BlockListCard
   | BlockMarkupCard
   | BlockQuoteCard
+  | BlockButtonCard
+  | BlockHeadCard
 >;
+type BlockButtonCard = {
+  id: number | string;
+  type: "button";
+  label: string;
+  url: string;
+};
 type BlockEmbedCard = {
   id: number | string;
   type: "embed";
@@ -81,14 +99,20 @@ type BlockToggleCard = {
 };
 type BlockTextCard = {
   id: number | string;
-  type: "h1" | "h2" | "h3" | "h4" | "p";
+  type: "p";
+  content: BlockRichTextArr;
+};
+type BlockHeadCard = {
+  id: number | string;
+  type: "h1" | "h2" | "h3" | "h4";
+  tag: string;
   content: BlockRichTextArr;
 };
 type BlockQuoteCard = {
   id: number | string;
   type: "blockquote";
   content: Array<BlockRichTextArr>;
-  author?: BlockRichTextArr;
+  author?: string;
 };
 type BlockListCard = {
   id: number | string;

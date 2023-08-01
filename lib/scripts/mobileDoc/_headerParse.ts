@@ -1,12 +1,12 @@
-export default function headerIdParse(array: BlockRichTextArr) {
-  if (array.length === 0) return "";
+export default function headerDataParse(array: BlockRichTextArr) {
+  if (array.length === 0) return { tag: "", plainText: "" };
   if (array.length === 1) {
     const initialString = array[0].content;
     const parsedString = initialString
       .toLowerCase()
       .replace(/[^a-z0-9 ]/g, "")
       .replace(/\W/g, "-");
-    return parsedString;
+    return { tag: parsedString, plainText: initialString };
   }
 
   const stringArray: string[] = [];
@@ -18,5 +18,5 @@ export default function headerIdParse(array: BlockRichTextArr) {
     .replace(/[^a-z0-9 ]/g, "")
     .replace(/\W/g, "-");
 
-  return parsedString;
+  return { tag: parsedString, plainText: combinedString };
 }

@@ -5,6 +5,7 @@ import { mdCardtoBlock, mdListtoBlock, mdTexttoBlock } from "./mobileDoc/";
 export function parseMD(mobileDocObject: MDObject) {
   const { atoms, cards, markups, sections } = mobileDocObject;
   const blockArray: BlockArray = [];
+  const headArray: BlockTOCArray = [];
 
   //The sections array contains all the text objects like p, h tags, and blockquotes, list objects, and then placeholder objects for objects in the card section. To build our block array, we will parse over this array.
 
@@ -14,8 +15,10 @@ export function parseMD(mobileDocObject: MDObject) {
     //May eventually integrate 'BlockQuote' functionality in its own condition, but presently Blockquotes are generated via markdown cards.
 
     if (object[0] === 1 && object[1] !== "blockquote") {
-      const textObj = mdTexttoBlock(object, i, markups);
+      const data = mdTexttoBlock(object, i, markups);
+      const { textObj, headObj } = data;
       blockArray.push(textObj);
+      if (headObj) headArray.push(headObj);
       continue;
     }
     if (object[0] === 3) {
@@ -33,5 +36,10 @@ export function parseMD(mobileDocObject: MDObject) {
     }
   }
 
-  return blockArray;
+  const blockObject: BlockObject = {
+    content: blockArray,
+    toc: headArray,
+  };
+
+  return blockObject;
 }

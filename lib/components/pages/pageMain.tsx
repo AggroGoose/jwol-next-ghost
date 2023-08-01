@@ -1,20 +1,20 @@
+import PageBadge from "../badges/pageBadge";
 import BlockContent from "../blocks/blockContent";
 
 export default function PageMain({
   page,
-  crumb,
+  links,
 }: {
   page: ResponsePage;
-  crumb: { name: string; link: string };
+  links: Array<{ title: string; slug: string }>;
 }) {
+  const { content, toc } = page.content;
   return (
     <div className="page_main">
-      <button className="article_head_content--primarytag">
-        <a href="#">{crumb.name}</a>
-      </button>
+      <PageBadge links={links} />
       <h1>{page.title}</h1>
       <div className="block_content post-grid">
-        <BlockContent content={page.content} />
+        <BlockContent content={content} />
       </div>
     </div>
   );

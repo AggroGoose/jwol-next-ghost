@@ -1,15 +1,18 @@
 import Link from "next/link";
 import MainArticleCard from "../../cards/mainArticleCard";
 import WideArticleCard from "../../cards/wideArticleCard";
+import PageBadge from "../../badges/pageBadge";
 
 export default function PostIndex({
   posts,
   title,
   badge = false,
+  links,
 }: {
   posts: ResponseMore[];
   title: string;
   badge?: boolean;
+  links: Array<{ slug: string; title: string }>;
 }) {
   if (!(posts.length > 0)) {
     return (
@@ -30,9 +33,7 @@ export default function PostIndex({
 
   return (
     <div className="post_index_posts">
-      <button className="article_head_content--primarytag">
-        <Link href="/journal">Posts</Link>
-      </button>
+      <PageBadge links={links} />
       <h1>{title}</h1>
       {mainPost && <WideArticleCard post={mainPost} badge={badge} />}
       {additionalPosts.length > 0 && (

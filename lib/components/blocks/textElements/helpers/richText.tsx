@@ -2,26 +2,34 @@ import Link from "next/link";
 
 export default function RichText({ elem }: { elem: BlockRichText }) {
   return (
-    <LinkCheck elem={elem}>
-      <EmphasisCheck elem={elem}>{elem.content}</EmphasisCheck>
-    </LinkCheck>
+    <>
+      {elem.link && (
+        <LinkObj link={elem.link}>
+          <EmphasisCheck elem={elem}>{elem.content}</EmphasisCheck>
+        </LinkObj>
+      )}
+      {!elem.link && <EmphasisCheck elem={elem}>{elem.content}</EmphasisCheck>}
+    </>
   );
 }
 
-function LinkCheck({
+function LinkObj({
+  link,
   children,
-  elem,
 }: {
   children: React.ReactNode;
-  elem: BlockRichText;
+  link: {
+    url: string;
+    internal: boolean;
+  };
 }) {
-  if (elem.link) {
-    const { url, internal } = elem.link;
-    if (internal) return <Link href={url}>{children}</Link>;
-    return <a href={url}>{children}</a>;
-  } else {
-    return <>{children}</>;
-  }
+  const { url, internal } = link;
+  if (internal) return <Link href={url}>{children}</Link>;
+  return (
+    <a href={url} target="_blank">
+      {children}
+    </a>
+  );
 }
 
 function EmphasisCheck({

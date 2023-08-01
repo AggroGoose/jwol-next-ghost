@@ -8,7 +8,6 @@ export default function BlockProduct({ elem }: { elem: BlockProductCard }) {
     for (let i = 0; i < 5; i++) {
       if (i <= rateCount) {
         rating.push({ star: true, key: i });
-        rateCount--;
       } else {
         rating.push({ star: false, key: i });
       }
@@ -52,7 +51,7 @@ export default function BlockProduct({ elem }: { elem: BlockProductCard }) {
           </div>
         )}
         <div
-          className="block_product-description"
+          className="block_product_description"
           dangerouslySetInnerHTML={{ __html: elem.description }}
         />
         {elem.buttonEnabled && (

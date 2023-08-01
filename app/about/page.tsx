@@ -39,14 +39,11 @@ export const revalidate = 600;
 export default async function About() {
   const page = await ghostPageData(slug);
 
-  const crumb = {
-    name: "About",
-    link: "",
-  };
+  const links = [{ title: "About", slug: "/about" }];
 
   return (
     <div className="page_about main-site-grid">
-      <PageMain page={page} crumb={crumb} />
+      <PageMain page={page} links={links} />
     </div>
   );
 }

@@ -16,6 +16,23 @@
     &:hover {
       opacity: 80%;
     }
+
+    &.block_button {
+      justify-content: center;
+      grid-column: min-start/min-end;
+      margin: 0 auto;
+      width: max-content;
+      font-size: var(--font-small);
+      border-radius: 5px;
+      padding: 8px 16px;
+      transition: opacity 0.2s ease-in-out;
+      background-color: var(--accent-color);
+      color: var(--color-lightest);
+
+      &:hover {
+        opacity: 85%;
+      }
+    }
   }
 
   p.hasDropCap::first-letter {
@@ -34,7 +51,15 @@
 
       &::marker {
         font-weight: var(--font-bold-weight);
-        color: var(--accent-color);
+        color: var(--accent-alt-color);
+      }
+    }
+
+    @include media.sm {
+      margin-left: 4px;
+
+      > li {
+        padding-left: 4px;
       }
     }
   }
@@ -48,5 +73,61 @@
     font-weight: var(--font-head-weight);
     letter-spacing: var(--font-secondary-space);
     color: var(--head-color);
+    line-height: 1;
+  }
+}
+
+.block_toc {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  h2 {
+    line-height: 1;
+  }
+
+  ol {
+    margin: 0;
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li {
+      color: var(--accent-alt-color);
+      font-weight: var(--font-link-weight);
+      padding-left: 12px;
+
+      &::marker {
+        color: var(--color-darkest);
+        font-weight: var(--font-bold-weight);
+      }
+
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+
+    @include media.sm {
+      padding-left: 32px;
+
+      li {
+        padding-left: 6px;
+      }
+    }
+  }
+
+  &_return {
+    text-align: center;
+    font-size: var(--font-smaller);
+    font-weight: var(--font-med-weight);
+    font-style: italic;
+    a {
+      color: var(--accent-alt-color);
+
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
   }
 }

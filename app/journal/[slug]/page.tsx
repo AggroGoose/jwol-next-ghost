@@ -14,6 +14,7 @@ import {
 import MorePagePosts from "@/lib/components/article/main/morePagePosts";
 import BlockContent from "@/lib/components/blocks/blockContent";
 import { Metadata } from "next";
+import TableofContents from "@/lib/components/blocks/tableOfContents";
 
 export const revalidate = 600;
 
@@ -61,6 +62,8 @@ export default async function PostPage({
   const morePosts = await ghostLatestFiveGeneral(slug);
   const tagPosts = await ghostLatestFiveforTag(post.primary_tag.slug, slug);
 
+  const { content, toc } = post.content;
+
   return (
     <>
       <div className="main-site-grid">
@@ -78,7 +81,8 @@ export default async function PostPage({
             reading_time={post.reading_time}
           />
           <PostTags tags={post.tags} />
-          <BlockContent content={post.content} />
+          <TableofContents toc={toc} />
+          <BlockContent content={content} dropCap={true} />
           {morePosts.length > 0 && (
             <MorePagePosts posts={morePosts} badge={true} />
           )}

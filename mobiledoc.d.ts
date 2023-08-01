@@ -19,9 +19,14 @@ type MDCardArray = Array<
   | MDCardProduct
   | MDCardAudio
   | MDCardHR
+  | MDButtonCard
 >;
 type MDCardToggle = ["toggle", { heading: string; content: string }];
 type MDCardMarkdown = ["markdown", { markdown: string }];
+type MDButtonCard = [
+  "button",
+  { alignment: string; buttonUrl: string; buttonText: string }
+];
 type MDCardEmbed = [
   "embed",
   {

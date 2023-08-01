@@ -1,0 +1,23 @@
+.page_top_badge {
+  background-color: var(--accent-color);
+  border: none;
+  padding: 8px 16px 6px;
+  text-transform: uppercase;
+  font-size: var(--font-head3);
+  font-weight: var(--font-secondary-weight);
+  letter-spacing: var(--font-head-space);
+  font-family: var(--font-secondary);
+  color: var(--color-lightest);
+  line-height: 1;
+  width: max-content;
+  transition: opacity 0.2s ease-in-out;
+
+  a {
+    display: inline-block;
+    color: inherit;
+  }
+
+  &:hover {
+    opacity: 85%;
+  }
+}

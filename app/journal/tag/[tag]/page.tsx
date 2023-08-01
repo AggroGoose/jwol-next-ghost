@@ -55,12 +55,14 @@ export default async function TagPage({
   const morePosts = await ghostLatestFiveGeneral();
   const indexPosts = await ghostPostsforIndex(tag);
   const tagObj = await ghostGetTag(tag);
+  const links = [{ title: "Posts", slug: "/journal" }];
 
   return (
     <div className="post_index main-site-grid">
       <PostIndex
         posts={indexPosts}
         title={`Here Are the Latest Posts from ${tagObj.name}`}
+        links={links}
       />
     </div>
   );

@@ -16,10 +16,12 @@ export default function NavMenu() {
           <Link href="/journal/tag/travel">Travel</Link>
         </li>
         <li>
-          <a href="#">Food</a>
+          <Link href="/journal/tag/food">Food</Link>
         </li>
         <li>
-          <a href="#">Stories</a>
+          <a className="isDisabled" href="#">
+            Stories (Soon)
+          </a>
         </li>
       </ul>
       <ul className="side_nav_main--category">

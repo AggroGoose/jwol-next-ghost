@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import BlockAudio from "./audio/blockAudio";
 import BlockCallout from "./callout/blockCallout";
 import BlockGallery from "./images/galleryCard";
@@ -13,6 +13,7 @@ import BlockParagraph from "./textElements/blockParagraph";
 import BlockList from "./textElements/blockList";
 import BlockQuote from "./textElements/blockQuote";
 import BlockMarkdownCard from "./markdown/blockMarkdown";
+import BlockButton from "./button/blockBtn";
 
 export default function BlockContent({
   content,
@@ -21,19 +22,28 @@ export default function BlockContent({
   content: BlockArray;
   dropCap?: boolean;
 }) {
-  const [firstPara, setFirstPara] = useState(false);
+  const firstPara = useRef(true);
+  const firstH2 = useRef(true);
+
   return (
     <div className="block_content post-grid">
       {content.map((elem) => {
         if (elem.type === "p") {
-          if (firstPara && dropCap) {
-            setFirstPara(false);
+          if (firstPara.current && dropCap) {
+            firstPara.current = false;
             return <BlockParagraph elem={elem} dropCap={true} key={elem.id} />;
           }
           return <BlockParagraph elem={elem} key={elem.id} />;
         }
-        if (/(h1)|(h2)|(h3)|(h4)/.test(elem.type))
-          return <BlockHeaders elem={elem as BlockTextCard} key={elem.id} />;
+        if (elem.type === "h2") {
+          if (firstH2.current) {
+            firstH2.current = false;
+            return <BlockHeaders elem={elem} firstH2={true} key={elem.id} />;
+          }
+          return <BlockHeaders elem={elem} firstH2={false} key={elem.id} />;
+        }
+        if (/(h1)|(h3)|(h4)/.test(elem.type))
+          return <BlockHeaders elem={elem as BlockHeadCard} key={elem.id} />;
         if (/(ul)|(ol)/.test(elem.type))
           return <BlockList elem={elem as BlockListCard} key={elem.id} />;
         if (elem.type === "blockquote")
@@ -54,6 +64,8 @@ export default function BlockContent({
           return <BlockToggle elem={elem} key={elem.id} />;
         if (elem.type === "markup")
           return <BlockMarkdownCard elem={elem} key={elem.id} />;
+        if (elem.type === "button")
+          return <BlockButton block={elem} key={elem.id} />;
       })}
     </div>
   );

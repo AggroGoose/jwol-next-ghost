@@ -74,6 +74,17 @@
 
       li {
         padding: 0;
+
+        a {
+          &:not(.isDisabled):hover {
+            color: var(--accent-color);
+          }
+          &.isDisabled {
+            opacity: 40%;
+            pointer-events: none;
+            cursor: auto;
+          }
+        }
       }
     }
   }
