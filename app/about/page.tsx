@@ -43,7 +43,7 @@ export default async function About() {
 
   return (
     <div className="page_about main-site-grid">
-      <PageMain page={page} links={links} />
+      <PageMain page={page} links={links} disableToc={true} />
     </div>
   );
 }

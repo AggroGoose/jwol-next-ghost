@@ -4,9 +4,11 @@ import RichText from "./helpers/richText";
 export default function BlockHeaders({
   elem,
   firstH2 = true,
+  disableToc = false,
 }: {
   elem: BlockHeadCard;
   firstH2?: boolean;
+  disableToc?: boolean;
 }) {
   const { type, content, tag } = elem;
   const mappedContent = content.map((block, i) => (
@@ -15,7 +17,7 @@ export default function BlockHeaders({
 
   if (type === "h1") return <h1 id={tag}>{mappedContent}</h1>;
   if (type === "h2") {
-    if (firstH2) {
+    if (firstH2 || disableToc) {
       return <h2 id={tag}>{mappedContent}</h2>;
     } else {
       return (

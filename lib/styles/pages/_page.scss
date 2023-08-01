@@ -6,9 +6,19 @@
   flex-direction: column;
   gap: 24px;
 
-  & .article_head_content--primarytag {
+  & .page_top_badge {
     text-align: center;
     align-self: center;
+  }
+
+  &_updated {
+    align-self: center;
+    font-size: var(--font-large);
+    line-height: 1;
+
+    span {
+      font-weight: var(--font-bold-weight);
+    }
   }
 
   h1 {
@@ -17,6 +27,6 @@
     font-weight: var(--font-head-weight);
     font-size: var(--font-head1);
     letter-spacing: var(--font-secondary-space);
-    line-height: normal;
+    line-height: 1;
   }
 }

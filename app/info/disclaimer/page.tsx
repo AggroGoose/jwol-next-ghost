@@ -3,7 +3,6 @@ import {
   ghostMetaSingle,
 } from "@/lib/api/server/ghostServer";
 import { ghostPageData } from "@/lib/api/server/ghostServer/_ghostPage";
-import PostSide from "@/lib/components/article/side/postSide";
 import PageMain from "@/lib/components/pages/pageMain";
 import { Metadata } from "next";
 
@@ -43,7 +42,7 @@ export default async function Disclaimer() {
 
   return (
     <div className="page_disclaimer main-site-grid">
-      <PageMain page={page} links={links} />
+      <PageMain page={page} links={links} includeUpdate={true} />
     </div>
   );
 }

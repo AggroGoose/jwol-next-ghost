@@ -18,9 +18,11 @@ import BlockButton from "./button/blockBtn";
 export default function BlockContent({
   content,
   dropCap = false,
+  disableToc = false,
 }: {
   content: BlockArray;
   dropCap?: boolean;
+  disableToc?: boolean;
 }) {
   const firstPara = useRef(true);
   const firstH2 = useRef(true);
@@ -38,9 +40,23 @@ export default function BlockContent({
         if (elem.type === "h2") {
           if (firstH2.current) {
             firstH2.current = false;
-            return <BlockHeaders elem={elem} firstH2={true} key={elem.id} />;
+            return (
+              <BlockHeaders
+                elem={elem}
+                disableToc={disableToc}
+                firstH2={true}
+                key={elem.id}
+              />
+            );
           }
-          return <BlockHeaders elem={elem} firstH2={false} key={elem.id} />;
+          return (
+            <BlockHeaders
+              elem={elem}
+              disableToc={disableToc}
+              firstH2={false}
+              key={elem.id}
+            />
+          );
         }
         if (/(h1)|(h3)|(h4)/.test(elem.type))
           return <BlockHeaders elem={elem as BlockHeadCard} key={elem.id} />;
