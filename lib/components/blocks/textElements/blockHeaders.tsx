@@ -15,7 +15,6 @@ export default function BlockHeaders({
 
   if (type === "h1") return <h1 id={tag}>{mappedContent}</h1>;
   if (type === "h2") {
-    console.log(tag + ": " + firstH2);
     if (firstH2) {
       return <h2 id={tag}>{mappedContent}</h2>;
     } else {
