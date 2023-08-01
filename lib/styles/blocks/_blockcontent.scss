@@ -32,6 +32,12 @@
       &:hover {
         opacity: 85%;
       }
+
+      @include media.sm {
+        width: 100%;
+        text-align: center;
+        grid-column: main-start/main-end;
+      }
     }
   }
 
