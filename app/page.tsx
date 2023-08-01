@@ -33,6 +33,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const indexPosts = await ghostPostsforIndex();
+  const links = [{ title: "Home", slug: "/" }];
 
   return (
     <div className="post_index main-site-grid">
@@ -40,6 +41,7 @@ export default async function Home() {
         posts={indexPosts}
         title={"Here Are the Latest Posts"}
         badge={true}
+        links={links}
       />
     </div>
   );
