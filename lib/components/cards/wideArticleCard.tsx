@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Date from "../helpers/date";
+import { BLOG_ROUTE, TAG_ROUTE } from "@/lib/utils/constants";
 
 export default function WideArticleCard({
   post,
@@ -21,19 +22,25 @@ export default function WideArticleCard({
   }
   return (
     <div className="article_card_wide">
-      <Link href={`/journal/${post.slug}`}>
+      <Link href={`${BLOG_ROUTE}/${post.slug}`}>
         <div className="article_card_wide--feature">
-          <Image src={image} alt={imageAlt} fill={true} />
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill={true}
+            priority={true}
+            sizes="(max-width: 950px) 100vw, 50vw"
+          />
         </div>
       </Link>
       {badge && (
         <div className="article_card_wide--badge">
-          <Link href={`/journal/tag/${post.tagSlug}`}>{post.tag}</Link>
+          <Link href={`${TAG_ROUTE}/${post.tagSlug}`}>{post.tag}</Link>
         </div>
       )}
 
       <div className="article_card_wide--content">
-        <Link href={`/journal/${post.slug}`}>
+        <Link href={`${BLOG_ROUTE}/${post.slug}`}>
           <h2>{post.title}</h2>
         </Link>
         <Date dateString={post.published} />

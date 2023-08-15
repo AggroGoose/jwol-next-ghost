@@ -1,4 +1,3 @@
-import PostSideMore from "./postSideMore";
 import SideAuthor from "./sideAuthor";
 import SideSocial from "./sideSocial";
 
@@ -8,7 +7,6 @@ export default function PostSide({ morePosts }: { morePosts: ResponseMore[] }) {
       <SideSocial />
       <SideAuthor />
       {/* <PostShare tag={post.primary_tag.slug} slug={post.slug} /> */}
-      <PostSideMore morePosts={morePosts} />
     </div>
   );
 }

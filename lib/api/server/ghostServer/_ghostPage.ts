@@ -1,5 +1,5 @@
 import ghost from "../../ghostAdmin";
-import { parseMD } from "@/lib/scripts/parseMobiledoc";
+import { parseMD } from "@/lib/utils/scripts/parseMobiledoc";
 
 export async function ghostPageData(slug: string) {
   const post = (await ghost.pages.read({ slug }).catch((err: Error) => {

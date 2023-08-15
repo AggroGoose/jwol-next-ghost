@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import ghostAdmin from "@/lib/api/ghostAdmin";
-import { parseMD } from "@/lib/scripts/parseMobiledoc";
+import { parseMD } from "@/lib/utils/scripts/parseMobiledoc";
 
 export async function GET() {
   // const post = (await ghostAdmin.posts.read({

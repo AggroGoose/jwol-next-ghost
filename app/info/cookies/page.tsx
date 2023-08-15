@@ -1,15 +1,12 @@
-import {
-  ghostLatestFiveGeneral,
-  ghostMetaSingle,
-} from "@/lib/api/server/ghostServer";
+import { ghostMetaSingle } from "@/lib/api/server/ghostServer";
 import { ghostPageData } from "@/lib/api/server/ghostServer/_ghostPage";
 import PageMain from "@/lib/components/pages/pageMain";
 import { Metadata } from "next";
+import { POLICY_URL } from "@/lib/utils/constants";
 
 export const revalidate = 600;
 
 const slug = "cookies";
-const destination = "info/cookies";
 
 export async function generateMetadata(): Promise<Metadata> {
   const meta = await ghostMetaSingle(slug, "page");
@@ -23,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: meta.og_title,
       description: meta.og_description,
       images: meta.og_image,
-      url: `https://www.noleavesociety.com/${destination}`,
+      url: POLICY_URL + slug,
     },
     twitter: {
       card: "summary_large_image",

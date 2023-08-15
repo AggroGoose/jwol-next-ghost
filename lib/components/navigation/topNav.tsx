@@ -1,6 +1,6 @@
 import Link from "next/link";
-import RightNav from "./HeaderNew/rightNav";
-import MenuNav from "./HeaderNew/menuNav";
+import RightNav from "./Header/rightNav";
+import MenuNav from "./Header/menuNav";
 import NoLeaveSociety from "@/lib/resources/svg/NoLeaveSociety";
 
 export default function TopNav() {

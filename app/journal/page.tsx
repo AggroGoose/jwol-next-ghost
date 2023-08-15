@@ -1,9 +1,6 @@
-import {
-  ghostLatestFiveGeneral,
-  ghostPostsforIndex,
-} from "@/lib/api/server/ghostServer";
-import PostSide from "@/lib/components/article/side/postSide";
-import PostIndex from "@/lib/components/pages/postIndex/postIndex";
+import { ghostPostsforIndex } from "@/lib/api/server/ghostServer";
+import PostIndex from "@/lib/components/pages/postIndex";
+import { BLOG_URL } from "@/lib/utils/constants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,7 +15,7 @@ export const metadata: Metadata = {
       "Society is what we make it. With articles and stories around mental health and society, we hope to influence society to new levels.",
     images:
       "https://ghost.jakosbalay.com/content/images/2023/07/No-Leave-Society-Image-Card.png",
-    url: "https://www.noleavesociety.com/journal/",
+    url: BLOG_URL,
   },
   twitter: {
     card: "summary_large_image",

@@ -1,14 +1,10 @@
-import {
-  ghostLatestFiveGeneral,
-  ghostMetaSingle,
-} from "@/lib/api/server/ghostServer";
+import { ghostMetaSingle } from "@/lib/api/server/ghostServer";
 import { ghostPageData } from "@/lib/api/server/ghostServer/_ghostPage";
-import PostSide from "@/lib/components/article/side/postSide";
 import PageMain from "@/lib/components/pages/pageMain";
 import { Metadata } from "next";
+import { ABOUT_ROUTE, ABOUT_URL } from "@/lib/utils/constants";
 
 const slug = "about";
-const destination = "about";
 
 export async function generateMetadata(): Promise<Metadata> {
   const meta = await ghostMetaSingle("about", "page");
@@ -22,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: meta.og_title,
       description: meta.og_description,
       images: meta.og_image,
-      url: `https://www.noleavesociety.com/${destination}`,
+      url: ABOUT_URL,
     },
     twitter: {
       card: "summary_large_image",
@@ -39,7 +35,7 @@ export const revalidate = 600;
 export default async function About() {
   const page = await ghostPageData(slug);
 
-  const links = [{ title: "About", slug: "/about" }];
+  const links = [{ title: "About", slug: ABOUT_ROUTE }];
 
   return (
     <div className="page_about main-site-grid">

@@ -12,7 +12,7 @@ export default function MenuNav() {
   };
 
   return (
-    <div className="main-nav-toggle">
+    <div className="top_nav-toggle">
       <button onClick={handleMenu}>
         <MenuIcon />
       </button>

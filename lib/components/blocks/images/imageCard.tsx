@@ -37,6 +37,7 @@ const BlockImage = ({ elem }: { elem: BlockImageCard }) => {
           <Image
             src={src}
             alt={alt || "No alt provided."}
+            sizes="(max-width: 950px) 100vw (max-width: 1200px) 80vw, 60vw"
             width={width}
             height={height}
           />

@@ -1,7 +1,6 @@
-import Link from "next/link";
-import MainArticleCard from "../../cards/mainArticleCard";
-import WideArticleCard from "../../cards/wideArticleCard";
-import PageBadge from "../../badges/pageBadge";
+import MainArticleCard from "../cards/mainArticleCard";
+import WideArticleCard from "../cards/wideArticleCard";
+import PageBadge from "../badges/pageBadge";
 
 export default function PostIndex({
   posts,

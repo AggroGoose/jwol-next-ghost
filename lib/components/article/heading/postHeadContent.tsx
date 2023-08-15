@@ -1,6 +1,9 @@
+"use client";
+
 import Date from "@/lib/components/helpers/date";
-import PrimaryTag from "./primaryTag";
 import PageBadge from "../../badges/pageBadge";
+import { TAG_ROUTE } from "@/lib/utils/constants";
+import { useAuthContext } from "@/lib/context/authContext";
 
 export default function PostHeadContent({
   title,
@@ -19,12 +22,18 @@ export default function PostHeadContent({
     slug: string;
   };
 }) {
+  const { user } = useAuthContext();
+
+  let name: string = "";
+  if (user?.displayName) name = user.displayName;
+  if (user?.username) name = user.username;
+
   return (
     <div className="article_head_content">
       <PageBadge
         links={[
           {
-            slug: `/journal/tag/${primary_tag.slug}`,
+            slug: `${TAG_ROUTE}/${primary_tag.slug}`,
             title: primary_tag.name,
           },
         ]}
@@ -34,6 +43,7 @@ export default function PostHeadContent({
         <Date dateString={created_at} />
         {` | ${reading_time} Minute Read`}
       </p>
+      {user ? `Hello, ${name}` : "Not Signed In"}
     </div>
   );
 }

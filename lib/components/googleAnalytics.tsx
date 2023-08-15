@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { pageview } from "@/lib/helpers/gtagHelper";
+import { pageview } from "@/lib/utils/gtagHelper";
 import Script from "next/script";
 
 export default function GoogleAnalytics({

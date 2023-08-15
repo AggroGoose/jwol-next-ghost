@@ -1,12 +1,13 @@
 "use client";
-import { signOut } from "next-auth/react";
+import { auth } from "@/lib/api/firebase";
+import { signOut } from "firebase/auth";
 import Image from "next/image";
 
 export function UserMenu({ imgSrc }: { imgSrc: string | null | undefined }) {
   return (
-    <button className="main-usernav--button" onClick={() => signOut()}>
+    <button className="main-usernav--button" onClick={() => signOut(auth)}>
       <Image
-        src={imgSrc ?? "/Knuckles.png"}
+        src={imgSrc ?? "/images/NoLeaveFallback.png"}
         height={56}
         width={56}
         className={"main-usernav--img"}

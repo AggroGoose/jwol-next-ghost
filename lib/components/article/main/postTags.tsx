@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { TAG_ROUTE } from "@/lib/utils/constants";
 
 export default function PostTags({
   tags,
@@ -17,7 +18,7 @@ export default function PostTags({
         <div className="article_tags--tag">
           <Link
             key={tag.slug}
-            href={`/journal/tag/${tag.slug}`}
+            href={`${TAG_ROUTE}/${tag.slug}`}
           >{`#${tag.name}`}</Link>
         </div>
       ))}

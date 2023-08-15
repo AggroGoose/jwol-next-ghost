@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useCallback, useEffect } from "react";
-import useGalleryState from "@/lib/hooks/useGalleryHook";
+import useGalleryState from "@/lib/utils/hooks/useGalleryHook";
 import ImageClose from "./SVG/imageClose";
 import LeftChevron from "./SVG/leftChevron";
 import RightChevron from "./SVG/rightChevron";

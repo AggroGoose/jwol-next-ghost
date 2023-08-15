@@ -1,6 +1,6 @@
 import NoLeaveSociety from "@/lib/resources/svg/NoLeaveSociety";
 import Link from "next/link";
-import NavMenu from "./HeaderNew/navMenu";
+import NavMenu from "./Header/navMenu";
 
 export default function SideNav() {
   return (

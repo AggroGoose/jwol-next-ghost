@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Date from "../helpers/date";
+import { BLOG_ROUTE, TAG_ROUTE } from "@/lib/utils/constants";
 
 export default function MainArticleCard({
   post,
@@ -22,15 +23,20 @@ export default function MainArticleCard({
 
   return (
     <div className="main_article_card">
-      <Link href={`/journal/${post.slug}`}>
+      <Link href={`${BLOG_ROUTE}/${post.slug}`}>
         <div className="main_article_card--feature">
-          <Image src={image} alt={imageAlt} fill={true} />
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill={true}
+            sizes="(max-width: 570px) 100vw, (max-width: 950px) 50vw, (max-width: 1200px) 33vw, 25vw"
+          />
         </div>
         <h2>{post.title}</h2>
       </Link>
       {badge && (
         <div className="main_article_card--badge">
-          <Link href={`/journal/tag/${post.tagSlug}`}>{post.tag}</Link>
+          <Link href={`${TAG_ROUTE}/${post.tagSlug}`}>{post.tag}</Link>
         </div>
       )}
       <p>{post.excerpt}</p>

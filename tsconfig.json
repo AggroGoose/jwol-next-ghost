@@ -27,6 +27,7 @@
     "next-env.d.ts",
     "api.d.ts",
     "blocks.d.ts",
+    "ganso.d.ts",
     "globals.d.ts",
     "mobiledoc.d.ts",
     "**/*.ts",

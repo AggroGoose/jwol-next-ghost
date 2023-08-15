@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { getLocalStorage, setLocalStorage } from "@/lib/helpers/storageHelper";
+import { getLocalStorage, setLocalStorage } from "@/lib/utils/storageHelper";
 import { useState, useEffect } from "react";
+import { POLICY_ROUTE } from "@/lib/utils/constants";
 
 export default function CookieBanner() {
   const [cookieConsent, setCookieConsent] = useState(false);
@@ -33,10 +34,10 @@ export default function CookieBanner() {
       }`}
     >
       <div className="banner_cookie_text">
-        We use <Link href="/info/cookies">cookies</Link> to enhance your
-        browsing experience, serve personalized ads or content, and analyze our
-        traffic. By clicking "Allow", you consent to our use of cookies.{" "}
-        <Link href="/info/cookies">Cookie Policy</Link>
+        We use <Link href={POLICY_ROUTE + "/cookies"}>cookies</Link> to enhance
+        your browsing experience, serve personalized ads or content, and analyze
+        our traffic. By clicking "Allow", you consent to our use of cookies.{" "}
+        <Link href={POLICY_ROUTE + "/cookies"}>Cookie Policy</Link>
       </div>
       <div className="banner_cookie_buttons">
         <button

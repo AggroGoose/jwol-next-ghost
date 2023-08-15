@@ -16,6 +16,7 @@ export default function FeatureImage({
         alt={feature_image_alt}
         fill={true}
         priority={true}
+        sizes="(max-width: 1200px) 100vw, 50vw"
       />
       {/* {feature_image_caption && (
         <figcaption className="article__feature--caption">

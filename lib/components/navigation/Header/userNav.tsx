@@ -1,23 +1,30 @@
 "use client";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useAuthContext } from "@/lib/context/authContext";
 import { UserMenu } from "./userMenu";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "@/lib/api/firebase";
 
 export default function UserNav() {
-  const { data: session, status } = useSession();
+  const { user } = useAuthContext();
 
-  if (status === "loading") {
-    return <div className="main-usernav">...</div>;
-  } else if (status === "authenticated") {
+  console.log(user);
+
+  const signInWithGoogle = async () => {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
+  };
+
+  if (user) {
     return (
       <div className="main-usernav">
-        <UserMenu imgSrc={session.user?.image} />
+        <UserMenu imgSrc={user?.image} />
       </div>
     );
   }
 
   return (
     <div className="main-usernav">
-      <button className="main-usernav--login" onClick={() => signIn()}>
+      <button className="main-usernav--login" onClick={signInWithGoogle}>
         Sign In
       </button>
     </div>

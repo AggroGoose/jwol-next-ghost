@@ -1,4 +1,3 @@
-import AuthProvider from "@/lib/components/authProvider";
 import HeaderNav from "@/lib/components/navigation/headerNav";
 import "@/lib/styles/global.scss";
 import localFont from "next/font/local";
@@ -6,8 +5,9 @@ import GoogleAnalytics from "@/lib/components/googleAnalytics";
 import CookieBanner from "@/lib/components/banners/cookieBanner";
 import FooterNav from "@/lib/components/navigation/footerNav";
 import { Metadata } from "next";
-import SideNav from "@/lib/components/navigation/sideNavNew";
-import TopNav from "@/lib/components/navigation/topNavNew";
+import SideNav from "@/lib/components/navigation/sideNav";
+import TopNav from "@/lib/components/navigation/topNav";
+import { AuthContextProvider } from "@/lib/context/authContext";
 
 const nunito = localFont({
   src: [
@@ -51,13 +51,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AuthProvider>
-      <html
-        lang="en"
-        className={`${philly.variable} ${nunito.variable} ${passionOne.variable}`}
-      >
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-JC47HREZJY" />
-        <body>
+    <html
+      lang="en"
+      className={`${philly.variable} ${nunito.variable} ${passionOne.variable}`}
+    >
+      <GoogleAnalytics GA_MEASUREMENT_ID="G-JC47HREZJY" />
+      <body>
+        <AuthContextProvider>
           <div id="modalPortal" />
           <div className="main layout-grid">
             <SideNav />
@@ -68,8 +68,8 @@ export default function RootLayout({
           </div>
           <FooterNav />
           <CookieBanner />
-        </body>
-      </html>
-    </AuthProvider>
+        </AuthContextProvider>
+      </body>
+    </html>
   );
 }

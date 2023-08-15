@@ -1,6 +1,8 @@
-import { useOutsideClick } from "@/lib/hooks/useOutsideClick";
+import { useOutsideClick } from "@/lib/utils/hooks/useOutsideClick";
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import NavMenu from "./navMenu";
+import { usePathname } from "next/navigation";
 
 export default function DropMenu({
   setMenuOpen,
@@ -10,37 +12,22 @@ export default function DropMenu({
   function closeMenu() {
     setMenuOpen(false);
   }
+  const isInitialMount = useRef(true);
   const ref = useOutsideClick(closeMenu);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      console.log("Is Initial Mount");
+    } else {
+      closeMenu();
+    }
+  }, [pathname, closeMenu]);
 
   return (
-    <div ref={ref} className="main-nav-drop">
-      <ul>
-        <button className="main-nav-drop--button">
-          <Link href="/journal">
-            <p>Journal</p>
-          </Link>
-        </button>
-
-        <button className="main-nav-drop--button">
-          <a href="#">
-            <p>Stories</p>
-          </a>
-          <p className="main-nav-drop--text">Coming Soon</p>
-        </button>
-
-        <button className="main-nav-drop--button">
-          <a href="#">
-            <p>Food</p>
-          </a>
-          <p className="main-nav-drop--text">Coming Soon</p>
-        </button>
-
-        <button className="main-nav-drop--button">
-          <Link href="/about">
-            <p>About</p>
-          </Link>
-        </button>
-      </ul>
+    <div ref={ref} className="top_nav-drop">
+      <NavMenu />
     </div>
   );
 }

@@ -1,12 +1,11 @@
 import {
   ghostGetTag,
-  ghostLatestFiveGeneral,
   ghostMetaTag,
   ghostPostsforIndex,
   ghostRouteParams,
 } from "@/lib/api/server/ghostServer";
-import PostSide from "@/lib/components/article/side/postSide";
-import PostIndex from "@/lib/components/pages/postIndex/postIndex";
+import PostIndex from "@/lib/components/pages/postIndex";
+import { TAG_URL } from "@/lib/utils/constants";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -25,7 +24,7 @@ export async function generateMetadata({
       title: meta.og_title,
       description: meta.og_description,
       images: meta.og_image,
-      url: `https://www.noleavesociety.com/journal/tag/${tag}`,
+      url: TAG_URL + tag,
     },
     twitter: {
       card: "summary_large_image",
@@ -52,7 +51,6 @@ export default async function TagPage({
 }: {
   params: { tag: string };
 }) {
-  const morePosts = await ghostLatestFiveGeneral();
   const indexPosts = await ghostPostsforIndex(tag);
   const tagObj = await ghostGetTag(tag);
   const links = [{ title: "Posts", slug: "/journal" }];

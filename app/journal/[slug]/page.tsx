@@ -1,5 +1,4 @@
 import PostHead from "@/lib/components/article/heading/postHead";
-import PostSide from "@/lib/components/article/side/postSide";
 import PostTags from "@/lib/components/article/main/postTags";
 import ArticleReactions from "@/lib/components/article/main/articleReactions";
 
@@ -15,6 +14,7 @@ import MorePagePosts from "@/lib/components/article/main/morePagePosts";
 import BlockContent from "@/lib/components/blocks/blockContent";
 import { Metadata } from "next";
 import TableofContents from "@/lib/components/blocks/tableOfContents";
+import { BLOG_URL } from "@/lib/utils/constants";
 
 export const revalidate = 600;
 
@@ -34,7 +34,7 @@ export async function generateMetadata({
       title: meta.og_title,
       description: meta.og_description,
       images: meta.og_image,
-      url: `https://www.noleavesociety.com/journal/${slug}`,
+      url: BLOG_URL + slug,
     },
     twitter: {
       card: "summary_large_image",
