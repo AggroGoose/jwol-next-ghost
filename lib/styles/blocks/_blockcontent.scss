@@ -1,22 +1,15 @@
 @use "../mixins/media";
 
 .block_content {
-  > * {
-    grid-column: main-start/main-end;
-  }
+  // > * {
+  //   grid-column: main-start/main-end;
+  // }
 
   figure {
     margin: 12px 0;
   }
 
   a {
-    color: var(--link-color);
-    font-weight: var(--font-link-weight);
-
-    &:hover {
-      opacity: 80%;
-    }
-
     &.block_button {
       justify-content: center;
       grid-column: min-start/min-end;
@@ -46,40 +39,6 @@
     font-size: calc(var(--font-regular) * 4);
     line-height: 0.5;
     margin: 0.1em 0.1em 0.2em 0;
-  }
-
-  ul,
-  ol {
-    margin-left: 24px;
-
-    > li {
-      padding-left: 8px;
-
-      &::marker {
-        font-weight: var(--font-bold-weight);
-        color: var(--accent-alt-color);
-      }
-    }
-
-    @include media.sm {
-      margin-left: 4px;
-
-      > li {
-        padding-left: 4px;
-      }
-    }
-  }
-
-  h2 {
-    font-size: var(--font-head2);
-  }
-
-  h2,
-  h3 {
-    font-weight: var(--font-head-weight);
-    letter-spacing: var(--font-secondary-space);
-    color: var(--head-color);
-    line-height: 1;
   }
 }
 

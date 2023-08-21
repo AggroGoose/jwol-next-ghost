@@ -38,7 +38,7 @@ export default async function PrivacyPolicy() {
   const links = [{ title: "Policy", slug: "#" }];
 
   return (
-    <div className="page_privacy main-site-grid">
+    <div className="content-grid flex flex-col gap-6 px-3 lg:px-0">
       <PageMain page={page} links={links} includeUpdate={true} />
     </div>
   );

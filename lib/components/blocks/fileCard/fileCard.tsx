@@ -7,22 +7,22 @@ export default function FileCard({ elem }: { elem: ParseElement }) {
   const { fileSource, fileTitle, fileName, fileSize } =
     parseFileData(elemChildren);
   return (
-    <div className="block_file">
+    <div className="blmain flex">
       <a
-        className="block_file_container"
+        className="flex items-stretch justify-between p-1.5 min-h-[92px] border border-solid rounded-md w-full hover:border-2"
         href={fileSource}
         title="Download"
         download
       >
-        <div className="block_file_contents">
-          <div className="block_file_title">{fileTitle}</div>
-          <div className="block_file_metadata">
-            <div className="block_file_filename">{fileName}</div>
-            <div className="block_file_filesize">{fileSize}</div>
+        <div className="flex flex-col justify-between mx-2 my-1 w-full">
+          <div className="text-base font-bold">{fileTitle}</div>
+          <div className="inline text-xs mt-[2px]">
+            <div className="inline font-semibold">{fileName}</div>
+            <div className="inline text-sm opacity-60">{fileSize}</div>
           </div>
         </div>
-        <div className="block_file_icon">
-          <DownloadIcon />
+        <div className="relative flex items-center justify-center w-[80px] h-full">
+          <DownloadIcon className="w-6 h-6 fill-primary" />
         </div>
       </a>
     </div>

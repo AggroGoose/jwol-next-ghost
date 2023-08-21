@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-lightest: hsl(0, 0%, 100%);
+  --color-darkest: hsl(234, 100%, 4%);
+  --primary-blue: hsl(263, 96%, 30%);
+  --primary-ruby: hsl(354, 75%, 49%);
+  --primary-purple: hsl(278, 74%, 49%);
+  --primary-ruby-rgb: 219, 32, 51;
+  --primary-blue-rgb: 60, 3, 151;
+
+  --font-color: var(--color-darkest);
+  --head-color: var(--color-darkest);
+  --link-color: var(--primary-ruby);
+  --primary-color: var(--primary-ruby);
+  --secondary-color: var(--primary-blue);
+  --alt-color: var(--primary-purple);
+  --accent-alt-color: var(--primary-blue);
+  --banner-color: #374151;
+  --banner-med: #4b5563;
+  --banner-dark: #111827;
+
+  --font-tiny: 0.875rem;
+  --font-smaller: 1rem;
+  --font-small: 1.125rem;
+  --font-regular: 1.25rem;
+  --font-large: 1.375rem;
+  --font-larger: 1.5rem;
+  --font-head1: 3rem;
+  --font-head2: 2.2rem;
+  --font-head3: 1.8rem;
+  --primary-hsla: hsla(354, 75%, 49%, 0.5);
+  --secondary-hsla: hsla(263, 96%, 30%, 0.3);
+  --dark-hsla: hsla(234, 100%, 4%, 0.44);
+
+  --font-light-weight: 300;
+  --font-weight: 400;
+  --font-med-weight: 600;
+  --font-bold-weight: 700;
+  --font-link-weight: 700;
+  --font-head-weight: 400;
+  --font-tertiary-weight: 400;
+  --font-space: 0.02em;
+  --font-head-space: 0.08em;
+  --font-badge-space: 0.1em;
+  --font-secondary-space: 0.06em;
+  --font-tertiary-space: 0.14em;
+  --font-height: 1.625;
+
+  --header-height: 0px;
+  --sidenav-width: 200px;
+  --body-size: 1250px;
+  --blog-width: 900px;
+}
+
+@media screen and (max-width: 1475px) {
+  :root {
+    --body-size: 900px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --sidenav-width: 0;
+    --header-height: 92px;
+    --blog-width: 100%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  :root {
+    --font-tiny: 0.75rem;
+    --font-smaller: 0.875rem;
+    --font-small: 1rem;
+    --font-regular: 1.125rem;
+    --font-large: 1.25rem;
+    --font-larger: 1.375rem;
+    --font-head1: 2.5rem;
+    --font-head2: 2rem;
+    --font-head3: 1.6rem;
+
+    --header-height: 72px;
+  }
+}
+
+.audio-var {
+  --seek-before-width: 0%;
+  --volume-before-width: 100%;
+  --buffered-width: 0%;
+}
+
+li.li-primary::marker {
+  color: var(--primary-color);
+  font-weight: var(--font-bold-weight);
+}
+
+li.li-secondary::marker {
+  color: var(--secondary-color);
+  font-weight: var(--font-bold-weight);
+}
+
+li.li-dark::marker {
+  color: var(--color-darkest);
+  font-weight: var(--font-bold-weight);
+}
+
+li.li-light::marker {
+  color: var(--color-lightest);
+  font-weight: var(--font-bold-weight);
+}
+
+.blmain {
+  grid-column: main-start/main-end;
+}
+
+.blmin {
+  grid-column: min-start/min-end;
+}
+
+.content-grid {
+  grid-column: content-start/content-end;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+iframe {
+  border: 0;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+body {
+  font-size: var(--font-regular);
+  font-weight: var(--font-weight);
+  line-height: var(--font-height);
+  letter-spacing: var(--font-space);
+  color: var(--font-color);
+  font-family: var(--font-primary);
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: var(--font-secondary-space);
+  line-height: var(--font-head-height);
+  font-weight: var(--font-head-weight);
+  font-family: var(--font-secondary);
+  color: var(--head-color);
+}
+
+h1 {
+  font-size: var(--font-head1);
+}
+h2 {
+  font-size: var(--font-head2);
+}
+h3 {
+  font-size: var(--font-head3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  :after,
+  :before {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

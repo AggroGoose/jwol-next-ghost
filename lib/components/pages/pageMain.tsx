@@ -16,17 +16,17 @@ export default function PageMain({
 }) {
   const { content, toc } = page.content;
   return (
-    <div className="page_main">
+    <div className="flex flex-col gap-6">
       <PageBadge links={links} />
-      <h1>{page.title}</h1>
+      <h1 className="text-center">{page.title}</h1>
       {includeUpdate && (
-        <div className="page_main_updated">
-          <span>Last Updated: </span>
+        <div className="self-center text-lg leading-none">
+          <b>Last Updated: </b>
           <Date dateString={page.updated_at} />
         </div>
       )}
       {!disableToc && <TableofContents toc={toc} />}
-      <div className="block_content post-grid">
+      <div className="grid grid-cols-blockGrid gap-6 self-center w-[var(--blog-width)]">
         <BlockContent content={content} disableToc={disableToc} />
       </div>
     </div>

@@ -3,13 +3,7 @@ import Link from "next/link";
 import Date from "../helpers/date";
 import { BLOG_ROUTE, TAG_ROUTE } from "@/lib/utils/constants";
 
-export default function WideArticleCard({
-  post,
-  badge = false,
-}: {
-  post: ResponseMore;
-  badge?: boolean;
-}) {
+export default function WideArticleCard({ post }: { post: ResponseMore }) {
   let image: string;
   let imageAlt: string;
 
@@ -21,31 +15,45 @@ export default function WideArticleCard({
     imageAlt = "Fallback image, no Feature Image provided.";
   }
   return (
-    <div className="article_card_wide">
-      <Link href={`${BLOG_ROUTE}/${post.slug}`}>
-        <div className="article_card_wide--feature">
+    <div className="card lg:card-side bg-base-100 hover:shadow-darkmd">
+      <figure className="lg:basis-3/5">
+        <Link
+          href={`${BLOG_ROUTE}/${post.slug}`}
+          className="aspect-[3/2] relative w-full"
+        >
           <Image
             src={image}
             alt={imageAlt}
             fill={true}
             priority={true}
+            className="object-cover"
             sizes="(max-width: 950px) 100vw, 50vw"
           />
-        </div>
-      </Link>
-      {badge && (
-        <div className="article_card_wide--badge">
-          <Link href={`${TAG_ROUTE}/${post.tagSlug}`}>{post.tag}</Link>
-        </div>
-      )}
-
-      <div className="article_card_wide--content">
-        <Link href={`${BLOG_ROUTE}/${post.slug}`}>
-          <h2>{post.title}</h2>
         </Link>
-        <Date dateString={post.published} />
+      </figure>
+      <div className="card-body lg:basis-2/5 gap-4">
+        <div className="flex justify-between">
+          <p className="italic">
+            <Date dateString={post.published} />
+          </p>
+          <Link
+            href={`${TAG_ROUTE}/${post.tagSlug}`}
+            className="leading-none text-secondary font-bold"
+          >
+            {post.tag}
+          </Link>
+        </div>
+        <Link href={`${BLOG_ROUTE}/${post.slug}`}>
+          <h2 className="leading-tight">{post.title}</h2>
+        </Link>
         <p>{post.excerpt}</p>
-        <p className="article_card_wide--read">{post.readTime} Minute Read</p>
+
+        <Link
+          href={`${BLOG_ROUTE}/${post.slug}`}
+          className="text-lg font-bold text-secondary hover:text-primary hover:underline"
+        >
+          Read in {post.readTime} Minutes {">>"}
+        </Link>
       </div>
     </div>
   );

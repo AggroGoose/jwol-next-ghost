@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import MenuIcon from "./menuIcon";
-import DropMenu from "./dropMenu";
+import MenuIcon from "./Menu/menuIcon";
+import DropMenu from "./Menu/dropMenu";
 
 export default function MenuNav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,9 +12,9 @@ export default function MenuNav() {
   };
 
   return (
-    <div className="top_nav-toggle">
+    <div className="col-start-1 col-end-2 ml-2 h-full relative flex items-center md:ml-[40px] xl:hidden">
       <button onClick={handleMenu}>
-        <MenuIcon />
+        <MenuIcon className="aspect-square h-[28px] md:h-[44px] fill-base-100 hover:fill-primary" />
       </button>
       {menuOpen && <DropMenu setMenuOpen={setMenuOpen} />}
     </div>

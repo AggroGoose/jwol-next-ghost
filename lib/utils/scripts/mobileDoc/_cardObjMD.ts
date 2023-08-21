@@ -128,4 +128,16 @@ export default function mdCardtoBlock(
 
     return galleryObj;
   }
+
+  if (type === "toggle") {
+    const elem = card[1];
+    const togObj: BlockToggleCard = {
+      id: i,
+      type: "toggle",
+      title: elem.heading,
+      content: elem.content,
+    };
+
+    return togObj;
+  }
 }

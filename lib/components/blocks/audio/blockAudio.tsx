@@ -15,25 +15,33 @@ export default function BlockAudio({ elem }: { elem: BlockAudioCard }) {
   const audioDuration = elem.duration;
 
   return (
-    <div className="block_audio">
-      <div className={`block_audio_thumbnail ${imgSrc ? "" : "placeholder"}`}>
+    <div className="blmain flex w-full min-h-[96px] rounded-lg shadow-smd">
+      <div
+        className={`flex justify-center items-center w-[80px] m-2 rounded-md relative ${
+          imgSrc ? "bg-transparent" : "bg-secondary"
+        }`}
+      >
         {imgSrc ? (
           <Image
             src={imgSrc}
             alt={`Audio clip thumbnail for ${audioTitle}`}
-            className="block_audio_thumbnail"
-            priority={true}
-            width={80}
-            height={80}
+            className="object-cover"
+            fill={true}
+            sizes="80px"
           />
         ) : (
-          <AudioPlaceholderThumb />
+          <AudioPlaceholderThumb className="aspect-[22.5/24] w-7 fill-white" />
         )}
       </div>
 
-      <div className="block_audio_player-container" ref={audioContainer}>
+      <div
+        className="relative flex flex-col justify-between w-full audio-var"
+        ref={audioContainer}
+      >
         <audio src={audioSrc} ref={audioRef} preload="metadata" />
-        <div className="block_audio_title">{audioTitle}</div>
+        <div className="w-full mt-2 py-2 px-3 text-lg font-bold leading-none">
+          {audioTitle}
+        </div>
 
         <AudioControls
           audioContainer={audioContainer}

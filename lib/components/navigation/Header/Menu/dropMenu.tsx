@@ -1,7 +1,6 @@
 import { useOutsideClick } from "@/lib/utils/hooks/useOutsideClick";
-import Link from "next/link";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
-import NavMenu from "./navMenu";
+import NavMenu from "./menuItems";
 import { usePathname } from "next/navigation";
 
 export default function DropMenu({
@@ -19,14 +18,16 @@ export default function DropMenu({
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
-      console.log("Is Initial Mount");
     } else {
       closeMenu();
     }
   }, [pathname, closeMenu]);
 
   return (
-    <div ref={ref} className="top_nav-drop">
+    <div
+      ref={ref}
+      className="bg-neutral fixed top-under-head left-0 px-6 py-12 min-h-under-head overflow-auto"
+    >
       <NavMenu />
     </div>
   );

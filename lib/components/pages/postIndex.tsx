@@ -15,8 +15,8 @@ export default function PostIndex({
 }) {
   if (!(posts.length > 0)) {
     return (
-      <div className="page_index_posts">
-        <h1>{title}</h1>
+      <div className="flex flex-col gap-8 mb-8">
+        <h1 className="text-center">{title}</h1>
         <p>No posts were found, please check your search or try again.</p>
       </div>
     );
@@ -31,14 +31,14 @@ export default function PostIndex({
   }
 
   return (
-    <div className="post_index_posts">
+    <div className="flex flex-col gap-8 mb-8">
       <PageBadge links={links} />
-      <h1>{title}</h1>
-      {mainPost && <WideArticleCard post={mainPost} badge={badge} />}
+      <h1 className="text-center">{title}</h1>
+      {mainPost && <WideArticleCard post={mainPost} />}
       {additionalPosts.length > 0 && (
-        <div className="post_index_posts--additional">
+        <div className="grid grid-cols-3 gap-3">
           {additionalPosts.map((post) => (
-            <MainArticleCard post={post} badge={badge} />
+            <MainArticleCard post={post} />
           ))}
         </div>
       )}

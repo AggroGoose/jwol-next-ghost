@@ -38,7 +38,7 @@ export default async function About() {
   const links = [{ title: "About", slug: ABOUT_ROUTE }];
 
   return (
-    <div className="page_about main-site-grid">
+    <div className="content-grid flex flex-col gap-6 px-3 lg:px-0">
       <PageMain page={page} links={links} disableToc={true} />
     </div>
   );

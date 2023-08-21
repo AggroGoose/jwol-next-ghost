@@ -56,7 +56,7 @@ export default async function TagPage({
   const links = [{ title: "Posts", slug: "/journal" }];
 
   return (
-    <div className="post_index main-site-grid">
+    <div className="post-index content-grid flex flex-col gap-6 px-3 lg:px-0">
       <PostIndex
         posts={indexPosts}
         title={`Here Are the Latest Posts from ${tagObj.name}`}

@@ -1,6 +1,10 @@
-export default function DownloadIcon() {
+export default function DownloadIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      viewBox="0 0 24 24"
+    >
       <title>download-circle</title>
       <polyline points="8.25 14.25 12 18 15.75 14.25" />
       <line x1="12" y1="6.75" x2="12" y2="18" />

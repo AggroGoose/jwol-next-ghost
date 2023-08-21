@@ -27,7 +27,7 @@ export default function PostHead({
   };
 }) {
   return (
-    <div className="article_head">
+    <div className="flex flex-col gap-6">
       <PostHeadContent
         created_at={created_at}
         excerpt={excerpt}

@@ -66,9 +66,9 @@ export default async function PostPage({
 
   return (
     <>
-      <div className="main-site-grid">
+      <>
         {/* <ArticleReactions /> */}
-        <div className="article_main">
+        <div className="content-grid flex flex-col gap-6 px-3 lg:px-0">
           <PostHead
             title={post.title}
             feature_image={post.feature_image}
@@ -82,10 +82,10 @@ export default async function PostPage({
           />
           <PostTags tags={post.tags} />
           <TableofContents toc={toc} />
-          <BlockContent content={content} dropCap={true} />
-          {morePosts.length > 0 && (
-            <MorePagePosts posts={morePosts} badge={true} />
-          )}
+          <div className="grid grid-cols-blockGrid gap-6 self-center w-[var(--blog-width)]">
+            <BlockContent content={content} dropCap={true} />
+          </div>
+          {morePosts.length > 0 && <MorePagePosts posts={morePosts} />}
           {tagPosts.length > 0 && (
             <MorePagePosts
               posts={tagPosts}
@@ -94,7 +94,7 @@ export default async function PostPage({
             />
           )}
         </div>
-      </div>
+      </>
     </>
   );
 }

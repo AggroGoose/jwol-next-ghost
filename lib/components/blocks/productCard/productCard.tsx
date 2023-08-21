@@ -15,9 +15,9 @@ export default function BlockProduct({ elem }: { elem: BlockProductCard }) {
   }
 
   return (
-    <div className="block_product">
-      <div className="block_product_container">
-        <div className="block_product_image">
+    <div className="flex flex-col items-center w-full blmin">
+      <div className="grid grid-cols-product items-center gap-y-4 bg-transparent w-full max-w-[550px] p-5 rounded-md shadow-pmd">
+        <div className="col-span-2 justify-self-center w-full h-auto">
           <Image
             src={elem.image}
             width={elem.width}
@@ -25,42 +25,34 @@ export default function BlockProduct({ elem }: { elem: BlockProductCard }) {
             alt={`Cover image for ${elem.title} product review.`}
           />
         </div>
-        <div className="block_product_title-container">
-          <h4 className="block_product_title">{elem.title}</h4>
-        </div>
+        <h3 className="col-start-1 col-end-2 leading-none align-middle">
+          {elem.title}
+        </h3>
         {elem.ratingEnabled && (
-          <div className="block_product_rating">
-            {rating.map((rate) => {
-              if (rate.star) {
-                return (
-                  <span
-                    className="block_product_rating-active block_product_rating-star"
-                    key={rate.key}
-                  >
-                    <StarIcon />
-                  </span>
-                );
-              } else {
-                return (
-                  <span className="block_product_rating-star">
-                    <StarIcon />
-                  </span>
-                );
-              }
+          <div className="col-start-2 col-end-3 items-center flex pl-4">
+            {rating.map((rate, i) => {
+              return (
+                <StarIcon
+                  className={`w-5 h-5 ${
+                    rate.star ? "fill-secondary" : "fill-neutral opacity-10"
+                  }`}
+                  key={i}
+                />
+              );
             })}
           </div>
         )}
         <div
-          className="block_product_description"
+          className="col-span-2 flex flex-col gap-6 text-base"
           dangerouslySetInnerHTML={{ __html: elem.description }}
         />
         {elem.buttonEnabled && (
           <a
             href={elem.buttonUrl}
-            className="block_product_button block_product_btn-accent"
+            className="bg-primary text-center col-start-1 col-end-3 w-full text-sm p-4 text-base-100 rounded-md mx-auto font-bold leading-none hover:bg-secondary"
             target="_blank"
           >
-            <span>{elem.buttonLabel}</span>
+            <span className="text-base-100 text-sm">{elem.buttonLabel}</span>
           </a>
         )}
       </div>

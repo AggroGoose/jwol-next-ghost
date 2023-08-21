@@ -35,16 +35,20 @@ export const AudioVolume = ({
   return (
     <>
       <button
-        className="block_audio_mute-icon"
+        className="relative bottom-[-1px] py-1 leading-[0]"
         aria-label={isMuted ? "Unmute" : "Mute"}
         onClick={toggleMute}
       >
-        {isMuted ? <AudioMuteIcon /> : <AudioUnmuteIcon />}
+        {isMuted ? (
+          <AudioMuteIcon className="fill-secondary w-4 h-4" />
+        ) : (
+          <AudioUnmuteIcon className="fill-secondary w-4 h-4" />
+        )}
       </button>
 
       <input
         type="range"
-        className="block_audio_volume-slider"
+        className="h-2 rounded-lg cursor-pointer accent-secondary w-[80px]"
         ref={volumeBar}
         defaultValue={volumeLevel}
         onChange={volumeChangeHandler}

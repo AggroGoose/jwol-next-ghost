@@ -20,6 +20,7 @@ type MDCardArray = Array<
   | MDCardAudio
   | MDCardHR
   | MDButtonCard
+  | MDCardToggle
 >;
 type MDCardToggle = ["toggle", { heading: string; content: string }];
 type MDCardMarkdown = ["markdown", { markdown: string }];

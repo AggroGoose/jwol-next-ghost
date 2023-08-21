@@ -88,28 +88,32 @@ export default function AudioControls({
   }
 
   return (
-    <div className="block_audio_player">
+    <div className="flex grow items-center px-2 py-3">
       <button
-        className="block_audio_play-icon"
+        className="relative bottom-[-1px] pb-1 leading-[0] mr-1"
         aria-label={isPlaying ? "Pause" : "Play"}
         onClick={togglePlayPause}
       >
-        {isPlaying ? <AudioPauseIcon /> : <AudioPlayIcon />}
+        {isPlaying ? (
+          <AudioPauseIcon className="w-4 h-4 fill-secondary" />
+        ) : (
+          <AudioPlayIcon className="w-4 h-4 fill-secondary" />
+        )}
       </button>
 
-      <span className="block_audio_current-time">
+      <span className="text-xs font-semibold px-1 py-1 whitespace-nowrap">
         {timeIsNumber(currentTime) ? calculateTime(currentTime) : `0:00`}
       </span>
-      <div className="block_audio_time">
+      <div className="opacity-80 text-xs font-medium whitespace-nowrap">
         /
-        <span className="block_audio_duration">
+        <span className="px-1">
           {timeIsNumber(audioDuration) ? calculateTime(audioDuration) : `0:00`}
         </span>
       </div>
 
       <input
         type="range"
-        className="block_audio_seek-slider"
+        className="h-2 rounded-lg cursor-pointer accent-secondary grow"
         ref={audioSeekBar}
         defaultValue={currentTime}
         onChange={seekChangeHandler}

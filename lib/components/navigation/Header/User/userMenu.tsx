@@ -5,12 +5,12 @@ import Image from "next/image";
 
 export function UserMenu({ imgSrc }: { imgSrc: string | null | undefined }) {
   return (
-    <button className="main-usernav--button" onClick={() => signOut(auth)}>
+    <button className="rounded-full" onClick={() => signOut(auth)}>
       <Image
         src={imgSrc ?? "/images/NoLeaveFallback.png"}
         height={56}
         width={56}
-        className={"main-usernav--img"}
+        className={"rounded-full w-[32px] h-[32px] md:h-[44px] md:w-[44px]"}
         alt={"User Profile Picture"}
       />
     </button>

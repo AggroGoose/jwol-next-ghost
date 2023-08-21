@@ -30,7 +30,7 @@ export default function AudioPBSelector({
   return (
     <>
       <button
-        className="block_audio_playback-rate"
+        className="px-1.5 py-1 text-xs font-bold whitespace-nowrap"
         onClick={changePlayBackRate}
       >{`${audioPlaybackRate}x`}</button>
     </>

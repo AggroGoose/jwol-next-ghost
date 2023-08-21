@@ -12,13 +12,16 @@ export default function PostTags({
   }>;
 }) {
   return (
-    <div className="article_tags">
-      <p>Tags:</p>
+    <div className="flex flex-wrap gap-4 justify-center items-center">
+      <p className="font-head font-hdw tracking-hs text-xl leading-none">
+        Tags:
+      </p>
       {tags.map((tag) => (
         <div className="article_tags--tag">
           <Link
             key={tag.slug}
             href={`${TAG_ROUTE}/${tag.slug}`}
+            className="text-primary font-bold hover:underline hover:text-secondary"
           >{`#${tag.name}`}</Link>
         </div>
       ))}

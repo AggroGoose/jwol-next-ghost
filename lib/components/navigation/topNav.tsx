@@ -5,12 +5,12 @@ import NoLeaveSociety from "@/lib/resources/svg/NoLeaveSociety";
 
 export default function TopNav() {
   return (
-    <div className="top_nav">
-      <div className="nav-grid">
+    <div className="w-full z-10 h-[var(--header-height)] fixed top-0 bg-neutral xl:bg-transparent">
+      <div className="grid grid-cols-3 h-full items-center">
         <MenuNav />
-        <button className="top_nav--logo">
-          <Link href="/">
-            <NoLeaveSociety />
+        <button className="col-start-2 col-end-3 justify-self-center h-full xl:hidden">
+          <Link href="/" className="flex">
+            <NoLeaveSociety className="aspect-[2/1] h-[40px] md:h-[60px] fill-base-100" />
           </Link>
         </button>
         <RightNav />

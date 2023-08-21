@@ -1,12 +1,4 @@
-@use "./initialize/rootvariables";
-@use "./initialize/base";
-@use "./initialize/elements";
-@use "./initialize/accessibility";
-
-@use "./fonts/fontprovider";
-
 @use "./blocks/blockprovider";
-@use "./layout/layoutprovider";
 @use "./journal/articleprovider";
 @use "./pages/pageprovider";
 @use "./components/componentProvider";

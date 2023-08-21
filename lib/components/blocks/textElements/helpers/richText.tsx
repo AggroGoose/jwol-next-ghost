@@ -24,9 +24,21 @@ function LinkObj({
   };
 }) {
   const { url, internal } = link;
-  if (internal) return <Link href={url}>{children}</Link>;
+  if (internal)
+    return (
+      <Link
+        href={url}
+        className="text-primary font-bold hover:text-secondary hover:underline"
+      >
+        {children}
+      </Link>
+    );
   return (
-    <a href={url} target="_blank">
+    <a
+      href={url}
+      className="text-primary font-bold hover:text-secondary hover:underline"
+      target="_blank"
+    >
       {children}
     </a>
   );
@@ -50,11 +62,11 @@ function EmphasisCheck({
       return true;
     return false;
   };
-  const classBuilder = `${elem.emphasis.bold ? "bld " : ""}${
-    elem.emphasis.italic ? "itl " : ""
-  }${elem.emphasis.underline ? "udl " : ""}${
-    elem.emphasis.strikethrough ? "str" : ""
-  }`;
+  const classBuilder = `${elem.emphasis.bold ? "font-bold " : ""}${
+    elem.emphasis.italic ? "italic " : ""
+  }${elem.emphasis.underline ? "underline " : ""}${
+    elem.emphasis.strikethrough ? "line-through" : ""
+  }`.trim();
   if (spanCheck(elem)) {
     return <span className={classBuilder}>{children}</span>;
   } else {

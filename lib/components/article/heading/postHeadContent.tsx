@@ -29,7 +29,7 @@ export default function PostHeadContent({
   if (user?.username) name = user.username;
 
   return (
-    <div className="article_head_content">
+    <div className="w-full flex flex-col gap-6 items-center text-center">
       <PageBadge
         links={[
           {
@@ -38,12 +38,10 @@ export default function PostHeadContent({
           },
         ]}
       />
-      <h1>{title}</h1>
-      <p className="article_head_content--meta">
+      <h1 className="leading-none">{title}</h1>
+      <p className="text-lg font-semibold italic leading-none">
         <Date dateString={created_at} />
-        {` | ${reading_time} Minute Read`}
       </p>
-      {user ? `Hello, ${name}` : "Not Signed In"}
     </div>
   );
 }

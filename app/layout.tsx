@@ -1,4 +1,4 @@
-import HeaderNav from "@/lib/components/navigation/headerNav";
+import "./tailwind.css";
 import "@/lib/styles/global.scss";
 import localFont from "next/font/local";
 import GoogleAnalytics from "@/lib/components/googleAnalytics";
@@ -9,23 +9,23 @@ import SideNav from "@/lib/components/navigation/sideNav";
 import TopNav from "@/lib/components/navigation/topNav";
 import { AuthContextProvider } from "@/lib/context/authContext";
 
-const nunito = localFont({
-  src: [
-    { path: "/font/Nunito.ttf", style: "normal" },
-    { path: "/font/Nunito-Italic.ttf", style: "italic" },
-  ],
-  variable: "--font-primary",
-  display: "swap",
-});
-
-// const nunitoSans = localFont({
+// const nunito = localFont({
 //   src: [
-//     { path: "/font/NunitoSans.ttf", style: "normal" },
-//     { path: "/font/NunitoSans-Italic.ttf", style: "italic" },
+//     { path: "/font/Nunito.ttf", style: "normal" },
+//     { path: "/font/Nunito-Italic.ttf", style: "italic" },
 //   ],
 //   variable: "--font-primary",
 //   display: "swap",
 // });
+
+const nunito = localFont({
+  src: [
+    { path: "/font/NunitoSans.ttf", style: "normal" },
+    { path: "/font/NunitoSans-Italic.ttf", style: "italic" },
+  ],
+  variable: "--font-primary",
+  display: "swap",
+});
 
 const passionOne = localFont({
   src: [{ path: "/font/PassionOne.ttf", style: "normal" }],
@@ -58,10 +58,9 @@ export default function RootLayout({
       <GoogleAnalytics GA_MEASUREMENT_ID="G-JC47HREZJY" />
       <body>
         <AuthContextProvider>
-          <div id="modalPortal" />
-          <div className="main layout-grid">
+          <div className="grid grid-cols-sideBar bg-base-100">
             <SideNav />
-            <div className="main-content">
+            <div className="content-grid min-h-screen grid grid-cols-1 mt-6 lg:grid-cols-mainGrid">
               <TopNav />
               {children}
             </div>
