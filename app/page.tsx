@@ -1,8 +1,4 @@
-import {
-  ghostLatestFiveGeneral,
-  ghostPostsforIndex,
-} from "@/lib/api/server/ghostServer";
-import PostSide from "@/lib/components/article/side/postSide";
+import { ghostPostsforIndex } from "@/lib/api/server/ghostServer";
 import PostIndex from "@/lib/components/pages/postIndex";
 import { Metadata } from "next";
 

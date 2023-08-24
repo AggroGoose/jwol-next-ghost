@@ -39,7 +39,6 @@ export default function PostHead({
         <FeatureImage
           feature_image={feature_image}
           feature_image_alt={feature_image_alt}
-          feature_image_caption={feature_image_caption}
         />
       )}
     </div>

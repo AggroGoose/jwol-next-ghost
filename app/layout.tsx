@@ -1,5 +1,4 @@
 import "./tailwind.css";
-import "@/lib/styles/global.scss";
 import localFont from "next/font/local";
 import GoogleAnalytics from "@/lib/components/googleAnalytics";
 import CookieBanner from "@/lib/components/banners/cookieBanner";
@@ -7,7 +6,8 @@ import FooterNav from "@/lib/components/navigation/footerNav";
 import { Metadata } from "next";
 import SideNav from "@/lib/components/navigation/sideNav";
 import TopNav from "@/lib/components/navigation/topNav";
-import { AuthContextProvider } from "@/lib/context/authContext";
+import ModalCheck from "@/lib/components/modals/modalCheck";
+import ContextProvider from "@/lib/context/contextProvider";
 
 // const nunito = localFont({
 //   src: [
@@ -57,17 +57,18 @@ export default function RootLayout({
     >
       <GoogleAnalytics GA_MEASUREMENT_ID="G-JC47HREZJY" />
       <body>
-        <AuthContextProvider>
+        <ContextProvider>
           <div className="grid grid-cols-sideBar bg-base-100">
             <SideNav />
             <div className="content-grid min-h-screen grid grid-cols-1 mt-6 lg:grid-cols-mainGrid">
               <TopNav />
+              <ModalCheck />
               {children}
             </div>
           </div>
           <FooterNav />
           <CookieBanner />
-        </AuthContextProvider>
+        </ContextProvider>
       </body>
     </html>
   );

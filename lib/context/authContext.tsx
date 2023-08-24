@@ -1,22 +1,20 @@
 "use client";
 
 import { useContext, createContext, useEffect, useState } from "react";
-import { User, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../api/firebase";
 import { SITE_SERVER } from "../utils/constants";
+import { NlUser } from "@/api";
 
-export const AuthContext = createContext<{ user: NlUser | null }>({
+export const AuthContext = createContext<{
+  user: NlUser | null;
+  intake: ((username: string, image: string) => void) | null;
+}>({
   user: null,
+  intake: null,
 });
 
 export const useAuthContext = () => useContext(AuthContext);
-
-interface NlUser extends User {
-  username?: string;
-  image?: string;
-  verified: boolean;
-  banned: boolean;
-}
 
 export const AuthContextProvider = ({
   children,
@@ -24,6 +22,14 @@ export const AuthContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [user, setUser] = useState<NlUser | null>(null);
+  function intakeUser(username: string, image: string) {
+    if (!user) return;
+    const updatedUser = user;
+    user.image = image;
+    user.username = username;
+    user.verified = true;
+    setUser(updatedUser);
+  }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -60,6 +66,8 @@ export const AuthContextProvider = ({
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, intake: intakeUser }}>
+      {children}
+    </AuthContext.Provider>
   );
 };

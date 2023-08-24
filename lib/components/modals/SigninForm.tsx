@@ -21,7 +21,7 @@ export default function SignInForm({
   setIsOpen,
 }: {
   isOpen: boolean;
-  setIsOpen: React.Dispatch<boolean>;
+  setIsOpen: () => void;
 }) {
   const [signInFeedback, setSignInFeedback] = useState<ValidateState>({
     status: "none",
@@ -33,6 +33,7 @@ export default function SignInForm({
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     await signInWithPopup(auth, provider);
+    setIsOpen();
   };
 
   const signInWithEmail = async (e: React.MouseEvent) => {
@@ -61,11 +62,7 @@ export default function SignInForm({
   };
 
   return (
-    <Dialog
-      open={isOpen}
-      className="relative z-50"
-      onClose={() => setIsOpen(false)}
-    >
+    <Dialog open={isOpen} className="relative z-50" onClose={() => setIsOpen()}>
       <div className="fixed inset-0 bg-black/20" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="mx-auto max-w-[420px] w-full bg-base-100 rounded-xl shadow-darklg">

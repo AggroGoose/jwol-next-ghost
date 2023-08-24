@@ -18,6 +18,7 @@ router.DELETE("/post/RemoveSavePost", server.removeSavePost)
 ## User Actions ##
 ##################
 */
+router.GET("/user/CheckUsername/:id", server.checkUsername)
 router.POST("/user/GetorCreate/:id", server.getOrCreateUser)
 router.PUT("/user/IntakeComplete", server.userCompleteIntake)
 router.PUT("/user/UpdateUsername", server.updateUsername)

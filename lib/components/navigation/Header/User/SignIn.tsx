@@ -1,21 +1,16 @@
-import { useState } from "react";
-import SignInForm from "./SigninForm";
+import { useModalContext } from "@/lib/context/modalContext";
 
 export default function SignIn() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { openSignIn } = useModalContext()!;
 
   return (
     <>
       <button
         className="text-lg font-head font-hdw tracking-hs cursor-pointer hover:text-primary hover:underline leading-none"
-        onClick={() => {
-          setIsOpen(true);
-        }}
+        onClick={openSignIn}
       >
         Sign In
       </button>
-
-      <SignInForm isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 }
