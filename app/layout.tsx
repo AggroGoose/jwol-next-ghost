@@ -60,7 +60,7 @@ export default function RootLayout({
         <ContextProvider>
           <div className="grid grid-cols-sideBar bg-base-100">
             <SideNav />
-            <div className="content-grid min-h-screen grid grid-cols-1 mt-6 lg:grid-cols-mainGrid">
+            <div className="content-grid min-h-screen grid grid-cols-1 xl:grid-cols-mainGrid">
               <TopNav />
               <ModalCheck />
               {children}

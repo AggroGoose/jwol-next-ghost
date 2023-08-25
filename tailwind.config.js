@@ -28,6 +28,7 @@ module.exports = {
     extend: {
       spacing: {
         "under-head": "calc(var(--header-height) - 2px)",
+        react: "calc(90vh)",
       },
       minHeight: {
         "under-head": "calc(100vh - (var(--header-height) - 2px))",

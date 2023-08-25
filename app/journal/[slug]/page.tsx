@@ -14,7 +14,7 @@ import MorePagePosts from "@/lib/components/article/main/morePagePosts";
 import BlockContent from "@/lib/components/blocks/blockContent";
 import { Metadata } from "next";
 import TableofContents from "@/lib/components/blocks/tableOfContents";
-import { BLOG_URL } from "@/lib/utils/constants";
+import { BLOG_URL, SITE_SERVER } from "@/lib/utils/constants";
 
 export const revalidate = 600;
 
@@ -59,6 +59,10 @@ export default async function PostPage({
   params: { slug: string };
 }) {
   const post = await ghostGetSinglePost(slug);
+  const postDb: GansoPostRes = await fetch(
+    SITE_SERVER + "post/GetorCreate/" + post.id,
+    { method: "POST" }
+  ).then((res) => res.json());
   const morePosts = await ghostLatestFiveGeneral(slug);
   const tagPosts = await ghostLatestFiveforTag(post.primary_tag.slug, slug);
 
@@ -67,8 +71,8 @@ export default async function PostPage({
   return (
     <>
       <>
-        {/* <ArticleReactions /> */}
-        <div className="content-grid flex flex-col gap-6 px-3 lg:px-0">
+        <div className="content-grid mt-6 flex flex-col gap-6 px-3 row-start-2 xl:px-0">
+          {"Post Likes: " + postDb.comment_count}
           <PostHead
             title={post.title}
             feature_image={post.feature_image}
@@ -81,9 +85,12 @@ export default async function PostPage({
             reading_time={post.reading_time}
           />
           <PostTags tags={post.tags} />
-          <TableofContents toc={toc} />
-          <div className="grid grid-cols-blockGrid gap-6 self-center w-[var(--blog-width)]">
-            <BlockContent content={content} dropCap={true} />
+          <div className="w-full flex flex-col gap-6 px-3 xl:px-0 relative">
+            <ArticleReactions postId={post.id} />
+            <TableofContents toc={toc} react={true} />
+            <div className="grid grid-cols-blockGrid gap-6 self-center w-[var(--blog-width)]">
+              <BlockContent content={content} dropCap={true} />
+            </div>
           </div>
           {morePosts.length > 0 && <MorePagePosts posts={morePosts} />}
           {tagPosts.length > 0 && (
