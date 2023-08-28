@@ -102,7 +102,7 @@ type GansoCreateComment = {
 
 type GansoCreateReply = {
   user_id: string;
-  comment_id: string;
+  comment_id: number;
   content: string;
 };
 

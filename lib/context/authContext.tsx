@@ -4,7 +4,7 @@ import { useContext, createContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../api/firebase";
 import { SITE_SERVER } from "../utils/constants";
-import { NlUser } from "@/api";
+import { NlUser } from "@/globals";
 
 export const AuthContext = createContext<{
   user: NlUser | null;

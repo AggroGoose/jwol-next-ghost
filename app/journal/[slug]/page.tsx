@@ -72,7 +72,6 @@ export default async function PostPage({
     <>
       <>
         <div className="content-grid mt-6 flex flex-col gap-6 px-3 row-start-2 xl:px-0">
-          {"Post Likes: " + postDb.comment_count}
           <PostHead
             title={post.title}
             feature_image={post.feature_image}

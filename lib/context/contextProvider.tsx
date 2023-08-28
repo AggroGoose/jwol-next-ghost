@@ -1,5 +1,6 @@
 import { AuthContextProvider } from "./authContext";
 import { ModalContextProvider } from "./modalContext";
+import QueryProvider from "./queryClient";
 
 export default function ContextProvider({
   children,
@@ -8,7 +9,9 @@ export default function ContextProvider({
 }) {
   return (
     <AuthContextProvider>
-      <ModalContextProvider>{children}</ModalContextProvider>
+      <ModalContextProvider>
+        <QueryProvider>{children}</QueryProvider>
+      </ModalContextProvider>
     </AuthContextProvider>
   );
 }

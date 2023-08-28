@@ -15,7 +15,7 @@ export default function PostIndex({
 }) {
   if (!(posts.length > 0)) {
     return (
-      <div className="flex flex-col gap-8 mb-8">
+      <div className="flex flex-col gap-8 mb-8 mt-6">
         <h1 className="text-center">{title}</h1>
         <p>No posts were found, please check your search or try again.</p>
       </div>
@@ -31,7 +31,7 @@ export default function PostIndex({
   }
 
   return (
-    <div className="flex flex-col gap-8 mb-8">
+    <div className="flex flex-col gap-8 mb-8 mt-6">
       <PageBadge links={links} />
       <h1 className="text-center">{title}</h1>
       {mainPost && <WideArticleCard post={mainPost} />}

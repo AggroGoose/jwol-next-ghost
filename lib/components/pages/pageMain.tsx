@@ -16,7 +16,7 @@ export default function PageMain({
 }) {
   const { content, toc } = page.content;
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 mt-6">
       <PageBadge links={links} />
       <h1 className="text-center">{page.title}</h1>
       {includeUpdate && (

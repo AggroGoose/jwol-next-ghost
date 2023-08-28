@@ -37,6 +37,10 @@ module.exports = {
         0: "0",
       },
       colors: {
+        always: {
+          dark: "var(--color-darkest",
+          light: "var(--color-lightest",
+        },
         primary: "var(--primary-color)",
         secondary: "var(--secondary-color)",
         accent: "var(--alt-color)",
@@ -96,5 +100,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui"), require("@tailwindcss/forms")],
+  plugins: [
+    require("daisyui"),
+    require("@tailwindcss/forms"),
+    require("@headlessui/tailwindcss"),
+  ],
 };

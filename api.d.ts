@@ -1,12 +1,3 @@
-import { User } from "firebase/auth";
-
-interface NlUser extends User {
-  username?: string;
-  image?: string;
-  verified: boolean;
-  banned: boolean;
-}
-
 type GhostPost = {
   slug: string;
   id: string;
