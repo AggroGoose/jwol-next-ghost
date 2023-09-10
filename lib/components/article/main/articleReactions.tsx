@@ -64,25 +64,25 @@ export default function ArticleReactions({ postId }: { postId: string }) {
 
   return (
     <>
-      <div className="sticky top-[85vh] ml-auto flex z-10 bg-white/80 rounded-[2rem] overflow-hidden shadow-darkmd xl:flex-col xl:top-[75vh]">
+      <div className="sticky top-[90vh] ml-auto flex z-10  xl:flex-col xl:top-[75vh] gap-3">
         <button
-          className="flex flex-col py-3 transition-colors duration-500 ease-in-out px-3 items-center hover:bg-accent"
+          className="p-3 transition-colors rounded-full bg-subtle-primary cshadow-flip duration-500 ease-in-out items-center hover:bg-subtle-primary2"
           onClick={handleLike}
         >
           <HeartFull
-            className={`w-6 h-6 xl:w-7 xl:h-7 transition-colors duration-500 ease-in-out ${
-              postLiked ? "fill-primary" : "fill-neutral"
+            className={`w-5 h-5 xl:w-7 xl:h-7 transition-colors duration-500 ease-in-out ${
+              postLiked ? "fill-accent-400" : "fill-fcolor-base"
             }`}
           />
         </button>
         <button
-          className="flex flex-col py-3 px-3 transition-colors duration-500 ease-in-out items-center hover:bg-accent"
+          className="p-3 transition-colors rounded-full bg-subtle-primary cshadow-flip duration-500 ease-in-out items-center hover:bg-subtle-primary2"
           onClick={toggleComments}
         >
-          <CommentIcon className="w-6 h-6 xl:w-7 xl:h-7 fill-neutral" />
+          <CommentIcon className="w-5 h-5 xl:w-7 xl:h-7 fill-fcolor-base" />
         </button>
-        <button className="flex flex-col py-3 px-3 transition-colors duration-500 ease-in-out items-center hover:bg-accent">
-          <ShareIcon className="w-6 h-6 xl:w-7 xl:h-7 fill-neutral" />
+        <button className="p-3 transition-colors rounded-full bg-subtle-primary cshadow-flip duration-500 ease-in-out items-center hover:bg-subtle-primary2">
+          <ShareIcon className="w-5 h-5 xl:w-7 xl:h-7 fill-fcolor-base" />
         </button>
       </div>
       {commentOpen && (
@@ -114,8 +114,6 @@ async function likePost(postId: string, userId: string) {
     user_id: userId,
     post_id: postId,
   };
-
-  console.log(req);
 
   const res: GansoLikeSaveState = await fetch(SITE_SERVER + "post/LikePost", {
     method: "POST",

@@ -33,16 +33,9 @@ export const revalidate = 600;
 export default async function Journal() {
   const indexPosts = await ghostPostsforIndex();
 
-  const links = [{ title: "Posts", slug: "/journal" }];
-
   return (
-    <div className="post_index content-grid flex flex-col gap-6 px-3 lg:px-0">
-      <PostIndex
-        posts={indexPosts}
-        title={"Here Are the Latest Posts"}
-        badge={true}
-        links={links}
-      />
+    <div className="content-grid row-start-2">
+      <PostIndex posts={indexPosts} title={"Here Are the Latest Posts"} />
     </div>
   );
 }

@@ -28,7 +28,7 @@ function LinkObj({
     return (
       <Link
         href={url}
-        className="text-primary font-bold hover:text-secondary hover:underline"
+        className="text-fcolor-link font-bold hover:text-hover-link hover:underline"
       >
         {children}
       </Link>
@@ -36,7 +36,7 @@ function LinkObj({
   return (
     <a
       href={url}
-      className="text-primary font-bold hover:text-secondary hover:underline"
+      className="text-fcolor-link font-bold hover:text-hover-link hover:underline"
       target="_blank"
     >
       {children}
@@ -68,7 +68,15 @@ function EmphasisCheck({
     elem.emphasis.strikethrough ? "line-through" : ""
   }`.trim();
   if (spanCheck(elem)) {
-    return <span className={classBuilder}>{children}</span>;
+    return (
+      <span
+        className={`${classBuilder}${
+          !elem.link && elem.emphasis.bold ? " text-subtle-flip2" : ""
+        }`}
+      >
+        {children}
+      </span>
+    );
   } else {
     return <>{children}</>;
   }

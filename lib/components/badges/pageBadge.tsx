@@ -6,7 +6,7 @@ export default function PageBadge({
   links: Array<{ title: string; slug: string }>;
 }) {
   return (
-    <button className="btn bg-primary font-head rounded-none border-none text-base-100 w-max self-center py-2 px-4 h-min hover:shadow-darkmd hover:bg-secondary">
+    <button className="bg-base-primary font-head text-always-light w-max self-center leading-none pt-2.5 pb-1 px-3 h-min uppercase hover:cshadow-dark hover:bg-hover-primary">
       <PageLinks links={links} />
     </button>
   );
@@ -21,7 +21,7 @@ function PageLinks({
     return (
       <Link
         href={links[0].slug}
-        className="text-head3 leading-none font-hdw tracking-hs"
+        className="text-head3 leading-none font-hdw tracking-bs"
       >
         {links[0].title}
       </Link>

@@ -9,20 +9,23 @@ export default function TableofContents({
 }) {
   return (
     <div
-      className={`flex flex-col gap-6 w-[var(--blog-width)] self-center${
-        react ? " -mt-[48px] xl:-mt-[156px]" : ""
+      className={`flex flex-col gap-2 w-[var(--blog-width)] self-center${
+        react ? " -mt-[48px] xl:-mt-[180px]" : ""
       }`}
     >
       <h2 id="table-of-contents" className="leading-none text-head2">
         Table of Contents
       </h2>
-      <ol className="list-decimal pl-[40px]">
+      <ol className="list-decimal flex flex-col gap-1">
         {toc.map((obj, i) => {
           return (
-            <li className="pl-3 li-dark" key={i}>
+            <li
+              className="ml-6 pl-4 marker:text-fcolor-base marker:font-bold md:ml-10"
+              key={i}
+            >
               <Link
                 href={`#${obj.tag}`}
-                className="text-secondary font-bold hover:text-primary hover:underline"
+                className="text-fcolor-link font-bold hover:text-hover-link hover:underline"
               >
                 {obj.title}
               </Link>

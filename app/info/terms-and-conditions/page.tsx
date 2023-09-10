@@ -1,7 +1,7 @@
 import { ghostMetaSingle } from "@/lib/api/server/ghostServer";
 import { ghostPageData } from "@/lib/api/server/ghostServer/_ghostPage";
 import PageMain from "@/lib/components/pages/pageMain";
-import { POLICY_URL } from "@/lib/utils/constants";
+import { POLICY_ROUTE, POLICY_URL } from "@/lib/utils/constants";
 import { Metadata } from "next";
 
 const slug = "terms-and-conditions";
@@ -35,11 +35,11 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function TermsConditions() {
   const page = await ghostPageData(slug);
 
-  const links = [{ title: "Policy", slug: "#" }];
+  const link = { title: "Policies", url: POLICY_ROUTE };
 
   return (
     <div className="content-grid flex flex-col gap-6 px-3 lg:px-0">
-      <PageMain page={page} links={links} includeUpdate={true} />
+      <PageMain page={page} link={link} includeUpdate={true} />
     </div>
   );
 }

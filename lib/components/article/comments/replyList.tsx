@@ -1,4 +1,3 @@
-import EllipsisIcon from "@/lib/resources/svg/icons/ellipsisIcon";
 import ResponseItem from "./responseItem";
 import DateParse from "../../helpers/date";
 import { useState } from "react";
@@ -28,9 +27,9 @@ export default function ReplyList({
     { initialData: [] }
   );
   return (
-    <div className="ml-6 pl-6 border-l border-solid border-secondary flex flex-col gap-8 lg:pl-8">
+    <div className="ml-6 pl-6 border-l border-solid border-subtle-primary2 flex flex-col gap-8 lg:pl-8">
       <button
-        className="text-secondary text-sm text-left font-bold"
+        className="text-fcolor-link text-sm text-left font-bold hover:text-hover-link hover:underline"
         onClick={() => setShowReplies(false)}
       >
         {"^ Hide Replies"}
@@ -84,7 +83,7 @@ function ReplyItem({
         <div className="flex gap-4 items-center">
           <img src={reply.image.String} className="w-9 h-9 rounded-full"></img>
           <div className="flex flex-col gap-1">
-            <p className="text-sm font-semibold text-secondary leading-none">
+            <p className="text-sm font-semibold text-base-accent leading-none">
               {reply.username.String}
             </p>
             <p className="text-xs italic leading-none">

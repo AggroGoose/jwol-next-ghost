@@ -1,47 +1,28 @@
-"use client";
-
-import Date from "@/lib/components/helpers/date";
-import PageBadge from "../../badges/pageBadge";
-import { TAG_ROUTE } from "@/lib/utils/constants";
-import { useAuthContext } from "@/lib/context/authContext";
+import FeatureImage from "./featureImage";
+import PostDetails from "./postDetails";
 
 export default function PostHeadContent({
-  title,
-  excerpt,
+  feature_image,
+  feature_image_alt,
+  feature_image_caption,
   created_at,
-  reading_time,
-  primary_tag,
+  updated_at,
 }: {
-  title: string;
-  excerpt: string;
+  feature_image: string | null;
+  feature_image_alt: string;
+  feature_image_caption: string | null;
   created_at: string;
-  reading_time: number;
-  primary_tag: {
-    id: string;
-    name: string;
-    slug: string;
-  };
+  updated_at: string;
 }) {
-  const { user } = useAuthContext();
-
-  let name: string = "";
-  if (user?.displayName) name = user.displayName;
-  if (user?.username) name = user.username;
-
   return (
-    <div className="w-full flex flex-col gap-6 items-center text-center">
-      <PageBadge
-        links={[
-          {
-            slug: `${TAG_ROUTE}/${primary_tag.slug}`,
-            title: primary_tag.name,
-          },
-        ]}
-      />
-      <h1 className="leading-none">{title}</h1>
-      <p className="text-lg font-semibold italic leading-none">
-        <Date dateString={created_at} />
-      </p>
+    <div className="flex flex-col gap-6">
+      {feature_image && (
+        <FeatureImage
+          feature_image={feature_image}
+          feature_image_alt={feature_image_alt}
+        />
+      )}
+      <PostDetails created_at={created_at} updated_at={updated_at} />
     </div>
   );
 }

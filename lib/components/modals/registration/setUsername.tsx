@@ -92,7 +92,7 @@ export default function SetUsername({
         {userStatus !== "none" && (
           <p
             className={`text-xs font-bold italic mt-1 text-center ${
-              userStatus === "error" ? "text-primary" : "text-secondary"
+              userStatus === "error" ? "text-accent-400" : "text-primary-500"
             }`}
           >
             {feedback}
@@ -100,15 +100,15 @@ export default function SetUsername({
         )}
         <div className="mt-4 flex flex-col gap-y-4 items-center md:flex-row md:justify-between">
           <button
-            className="w-44 text-sm font-medium bg-secondary rounded-lg hover:bg-primary text-base-100 leading-none px-4 py-2.5 duration-300 transition-colors focus:outline-none"
+            className="w-44 text-sm font-medium bg-primary-500 rounded-lg hover:bg-primary-600 text-always-light leading-none px-4 py-2.5 duration-300 transition-colors focus:outline-none"
             onClick={handleCheck}
           >
             Check Username
           </button>
           <button
-            className={`w-44 text-sm font-medium bg-transparent rounded-lg hover:text-base-100 border-solid border-2 leading-none px-4 py-2.5 duration-300 transition-colors ${
+            className={`w-44 text-sm font-medium bg-transparent rounded-lg hover:text-always-light border-solid border-2 leading-none px-4 py-2.5 duration-300 transition-colors ${
               username
-                ? "text-secondary border-secondary hover:bg-secondary"
+                ? "text-primary-500 border-primary-500 hover:bg-primary-500"
                 : "text-gray-700 border-gray-700 hover:bg-gray-700"
             }`}
             onClick={handleNext}

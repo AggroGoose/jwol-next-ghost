@@ -11,7 +11,7 @@ export default function MorePagePosts({
   tag?: { id: string; name: string; slug: string };
 }) {
   return (
-    <div className="my-6 flex flex-col gap-6">
+    <div className="mb-6 flex flex-col gap-6">
       {tagPost ? (
         tag ? (
           <h2>Latest Articles Under {tag.name}:</h2>

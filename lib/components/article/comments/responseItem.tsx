@@ -121,7 +121,7 @@ export default function ResponseItem({
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
         <textarea
           id="ResponseBox"
-          className="w-full resize-none border-none align-top focus:ring-0 sm:text-sm"
+          className="w-full text-always-dark resize-none border-none align-top leading-tight focus:ring-0 text-sm p-1.5"
           rows={3}
           ref={responseField}
           defaultValue={editDefault || ""}
@@ -130,7 +130,7 @@ export default function ResponseItem({
           }
         />
 
-        <div className="flex items-center justify-end gap-2 bg-white p-3">
+        <div className="flex items-center justify-end gap-2 bg-white p-1.5">
           {(isEdit || isReply) && (
             <button
               type="button"
@@ -143,7 +143,7 @@ export default function ResponseItem({
 
           <button
             type="button"
-            className="rounded bg-indigo-600 px-3 py-2 text-xs leading-none font-medium text-white hover:bg-indigo-700"
+            className="rounded bg-base-primary px-3 py-2 text-xs leading-none font-medium text-white hover:bg-hover-primary"
             onClick={handleSubmit}
           >
             {isEdit || isReply ? "Submit" : "Post"}
@@ -153,7 +153,7 @@ export default function ResponseItem({
       {userStatus !== "none" && (
         <p
           className={`text-xs font-bold italic mt-1 text-center ${
-            userStatus === "error" ? "text-primary" : "text-secondary"
+            userStatus === "error" ? "text-accent-400" : "text-primary-500"
           }`}
         >
           {feedback}

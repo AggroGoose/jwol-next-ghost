@@ -1,21 +1,16 @@
 import MainArticleCard from "../cards/mainArticleCard";
 import WideArticleCard from "../cards/wideArticleCard";
-import PageBadge from "../badges/pageBadge";
 
 export default function PostIndex({
   posts,
   title,
-  badge = false,
-  links,
 }: {
   posts: ResponseMore[];
   title: string;
-  badge?: boolean;
-  links: Array<{ slug: string; title: string }>;
 }) {
   if (!(posts.length > 0)) {
     return (
-      <div className="flex flex-col gap-8 mb-8 mt-6">
+      <div className="flex flex-col gap-8 py-8">
         <h1 className="text-center">{title}</h1>
         <p>No posts were found, please check your search or try again.</p>
       </div>
@@ -31,12 +26,11 @@ export default function PostIndex({
   }
 
   return (
-    <div className="flex flex-col gap-8 mb-8 mt-6">
-      <PageBadge links={links} />
+    <div className="flex flex-col gap-8 px-6 xl:px-0 py-8 min-h-screen">
       <h1 className="text-center">{title}</h1>
       {mainPost && <WideArticleCard post={mainPost} />}
       {additionalPosts.length > 0 && (
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
           {additionalPosts.map((post) => (
             <MainArticleCard post={post} />
           ))}

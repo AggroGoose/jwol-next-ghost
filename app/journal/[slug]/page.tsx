@@ -1,5 +1,5 @@
 import PostHead from "@/lib/components/article/heading/postHead";
-import PostTags from "@/lib/components/article/main/postTags";
+import PostTags from "@/lib/components/article/heading/postTags";
 import ArticleReactions from "@/lib/components/article/main/articleReactions";
 
 import {
@@ -71,7 +71,7 @@ export default async function PostPage({
   return (
     <>
       <>
-        <div className="content-grid mt-6 flex flex-col gap-6 px-3 row-start-2 xl:px-0">
+        <div className="content-grid mt-6 pb-6 flex flex-col gap-6 px-3 row-start-2 xl:px-0">
           <PostHead
             title={post.title}
             feature_image={post.feature_image}
@@ -81,13 +81,12 @@ export default async function PostPage({
             updated_at={post.updated_at}
             excerpt={post.excerpt}
             primary_tag={post.primary_tag}
-            reading_time={post.reading_time}
+            tags={post.tags}
           />
-          <PostTags tags={post.tags} />
           <div className="w-full flex flex-col gap-6 px-3 xl:px-0 relative">
             <ArticleReactions postId={post.id} />
             <TableofContents toc={toc} react={true} />
-            <div className="grid grid-cols-blockGrid gap-6 self-center w-[var(--blog-width)]">
+            <div className="grid grid-cols-blockGrid gap-8 self-center w-[var(--blog-width)] pb-12 lg:pb-6">
               <BlockContent content={content} dropCap={true} />
             </div>
           </div>

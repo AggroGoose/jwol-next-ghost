@@ -15,8 +15,8 @@ export default function WideArticleCard({ post }: { post: ResponseMore }) {
     imageAlt = "Fallback image, no Feature Image provided.";
   }
   return (
-    <div className="card lg:card-side bg-base-100 hover:shadow-darkmd">
-      <figure className="lg:basis-3/5">
+    <div className="flex flex-col bg-base-tier2 hover:cshadow-flip lg:flex-row rounded-xl overflow-hidden">
+      <figure className="flex lg:basis-3/5 justify-center items-center">
         <Link
           href={`${BLOG_ROUTE}/${post.slug}`}
           className="aspect-[3/2] relative w-full"
@@ -31,28 +31,32 @@ export default function WideArticleCard({ post }: { post: ResponseMore }) {
           />
         </Link>
       </figure>
-      <div className="card-body lg:basis-2/5 gap-4">
+      <div className="flex flex-col gap-4 lg:basis-2/5 p-4">
         <div className="flex justify-between">
-          <p className="italic">
+          <p className="text-sm italic font-light lg:text-base">
             <Date dateString={post.published} />
           </p>
           <Link
             href={`${TAG_ROUTE}/${post.tagSlug}`}
-            className="leading-none text-secondary font-bold"
+            className="leading-none text-fcolor-link hover:text-hover-link font-bold text-sm lg:text-base"
           >
             {post.tag}
           </Link>
         </div>
         <Link href={`${BLOG_ROUTE}/${post.slug}`}>
-          <h2 className="leading-tight">{post.title}</h2>
+          <h2 className="leading-tight text-xl lg:text-head3 2xl:text-head2 hover:text-hover-accent">
+            {post.title}
+          </h2>
         </Link>
-        <p>{post.excerpt}</p>
+        <p className="line-clamp-2 md:line-clamp-4 2xl:line-clamp-6 text-sm lg:text-base">
+          {post.excerpt}
+        </p>
 
         <Link
           href={`${BLOG_ROUTE}/${post.slug}`}
-          className="text-lg font-bold text-secondary hover:text-primary hover:underline"
+          className="text-lg font-bold text-base-accent hover:text-hover-accent hover:underline mt-auto"
         >
-          Read in {post.readTime} Minutes {">>"}
+          Read More {"->"}
         </Link>
       </div>
     </div>

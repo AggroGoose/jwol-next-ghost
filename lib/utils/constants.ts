@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === "production") {
 
 const ABOUT_ROUTE = "/about";
 const BLOG_ROUTE = "/journal";
-const POLICY_ROUTE = "/info";
+const POLICY_ROUTE = "/policies";
 const TAG_ROUTE = "/journal/tag";
 const USER_ROUTE = "/user";
 

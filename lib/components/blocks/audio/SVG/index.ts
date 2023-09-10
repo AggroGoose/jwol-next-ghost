@@ -1,13 +1,15 @@
-import AudioPlaceholderThumb from "./audioPlaceholderThumb";
 import AudioPlayIcon from "./audioPlayIcon";
 import AudioPauseIcon from "./audioPauseIcon";
-import AudioMuteIcon from "./audioMuteIcon";
-import AudioUnmuteIcon from "./audioUnmuteIcon";
+import AudioMutedIcon from "./audioMutedIcon";
+import AudioActiveIcon from "./audioActiveIcon";
+import AudioForward30Icon from "./audioForward30Icon";
+import AudioReplay30Icon from "./audioReplay30Icon";
 
 export {
-  AudioMuteIcon,
+  AudioActiveIcon,
   AudioPauseIcon,
   AudioPlayIcon,
-  AudioUnmuteIcon,
-  AudioPlaceholderThumb,
+  AudioMutedIcon,
+  AudioForward30Icon,
+  AudioReplay30Icon,
 };

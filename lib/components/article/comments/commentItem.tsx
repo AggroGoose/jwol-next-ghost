@@ -45,10 +45,10 @@ export default function CommentItem({
   const ReplyLabel = ({ replies }: { replies: number }) => {
     return (
       <button
-        className="flex text-xs text-secondary font-semibold hover:underline items-center gap-1"
+        className="group flex text-sm text-fcolor-link font-semibold hover:underline items-center gap-2 hover:text-hover-link"
         onClick={handleShowReplies}
       >
-        <CommentIcon className="h-5 w-5 fill-secondary" />
+        <CommentIcon className="h-6 w-6 fill-fcolor-link group-hover:fill-hover-link" />
         {replies === 1
           ? "1 Reply"
           : `${replies}${replies > 1 ? " Replies" : ""}`}
@@ -58,14 +58,14 @@ export default function CommentItem({
 
   return (
     <>
-      <div className="w-full flex flex-col gap-4">
+      <div className="w-full flex flex-col gap-6">
         <div className="flex gap-4 items-center">
           <img
             src={comment.image.String}
             className="w-9 h-9 rounded-full"
           ></img>
           <div className="flex flex-col gap-1">
-            <p className="text-sm font-semibold text-secondary leading-none">
+            <p className="text-sm font-bold text-base-accent leading-none">
               {comment.username.String}
             </p>
             <p className="text-xs italic leading-none">
@@ -95,7 +95,7 @@ export default function CommentItem({
         <div className="flex justify-between">
           <ReplyLabel replies={comment.count_reply} />
           <button
-            className="self-end text-sm font-bold text-secondary hover:underline"
+            className="self-end text-sm font-semibold text-fcolor-link hover:underline hover:text-hover-link"
             onClick={handleReply}
           >
             Reply
@@ -119,7 +119,9 @@ export default function CommentItem({
             commentRefetch={refetch}
           />
         )}
+        <hr className="h-[1px] bg-subtle-primary2 border-0" />
       </div>
+
       {deleteOpen && (
         <ConfirmDelete
           deleteType="Comment"

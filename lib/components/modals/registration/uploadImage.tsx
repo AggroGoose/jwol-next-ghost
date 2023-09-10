@@ -92,7 +92,7 @@ export default function UploadImage({
             name="files"
             id="files"
             onChange={handleFileChange}
-            className="px-4 py-6 border-2 border-dashed rounded-md file:rounded-xl file:mr-3 file:bg-secondary file:border-none file:leading-none file:p-2.5 file:hover:bg-accent cursor-pointer"
+            className="px-4 py-6 border-2 border-dashed rounded-md file:rounded-xl file:mr-3 file:bg-primary-500 file:border-none file:leading-none file:p-2.5 file:hover:bg-primary-700 cursor-pointer"
             accept="image/png, image/jpeg, image/gif"
           />
         </div>
@@ -100,7 +100,7 @@ export default function UploadImage({
       {userStatus !== "none" && (
         <p
           className={`text-sm font-bold italic mt-1 text-center ${
-            userStatus === "error" ? "text-primary" : "text-secondary"
+            userStatus === "error" ? "text-accent-400" : "text-primary-500"
           }`}
         >
           {feedback}
@@ -108,13 +108,13 @@ export default function UploadImage({
       )}
       <div className="mt-4 flex flex-col gap-y-4 items-center md:flex-row md:justify-between">
         <button
-          className="w-44 text-sm font-medium bg-secondary rounded-lg hover:bg-primary text-base-100 leading-none px-4 py-2.5 duration-300 transition-colors focus:outline-none"
+          className="w-44 text-sm font-medium bg-primary-500 rounded-lg hover:bg-primary text-base-100 leading-none px-4 py-2.5 duration-300 transition-colors focus:outline-none"
           onClick={handleBack}
         >
           Change Username
         </button>
         <button
-          className={`w-44 text-sm font-medium bg-transparent rounded-lg hover:text-base-100 border-solid border-2 leading-none px-4 py-2.5 duration-300 transition-colors text-secondary border-secondary hover:bg-secondary`}
+          className={`w-44 text-sm font-medium bg-transparent rounded-lg hover:text-base-100 border-solid border-2 leading-none px-4 py-2.5 duration-300 transition-colors text-primary-500 border-primary-500 hover:bg-primary-500`}
           onClick={handleNext}
         >
           Final Step

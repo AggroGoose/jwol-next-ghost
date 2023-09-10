@@ -73,7 +73,7 @@ export default function ConfirmRegister({
           />
         </div>
         <button
-          className="text-sm underline hover:text-secondary font-medium"
+          className="text-sm underline hover:text-primary-500 font-medium"
           onClick={handleChangeImage}
         >
           Change Image
@@ -85,7 +85,7 @@ export default function ConfirmRegister({
           {username}
         </p>
         <button
-          className="text-sm underline hover:text-secondary font-medium"
+          className="text-sm underline hover:text-primary-500 font-medium"
           onClick={handleChangeUsername}
         >
           Change Username
@@ -95,14 +95,14 @@ export default function ConfirmRegister({
       {userStatus !== "none" && (
         <p
           className={`text-sm font-bold italic mt-1 text-center ${
-            userStatus === "error" ? "text-primary" : "text-secondary"
+            userStatus === "error" ? "text-accent-400" : "text-primary-500"
           }`}
         >
           {feedback}
         </p>
       )}
       <button
-        className={`w-48 text-sm font-medium bg-secondary rounded-lg text-base-100 leading-none px-4 py-2.5 duration-300 transition-colors hover:bg-accent self-center`}
+        className={`w-48 text-sm font-medium bg-primary-500 rounded-lg text-always-light leading-none px-4 py-2.5 duration-300 transition-colors hover:bg-accent self-center`}
         onClick={handleComplete}
       >
         Confirm

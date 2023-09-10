@@ -13,9 +13,7 @@ export function UserMenu({ imgSrc }: { imgSrc: string }) {
         src={imgSrc}
         height={56}
         width={56}
-        className={
-          "rounded-full w-[32px] h-[32px] md:h-[44px] md:w-[44px] xl:w-[48px] xl:h-[48px]"
-        }
+        className={"rounded-full w-[32px] h-[32px] md:h-[42px] md:w-[42px]"}
         alt={"User Profile Picture"}
       />
     </button>

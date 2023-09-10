@@ -35,11 +35,11 @@ export const revalidate = 600;
 export default async function About() {
   const page = await ghostPageData(slug);
 
-  const links = [{ title: "About", slug: ABOUT_ROUTE }];
+  const link = { title: "About", url: ABOUT_ROUTE };
 
   return (
     <div className="content-grid flex flex-col gap-6 px-3 lg:px-0">
-      <PageMain page={page} links={links} disableToc={true} />
+      <PageMain page={page} link={link} disableToc={true} />
     </div>
   );
 }

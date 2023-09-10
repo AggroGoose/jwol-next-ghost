@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import BlockAudio from "./audio/blockAudio";
 import BlockCallout from "./callout/blockCallout";
 import BlockGallery from "./images/galleryCard";
@@ -17,45 +17,26 @@ import BlockButton from "./button/blockBtn";
 
 export default function BlockContent({
   content,
-  dropCap = false,
   disableToc = false,
+  dropCap = false,
 }: {
   content: BlockArray;
-  dropCap?: boolean;
   disableToc?: boolean;
+  dropCap?: boolean;
 }) {
-  const firstPara = useRef(true);
-  const firstH2 = useRef(true);
-
   return (
     <>
       {content.map((elem) => {
         if (elem.type === "p") {
-          if (firstPara.current && dropCap) {
-            firstPara.current = false;
-            return (
-              <BlockParagraph elem={elem} dropCap={true} key={"p" + elem.id} />
-            );
-          }
-          return <BlockParagraph elem={elem} key={"p" + elem.id} />;
+          return (
+            <BlockParagraph elem={elem} dropCap={dropCap} key={"p" + elem.id} />
+          );
         }
         if (elem.type === "h2") {
-          if (firstH2.current) {
-            firstH2.current = false;
-            return (
-              <BlockHeaders
-                elem={elem}
-                disableToc={disableToc}
-                firstH2={true}
-                key={"h" + elem.id}
-              />
-            );
-          }
           return (
             <BlockHeaders
               elem={elem}
               disableToc={disableToc}
-              firstH2={false}
               key={"h" + elem.id}
             />
           );

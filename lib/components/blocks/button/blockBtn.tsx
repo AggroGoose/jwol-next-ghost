@@ -2,7 +2,7 @@ export default function BlockButton({ block }: { block: BlockButtonCard }) {
   return (
     <a
       href={block.url}
-      className="blmin w-max text-sm p-4 bg-primary text-base-100 rounded-md mx-auto font-bold leading-none hover:bg-secondary"
+      className="blmain max-w-full text-sm text-center p-4 bg-base-accent text-always-light rounded-md mx-auto font-bold leading-tight hover:bg-hover-accent"
       target="_blank"
     >
       {block.label}

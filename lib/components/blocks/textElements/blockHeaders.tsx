@@ -22,7 +22,7 @@ export default function BlockHeaders({
       </h1>
     );
   if (type === "h2") {
-    if (firstH2 || disableToc) {
+    if (disableToc) {
       return (
         <h2 className="blmain" id={tag}>
           {mappedContent}
@@ -31,15 +31,15 @@ export default function BlockHeaders({
     } else {
       return (
         <>
-          <div className="blmain text-center text-sm font-medium italic">
+          <div className="blmain text-center text-sm font-medium italic hidden peer-first-of-type:block">
             <Link
               href="#table-of-contents"
-              className="text-secondary hover:text-primary hover:underline"
+              className="text-fcolor-link font-bold hover:text-hover-link hover:underline"
             >
               Return to Table of Contents
             </Link>
           </div>
-          <h2 className="blmain" id={tag}>
+          <h2 className="blmain -mb-1 peer" id={tag}>
             {mappedContent}
           </h2>
         </>

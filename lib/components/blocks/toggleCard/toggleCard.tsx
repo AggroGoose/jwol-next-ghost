@@ -12,18 +12,18 @@ export default function BlockToggle({ elem }: { elem: BlockToggleCard }) {
 
   return (
     <div
-      className="blmain p-6 shadow-smd rounded-lg"
+      className="blmain p-6 cshadow-dark rounded-lg bg-base-tier2"
       data-block-toggle={isExpanded ? "open" : "close"}
     >
       <div
-        className="cursor-pointer flex justify-between items-start"
+        className="cursor-pointer flex justify-between items-center"
         onClick={toggleExpand}
       >
-        <h4 className="block_toggle_head--text">{elem.title}</h4>
-        <button className="block_toggle_head--icon" onClick={toggleExpand}>
+        <h3 className="text-xl">{elem.title}</h3>
+        <button className="leading-0" onClick={toggleExpand}>
           <ToggleArrow
-            className={`w-5 h-5 fill-secondary transition-all duration-500 ease-in-out -rotate-180${
-              isExpanded ? " transform-none" : ""
+            className={`w-5 h-5 fill-primary-500 transition-all duration-500 ease-in-out hover:fill-hover-primary ${
+              isExpanded ? "-rotate-180" : "rotate-0"
             }`}
           />
         </button>

@@ -7,7 +7,7 @@ export default function YoutubeCard({ elem }: { elem: BlockEmbedCard }) {
   const url = `https://www.youtube.com/embed/${id}`;
 
   return (
-    <figure className="my-3 blmain">
+    <figure className="my-3 blmain rounded-xl overflow-hidden cshadow-flip">
       <div className="relative w-full pt-[56.5%]">
         <iframe
           width="560"

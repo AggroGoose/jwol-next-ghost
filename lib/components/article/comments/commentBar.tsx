@@ -23,8 +23,10 @@ export default function CommentBar({
   );
   return (
     <Dialog open={isOpen} onClose={() => closeModal()}>
-      <Dialog.Panel className="bg-base-100 fixed top-0 right-0 h-screen w-[70vw] max-w-[480px] z-[40] shadow-darklg p-8 overflow-y-scroll no-scrollbar">
-        <Dialog.Title className="leading-none">Comments</Dialog.Title>
+      <Dialog.Panel className="bg-subtle-primary fixed top-0 right-0 h-screen w-[85vw] max-w-[480px] z-[40] cshadow-lg-primary p-8 overflow-y-scroll no-scrollbar">
+        <Dialog.Title className="leading-none text-fcolor-base">
+          Comments
+        </Dialog.Title>
         <div className="py-8">
           {user ? (
             <ResponseItem

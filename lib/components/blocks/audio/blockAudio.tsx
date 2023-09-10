@@ -4,44 +4,38 @@ import { useRef } from "react";
 import Image from "next/image";
 
 import AudioControls from "./audioControls";
-import { AudioPlaceholderThumb } from "./SVG";
 
 export default function BlockAudio({ elem }: { elem: BlockAudioCard }) {
   const audioContainer = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const imgSrc = null;
+  const imgSrc = "/images/NoLeaveFallback.png";
   const audioSrc = elem.src;
   const audioTitle = elem.title;
   const audioDuration = elem.duration;
 
   return (
-    <div className="blmain flex w-full min-h-[96px] rounded-lg shadow-smd">
-      <div
-        className={`flex justify-center items-center w-[80px] m-2 rounded-md relative ${
-          imgSrc ? "bg-transparent" : "bg-secondary"
-        }`}
-      >
-        {imgSrc ? (
-          <Image
-            src={imgSrc}
-            alt={`Audio clip thumbnail for ${audioTitle}`}
-            className="object-cover"
-            fill={true}
-            sizes="80px"
-          />
-        ) : (
-          <AudioPlaceholderThumb className="aspect-[22.5/24] w-7 fill-white" />
-        )}
+    <div
+      className="blmain flex w-full max-w-[fit-content] mx-auto items-center [--audio-image:108px] min-h-[--audio-image] relative md:[--audio-image:160px] lg:blmin"
+      ref={audioContainer}
+    >
+      <div className="w-[--audio-image] absolute aspect-square overflow-hidden rounded-full cshadow-primary">
+        <Image
+          src={imgSrc}
+          alt={`Audio clip thumbnail for ${audioTitle}`}
+          className="object-cover"
+          fill={true}
+          sizes="160px"
+        />
       </div>
-
       <div
-        className="relative flex flex-col justify-between w-full audio-var"
-        ref={audioContainer}
+        className="flex flex-col gap-4 bg-primary-900 py-4 ml:py-6 pr-4 ml:pr-6 pl-[calc(var(--audio-image)+12px)]
+      md:pl-[--audio-image] md:ml-6 rounded-r-xl rounded-l-3xl cshadow-primary grungeBack"
       >
-        <audio src={audioSrc} ref={audioRef} preload="metadata" />
-        <div className="w-full mt-2 py-2 px-3 text-lg font-bold leading-none">
+        <p className="leading-none text-xs font-semibold text-always-light">
           {audioTitle}
-        </div>
+        </p>
+
+        <audio src={audioSrc} ref={audioRef} preload="metadata" />
 
         <AudioControls
           audioContainer={audioContainer}

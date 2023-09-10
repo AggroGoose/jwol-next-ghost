@@ -16,11 +16,10 @@ const BlockImage = ({ elem }: { elem: BlockImageCard }) => {
           sizes="(max-width: 950px) 100vw (max-width: 1200px) 80vw, 60vw"
           width={width}
           height={height}
-          className="rounded-lg"
         />
         {caption && (
           <figcaption
-            className="mt-3 tex-sm italic text-center"
+            className="mt-3 text-sm italic text-center"
             dangerouslySetInnerHTML={{ __html: caption }}
           />
         )}

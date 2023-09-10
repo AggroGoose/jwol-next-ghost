@@ -3,7 +3,13 @@ import Link from "next/link";
 import Date from "../helpers/date";
 import { BLOG_ROUTE, TAG_ROUTE } from "@/lib/utils/constants";
 
-export default function MainArticleCard({ post }: { post: ResponseMore }) {
+export default function MainArticleCard({
+  post,
+  priority = false,
+}: {
+  post: ResponseMore;
+  priority?: boolean;
+}) {
   let image: string;
   let imageAlt: string;
 
@@ -16,41 +22,42 @@ export default function MainArticleCard({ post }: { post: ResponseMore }) {
   }
 
   return (
-    <div className="flex flex-col rounded-xl bg-base-100 relative hover:shadow-darkmd">
-      <Link href={`${BLOG_ROUTE}/${post.slug}`} className="relative w-full">
+    <div className="flex flex-col w-full rounded-xl bg-base-tier2 relative hover:cshadow-flip overflow-hidden">
+      <Link href={`${BLOG_ROUTE}/${post.slug}`}>
         <figure className="relative aspect-[3/2]">
           <Image
             src={image}
             alt={imageAlt}
             fill={true}
-            priority={true}
-            className="object-cover rounded-xl"
+            priority={priority}
+            className="object-cover"
             sizes="(max-width: 950px) 100vw, 50vw"
           />
         </figure>
       </Link>
-      <div className="flex flex-col p-4 gap-2 text-left">
+      <div className="flex flex-col p-4 gap-4 text-left h-full">
         <div className="flex justify-between w-full items-center">
-          <span className="text-sm italic">
+          <p className="text-xs italic font-light">
             <Date dateString={post.published} />
-          </span>
+          </p>
           <Link
             href={`${TAG_ROUTE}/${post.tagSlug}`}
-            className="text-sm font-bold text-secondary leading-none"
+            className="text-sm font-bold text-fcolor-link leading-none hover:text-hover-link"
           >
             {post.tag}
           </Link>
         </div>
-        <Link href={`${BLOG_ROUTE}/${post.slug}`} className="h-[72px]">
-          <h2 className="card-title font-head leading-tight text-head3 tracking-hs font-hdw">
+        <Link href={`${BLOG_ROUTE}/${post.slug}`}>
+          <h3 className="leading-tight text-xl hover:text-hover-accent -mb-1">
             {post.title}
-          </h2>
+          </h3>
         </Link>
+        <p className="text-sm line-clamp-2">{post.excerpt}</p>
         <Link
           href={`${BLOG_ROUTE}/${post.slug}`}
-          className="text-base font-bold text-secondary hover:text-primary hover:underline"
+          className="mt-auto font-bold text-base-accent hover:text-hover-accent hover:underline"
         >
-          Read in {post.readTime} Minutes {">>"}
+          Read More {"->"}
         </Link>
       </div>
     </div>

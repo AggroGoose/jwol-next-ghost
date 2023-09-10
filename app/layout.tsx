@@ -9,15 +9,6 @@ import TopNav from "@/lib/components/navigation/topNav";
 import ModalCheck from "@/lib/components/modals/modalCheck";
 import ContextProvider from "@/lib/context/contextProvider";
 
-// const nunito = localFont({
-//   src: [
-//     { path: "/font/Nunito.ttf", style: "normal" },
-//     { path: "/font/Nunito-Italic.ttf", style: "italic" },
-//   ],
-//   variable: "--font-primary",
-//   display: "swap",
-// });
-
 const nunito = localFont({
   src: [
     { path: "/font/NunitoSans.ttf", style: "normal" },
@@ -26,16 +17,9 @@ const nunito = localFont({
   variable: "--font-primary",
   display: "swap",
 });
-
-const passionOne = localFont({
-  src: [{ path: "/font/PassionOne.ttf", style: "normal" }],
+const josefin = localFont({
+  src: [{ path: "/font/JosefinSans.ttf", style: "normal" }],
   variable: "--font-secondary",
-  display: "swap",
-});
-
-const philly = localFont({
-  src: [{ path: "/font/PhillySans.otf", style: "normal" }],
-  variable: "--font-tertiary",
   display: "swap",
 });
 
@@ -51,20 +35,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${philly.variable} ${nunito.variable} ${passionOne.variable}`}
-    >
+    <html lang="en" className={`${nunito.variable} ${josefin.variable}`}>
       <GoogleAnalytics GA_MEASUREMENT_ID="G-JC47HREZJY" />
-      <body>
+      <body id="main" data-color-theme="dark">
         <ContextProvider>
-          <div className="grid grid-cols-sideBar bg-base-100">
+          <div className="grid grid-cols-sideBar">
+            <div className="fixed w-screen h-screen min-h-[1400px] top-0 bg-texture -z-[2]" />
             <SideNav />
-            <div className="content-grid min-h-screen grid grid-cols-1 xl:grid-cols-mainGrid">
+            <main className="content-grid min-h-screen grid grid-cols-1 xl:grid-cols-mainGrid">
               <TopNav />
               <ModalCheck />
               {children}
-            </div>
+            </main>
           </div>
           <FooterNav />
           <CookieBanner />
