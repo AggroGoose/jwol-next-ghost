@@ -108,7 +108,7 @@ module.exports = {
         info: "#21C1DA",
         success: "#65DA21",
         warning: "#DA9621",
-        error: "#DA4A34",
+        error: "hsl(355, 80%, 50%)",
       },
       fontWeight: {
         hdw: "var(--font-head-weight)",

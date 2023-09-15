@@ -27,7 +27,7 @@ export default function NewUser({
     >
       <div className="fixed inset-0 bg-black/10" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="mx-auto max-w-[520px] w-full bg-always-light p-6 rounded-xl cshadow-lg-dark">
+        <Dialog.Panel className="mx-auto max-w-[520px] w-full bg-always-light text-always-dark p-6 rounded-xl cshadow-lg-dark">
           <Dialog.Title className="text-center text-head3 leading-none my-4">
             Finish Account Setup
           </Dialog.Title>

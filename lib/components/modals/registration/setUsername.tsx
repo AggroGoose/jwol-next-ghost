@@ -92,7 +92,7 @@ export default function SetUsername({
         {userStatus !== "none" && (
           <p
             className={`text-xs font-bold italic mt-1 text-center ${
-              userStatus === "error" ? "text-accent-400" : "text-primary-500"
+              userStatus === "error" ? "text-error" : "text-primary-500"
             }`}
           >
             {feedback}

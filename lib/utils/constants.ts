@@ -1,11 +1,16 @@
 let SITE_URL: string;
 let SITE_SERVER: string;
+const prodServer = true;
 
 if (process.env.NODE_ENV === "production") {
   SITE_URL = "https://www.noleavesociety.com/";
-  SITE_SERVER = "https://ganso.noleavesociety.com/";
 } else {
   SITE_URL = "http://localhost:3000/";
+}
+
+if (prodServer) {
+  SITE_SERVER = "https://ganso.noleavesociety.com/";
+} else {
   SITE_SERVER = "http://localhost:8080/";
 }
 
