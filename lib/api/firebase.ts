@@ -1,4 +1,4 @@
-import { initializeApp, getApp } from "firebase/app";
+import { initializeApp, getApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
@@ -12,7 +12,9 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = getApp("client") || initializeApp(firebaseConfig, "client");
+const apps = getApps();
+
+const app = apps.length === 0 ? initializeApp(firebaseConfig) : apps[0];
 
 const auth = getAuth(app);
 const storage = getStorage(app);
