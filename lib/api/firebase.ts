@@ -1,4 +1,4 @@
-import { initializeApp, getApps } from "firebase/app";
+import { initializeApp, getApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
@@ -12,8 +12,16 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-const app =
-  getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+const hasActiveApp = () => {
+  const apps = getApps();
+  if (apps.length === 0) return true;
+  if (!apps.find((app) => app.name === "client")) return true;
+  return false;
+};
+
+const app = hasActiveApp()
+  ? initializeApp(firebaseConfig, "client")
+  : getApp("client");
 
 const auth = getAuth(app);
 const storage = getStorage(app);

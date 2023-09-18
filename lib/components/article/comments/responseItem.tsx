@@ -1,4 +1,3 @@
-import { SITE_SERVER } from "@/lib/utils/constants";
 import { useRef, useState } from "react";
 
 type ValidateStatus = "success" | "error" | "none";
@@ -57,16 +56,16 @@ export default function ResponseItem({
         id: responseId,
         content,
       };
-      const res = await fetch(
-        SITE_SERVER +
-          `${isReply ? "comment/EditReply" : "comment/EditComment"}`,
-        { method: "PUT", body: JSON.stringify(args) }
-      );
-      if (!res.ok) {
-        console.error(res.status, res.statusText);
-        giveFeedback("error", "Something went wrong, please try again.");
-        return;
-      }
+      const req: GansoCommentRequest = {
+        uid: userId,
+        method: "edit",
+        type: `${isReply ? "reply" : "comment"}`,
+        content: args,
+      };
+      await fetch(`/api/ganso/comment`, {
+        method: "POST",
+        body: JSON.stringify(req),
+      }).catch((err) => console.error(err));
       refetch();
       setOpenEdit(false);
       return;
@@ -79,15 +78,16 @@ export default function ResponseItem({
         content,
       };
       toggleReplyList(false);
-      const res = await fetch(SITE_SERVER + "comment/CreateReply", {
+      const req: GansoCommentRequest = {
+        uid: userId,
+        method: "create",
+        type: "reply",
+        content: args,
+      };
+      await fetch(`/api/ganso/comment`, {
         method: "POST",
-        body: JSON.stringify(args),
-      });
-      if (!res.ok) {
-        console.error(res.status, res.statusText);
-        giveFeedback("error", "Something went wrong, please try again.");
-        return;
-      }
+        body: JSON.stringify(req),
+      }).catch((err) => console.error(err));
       refetch();
       toggleReplyList(true);
       setOpenReply(false);
@@ -99,15 +99,16 @@ export default function ResponseItem({
       user_id: userId,
       content,
     };
-    const res = await fetch(SITE_SERVER + "comment/CreateComment", {
+    const req: GansoCommentRequest = {
+      uid: userId,
+      method: "create",
+      type: "comment",
+      content: args,
+    };
+    await fetch(`/api/ganso/comment`, {
       method: "POST",
-      body: JSON.stringify(args),
-    });
-    if (!res.ok) {
-      console.error(res.status, res.statusText);
-      giveFeedback("error", "Something went wrong, please try again.");
-      return;
-    }
+      body: JSON.stringify(req),
+    }).catch((err) => console.error(err));
     refetch();
     responseField.current.value = "";
   };

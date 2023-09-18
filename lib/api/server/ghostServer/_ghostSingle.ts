@@ -1,4 +1,6 @@
-import ghost from "../../ghostAdmin";
+"use server";
+
+import ghost from "../ghostAdmin";
 import { parseMD } from "@/lib/utils/scripts/parseMobiledoc";
 
 /* Two functions contained: ghostGetSinglePost and ghostGetTag */

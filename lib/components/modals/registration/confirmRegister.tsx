@@ -1,5 +1,6 @@
+import { intakeUser } from "@/lib/api/server/serverActions";
 import { useAuthContext } from "@/lib/context/authContext";
-import { SITE_SERVER } from "@/lib/utils/constants";
+import { SITE_SERVER, SITE_URL } from "@/lib/utils/constants";
 import { useState } from "react";
 
 type ValidateStatus = "none" | "error" | "success";
@@ -44,17 +45,12 @@ export default function ConfirmRegister({
       image,
       username,
     };
-    const requestOptions = {
-      method: "PUT",
-      body: JSON.stringify({ ...registerData }),
-    };
-    const res = await fetch(SITE_SERVER + "user/IntakeComplete", requestOptions)
-      .then((response) => response.json())
-      .catch((err) => console.error(err));
-    if (!res) {
+    const res = await intakeUser(registerData);
+    if (res.hasError) {
       giveFeedback("error", "Something went wrong, please try again.");
       return;
     }
+    fetch(`${SITE_URL}api/revalidate/${userId}`, { method: "POST" });
     intake!(username, image);
     setNewUser(false);
   };

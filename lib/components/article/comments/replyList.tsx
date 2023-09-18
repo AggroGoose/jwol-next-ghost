@@ -68,10 +68,16 @@ function ReplyItem({
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   const handleDelete = async () => {
-    await fetch(SITE_SERVER + "comment/DeleteReply", {
-      method: "DELETE",
-      body: JSON.stringify({ id: reply.id }),
-    });
+    const req: GansoCommentRequest = {
+      uid: user!.uid,
+      method: "delete",
+      type: "reply",
+      content: { id: reply.id },
+    };
+    await fetch(`/api/ganso/comment`, {
+      method: "POST",
+      body: JSON.stringify(req),
+    }).catch((err) => console.error(err));
     commentRefetch();
     refetch();
     setDeleteOpen(false);
@@ -104,6 +110,7 @@ function ReplyItem({
             userId={user!.uid}
             refetch={refetch}
             isEdit={true}
+            isReply={true}
             setOpenEdit={setOpenEdit}
             editDefault={reply.content}
           />

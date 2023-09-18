@@ -3,8 +3,9 @@
 import { useContext, createContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../api/firebase";
-import { SITE_SERVER } from "../utils/constants";
 import { NlUser } from "@/globals";
+import { getOrCreateUser } from "../api/server/serverActions";
+import { SITE_URL } from "../utils/constants";
 
 export const AuthContext = createContext<{
   user: NlUser | null;
@@ -32,17 +33,16 @@ export const AuthContextProvider = ({
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const res = await fetch(`${SITE_SERVER}user/GetorCreate/${user.uid}`, {
-          method: "POST",
+    const unsubscribe = onAuthStateChanged(auth, async (fbUser) => {
+      if (fbUser) {
+        const res = await fetch(`/api/ganso/user/${fbUser.uid}`, {
+          next: { tags: [fbUser.uid] },
         })
-          .then((res) => res.json())
-          .catch((err) => console.error(err));
-
+          .then((response) => response.json())
+          .catch((error) => console.error(error));
         if (!res) {
           const nlUser: NlUser = {
-            ...user,
+            ...fbUser,
             verified: false,
             banned: false,
           };
@@ -50,7 +50,7 @@ export const AuthContextProvider = ({
         } else {
           const dbUser = res as GansoDBUser;
           const nlUser: NlUser = {
-            ...user,
+            ...fbUser,
             verified: dbUser.verified,
             banned: dbUser.banned,
           };

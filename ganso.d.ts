@@ -94,6 +94,17 @@ type GansoDeleteRes = {
 
 //Ganso Request Object Formats.
 
+type GansoCommentRequest = {
+  type: "comment" | "reply";
+  method: "create" | "edit" | "delete";
+  uid: string;
+  content:
+    | GansoCreateComment
+    | GansoCreateReply
+    | GansoEditComRep
+    | { id: number };
+};
+
 type GansoCreateComment = {
   user_id: string;
   post_id: string;

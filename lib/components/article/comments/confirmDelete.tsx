@@ -19,19 +19,19 @@ export default function ConfirmDelete({
     >
       <div className="fixed inset-0 bg-black/20" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="mx-auto max-w-[420px] w-full bg-always-light rounded-xl cshadow-lg-dark">
-          <div className="p-6 pt-6 bg-always-dark rounded-t-xl flex flex-col gap-8">
+        <Dialog.Panel className="mx-auto border-always-dark max-w-[420px] w-full rounded-xl cshadow-lg-flip overflow-hidden">
+          <div className="p-6 pt-6 bg-always-dark flex flex-col gap-8">
             <Dialog.Title className="text-center text-head3 text-always-light leading-none">
               {`Delete ${deleteType}`}
             </Dialog.Title>
           </div>
-          <div className="flex flex-col justify-center gap-6 p-6">
-            <Dialog.Description className="text-center text-neutral">
+          <div className="flex flex-col justify-center gap-6 bg-always-light p-6">
+            <Dialog.Description className="text-center text-always-dark">
               {`Are you sure you want to delete this ${deleteType.toLowerCase()}?`}
             </Dialog.Description>
 
             <button
-              className="flex px-6 py-2 items-center justify-center bg-accent-400 text-always-light transition-colors duration-300 transform border rounded-lg hover:bg-accent-400 w-full"
+              className="flex px-6 py-2 items-center justify-center bg-warning text-always-light transition-colors duration-300 transform border rounded-lg hover:bg-hover-warning w-full"
               onClick={deleteFunc}
             >
               Confirm Delete

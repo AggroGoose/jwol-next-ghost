@@ -4,7 +4,6 @@ import ResponseItem from "./responseItem";
 import ReplyList from "./replyList";
 import CommentIcon from "@/lib/resources/svg/icons/commentIcon";
 import ResponseMenu from "./responseMenu";
-import { SITE_SERVER } from "@/lib/utils/constants";
 import ConfirmDelete from "./confirmDelete";
 import { NlUser } from "@/globals";
 
@@ -35,10 +34,16 @@ export default function CommentItem({
   };
 
   const handleDelete = async () => {
-    await fetch(SITE_SERVER + "comment/DeleteComment", {
-      method: "DELETE",
-      body: JSON.stringify({ id: comment.id }),
-    });
+    const req: GansoCommentRequest = {
+      uid: user!.uid,
+      method: "delete",
+      type: "comment",
+      content: { id: comment.id },
+    };
+    await fetch(`/api/ganso/comment`, {
+      method: "POST",
+      body: JSON.stringify(req),
+    }).catch((err) => console.error(err));
     refetch();
   };
 

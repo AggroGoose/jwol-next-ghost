@@ -3,7 +3,11 @@ let SITE_SERVER: string;
 const prodServer = true;
 
 if (process.env.NODE_ENV === "production") {
-  SITE_URL = "https://www.noleavesociety.com/";
+  if (process.env.VERCEL_ENV === "preview") {
+    SITE_URL = "https://no-leave-society-git-localdev-stoicgoose.vercel.app/";
+  } else {
+    SITE_URL = "https://www.noleavesociety.com/";
+  }
 } else {
   SITE_URL = "http://localhost:3000/";
 }

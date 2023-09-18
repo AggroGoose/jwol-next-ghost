@@ -32,7 +32,12 @@ export default function SignInForm({
 
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth, provider);
+    const credential = await signInWithPopup(auth, provider);
+    const idToken = await credential.user.getIdToken();
+    await fetch(`/api/signin`, {
+      method: "POST",
+      body: JSON.stringify({ idToken }),
+    });
     setIsOpen();
   };
 

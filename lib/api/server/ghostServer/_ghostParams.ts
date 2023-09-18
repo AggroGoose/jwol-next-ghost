@@ -1,3 +1,5 @@
+"use server";
+
 import ghost from "../../ghost";
 
 // FETCH Route Parameters for getStaticPaths

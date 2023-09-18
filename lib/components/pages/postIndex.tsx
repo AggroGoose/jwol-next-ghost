@@ -32,7 +32,7 @@ export default function PostIndex({
       {additionalPosts.length > 0 && (
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
           {additionalPosts.map((post) => (
-            <MainArticleCard post={post} />
+            <MainArticleCard post={post} key={post.slug} />
           ))}
         </div>
       )}

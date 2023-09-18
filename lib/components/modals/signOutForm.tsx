@@ -1,5 +1,6 @@
 import { auth } from "@/lib/api/firebase";
 import NoLeaveSociety from "@/lib/resources/svg/NoLeaveSociety";
+import { SITE_URL } from "@/lib/utils/constants";
 import { Dialog } from "@headlessui/react";
 import { signOut } from "firebase/auth";
 
@@ -32,8 +33,11 @@ export default function SignOutForm({
 
             <button
               className="flex px-6 py-2 items-center justify-center bg-primary-500 text-always-light transition-colors duration-300 transform border rounded-lg hover:bg-primary-600 w-full"
-              onClick={() => {
+              onClick={async () => {
                 signOut(auth);
+                fetch(`${SITE_URL}api/signin`, {
+                  method: "DELETE",
+                });
                 closeModal();
               }}
             >

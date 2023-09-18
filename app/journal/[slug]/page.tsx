@@ -1,5 +1,4 @@
 import PostHead from "@/lib/components/article/heading/postHead";
-import PostTags from "@/lib/components/article/heading/postTags";
 import ArticleReactions from "@/lib/components/article/main/articleReactions";
 
 import {
@@ -53,6 +52,8 @@ export async function generateStaticParams() {
   }));
 }
 
+const API_KEY = process.env.GANSO_TOKEN || "";
+
 export default async function PostPage({
   params: { slug },
 }: {
@@ -61,7 +62,12 @@ export default async function PostPage({
   const post = await ghostGetSinglePost(slug);
   const postDb: GansoPostRes = await fetch(
     SITE_SERVER + "post/GetorCreate/" + post.id,
-    { method: "POST" }
+    {
+      method: "POST",
+      headers: {
+        "X-API-Key": API_KEY,
+      },
+    }
   ).then((res) => res.json());
   const morePosts = await ghostLatestFiveGeneral(slug);
   const tagPosts = await ghostLatestFiveforTag(post.primary_tag.slug, slug);

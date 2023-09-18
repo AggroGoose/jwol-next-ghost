@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import ghostAdmin from "@/lib/api/ghostAdmin";
+import ghostAdmin from "@/lib/api/server/ghostAdmin";
 import { parseMD } from "@/lib/utils/scripts/parseMobiledoc";
 
 export async function GET() {

@@ -76,6 +76,7 @@ module.exports = {
           primary: "var(--hover-color-primary)",
           accent: "var(--hover-color-accent)",
           link: "var(--hover-color-link)",
+          warning: "#ac000e",
         },
         primary: {
           50: "var(--primary-50)",
@@ -107,7 +108,7 @@ module.exports = {
         },
         info: "#21C1DA",
         success: "#65DA21",
-        warning: "#DA9621",
+        warning: "#ca101f",
         error: "hsl(355, 80%, 50%)",
       },
       fontWeight: {

@@ -1,3 +1,5 @@
+"use server";
+
 import ghost from "../../ghost";
 
 /* 3 Functions: ghostPostsforIndex, ghostLatestFiveGeneral, ghostLatestFiveforTag */
