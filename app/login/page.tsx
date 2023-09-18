@@ -1,7 +1,6 @@
 "use client";
 
 import { auth } from "@/lib/api/firebase";
-import { SITE_URL } from "@/lib/utils/constants";
 import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
 import { redirect, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -17,7 +16,7 @@ export default function Login() {
     );
     const idToken = await credential.user.getIdToken();
     window.localStorage.removeItem("emailForSignIn");
-    await fetch(`${SITE_URL}api/signin`, {
+    await fetch(`/api/signin`, {
       method: "POST",
       body: JSON.stringify({ idToken }),
     });
