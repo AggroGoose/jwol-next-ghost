@@ -1,5 +1,6 @@
 import { getAuth } from "firebase-admin/auth";
-import { getApp, getApps, initializeApp } from "firebase-admin/app";
+import { AppOptions, getApp, initializeApp } from "firebase-admin/app";
+import pkg from "firebase-admin";
 
 const firebaseConfig = {
   projectId: process.env.FB_PROJECT_ID || "",
@@ -7,15 +8,13 @@ const firebaseConfig = {
   privateKey: process.env.FB_PRIVATE_KEY || "",
 };
 
-const hasActiveApp = () => {
-  const apps = getApps();
-  if (apps.length === 0) return true;
-  if (!apps.find((app) => app.name === "admin")) return true;
-  return false;
-};
-
-const app = hasActiveApp()
-  ? initializeApp(firebaseConfig, "admin")
-  : getApp("admin");
+const app =
+  getApp("admin") ||
+  initializeApp(
+    {
+      credential: pkg.credential.cert(firebaseConfig),
+    },
+    "admin"
+  );
 
 export const adminAuth = getAuth(app);

@@ -35,7 +35,7 @@ export default function SignOutForm({
               className="flex px-6 py-2 items-center justify-center bg-primary-500 text-always-light transition-colors duration-300 transform border rounded-lg hover:bg-primary-600 w-full"
               onClick={async () => {
                 signOut(auth);
-                fetch(`${SITE_URL}api/signin`, {
+                fetch(`/api/signin`, {
                   method: "DELETE",
                 });
                 closeModal();
