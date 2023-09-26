@@ -91,7 +91,7 @@ export default async function PostPage({
             tags={post.tags}
           />
           <div className="w-full flex flex-col gap-6 px-3 xl:px-0 relative">
-            <ArticleReactions postId={post.id} />
+            <ArticleReactions postId={post.id} url={BLOG_URL + slug} />
             <TableofContents toc={toc} react={true} />
             <div className="grid grid-cols-blockGridSm md:grid-cols-blockGrid gap-8 self-center w-[var(--blog-width)] pb-12 lg:pb-6">
               <BlockContent content={content} dropCap={true} />

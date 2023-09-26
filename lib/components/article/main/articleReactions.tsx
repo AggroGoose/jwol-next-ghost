@@ -8,9 +8,17 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { SITE_SERVER } from "@/lib/utils/constants";
 import { useAuthContext } from "@/lib/context/authContext";
 import CommentBar from "../comments/commentBar";
+import ArticleShare from "./articleShare";
 
-export default function ArticleReactions({ postId }: { postId: string }) {
+export default function ArticleReactions({
+  postId,
+  url,
+}: {
+  postId: string;
+  url: string;
+}) {
   const [commentOpen, setCommentOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
   const [postLiked, setPostLiked] = useState(false);
   const { user } = useAuthContext();
   const userId = user?.uid || null;
@@ -81,7 +89,12 @@ export default function ArticleReactions({ postId }: { postId: string }) {
         >
           <CommentIcon className="w-5 h-5 xl:w-7 xl:h-7 fill-fcolor-base" />
         </button>
-        <button className="p-3 transition-colors rounded-full bg-subtle-primary cshadow-flip duration-500 ease-in-out items-center hover:bg-subtle-primary2">
+        <button
+          className="p-3 transition-colors rounded-full bg-subtle-primary cshadow-flip duration-500 ease-in-out items-center hover:bg-subtle-primary2"
+          onClick={() => {
+            setShareOpen(true);
+          }}
+        >
           <ShareIcon className="w-5 h-5 xl:w-7 xl:h-7 fill-fcolor-base" />
         </button>
       </div>
@@ -90,6 +103,15 @@ export default function ArticleReactions({ postId }: { postId: string }) {
           postId={postId}
           isOpen={commentOpen}
           closeModal={toggleComments}
+        />
+      )}
+      {shareOpen && (
+        <ArticleShare
+          url={url}
+          shareOpen={shareOpen}
+          closeModal={() => {
+            setShareOpen(false);
+          }}
         />
       )}
     </>
