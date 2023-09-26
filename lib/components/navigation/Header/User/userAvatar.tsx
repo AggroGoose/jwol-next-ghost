@@ -1,9 +1,8 @@
 "use client";
-import Image from "next/image";
 
 export function UserAvatar({ imgSrc }: { imgSrc: string }) {
   return (
-    <Image
+    <img
       src={imgSrc}
       height={56}
       width={56}
