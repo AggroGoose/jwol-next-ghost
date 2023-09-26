@@ -119,6 +119,8 @@ module.exports = {
           "[side-start] var(--sidenav-width) [content-start] 1fr [content-end]",
         blockGrid:
           "[main-start] 1fr [min-start] repeat(6, 1fr) [min-end] 1fr [main-end]",
+        blockGridSm:
+          "[main-start] 1fr [min-start] repeat(10, 1fr) [min-end] 1fr [main-end]",
         mainGrid:
           "[left-start] 1fr [content-start] var(--body-size) [content-end] 1fr [right-end]",
         feature: "3fr 1fr",

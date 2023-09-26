@@ -10,6 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const meta = await ghostMetaSingle("about", "page");
 
   return {
+    metadataBase: new URL(ABOUT_URL),
     title: meta.meta_title,
     description: meta.meta_description,
     openGraph: {

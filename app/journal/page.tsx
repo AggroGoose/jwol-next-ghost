@@ -4,6 +4,7 @@ import { BLOG_URL } from "@/lib/utils/constants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BLOG_URL),
   title: "Journal | No Leave Society",
   description:
     "Society is what we make it, and in this society, you don't need anyone's leave to be who you are. With articles and stories around mental health and society we're hoping to influence society to new levels.",

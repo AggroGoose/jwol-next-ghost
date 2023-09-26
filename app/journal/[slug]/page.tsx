@@ -25,6 +25,7 @@ export async function generateMetadata({
   const meta = await ghostMetaSingle(slug);
 
   return {
+    metadataBase: new URL(BLOG_URL + slug),
     title: meta.meta_title,
     description: meta.meta_description,
     openGraph: {
@@ -92,7 +93,7 @@ export default async function PostPage({
           <div className="w-full flex flex-col gap-6 px-3 xl:px-0 relative">
             <ArticleReactions postId={post.id} />
             <TableofContents toc={toc} react={true} />
-            <div className="grid grid-cols-blockGrid gap-8 self-center w-[var(--blog-width)] pb-12 lg:pb-6">
+            <div className="grid grid-cols-blockGridSm md:grid-cols-blockGrid gap-8 self-center w-[var(--blog-width)] pb-12 lg:pb-6">
               <BlockContent content={content} dropCap={true} />
             </div>
           </div>

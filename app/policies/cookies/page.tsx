@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const meta = await ghostMetaSingle(slug, "page");
 
   return {
+    metadataBase: new URL(POLICY_URL + slug),
     title: meta.meta_title,
     description: meta.meta_description,
     openGraph: {

@@ -11,13 +11,13 @@ export default function SideNav() {
           <NoLeaveSociety className="aspect-[2/1] h-[60px] fill-always-light m-auto hover:fill-accent-400" />
         </Link>
       </div>
-      <MenuItems />
       <div className="flex gap-3 items-center self-center">
-        <p className="text-lg text-always-light font-medium leading-none">
+        <p className="text-lg text-always-light font-semibold leading-none">
           {"Theme:"}
         </p>
         <DarkModeToggle />
       </div>
+      <MenuItems />
     </div>
   );
 }

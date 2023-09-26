@@ -1,39 +1,29 @@
-import { useOutsideClick } from "@/lib/utils/hooks/useOutsideClick";
-import { Dispatch, SetStateAction, useEffect, useRef } from "react";
-import MenuItems from "./menuItems";
-import { usePathname } from "next/navigation";
+"use client";
+import { Menu } from "@headlessui/react";
+import MenuIcon from "./menuIcon";
 import DarkModeToggle from "../Addl/darkModeToggle";
+import MenuItems from "./menuItems";
 
-export default function DropMenu({
-  setMenuOpen,
-}: {
-  setMenuOpen: Dispatch<SetStateAction<boolean>>;
-}) {
-  function closeMenu() {
-    setMenuOpen(false);
-  }
-  const isInitialMount = useRef(true);
-  const ref = useOutsideClick(closeMenu);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      closeMenu();
-    }
-  }, [pathname, closeMenu]);
-
+export default function DropMenu() {
   return (
-    <div
-      ref={ref}
-      className="bg-always-dark fixed top-under-head left-0 px-6 py-6 min-h-under-head flex flex-col gap-6"
+    <Menu
+      as="div"
+      className="col-start-1 col-end-2 ml-2 h-full relative flex items-center md:ml-[40px] xl:hidden outline-none border-none"
     >
-      <MenuItems />
-      <div className="flex gap-4 items-center self-center">
-        <p className="text-always-light text-lg font-bold">{"Color Theme:"}</p>
-        <DarkModeToggle />
-      </div>
-    </div>
+      <Menu.Button>
+        <MenuIcon className="aspect-square h-[28px] md:h-[44px] fill-always-light hover:fill-base-accent transition-transform duration-300 ease-in-out ui-not-open:rotate-0 ui-open:rotate-90" />
+      </Menu.Button>
+      <Menu.Items className="bg-always-dark fixed top-under-head left-0 px-6 py-6 min-h-under-head flex flex-col gap-6">
+        <Menu.Item as="div" className="flex gap-4 items-center self-center">
+          <p className="text-always-light text-lg font-bold">
+            {"Color Theme:"}
+          </p>
+          <DarkModeToggle />
+        </Menu.Item>
+        <Menu.Item as="div">
+          <MenuItems />
+        </Menu.Item>
+      </Menu.Items>
+    </Menu>
   );
 }

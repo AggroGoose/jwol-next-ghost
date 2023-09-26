@@ -137,12 +137,12 @@ body[data-color-theme="dark"] {
   --background-flip: var(--color-darkest);
   --font-color-main: var(--color-lightest);
   --font-color-head: var(--accent-400);
-  --font-color-link: var(--primary-300);
+  --font-color-link: var(--primary-200);
   --font-color-flip: var(--color-darkest);
   --hover-color-base: var(--light-subtle);
   --hover-color-primary: var(--primary-400);
   --hover-color-accent: var(--accent-600);
-  --hover-color-link: var(--primary-200);
+  --hover-color-link: var(--primary-100);
   --subtle-color-primary: var(--dark-subtle);
   --subtle-color-primary2: var(--primary-800);
   --subtle-color-accent: var(--accent-400);

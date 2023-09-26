@@ -16,6 +16,7 @@ export async function generateMetadata({
   const meta = await ghostMetaTag(tag);
 
   return {
+    metadataBase: new URL(TAG_URL + tag),
     title: meta.meta_title,
     description: meta.meta_description,
     openGraph: {

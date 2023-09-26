@@ -24,7 +24,7 @@ export default function BlockProduct({ elem }: { elem: BlockProductCard }) {
           alt={`Cover image for ${elem.title} product review.`}
         />
       </div>
-      <h3 className="col-start-1 col-span-2 row-start-3 md:row-start-2 md:col-span-1 leading-none align-middle text-fcolor-base mt-1 -mb-1">
+      <h3 className="col-start-1 col-span-2 row-start-3 text-center md:text-left md:row-start-2 md:col-span-1 leading-none align-middle text-fcolor-base mt-1 -mb-1">
         {elem.title}
       </h3>
       {elem.ratingEnabled && (
@@ -42,7 +42,7 @@ export default function BlockProduct({ elem }: { elem: BlockProductCard }) {
         </div>
       )}
       <div
-        className="col-span-2 flex flex-col gap-6 text-base"
+        className="col-span-2 flex flex-col gap-6 text-base text-center md:text-left"
         dangerouslySetInnerHTML={{ __html: elem.description }}
       />
       {elem.buttonEnabled && (

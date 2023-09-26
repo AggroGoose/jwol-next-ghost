@@ -1,6 +1,6 @@
 "use client";
 import { useAuthContext } from "@/lib/context/authContext";
-import { UserMenu } from "./userMenu";
+import UserMenu from "./userMenu";
 import SignIn from "./SignIn";
 import { useEffect, useState } from "react";
 
@@ -9,8 +9,8 @@ export default function UserNav() {
   const [img, setImg] = useState(user?.image || "/images/NoLeaveFallback.png");
 
   useEffect(() => {
-      setImg(user?.image || "/images/NoLeaveFallback.png")
-      }, [user])
+    setImg(user?.image || "/images/NoLeaveFallback.png");
+  }, [user]);
 
   return (
     <div className="flex my-auto items-center">

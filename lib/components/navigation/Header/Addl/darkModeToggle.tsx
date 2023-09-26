@@ -30,9 +30,9 @@ export default function DarkModeToggle({ className }: { className?: string }) {
   return (
     <button onClick={toggleHandle} className={className}>
       {colorTheme === "dark" ? (
-        <MoonIcon className="h-8 w-8 text-primary-200 xl:h-7 xl:w-7" />
+        <MoonIcon className="h-8 w-8 text-primary-200 xl:h-7 xl:w-7 hover:text-primary-100 focus:text-primary-100" />
       ) : (
-        <SunIcon className="h-8 w-8 text-accent-200 xl:h-7 xl:w-7" />
+        <SunIcon className="h-8 w-8 text-accent-200 xl:h-7 xl:w-7 hover:text-accent-100 focus:text-accent-100" />
       )}
     </button>
   );
