@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { AudioMuteIcon, AudioUnmuteIcon } from "./SVG";
+import { AudioMutedIcon, AudioActiveIcon } from "./SVG";
 
 export const AudioVolume = ({
   audioRef,
@@ -33,22 +33,26 @@ export const AudioVolume = ({
   }
 
   return (
-    <>
+    <div className="col-start-3 flex items-center justify-self-end">
       <button
-        className="block_audio_mute-icon"
+        className="leading-[0]"
         aria-label={isMuted ? "Unmute" : "Mute"}
         onClick={toggleMute}
       >
-        {isMuted ? <AudioMuteIcon /> : <AudioUnmuteIcon />}
+        {isMuted ? (
+          <AudioMutedIcon className="fill-always-light w-6 h-6 hover:fill-primary-300 transition-all duration-500 ease-in-out" />
+        ) : (
+          <AudioActiveIcon className="fill-always-light w-6 h-6 hover:fill-primary-300 transition-all duration-500 ease-in-out" />
+        )}
       </button>
 
       <input
         type="range"
-        className="block_audio_volume-slider"
+        className="range-h-1.5 thumb-h-3 bg-primary-800 wk-width-[--volume-before-width] progress-primary-500 track:rounded-l-lg thumb:gradient-conic-silver thumb:cshadow-rd-primary rounded-lg cursor-pointer w-[80px]"
         ref={volumeBar}
         defaultValue={volumeLevel}
         onChange={volumeChangeHandler}
       />
-    </>
+    </div>
   );
 };

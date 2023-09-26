@@ -1,6 +1,7 @@
-import prisma from "../../prisma";
-import ghost from "../../ghostAdmin";
-import { parseMD } from "@/lib/scripts/parseMobiledoc";
+"use server";
+
+import ghost from "../ghostAdmin";
+import { parseMD } from "@/lib/utils/scripts/parseMobiledoc";
 
 /* Two functions contained: ghostGetSinglePost and ghostGetTag */
 
@@ -35,17 +36,6 @@ export async function ghostGetSinglePost(slug: string) {
     }
   });
 
-  // If no database result for post, it will create a new database result which will be used for tracking likes, comments and to add custom fields not provided by Ghost.
-
-  const dbPost = await prisma.post.upsert({
-    where: { slug: post.slug },
-    update: {},
-    create: {
-      id: post.id,
-      slug: post.slug,
-    },
-  });
-
   //Final object returned containing all the post information needed for building the post page, combining DB information, and removing unnecessary API fields.
 
   const postData: ResponsePost = {
@@ -55,9 +45,6 @@ export async function ghostGetSinglePost(slug: string) {
     feature_image: post.feature_image,
     feature_image_alt: post.feature_image_alt || "Post feature image",
     feature_image_caption: post.feature_image_caption,
-    audio_url: dbPost.audioURL,
-    likes: dbPost.likeCount,
-    saves: dbPost.saveCount,
     created_at: post.created_at,
     updated_at: post.updated_at,
     excerpt: post.excerpt,

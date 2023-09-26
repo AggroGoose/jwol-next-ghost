@@ -3,7 +3,6 @@ import MainArticleCard from "../../cards/mainArticleCard";
 export default function MorePagePosts({
   posts,
   tagPost = false,
-  badge = false,
   tag,
 }: {
   posts: ResponseMore[];
@@ -12,48 +11,21 @@ export default function MorePagePosts({
   tag?: { id: string; name: string; slug: string };
 }) {
   return (
-    <div className="article_more_block">
+    <div className="mb-6 flex flex-col gap-6">
       {tagPost ? (
         tag ? (
-          <TagArticles posts={posts} tag={tag.name} />
+          <h2>Latest Articles Under {tag.name}:</h2>
         ) : (
-          <></>
+          <h2>Latest Articles:</h2>
         )
       ) : (
-        <PostArticles posts={posts} badge={badge} />
+        <h2>Latest Articles:</h2>
       )}
-    </div>
-  );
-}
-
-function PostArticles({
-  posts,
-  badge,
-}: {
-  posts: ResponseMore[];
-  badge: boolean;
-}) {
-  return (
-    <>
-      <h2>Latest Articles:</h2>
-      <div className="article_more_block--container">
-        {posts.map((post) => (
-          <MainArticleCard post={post} key={post.slug} badge={badge} />
-        ))}
-      </div>
-    </>
-  );
-}
-
-function TagArticles({ posts, tag }: { posts: ResponseMore[]; tag: string }) {
-  return (
-    <>
-      <h2>Latest Articles Under {tag}:</h2>
-      <div className="article_more_block--container">
+      <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
         {posts.map((post) => (
           <MainArticleCard post={post} key={post.slug} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

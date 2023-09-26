@@ -9,7 +9,7 @@ export default function BlockParagraph({
 }) {
   const { content } = elem;
   return (
-    <p className={`${dropCap ? "hasDropCap" : ""}`}>
+    <p className={`blmain${dropCap ? " first-of-type:drop-cap" : ""}`}>
       {content.map((section, i) => (
         <RichText elem={section} key={i} />
       ))}

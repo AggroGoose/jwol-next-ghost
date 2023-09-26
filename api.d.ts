@@ -127,9 +127,6 @@ interface ResponsePost extends ResponsePage {
   reading_time: number;
   primary_tag: ResponseTag;
   tags: ResponseTag[];
-  audio_url: string | null;
-  likes: number;
-  saves: number;
 }
 
 type ResponseMeta = {

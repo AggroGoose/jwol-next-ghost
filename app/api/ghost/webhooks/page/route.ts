@@ -1,3 +1,4 @@
+import { ABOUT_ROUTE } from "@/lib/utils/constants";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -7,7 +8,7 @@ export async function POST(request: NextRequest) {
   }
   const data = await request.json();
 
-  if (data.page.slug === "about") revalidatePath("/about");
+  if (data.page.slug === "about") revalidatePath(ABOUT_ROUTE);
 
   return NextResponse.json({ post: "Well Hello There" });
 }

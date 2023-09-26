@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import Date from "../helpers/date";
+import { BLOG_ROUTE, TAG_ROUTE } from "@/lib/utils/constants";
 
 export default function MainArticleCard({
   post,
-  badge = false,
+  priority = false,
 }: {
   post: ResponseMore;
-  badge?: boolean;
+  priority?: boolean;
 }) {
   let image: string;
   let imageAlt: string;
@@ -21,22 +22,43 @@ export default function MainArticleCard({
   }
 
   return (
-    <div className="main_article_card">
-      <Link href={`/journal/${post.slug}`}>
-        <div className="main_article_card--feature">
-          <Image src={image} alt={imageAlt} fill={true} />
-        </div>
-        <h2>{post.title}</h2>
+    <div className="flex flex-col w-full rounded-xl bg-base-tier2 relative hover:cshadow-flip overflow-hidden">
+      <Link href={`${BLOG_ROUTE}/${post.slug}`}>
+        <figure className="relative aspect-[3/2]">
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill={true}
+            priority={priority}
+            className="object-cover"
+            sizes="(max-width: 950px) 100vw, 50vw"
+          />
+        </figure>
       </Link>
-      {badge && (
-        <div className="main_article_card--badge">
-          <Link href={`/journal/tag/${post.tagSlug}`}>{post.tag}</Link>
+      <div className="flex flex-col p-4 gap-4 text-left h-full">
+        <div className="flex justify-between w-full items-center">
+          <p className="text-xs italic font-light">
+            <Date dateString={post.published} />
+          </p>
+          <Link
+            href={`${TAG_ROUTE}/${post.tagSlug}`}
+            className="text-sm font-bold text-fcolor-link leading-none hover:text-hover-link"
+          >
+            {post.tag}
+          </Link>
         </div>
-      )}
-      <p>{post.excerpt}</p>
-      <div className="main_article_card--meta">
-        <Date dateString={post.published} />
-        <p className="main_article_card--read">{post.readTime} Minute Read</p>
+        <Link href={`${BLOG_ROUTE}/${post.slug}`}>
+          <h3 className="leading-tight text-xl hover:text-hover-accent -mb-1">
+            {post.title}
+          </h3>
+        </Link>
+        <p className="text-sm line-clamp-2">{post.excerpt}</p>
+        <Link
+          href={`${BLOG_ROUTE}/${post.slug}`}
+          className="mt-auto font-bold text-base-accent hover:text-hover-accent hover:underline"
+        >
+          Read More {"->"}
+        </Link>
       </div>
     </div>
   );

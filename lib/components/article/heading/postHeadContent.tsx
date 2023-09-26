@@ -1,39 +1,28 @@
-import Date from "@/lib/components/helpers/date";
-import PrimaryTag from "./primaryTag";
-import PageBadge from "../../badges/pageBadge";
+import FeatureImage from "./featureImage";
+import PostDetails from "./postDetails";
 
 export default function PostHeadContent({
-  title,
-  excerpt,
+  feature_image,
+  feature_image_alt,
+  feature_image_caption,
   created_at,
-  reading_time,
-  primary_tag,
+  updated_at,
 }: {
-  title: string;
-  excerpt: string;
+  feature_image: string | null;
+  feature_image_alt: string;
+  feature_image_caption: string | null;
   created_at: string;
-  reading_time: number;
-  primary_tag: {
-    id: string;
-    name: string;
-    slug: string;
-  };
+  updated_at: string;
 }) {
   return (
-    <div className="article_head_content">
-      <PageBadge
-        links={[
-          {
-            slug: `/journal/tag/${primary_tag.slug}`,
-            title: primary_tag.name,
-          },
-        ]}
-      />
-      <h1>{title}</h1>
-      <p className="article_head_content--meta">
-        <Date dateString={created_at} />
-        {` | ${reading_time} Minute Read`}
-      </p>
+    <div className="flex flex-col gap-6">
+      {feature_image && (
+        <FeatureImage
+          feature_image={feature_image}
+          feature_image_alt={feature_image_alt}
+        />
+      )}
+      <PostDetails created_at={created_at} updated_at={updated_at} />
     </div>
   );
 }

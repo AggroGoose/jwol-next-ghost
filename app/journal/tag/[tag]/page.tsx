@@ -1,12 +1,11 @@
 import {
   ghostGetTag,
-  ghostLatestFiveGeneral,
   ghostMetaTag,
   ghostPostsforIndex,
   ghostRouteParams,
 } from "@/lib/api/server/ghostServer";
-import PostSide from "@/lib/components/article/side/postSide";
-import PostIndex from "@/lib/components/pages/postIndex/postIndex";
+import PostIndex from "@/lib/components/pages/postIndex";
+import { TAG_URL } from "@/lib/utils/constants";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -17,6 +16,7 @@ export async function generateMetadata({
   const meta = await ghostMetaTag(tag);
 
   return {
+    metadataBase: new URL(TAG_URL + tag),
     title: meta.meta_title,
     description: meta.meta_description,
     openGraph: {
@@ -25,7 +25,7 @@ export async function generateMetadata({
       title: meta.og_title,
       description: meta.og_description,
       images: meta.og_image,
-      url: `https://www.noleavesociety.com/journal/tag/${tag}`,
+      url: TAG_URL + tag,
     },
     twitter: {
       card: "summary_large_image",
@@ -52,17 +52,14 @@ export default async function TagPage({
 }: {
   params: { tag: string };
 }) {
-  const morePosts = await ghostLatestFiveGeneral();
   const indexPosts = await ghostPostsforIndex(tag);
   const tagObj = await ghostGetTag(tag);
-  const links = [{ title: "Posts", slug: "/journal" }];
 
   return (
-    <div className="post_index main-site-grid">
+    <div className="content-grid row-start-2">
       <PostIndex
         posts={indexPosts}
         title={`Here Are the Latest Posts from ${tagObj.name}`}
-        links={links}
       />
     </div>
   );

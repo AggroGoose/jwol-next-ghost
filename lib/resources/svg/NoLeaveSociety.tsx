@@ -3,8 +3,7 @@ export default function NoLeaveSociety({ className }: { className?: string }) {
     <svg
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
+      className={className}
       viewBox="0 0 1600.1 799"
     >
       <polygon points="1600,302.4 1600,799 1379.3,799 1379.3,743.8 1544.8,743.8 1544.8,357.6 275.9,357.6 275.9,302.4 " />

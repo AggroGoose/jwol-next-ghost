@@ -1,5 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin-allow-popups",
+          },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
@@ -16,7 +29,12 @@ const nextConfig = {
       },
       { protocol: "https", hostname: "**.ghost.org" },
       { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "firebasestorage.googleapis.com" },
     ],
+  },
+
+  experimental: {
+    serverActions: true,
   },
 };
 

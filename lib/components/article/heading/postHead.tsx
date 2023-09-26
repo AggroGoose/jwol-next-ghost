@@ -1,5 +1,6 @@
-import FeatureImage from "./featureImage";
 import PostHeadContent from "./postHeadContent";
+import PostTags from "./postTags";
+import PostTitle from "./postTitle";
 
 export default function PostHead({
   title,
@@ -9,8 +10,8 @@ export default function PostHead({
   excerpt,
   created_at,
   updated_at,
-  reading_time,
   primary_tag,
+  tags,
 }: {
   title: string;
   feature_image: string | null;
@@ -19,29 +20,28 @@ export default function PostHead({
   excerpt: string;
   created_at: string;
   updated_at: string;
-  reading_time: number;
   primary_tag: {
     id: string;
     name: string;
     slug: string;
   };
+  tags: Array<{
+    id: string;
+    name: string;
+    slug: string;
+  }>;
 }) {
   return (
-    <div className="article_head">
+    <div className="flex flex-col gap-6">
+      <PostTitle excerpt={excerpt} primary_tag={primary_tag} title={title} />
+      <PostTags tags={tags} />
       <PostHeadContent
+        feature_image={feature_image}
+        feature_image_alt={feature_image_alt}
+        feature_image_caption={feature_image_caption}
         created_at={created_at}
-        excerpt={excerpt}
-        primary_tag={primary_tag}
-        reading_time={reading_time}
-        title={title}
+        updated_at={updated_at}
       />
-      {feature_image && (
-        <FeatureImage
-          feature_image={feature_image}
-          feature_image_alt={feature_image_alt}
-          feature_image_caption={feature_image_caption}
-        />
-      )}
     </div>
   );
 }
