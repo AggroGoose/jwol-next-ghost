@@ -3,6 +3,8 @@ import PostIndex from "@/lib/components/pages/postIndex";
 import { SITE_URL } from "@/lib/utils/constants";
 import { Metadata } from "next";
 
+export const revalidate = 600;
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Home | No Leave Society",
