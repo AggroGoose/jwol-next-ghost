@@ -3,11 +3,9 @@ import RichText from "./helpers/richText";
 
 export default function BlockHeaders({
   elem,
-  firstH2 = true,
   disableToc = false,
 }: {
   elem: BlockHeadCard;
-  firstH2?: boolean;
   disableToc?: boolean;
 }) {
   const { type, content, tag } = elem;

@@ -54,6 +54,9 @@
   .content-grid {
     grid-column: content-start/content-end;
   }
+  .reaction-grid {
+    grid-column: content-end/react-end;
+  }
 }
 :root {
   --color-lightest: hsl(257, 100%, 99%);
@@ -61,7 +64,6 @@
   --primary-light: hsl(257, 100%, 98%);
   --primary-50: hsl(256, 100%, 95%);
   --primary-100: hsl(256, 100%, 85%);
-  --primary-150: hsl(256, 100%, 80%);
   --primary-200: hsl(256, 94%, 67%);
   --primary-300: hsl(256, 90%, 57%);
   --primary-400: hsl(256, 84%, 45%);
@@ -147,7 +149,7 @@ body[data-color-theme="dark"] {
   --subtle-color-primary2: var(--primary-800);
   --subtle-color-accent: var(--accent-400);
   --subtle-color-flip: var(--light-subtle);
-  --subtle-color-flip2: var(--primary-150);
+  --subtle-color-flip2: var(--primary-100);
   --grunge-image: url("./texture/grunge-dark.webp");
   --bg-gradient: hsl(256, 38%, 19%), hsl(262, 38%, 11%);
   --flip-hsla: hsla(256, 100%, 69%, 0.36);
@@ -205,8 +207,9 @@ body[data-color-theme="light"] {
     --font-larger: 1.375rem;
     --font-xlarge: 1.5rem;
     --font-head1: 2.25rem;
-    --font-head2: 1.875rem;
-    --font-head3: 1.625rem;
+    --font-head2: 1.625rem;
+    --font-head3: 1.5rem;
+    --font-head-height: 1.15;
 
     --header-height: 72px;
     --qclip: 16px;

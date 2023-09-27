@@ -30,25 +30,25 @@ export default function FooterNav() {
           About
         </Link>
         <Link
-          href={POLICY_ROUTE + "disclaimer"}
+          href={POLICY_ROUTE + "/disclaimer"}
           className="hover:underline hover:text-accent-400"
         >
           Disclaimer
         </Link>
         <Link
-          href={POLICY_ROUTE + "cookies"}
+          href={POLICY_ROUTE + "/cookies"}
           className="hover:underline hover:text-accent-400"
         >
           Cookie Policy
         </Link>
         <Link
-          href={POLICY_ROUTE + "privacy-policy"}
+          href={POLICY_ROUTE + "/privacy-policy"}
           className="hover:underline hover:text-accent-400"
         >
           Privacy Policy
         </Link>
         <Link
-          href={POLICY_ROUTE + "terms-and-conditions"}
+          href={POLICY_ROUTE + "/terms-and-conditions"}
           className="hover:underline hover:text-accent-400"
         >
           Terms and Conditions

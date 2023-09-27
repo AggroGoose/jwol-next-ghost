@@ -78,41 +78,29 @@ export default async function PostPage({
   const hasTOC = toc.length > 1;
 
   return (
-    <>
-      <>
-        <div className="content-grid mt-6 pb-6 flex flex-col gap-6 px-3 row-start-2 xl:px-0">
-          <PostHead
-            title={post.title}
-            feature_image={post.feature_image}
-            feature_image_alt={post.feature_image_alt}
-            feature_image_caption={post.feature_image_caption}
-            created_at={post.created_at}
-            updated_at={post.updated_at}
-            excerpt={post.excerpt}
-            primary_tag={post.primary_tag}
-            tags={post.tags}
-          />
-          <div className="w-full flex flex-col gap-6 px-3 xl:px-0 relative">
-            <ArticleReactions postId={post.id} url={BLOG_URL + slug} />
-            {hasTOC && <TableofContents toc={toc} react={true} />}
-            <div className="grid grid-cols-blockGridSm md:grid-cols-blockGrid gap-8 self-center w-[var(--blog-width)] pb-12 lg:pb-6">
-              <BlockContent
-                content={content}
-                dropCap={true}
-                disableToc={!hasTOC}
-              />
-            </div>
-          </div>
-          {morePosts.length > 0 && <MorePagePosts posts={morePosts} />}
-          {tagPosts.length > 0 && (
-            <MorePagePosts
-              posts={tagPosts}
-              tagPost={true}
-              tag={post.primary_tag}
-            />
-          )}
+    <div className="content-grid mt-6 pb-6 flex flex-col gap-6 px-3 row-start-2 xl:px-0 max-w-[100vw]">
+      <PostHead
+        title={post.title}
+        feature_image={post.feature_image}
+        feature_image_alt={post.feature_image_alt}
+        feature_image_caption={post.feature_image_caption}
+        created_at={post.created_at}
+        updated_at={post.updated_at}
+        excerpt={post.excerpt}
+        primary_tag={post.primary_tag}
+        tags={post.tags}
+      />
+      <div className="w-full grid grid-cols-articlesm xl:grid-cols-article gap-y-6 gap-x-2 px-3 xl:px-0 relative">
+        <ArticleReactions postId={post.id} url={BLOG_URL + slug} />
+        {hasTOC && <TableofContents toc={toc} />}
+        <div className="content-grid grid grid-cols-blockGridSm md:grid-cols-blockGrid gap-8 self-center pb-12 lg:pb-6">
+          <BlockContent content={content} dropCap={true} disableToc={!hasTOC} />
         </div>
-      </>
-    </>
+      </div>
+      {morePosts.length > 0 && <MorePagePosts posts={morePosts} />}
+      {tagPosts.length > 0 && (
+        <MorePagePosts posts={tagPosts} tagPost={true} tag={post.primary_tag} />
+      )}
+    </div>
   );
 }

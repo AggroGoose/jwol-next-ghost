@@ -1,18 +1,8 @@
 import Link from "next/link";
 
-export default function TableofContents({
-  toc,
-  react = false,
-}: {
-  toc: BlockTOCArray;
-  react?: boolean;
-}) {
+export default function TableofContents({ toc }: { toc: BlockTOCArray }) {
   return (
-    <div
-      className={`flex flex-col gap-2 w-[var(--blog-width)] self-center${
-        react ? " -mt-[48px] xl:-mt-[180px]" : ""
-      }`}
-    >
+    <div className={`content-grid flex flex-col gap-2 self-center`}>
       <h2 id="table-of-contents" className="leading-none text-head2">
         Table of Contents
       </h2>
@@ -20,12 +10,12 @@ export default function TableofContents({
         {toc.map((obj, i) => {
           return (
             <li
-              className="ml-6 pl-4 marker:text-fcolor-base marker:font-bold md:ml-10"
+              className="pl-4 marker:text-fcolor-base marker:font-bold ml-10"
               key={i}
             >
               <Link
                 href={`#${obj.tag}`}
-                className="text-fcolor-link font-bold hover:text-hover-link hover:underline"
+                className="text-fcolor-link font-semibold md:font-bold hover:text-hover-link hover:underline"
               >
                 {obj.title}
               </Link>

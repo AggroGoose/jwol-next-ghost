@@ -1,15 +1,13 @@
-import {
-  FacebookMessenger,
-  Facebook,
-  Reddit,
-  Twitter,
-} from "@/lib/resources/svg/social";
 import { Dialog } from "@headlessui/react";
 import {
   FacebookShareButton,
+  FacebookIcon,
+  FacebookMessengerIcon,
   FacebookMessengerShareButton,
   RedditShareButton,
+  RedditIcon,
   TwitterShareButton,
+  TwitterIcon,
 } from "next-share";
 import { useState } from "react";
 
@@ -54,16 +52,32 @@ export default function ArticleShare({
 
             <div className="flex gap-4 self-center">
               <FacebookShareButton url={url}>
-                <Facebook className="h-10 w-10 fill-base-primary hover:fill-base-accent" />
+                <FacebookIcon
+                  size={42}
+                  round={true}
+                  className="hover:opacity-80"
+                />
               </FacebookShareButton>
               <FacebookMessengerShareButton url={url} appId={""}>
-                <FacebookMessenger className="h-10 w-10 fill-base-primary hover:fill-base-accent" />
+                <FacebookMessengerIcon
+                  size={42}
+                  round={true}
+                  className="hover:opacity-80"
+                />
               </FacebookMessengerShareButton>
               <RedditShareButton url={url}>
-                <Reddit className="h-10 w-10 fill-base-primary hover:fill-base-accent" />
+                <RedditIcon
+                  size={42}
+                  round={true}
+                  className="hover:opacity-80"
+                />
               </RedditShareButton>
               <TwitterShareButton url={url}>
-                <Twitter className="h-10 w-10 fill-base-primary hover:fill-base-accent" />
+                <TwitterIcon
+                  size={42}
+                  round={true}
+                  className="hover:opacity-80"
+                />
               </TwitterShareButton>
             </div>
 

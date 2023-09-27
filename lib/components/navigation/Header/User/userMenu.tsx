@@ -5,7 +5,7 @@ import { UserAvatar } from "./userAvatar";
 export default function UserMenu({ imgSrc }: { imgSrc: string }) {
   const { openSignOut } = useModalContext()!;
   return (
-    <Menu as="div" className="relative ml-auto self-start">
+    <Menu as="div" className="relative ml-auto flex items-center">
       <Menu.Button className="rounded-full hover:border-[3px] hover:border-base-accent hover:-m-[3px] focus:border-[3px] focus:border-base-accent focus:-m-[3px]">
         <UserAvatar imgSrc={imgSrc} />
       </Menu.Button>
