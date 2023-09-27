@@ -18,7 +18,7 @@ export default function PageMain({
   const hasTOC = toc.length > 1 && !disableToc;
 
   return (
-    <div className="flex flex-col gap-6 mt-6">
+    <div className="flex flex-col gap-6 mt-6 max-w-[100vw]">
       <div className="flex flex-col gap-3">
         <div className="text-lg font-bold tracking-wider">
           <Link
@@ -44,13 +44,11 @@ export default function PageMain({
           </div>
         )}
       </div>
-      {hasTOC && (
-        <div className="flex flex-col pt-6">
-          <TableofContents toc={toc} />
+      <div className="grid grid-cols-page gap-y-6 py-6">
+        {hasTOC && <TableofContents toc={toc} />}
+        <div className="content-grid grid grid-cols-blockGrid gap-6 self-center px-3 pb-6 xl:px-0">
+          <BlockContent content={content} disableToc={!hasTOC} />
         </div>
-      )}
-      <div className="grid grid-cols-blockGrid gap-6 self-center w-[var(--blog-width)] px-3 pb-6 xl:px-0">
-        <BlockContent content={content} disableToc={!hasTOC} />
       </div>
     </div>
   );

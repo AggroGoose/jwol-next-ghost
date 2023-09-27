@@ -8,7 +8,7 @@ export default function DropMenu() {
   return (
     <Menu
       as="div"
-      className="col-start-1 col-end-2 ml-2 h-full relative flex items-center md:ml-[40px] xl:hidden outline-none border-none"
+      className="col-start-1 col-end-2 ml-4 h-full relative flex items-center md:ml-[40px] xl:hidden outline-none border-none"
     >
       <Menu.Button>
         <MenuIcon className="aspect-square h-[28px] md:h-[44px] fill-always-light hover:fill-base-accent transition-transform duration-300 ease-in-out ui-not-open:rotate-0 ui-open:rotate-90" />

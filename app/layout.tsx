@@ -39,7 +39,7 @@ export default function RootLayout({
       <GoogleAnalytics GA_MEASUREMENT_ID="G-JC47HREZJY" />
       <body id="main" data-color-theme="dark">
         <ContextProvider>
-          <div className="grid grid-cols-sideBar max-w-[100vw]">
+          <div className="grid grid-cols-sideBar max-w-[100vw] break-words">
             <div className="fixed w-screen h-screen top-0 bg-texture -z-[2]" />
             <SideNav />
             <main className="content-grid min-h-screen grid grid-cols-1 xl:grid-cols-mainGrid">

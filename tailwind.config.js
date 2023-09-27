@@ -123,6 +123,10 @@ module.exports = {
           "[main-start] 1fr [min-start] repeat(10, 1fr) [min-end] 1fr [main-end]",
         mainGrid:
           "[left-start] 1fr [content-start] var(--body-size) [content-end] 1fr [right-end]",
+        article:
+          "1fr [content-start] var(--blog-width) [content-end] minmax(56px,1fr) [react-end]",
+        articlesm: "[content-start] 1fr [content-end] max-content [react-end]",
+        page: "1fr [content-start] var(--blog-width) [content-end] 1fr",
         feature: "3fr 1fr",
         product: "1fr max-content",
         quote: "12px 1fr 12px",

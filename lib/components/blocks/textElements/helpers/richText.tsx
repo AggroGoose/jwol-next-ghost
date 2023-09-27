@@ -28,7 +28,7 @@ function LinkObj({
     return (
       <Link
         href={url}
-        className="text-fcolor-link font-bold hover:text-hover-link hover:underline"
+        className="text-fcolor-link font-semibold md:font-bold hover:text-hover-link hover:underline"
       >
         {children}
       </Link>
@@ -36,7 +36,7 @@ function LinkObj({
   return (
     <a
       href={url}
-      className="text-fcolor-link font-bold hover:text-hover-link hover:underline"
+      className="text-fcolor-link font-semibold md:font-bold hover:text-hover-link hover:underline"
       target="_blank"
     >
       {children}
@@ -62,11 +62,11 @@ function EmphasisCheck({
       return true;
     return false;
   };
-  const classBuilder = `${elem.emphasis.bold ? "font-bold " : ""}${
-    elem.emphasis.italic ? "italic " : ""
-  }${elem.emphasis.underline ? "underline " : ""}${
-    elem.emphasis.strikethrough ? "line-through" : ""
-  }`.trim();
+  const classBuilder = `${
+    elem.emphasis.bold ? "font-semibold md:font-bold " : ""
+  }${elem.emphasis.italic ? "italic " : ""}${
+    elem.emphasis.underline ? "underline " : ""
+  }${elem.emphasis.strikethrough ? "line-through" : ""}`.trim();
   if (spanCheck(elem)) {
     return (
       <span
