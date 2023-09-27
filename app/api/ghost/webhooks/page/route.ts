@@ -8,6 +8,8 @@ export async function POST(request: NextRequest) {
   }
   const data = await request.json();
 
+  console.log(data.page || "No such object - Page");
+
   if (data.page.slug === "about") revalidatePath(ABOUT_ROUTE);
 
   return NextResponse.json({ post: "Well Hello There" });

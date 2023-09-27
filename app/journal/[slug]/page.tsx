@@ -75,6 +75,8 @@ export default async function PostPage({
 
   const { content, toc } = post.content;
 
+  const hasTOC = toc.length > 1;
+
   return (
     <>
       <>
@@ -92,9 +94,13 @@ export default async function PostPage({
           />
           <div className="w-full flex flex-col gap-6 px-3 xl:px-0 relative">
             <ArticleReactions postId={post.id} url={BLOG_URL + slug} />
-            <TableofContents toc={toc} react={true} />
+            {hasTOC && <TableofContents toc={toc} react={true} />}
             <div className="grid grid-cols-blockGridSm md:grid-cols-blockGrid gap-8 self-center w-[var(--blog-width)] pb-12 lg:pb-6">
-              <BlockContent content={content} dropCap={true} />
+              <BlockContent
+                content={content}
+                dropCap={true}
+                disableToc={!hasTOC}
+              />
             </div>
           </div>
           {morePosts.length > 0 && <MorePagePosts posts={morePosts} />}

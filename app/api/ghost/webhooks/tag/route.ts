@@ -1,4 +1,4 @@
-import { BLOG_ROUTE, TAG_ROUTE } from "@/lib/utils/constants";
+import { TAG_ROUTE } from "@/lib/utils/constants";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 

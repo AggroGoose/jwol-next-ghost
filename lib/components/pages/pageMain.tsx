@@ -15,6 +15,8 @@ export default function PageMain({
   disableToc?: boolean;
 }) {
   const { content, toc } = page.content;
+  const hasTOC = toc.length > 1 && !disableToc;
+
   return (
     <div className="flex flex-col gap-6 mt-6">
       <div className="flex flex-col gap-3">
@@ -42,13 +44,13 @@ export default function PageMain({
           </div>
         )}
       </div>
-      {!disableToc && (
+      {hasTOC && (
         <div className="flex flex-col pt-6">
           <TableofContents toc={toc} />
         </div>
       )}
       <div className="grid grid-cols-blockGrid gap-6 self-center w-[var(--blog-width)] px-3 pb-6 xl:px-0">
-        <BlockContent content={content} disableToc={disableToc} />
+        <BlockContent content={content} disableToc={!hasTOC} />
       </div>
     </div>
   );
