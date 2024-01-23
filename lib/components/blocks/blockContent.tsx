@@ -29,10 +29,8 @@ export default function BlockContent({
           return (
             <BlockParagraph block={elem} dropCap={dropCap} key={"p" + i} />
           );
-        if (elem.type === "heading")
-          return (
-            <BlockHeaders block={elem} disableToc={disableToc} key={"h" + i} />
-          );
+        if (elem.type === "heading" || elem.type === "extended-heading")
+          return <BlockHeaders block={elem} key={"h" + i} />;
         if (elem.type === "quote" || elem.type === "aside")
           return <BlockQuote block={elem} key={"q" + i} />;
         if (elem.type === "audio")

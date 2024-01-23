@@ -6,5 +6,7 @@ export async function GET() {
     slug: "fall-seasonal-affective-disorder",
   })) as GhostAdminPost;
 
-  return NextResponse.json(post);
+  const root = await JSON.parse(post.lexical);
+
+  return NextResponse.json(root);
 }

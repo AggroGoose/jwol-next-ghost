@@ -96,9 +96,9 @@ type LexicalFile = {
 };
 
 interface LexicalHead extends LexicalBlock {
-  type: "heading";
+  type: "heading" | "extended-heading";
   children: Array<LexicalText>;
-  tag: "h2" | "h3";
+  tag: "h1" | "h2" | "h3" | "h4";
 }
 
 type LexicalHeaderCard = {
