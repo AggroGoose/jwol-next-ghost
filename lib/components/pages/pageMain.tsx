@@ -1,6 +1,5 @@
 import Link from "next/link";
 import BlockContent from "../blocks/blockContent";
-import TableofContents from "../blocks/tableOfContents";
 import Date from "../helpers/date";
 
 export default function PageMain({
@@ -14,8 +13,7 @@ export default function PageMain({
   includeUpdate?: boolean;
   disableToc?: boolean;
 }) {
-  const { content, toc } = page.content;
-  const hasTOC = toc.length > 1 && !disableToc;
+  const { content } = page;
 
   return (
     <div className="flex flex-col gap-6 mt-6 max-w-[100vw]">
@@ -45,9 +43,8 @@ export default function PageMain({
         )}
       </div>
       <div className="grid grid-cols-page gap-y-6 py-6">
-        {hasTOC && <TableofContents toc={toc} />}
         <div className="content-grid grid grid-cols-blockGrid gap-6 self-center px-3 pb-6 xl:px-0">
-          <BlockContent content={content} disableToc={!hasTOC} />
+          <BlockContent content={content} disableToc={true} />
         </div>
       </div>
     </div>

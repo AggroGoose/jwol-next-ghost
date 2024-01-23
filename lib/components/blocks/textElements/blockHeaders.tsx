@@ -1,59 +1,11 @@
-import Link from "next/link";
 import RichText from "./helpers/richText";
 
-export default function BlockHeaders({
-  elem,
-  disableToc = false,
-}: {
-  elem: BlockHeadCard;
-  disableToc?: boolean;
-}) {
-  const { type, content, tag } = elem;
-  const mappedContent = content.map((block, i) => (
-    <RichText elem={block} key={i} />
+export default function BlockHeaders({ block }: { block: LexicalHead }) {
+  const { children, tag } = block;
+  const mappedContent = children.map((text, i) => (
+    <RichText block={text} key={i} />
   ));
-
-  if (type === "h1")
-    return (
-      <h1 id={tag} className="blmain">
-        {mappedContent}
-      </h1>
-    );
-  if (type === "h2") {
-    if (disableToc) {
-      return (
-        <h2 className="blmain" id={tag}>
-          {mappedContent}
-        </h2>
-      );
-    } else {
-      return (
-        <>
-          <div className="blmain text-center text-sm font-medium italic hidden peer-first-of-type:block">
-            <Link
-              href="#table-of-contents"
-              className="text-fcolor-link font-bold hover:text-hover-link hover:underline"
-            >
-              Return to Table of Contents
-            </Link>
-          </div>
-          <h2 className="blmain -mb-1 peer" id={tag}>
-            {mappedContent}
-          </h2>
-        </>
-      );
-    }
-  }
-  if (type === "h3")
-    return (
-      <h3 className="blmain" id={tag}>
-        {mappedContent}
-      </h3>
-    );
-  if (type === "h4")
-    return (
-      <h4 className="blmain" id={tag}>
-        {mappedContent}
-      </h4>
-    );
+  if (tag === "h2") return <h2 className="blmain">{mappedContent}</h2>;
+  if (tag === "h3") return <h3 className="blmain">{mappedContent}</h3>;
+  if (tag === "h4") return <h4 className="blmain">{mappedContent}</h4>;
 }

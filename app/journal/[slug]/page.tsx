@@ -12,7 +12,6 @@ import {
 import MorePagePosts from "@/lib/components/article/main/morePagePosts";
 import BlockContent from "@/lib/components/blocks/blockContent";
 import { Metadata } from "next";
-import TableofContents from "@/lib/components/blocks/tableOfContents";
 import { BLOG_URL, SITE_SERVER } from "@/lib/utils/constants";
 
 export const revalidate = 600;
@@ -73,9 +72,9 @@ export default async function PostPage({
   const morePosts = await ghostLatestFiveGeneral(slug);
   const tagPosts = await ghostLatestFiveforTag(post.primary_tag.slug, slug);
 
-  const { content, toc } = post.content;
+  const { content } = post;
 
-  const hasTOC = toc.length > 1;
+  const hasTOC = false;
 
   return (
     <div className="content-grid mt-6 pb-6 flex flex-col gap-6 px-3 row-start-2 xl:px-0 max-w-[100vw]">
@@ -92,7 +91,6 @@ export default async function PostPage({
       />
       <div className="w-full grid grid-cols-articlesm xl:grid-cols-article gap-y-6 gap-x-2 px-3 xl:px-0 relative">
         <ArticleReactions postId={post.id} url={BLOG_URL + slug} />
-        {hasTOC && <TableofContents toc={toc} />}
         <div className="content-grid grid grid-cols-blockGridSm md:grid-cols-blockGrid gap-8 self-center pb-12 lg:pb-6">
           <BlockContent content={content} dropCap={true} disableToc={!hasTOC} />
         </div>

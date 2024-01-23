@@ -2,9 +2,9 @@
 
 import GalleryImageCard from "./galleryImageCard";
 
-export default function BlockGallery({ elem }: { elem: BlockGalleryCard }) {
-  const rowArr = rowBuilder(elem.images);
-  const caption = elem.caption;
+export default function BlockGallery({ block }: { block: LexicalGallery }) {
+  const rowArr = rowBuilder(block.images);
+  const caption = block.caption;
 
   return (
     <figure className="blmain">
@@ -13,7 +13,7 @@ export default function BlockGallery({ elem }: { elem: BlockGalleryCard }) {
           return (
             <div className="flex justify-center gap-3" key={i}>
               {row.map((img) => {
-                return <GalleryImageCard elem={img.image} key={img.imgId} />;
+                return <GalleryImageCard block={img.image} key={img.imgId} />;
               })}
             </div>
           );
@@ -29,7 +29,7 @@ export default function BlockGallery({ elem }: { elem: BlockGalleryCard }) {
   );
 }
 
-const rowBuilder = (images: BlockGalleryImage[]) => {
+const rowBuilder = (images: LexicalGalleryImage[]) => {
   const rowArr = [];
   let imageArr = [...images];
   let rows: number;
@@ -46,12 +46,12 @@ const rowBuilder = (images: BlockGalleryImage[]) => {
     const rowContents = [];
     if (imageArr.length > rows) {
       for (let i = 0; i < rows; i++) {
-        rowContents.push({ imgId: imageArr[i].id, image: imageArr[i] });
+        rowContents.push({ imgId: `${rowNum}${i}`, image: imageArr[i] });
       }
       imageArr = imageArr.splice(rows);
     } else if (imageArr.length <= rows) {
       for (let i = 0; i < imageArr.length; i++) {
-        rowContents.push({ imgId: imageArr[i].id, image: imageArr[i] });
+        rowContents.push({ imgId: `${rowNum}${i}`, image: imageArr[i] });
       }
     }
     rowArr.push(rowContents);

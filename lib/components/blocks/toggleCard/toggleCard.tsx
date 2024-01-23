@@ -4,7 +4,7 @@ import { useState } from "react";
 import ToggleArrow from "./SVG/toggleArrow";
 import { Transition } from "@headlessui/react";
 
-export default function BlockToggle({ elem }: { elem: BlockToggleCard }) {
+export default function BlockToggle({ block }: { block: LexicalToggle }) {
   const [isExpanded, setIsExpanded] = useState(false);
   function toggleExpand() {
     setIsExpanded(!isExpanded);
@@ -19,7 +19,10 @@ export default function BlockToggle({ elem }: { elem: BlockToggleCard }) {
         className="cursor-pointer flex justify-between items-center"
         onClick={toggleExpand}
       >
-        <h3 className="text-xl">{elem.title}</h3>
+        <h3
+          className="text-xl"
+          dangerouslySetInnerHTML={{ __html: block.heading }}
+        />
         <button className="leading-0" onClick={toggleExpand}>
           <ToggleArrow
             className={`w-5 h-5 fill-primary-500 transition-all duration-500 ease-in-out hover:fill-hover-primary ${
@@ -40,7 +43,7 @@ export default function BlockToggle({ elem }: { elem: BlockToggleCard }) {
       >
         <div
           className={`flex flex-col gap-4 pt-4`}
-          dangerouslySetInnerHTML={{ __html: elem.content }}
+          dangerouslySetInnerHTML={{ __html: block.content }}
         />
       </Transition>
     </div>

@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 
-const BlockImage = ({ elem }: { elem: BlockImageCard }) => {
-  const { src, height, width, alt, caption } = elem;
+const BlockImage = ({ block }: { block: LexicalImage }) => {
+  const { src, height, width, alt, caption } = block;
 
   const wideImg = Number(width) > Number(height);
 
@@ -17,7 +17,7 @@ const BlockImage = ({ elem }: { elem: BlockImageCard }) => {
           width={width}
           height={height}
         />
-        {caption && (
+        {caption.length > 0 && (
           <figcaption
             className="mt-3 text-sm italic text-center"
             dangerouslySetInnerHTML={{ __html: caption }}
