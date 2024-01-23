@@ -1,6 +1,6 @@
 //Parses the MobileDoc object to convert it into an array of "Block Array" objects (defined under blocks.d.ts) which will be easily fed to React Elements.
 
-import { mdCardtoBlock, mdListtoBlock, mdTexttoBlock } from "./mobileDoc/";
+import { mdCardtoBlock, mdListtoBlock, mdTexttoBlock } from "./mobileDoc";
 
 export function parseMD(mobileDocObject: MDObject) {
   const { atoms, cards, markups, sections } = mobileDocObject;

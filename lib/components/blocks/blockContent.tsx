@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import BlockAudio from "./audio/blockAudio";
 import BlockCallout from "./callout/blockCallout";
 import BlockGallery from "./images/galleryCard";
@@ -17,56 +16,42 @@ import BlockButton from "./button/blockBtn";
 
 export default function BlockContent({
   content,
-  disableToc = false,
+  disableToc = true,
   dropCap = false,
 }: {
-  content: BlockArray;
+  content: LexicalContentArray;
   disableToc?: boolean;
   dropCap?: boolean;
 }) {
   return (
     <>
-      {content.map((elem) => {
-        if (elem.type === "p") {
+      {content.map((elem, i) => {
+        if (elem.type === "paragraph")
+          return <BlockParagraph elem={elem} dropCap={dropCap} key={"p" + i} />;
+        if (elem.type === "heading")
           return (
-            <BlockParagraph elem={elem} dropCap={dropCap} key={"p" + elem.id} />
+            <BlockHeaders elem={elem} disableToc={disableToc} key={"h" + i} />
           );
-        }
-        if (elem.type === "h2") {
-          return (
-            <BlockHeaders
-              elem={elem}
-              disableToc={disableToc}
-              key={"h" + elem.id}
-            />
-          );
-        }
-        if (/(h1)|(h3)|(h4)/.test(elem.type))
-          return (
-            <BlockHeaders elem={elem as BlockHeadCard} key={"h" + elem.id} />
-          );
-        if (/(ul)|(ol)/.test(elem.type))
-          return <BlockList elem={elem as BlockListCard} key={"l" + elem.id} />;
-        if (elem.type === "blockquote")
-          return <BlockQuote elem={elem} key={"q" + elem.id} />;
+        if (elem.type === "quote" || elem.type === "aside")
+          return <BlockQuote elem={elem} key={"q" + i} />;
         if (elem.type === "audio")
-          return <BlockAudio elem={elem} key={"a" + elem.id} />;
+          return <BlockAudio elem={elem} key={"a" + i} />;
         if (elem.type === "callout")
-          return <BlockCallout elem={elem} key={"c" + elem.id} />;
+          return <BlockCallout elem={elem} key={"c" + i} />;
         if (elem.type === "gallery")
-          return <BlockGallery elem={elem} key={"g" + elem.id} />;
+          return <BlockGallery elem={elem} key={"g" + i} />;
         if (elem.type === "embed")
-          return <BlockEmbed block={elem} key={"e" + elem.id} />;
+          return <BlockEmbed block={elem} key={"e" + i} />;
         if (elem.type === "image")
-          return <BlockImage elem={elem} key={"i" + elem.id} />;
+          return <BlockImage elem={elem} key={"i" + i} />;
         if (elem.type === "product")
-          return <BlockProduct elem={elem} key={"pr" + elem.id} />;
+          return <BlockProduct elem={elem} key={"pr" + i} />;
         if (elem.type === "toggle")
-          return <BlockToggle elem={elem} key={"t" + elem.id} />;
-        if (elem.type === "markup")
-          return <BlockMarkdownCard elem={elem} key={"m" + elem.id} />;
+          return <BlockToggle elem={elem} key={"t" + i} />;
+        if (elem.type === "markdownParsed")
+          return <BlockMarkdownCard elem={elem} key={"m" + i} />;
         if (elem.type === "button")
-          return <BlockButton block={elem} key={"b" + elem.id} />;
+          return <BlockButton block={elem} key={"b" + i} />;
       })}
     </>
   );

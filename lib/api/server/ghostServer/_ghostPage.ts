@@ -1,15 +1,15 @@
 "use server";
 
 import ghost from "../ghostAdmin";
-import { parseMD } from "@/lib/utils/scripts/parseMobiledoc";
+import { parseLexical } from "@/lib/utils/scripts/parseLexical";
 
 export async function ghostPageData(slug: string) {
   const post = (await ghost.pages.read({ slug }).catch((err: Error) => {
     console.error(err);
   })) as GhostAdminPost;
 
-  const mobiledocObj = (await JSON.parse(post.mobiledoc)) as MDObject;
-  const content = parseMD(mobiledocObj);
+  const lexicalObj = (await JSON.parse(post.lexical)) as LexicalRoot;
+  const content = parseLexical(lexicalObj);
 
   const postData: ResponsePage = {
     slug: post.slug,

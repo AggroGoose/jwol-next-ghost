@@ -38,6 +38,7 @@ type GhostPost = {
 
 interface GhostAdminPost extends GhostPost {
   mobiledoc: string;
+  lexical: string;
 }
 
 type GhostTag = {
@@ -120,7 +121,7 @@ type ResponsePage = {
   created_at: string;
   updated_at: string;
   excerpt: string;
-  content: BlockObject;
+  content: LexicalContentArray;
 };
 
 interface ResponsePost extends ResponsePage {
