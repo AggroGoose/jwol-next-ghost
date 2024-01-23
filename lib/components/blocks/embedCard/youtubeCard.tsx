@@ -1,5 +1,5 @@
-export default function YoutubeCard({ elem }: { elem: BlockEmbedCard }) {
-  const screen = elem.url.match(
+export default function YoutubeCard({ block }: { block: LexicalEmbed }) {
+  const screen = block.url.match(
     /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
   );
   if (!screen) return null;
@@ -14,7 +14,7 @@ export default function YoutubeCard({ elem }: { elem: BlockEmbedCard }) {
           height="315"
           className="absolute left-0 top-0 w-full h-full"
           src={url}
-          title={elem.title}
+          title={block.metadata.title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>

@@ -1,14 +1,14 @@
 import Image from "next/image";
 
 export default function GalleryImageCard({
-  elem,
+  block,
 }: {
-  elem: BlockGalleryImage;
+  block: LexicalGalleryImage;
   key: number | string;
 }) {
-  const imgSrc = elem.src;
-  const imgWidth = Number(elem.width);
-  const imgHeight = Number(elem.height);
+  const imgSrc = block.src;
+  const imgWidth = Number(block.width);
+  const imgHeight = Number(block.height);
 
   return (
     <div style={{ flex: `${imgWidth / imgHeight} 1 0%` }}>

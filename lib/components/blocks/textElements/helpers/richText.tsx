@@ -1,29 +1,34 @@
 import Link from "next/link";
 
-export default function RichText({ elem }: { elem: BlockRichText }) {
+export default function RichText({
+  block,
+}: {
+  block: LexicalText | LexicalLink;
+}) {
   return (
     <>
-      {elem.link && (
-        <LinkObj link={elem.link}>
-          <EmphasisCheck elem={elem}>{elem.content}</EmphasisCheck>
+      {block.type === "link" && (
+        <LinkObj url={block.url}>
+          <EmphasisCheck level={block.children[0].format} hasLink={true}>
+            {block.children[0].text}
+          </EmphasisCheck>
         </LinkObj>
       )}
-      {!elem.link && <EmphasisCheck elem={elem}>{elem.content}</EmphasisCheck>}
+      {block.type === "extended-text" && (
+        <EmphasisCheck level={block.format}>{block.text}</EmphasisCheck>
+      )}
     </>
   );
 }
 
 function LinkObj({
-  link,
+  url,
   children,
 }: {
   children: React.ReactNode;
-  link: {
-    url: string;
-    internal: boolean;
-  };
+  url: string;
 }) {
-  const { url, internal } = link;
+  const internal = /(www.noleavesociety)/.test(url);
   if (internal)
     return (
       <Link
@@ -46,32 +51,24 @@ function LinkObj({
 
 function EmphasisCheck({
   children,
-  elem,
+  level,
+  hasLink = false,
 }: {
   children: React.ReactNode;
-  elem: BlockRichText;
+  level: number;
+  hasLink?: boolean;
 }) {
-  const spanCheck = (elem: BlockRichText) => {
-    const { emphasis } = elem;
-    if (
-      emphasis.bold ||
-      emphasis.italic ||
-      emphasis.strikethrough ||
-      emphasis.underline
-    )
-      return true;
-    return false;
-  };
+  const hasBold = level === 1 || level === 3;
   const classBuilder = `${
-    elem.emphasis.bold ? "font-semibold md:font-bold " : ""
-  }${elem.emphasis.italic ? "italic " : ""}${
-    elem.emphasis.underline ? "underline " : ""
-  }${elem.emphasis.strikethrough ? "line-through" : ""}`.trim();
-  if (spanCheck(elem)) {
+    level === 1 || level === 3 ? "font-semibold md:font-bold " : ""
+  }${level === 2 || level === 3 ? "italic " : ""}${
+    level === 4 ? "underline " : ""
+  }${level === 5 ? "line-through" : ""}`.trim();
+  if (level > 0) {
     return (
       <span
         className={`${classBuilder}${
-          !elem.link && elem.emphasis.bold ? " text-subtle-flip2" : ""
+          !hasLink && hasBold ? " text-subtle-flip2" : ""
         }`}
       >
         {children}

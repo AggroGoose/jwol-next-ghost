@@ -5,13 +5,16 @@ import Image from "next/image";
 
 import AudioControls from "./audioControls";
 
-export default function BlockAudio({ elem }: { elem: BlockAudioCard }) {
+export default function BlockAudio({ block }: { block: LexicalAudio }) {
   const audioContainer = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const imgSrc = "/images/NoLeaveFallback.png";
-  const audioSrc = elem.src;
-  const audioTitle = elem.title;
-  const audioDuration = elem.duration;
+  const imgSrc =
+    block.thumbnailSrc.length > 0
+      ? block.thumbnailSrc
+      : "/images/NoLeaveFallback.png";
+  const audioSrc = block.src;
+  const audioTitle = block.title;
+  const audioDuration = block.duration;
 
   return (
     <div

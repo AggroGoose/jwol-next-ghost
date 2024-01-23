@@ -1,17 +1,17 @@
 import RichText from "./helpers/richText";
 
 export default function BlockParagraph({
-  elem,
+  block,
   dropCap = false,
 }: {
-  elem: BlockTextCard;
+  block: LexicalPara;
   dropCap?: boolean;
 }) {
-  const { content } = elem;
+  const { children } = block;
   return (
     <p className={`blmain${dropCap ? " first-of-type:drop-cap" : ""}`}>
-      {content.map((section, i) => (
-        <RichText elem={section} key={i} />
+      {children.map((section, i) => (
+        <RichText block={section} key={i} />
       ))}
     </p>
   );

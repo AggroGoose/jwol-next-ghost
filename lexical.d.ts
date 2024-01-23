@@ -27,6 +27,9 @@ type LexicalContentArray = Array<
   | LexicalVideo
 >;
 
+type LexicalObject = {
+  root: LexicalRoot;
+};
 interface LexicalRoot extends LexicalBlock {
   type: "root";
   children: LexicalContentArray;
@@ -246,6 +249,7 @@ type LexicalTwitter = {
   url: string;
   author_name: string;
   author_url: string;
+  title: string;
   html: string;
   width: number;
   height: number;

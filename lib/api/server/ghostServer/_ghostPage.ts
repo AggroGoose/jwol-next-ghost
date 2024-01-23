@@ -8,8 +8,9 @@ export async function ghostPageData(slug: string) {
     console.error(err);
   })) as GhostAdminPost;
 
-  const lexicalObj = (await JSON.parse(post.lexical)) as LexicalRoot;
-  const content = parseLexical(lexicalObj);
+  const lexicalObj = (await JSON.parse(post.lexical)) as LexicalObject;
+  const lexicalRoot = lexicalObj.root;
+  const content = parseLexical(lexicalRoot);
 
   const postData: ResponsePage = {
     slug: post.slug,

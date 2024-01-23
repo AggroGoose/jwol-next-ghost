@@ -9,7 +9,6 @@ import BlockToggle from "./toggleCard/toggleCard";
 import BlockEmbed from "./embedCard/blockEmbed";
 import BlockHeaders from "./textElements/blockHeaders";
 import BlockParagraph from "./textElements/blockParagraph";
-import BlockList from "./textElements/blockList";
 import BlockQuote from "./textElements/blockQuote";
 import BlockMarkdownCard from "./markdown/blockMarkdown";
 import BlockButton from "./button/blockBtn";
@@ -27,29 +26,31 @@ export default function BlockContent({
     <>
       {content.map((elem, i) => {
         if (elem.type === "paragraph")
-          return <BlockParagraph elem={elem} dropCap={dropCap} key={"p" + i} />;
+          return (
+            <BlockParagraph block={elem} dropCap={dropCap} key={"p" + i} />
+          );
         if (elem.type === "heading")
           return (
-            <BlockHeaders elem={elem} disableToc={disableToc} key={"h" + i} />
+            <BlockHeaders block={elem} disableToc={disableToc} key={"h" + i} />
           );
         if (elem.type === "quote" || elem.type === "aside")
-          return <BlockQuote elem={elem} key={"q" + i} />;
+          return <BlockQuote block={elem} key={"q" + i} />;
         if (elem.type === "audio")
-          return <BlockAudio elem={elem} key={"a" + i} />;
+          return <BlockAudio block={elem} key={"a" + i} />;
         if (elem.type === "callout")
-          return <BlockCallout elem={elem} key={"c" + i} />;
+          return <BlockCallout block={elem} key={"c" + i} />;
         if (elem.type === "gallery")
-          return <BlockGallery elem={elem} key={"g" + i} />;
+          return <BlockGallery block={elem} key={"g" + i} />;
         if (elem.type === "embed")
           return <BlockEmbed block={elem} key={"e" + i} />;
         if (elem.type === "image")
-          return <BlockImage elem={elem} key={"i" + i} />;
+          return <BlockImage block={elem} key={"i" + i} />;
         if (elem.type === "product")
-          return <BlockProduct elem={elem} key={"pr" + i} />;
+          return <BlockProduct block={elem} key={"pr" + i} />;
         if (elem.type === "toggle")
-          return <BlockToggle elem={elem} key={"t" + i} />;
+          return <BlockToggle block={elem} key={"t" + i} />;
         if (elem.type === "markdownParsed")
-          return <BlockMarkdownCard elem={elem} key={"m" + i} />;
+          return <BlockMarkdownCard block={elem} key={"m" + i} />;
         if (elem.type === "button")
           return <BlockButton block={elem} key={"b" + i} />;
       })}

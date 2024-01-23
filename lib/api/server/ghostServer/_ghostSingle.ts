@@ -12,8 +12,9 @@ export async function ghostGetSinglePost(slug: string) {
     console.error(err);
   })) as GhostAdminPost;
 
-  const lexicalObj = (await JSON.parse(post.lexical)) as LexicalRoot;
-  const content = parseLexical(lexicalObj);
+  const lexicalObj = (await JSON.parse(post.lexical)) as LexicalObject;
+  const lexicalRoot = lexicalObj.root;
+  const content = parseLexical(lexicalRoot);
 
   //Tag objects returned from Ghost contains a lot of bloat. Request object could probably limit this itself, but for ease of use we're stripping the tag objects down here.
 

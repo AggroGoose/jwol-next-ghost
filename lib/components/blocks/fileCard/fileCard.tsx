@@ -2,15 +2,13 @@ import React from "react";
 import parseFileData from "./helpers/parseFileData";
 import DownloadIcon from "./SVG/downloadIcon";
 
-export default function FileCard({ elem }: { elem: ParseElement }) {
-  const elemChildren = elem.children as ParseElement[];
-  const { fileSource, fileTitle, fileName, fileSize } =
-    parseFileData(elemChildren);
+export default function FileCard({ block }: { block: LexicalFile }) {
+  const { src, fileTitle, fileCaption, fileName, fileSize } = block;
   return (
-    <div className="blmain flex">
+    <div className="blmain flex flex-col gap-2">
       <a
         className="flex items-stretch justify-between p-1.5 min-h-[92px] border border-solid rounded-md w-full hover:border-2"
-        href={fileSource}
+        href={src}
         title="Download"
         download
       >
@@ -25,6 +23,12 @@ export default function FileCard({ elem }: { elem: ParseElement }) {
           <DownloadIcon className="w-6 h-6 fill-primary" />
         </div>
       </a>
+      {fileCaption.length > 0 && (
+        <figcaption
+          className="mt-3 text-sm italic text-center"
+          dangerouslySetInnerHTML={{ __html: block.fileCaption }}
+        />
+      )}
     </div>
   );
 }
