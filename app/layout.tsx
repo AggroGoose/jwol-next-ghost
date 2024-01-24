@@ -9,16 +9,22 @@ import TopNav from "@/lib/components/navigation/topNav";
 import ModalCheck from "@/lib/components/modals/modalCheck";
 import ContextProvider from "@/lib/context/contextProvider";
 
-const nunito = localFont({
+const ptSerif = localFont({
   src: [
-    { path: "/font/NunitoSans.ttf", style: "normal" },
-    { path: "/font/NunitoSans-Italic.ttf", style: "italic" },
+    { path: "/font/PTSerif-Regular.ttf", style: "normal", weight: "400" },
+    { path: "/font/PTSerif-Bold.ttf", style: "normal", weight: "700" },
+    { path: "/font/PTSerif-Italic.ttf", style: "italic", weight: "400" },
+    { path: "/font/PTSerif-BoldItalic.ttf", style: "italic", weight: "700" },
   ],
   variable: "--font-primary",
   display: "swap",
 });
-const josefin = localFont({
-  src: [{ path: "/font/JosefinSans.ttf", style: "normal" }],
+
+const montserrat = localFont({
+  src: [
+    { path: "/font/Montserrat.ttf", style: "normal" },
+    { path: "/font/Montserrat-Italic.ttf", style: "italic" },
+  ],
   variable: "--font-secondary",
   display: "swap",
 });
@@ -35,12 +41,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${nunito.variable} ${josefin.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${ptSerif.variable}`}>
       <GoogleAnalytics GA_MEASUREMENT_ID="G-JC47HREZJY" />
-      <body id="main" data-color-theme="dark">
+      <body>
         <ContextProvider>
           <div className="grid grid-cols-sideBar max-w-[100vw] break-words">
-            <div className="fixed w-screen h-screen top-0 bg-texture -z-[2]" />
+            <div className="fixed w-screen h-screen top-0 -z-[2]" />
             <SideNav />
             <main className="content-grid min-h-screen grid grid-cols-1 xl:grid-cols-mainGrid">
               <TopNav />

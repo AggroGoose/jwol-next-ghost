@@ -201,15 +201,38 @@ module.exports = {
           "&::first-letter": {
             float: "left",
             lineHeight: "0.69",
-            fontSize: "4rem",
-            marginRight: "0.08em",
+            fontSize: "4.125rem",
+            marginRight: "0.14em",
             marginTop: "0.14em",
-            color: "var(--subtle-color-accent)",
+            color: "var(--accent-600)",
+          },
+        },
+        ".drop-cap-md": {
+          "&::first-letter": {
+            float: "left",
+            lineHeight: "0.69",
+            fontSize: "3.875rem",
+            marginRight: "0.14em",
+            marginTop: "0.14em",
+            color: "var(--accent-600)",
+          },
+        },
+        ".drop-cap-sm": {
+          "&::first-letter": {
+            float: "left",
+            lineHeight: "0.69",
+            fontSize: "3.6rem",
+            marginRight: "0.14em",
+            marginTop: "0.14em",
+            color: "var(--accent-600)",
           },
         },
         ".bg-texture": {
           background: "var(--grunge-image)",
           backgroundSize: "cover",
+        },
+        ".secondary-font": {
+          fontFamily: "var(--font-secondary)",
         },
       });
       matchUtilities(

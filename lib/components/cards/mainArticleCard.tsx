@@ -37,25 +37,25 @@ export default function MainArticleCard({
       </Link>
       <div className="flex flex-col p-4 gap-4 text-left h-full">
         <div className="flex justify-between w-full items-center">
-          <p className="text-xs italic font-light">
+          <p className="text-xs">
             <Date dateString={post.published} />
           </p>
           <Link
             href={`${TAG_ROUTE}/${post.tagSlug}`}
-            className="text-sm font-bold text-fcolor-link leading-none hover:text-hover-link"
+            className="text-sm font-bold text-primary-600 leading-none hover:text-primary-500 hover:underline"
           >
             {post.tag}
           </Link>
         </div>
         <Link href={`${BLOG_ROUTE}/${post.slug}`}>
-          <h3 className="leading-tight text-xl hover:text-hover-accent -mb-1">
+          <h3 className="leading-tight text-xl hover:text-accent-500 -mb-1">
             {post.title}
           </h3>
         </Link>
         <p className="text-sm line-clamp-2">{post.excerpt}</p>
         <Link
           href={`${BLOG_ROUTE}/${post.slug}`}
-          className="mt-auto font-bold text-base-accent hover:text-hover-accent hover:underline"
+          className="mt-auto font-bold text-primary-600 hover:text-primary-500 hover:underline"
         >
           Read More {"->"}
         </Link>

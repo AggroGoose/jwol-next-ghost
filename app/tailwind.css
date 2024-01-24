@@ -67,10 +67,10 @@
   --primary-200: hsl(256, 94%, 67%);
   --primary-300: hsl(256, 90%, 57%);
   --primary-400: hsl(256, 84%, 45%);
-  --primary-500: hsl(256, 92%, 36%);
-  --primary-600: hsl(256, 100%, 30%);
-  --primary-700: hsl(256, 100%, 26%);
-  --primary-800: hsl(256, 98%, 22%);
+  --primary-500: hsl(256, 90%, 36%);
+  --primary-600: hsl(256, 100%, 28%);
+  --primary-700: hsl(256, 100%, 23%);
+  --primary-800: hsl(256, 98%, 20%);
   --primary-900: hsl(256, 100%, 15%);
   --primary-1000: hsl(262, 100%, 10%);
   --primary-dark: hsl(256, 100%, 6%);
@@ -81,10 +81,10 @@
   --accent-300: hsl(345, 91%, 68%);
   --accent-400: hsl(345, 90%, 59%);
   --accent-500: hsl(345, 80%, 50%);
-  --accent-600: hsl(345, 91%, 44%);
-  --accent-700: hsl(345, 95%, 37%);
-  --accent-800: hsl(345, 100%, 31%);
-  --accent-900: hsl(345, 100%, 24%);
+  --accent-600: hsl(345, 96%, 42%);
+  --accent-700: hsl(345, 100%, 35%);
+  --accent-800: hsl(345, 100%, 29%);
+  --accent-900: hsl(345, 100%, 21%);
   --accent-1000: hsl(345, 100%, 18%);
   --accent-dark: hsl(344, 100%, 11%);
   --dark-t2: hsla(262, 48%, 20%, 0.4);
@@ -113,12 +113,12 @@
 
   --font-weight: 400;
   /* --font-head-weight: 400; */
-  --font-head-weight: 700;
+  --font-head-weight: 800;
   --font-tertiary-weight: 400;
-  --font-space: 0.06em;
+  --font-space: 0.008em;
   --font-badge-space: 0.1em;
   /* --font-secondary-space: 0.08em; */
-  --font-secondary-space: 0.03em;
+  --font-secondary-space: 0.01em;
   --font-height: 1.625;
   --font-head-height: 1;
 
@@ -128,34 +128,9 @@
   --blog-width: 1000px;
   --qclip: 12px;
   --qclip2: 78px;
-}
+  --font-testx: Georgia;
+  --font-testy: Garamond;
 
-body[data-color-theme="dark"] {
-  --background-base: var(--primary-dark);
-  --background-tier2: var(--dark-t2);
-  --background-tier3: var(--color-lightest);
-  --background-primary: var(--primary-500);
-  --background-accent: var(--accent-500);
-  --background-flip: var(--color-darkest);
-  --font-color-main: var(--color-lightest);
-  --font-color-head: var(--accent-400);
-  --font-color-link: var(--primary-200);
-  --font-color-flip: var(--color-darkest);
-  --hover-color-base: var(--light-subtle);
-  --hover-color-primary: var(--primary-400);
-  --hover-color-accent: var(--accent-600);
-  --hover-color-link: var(--primary-100);
-  --subtle-color-primary: var(--dark-subtle);
-  --subtle-color-primary2: var(--primary-800);
-  --subtle-color-accent: var(--accent-400);
-  --subtle-color-flip: var(--light-subtle);
-  --subtle-color-flip2: var(--primary-100);
-  --grunge-image: url("./texture/grunge-dark.webp");
-  --bg-gradient: hsl(256, 38%, 19%), hsl(262, 38%, 11%);
-  --flip-hsla: hsla(256, 100%, 69%, 0.36);
-}
-
-body[data-color-theme="light"] {
   --background-base: var(--color-lightest);
   --background-tier2: var(--light-t2);
   --background-tier3: var(--color-lightest);
@@ -276,11 +251,11 @@ h3 {
 figcaption a {
   font-weight: 700;
   color: var(--font-color-link);
+  text-decoration: underline;
 }
 
 figcaption a:hover {
   color: var(--hover-color-link);
-  text-decoration: underline;
 }
 
 figcaption strong {

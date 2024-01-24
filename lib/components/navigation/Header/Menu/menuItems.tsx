@@ -12,19 +12,19 @@ export default function MenuItems() {
       className="px-5 flex flex-col gap-2 overflow-scroll no-scrollbar"
       id="menu"
     >
-      <ul className="text-head3 text-always-light font-head font-hdw tracking-hs">
-        <li className="hover:text-accent-500 focus:text-accent-500">
+      <ul className="text-xxl text-always-light font-head font-bold tracking-hs">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={BLOG_ROUTE}>Read</Link>
         </li>
       </ul>
-      <ul className="text-base pl-4 flex flex-col gap-3 mb-3 text-always-light">
-        <li className="hover:text-accent-500 focus:text-accent-500">
+      <ul className="text-sm font-semibold flex flex-col gap-3 mb-3 text-always-light">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={TAG_ROUTE + "/mental-health"}>Mental Health</Link>
         </li>
-        <li className="hover:text-accent-500 focus:text-accent-500">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={TAG_ROUTE + "/travel"}>Travel</Link>
         </li>
-        <li className="hover:text-accent-500 focus:text-accent-500">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={TAG_ROUTE + "/food"}>Food</Link>
         </li>
         <li>
@@ -33,27 +33,27 @@ export default function MenuItems() {
           </a>
         </li>
       </ul>
-      <ul className="text-head3 text-always-light font-head font-hdw tracking-hs">
-        <li className="hover:text-accent-500 focus:text-accent-500">
+      <ul className="text-xxl text-always-light font-head font-bold tracking-hs">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={ABOUT_ROUTE}>About</Link>
         </li>
       </ul>
-      <ul className="text-head3 text-always-light font-head font-hdw tracking-hs">
-        <li className="hover:text-accent-500 focus:text-accent-500">
+      <ul className="text-xxl text-always-light font-head font-bold tracking-hs">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={POLICY_ROUTE}>Policies</Link>
         </li>
       </ul>
-      <ul className="text-base pl-4 flex flex-col gap-3 mb-3 text-always-light">
-        <li className="hover:text-accent-500 focus:text-accent-500">
+      <ul className="text-sm font-semibold flex flex-col gap-3 mb-3 text-always-light">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={POLICY_ROUTE + "/cookies"}>Cookie Policy</Link>
         </li>
-        <li className="hover:text-accent-500 focus:text-accent-500">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={POLICY_ROUTE + "/privacy-policy"}>Privacy Policy</Link>
         </li>
-        <li className="hover:text-accent-500 focus:text-accent-500">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={POLICY_ROUTE + "/disclaimer"}>Disclaimer</Link>
         </li>
-        <li className="hover:text-accent-500 focus:text-accent-500">
+        <li className="hover:text-accent-600 focus:text-accent-600">
           <Link href={POLICY_ROUTE + "/terms-and-conditions"}>
             Terms and Conditions
           </Link>

@@ -10,11 +10,11 @@ export default function PostDetails({
   return (
     <div className="flex md:justify-between gap-2 max-md:flex-col w-[--blog-width] self-center">
       <p>
-        <strong className="text-subtle-flip2">Posted:</strong>{" "}
+        <strong className="text-primary-600">Posted:</strong>{" "}
         <DateParse dateString={created_at} />
       </p>
       <p>
-        <strong className="text-subtle-flip2">Updated:</strong>{" "}
+        <strong className="text-primary-600">Updated:</strong>{" "}
         <DateParse dateString={updated_at} />
       </p>
     </div>

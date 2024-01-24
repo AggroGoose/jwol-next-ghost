@@ -72,7 +72,7 @@ export default function ArticleReactions({
 
   return (
     <>
-      <div className="content-grid md:reaction-grid row-span-full h-max sticky ml-auto flex z-10 md:flex-col top-[90vh] md:top-[75vh] gap-3">
+      <div className="content-grid md:reaction-grid row-span-full h-max sticky mb-[-40px] md:mb-0 ml-auto flex z-10 md:flex-col top-[90vh] md:top-[75vh] gap-3">
         <button
           className="p-3 transition-colors rounded-full bg-subtle-primary cshadow-flip duration-500 ease-in-out items-center hover:bg-subtle-primary2"
           onClick={handleLike}
