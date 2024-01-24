@@ -71,8 +71,8 @@
   --primary-600: hsl(256, 100%, 28%);
   --primary-700: hsl(256, 100%, 23%);
   --primary-800: hsl(256, 98%, 20%);
-  --primary-900: hsl(256, 100%, 15%);
-  --primary-1000: hsl(262, 100%, 10%);
+  --primary-900: hsl(256, 100%, 13%);
+  --primary-1000: hsl(262, 100%, 9%);
   --primary-dark: hsl(256, 100%, 6%);
   --accent-light: hsl(345, 100%, 95%);
   --accent-50: hsl(344, 100%, 87%);
@@ -94,6 +94,7 @@
   --light-subtle: hsl(256, 100%, 95%);
   --light-subtle2: hsl(256, 100%, 90%);
   --light-accent: hsl(356, 70%, 67%);
+  --subtle-color-light: hsl(256, 100%, 97%);
 
   --font-tiny: 0.875rem;
   --font-smaller: 1rem;

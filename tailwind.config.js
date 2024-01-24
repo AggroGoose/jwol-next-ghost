@@ -65,6 +65,7 @@ module.exports = {
           flip: "var(--font-color-flip)",
         },
         subtle: {
+          light: "var(--subtle-color-light)",
           primary: "var(--subtle-color-primary)",
           primary2: "var(--subtle-color-primary2)",
           accent: "var(--subtle-color-accent)",
