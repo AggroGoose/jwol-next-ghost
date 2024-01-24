@@ -18,17 +18,17 @@ export default function PostTitle({
 }) {
   return (
     <div className="w-full flex flex-col gap-3">
-      <div className="text-lg font-bold tracking-wider">
+      <div className="text-lg font-bold tracking-wider secondary-font">
         <Link
           href={BLOG_ROUTE}
-          className="text-fcolor-link hover:text-hover-link hover:underline"
+          className="text-primary-600 hover:text-primary-500 hover:underline"
         >
           Journal
         </Link>
         <span className="text-fcolor-base">{` // `}</span>
         <Link
           href={TAG_ROUTE + "/" + primary_tag.slug}
-          className="text-fcolor-link hover:text-hover-link hover:underline"
+          className="text-primary-600 hover:text-primary-500 hover:underline"
         >
           {primary_tag.name}
         </Link>

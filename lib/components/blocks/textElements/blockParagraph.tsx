@@ -9,7 +9,13 @@ export default function BlockParagraph({
 }) {
   const { children } = block;
   return (
-    <p className={`blmain${dropCap ? " first-of-type:drop-cap" : ""}`}>
+    <p
+      className={`blmain${
+        dropCap
+          ? " lg:first-of-type:drop-cap md:first-of-type:drop-cap-md first-of-type:drop-cap-sm"
+          : ""
+      }`}
+    >
       {children.map((section, i) => (
         <RichText block={section} key={i} />
       ))}

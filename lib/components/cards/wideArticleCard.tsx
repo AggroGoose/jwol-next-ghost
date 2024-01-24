@@ -32,13 +32,13 @@ export default function WideArticleCard({ post }: { post: ResponseMore }) {
         </Link>
       </figure>
       <div className="flex flex-col gap-4 lg:basis-2/5 p-4">
-        <div className="flex justify-between">
-          <p className="text-sm italic font-light lg:text-base">
+        <div className="flex justify-between items-center">
+          <p className="text-sm lg:text-base">
             <Date dateString={post.published} />
           </p>
           <Link
             href={`${TAG_ROUTE}/${post.tagSlug}`}
-            className="leading-none text-fcolor-link hover:text-hover-link font-bold text-sm lg:text-base"
+            className="leading-none text-primary-600 hover:text-primary-500 hover:underline font-bold text-sm lg:text-base"
           >
             {post.tag}
           </Link>
@@ -54,7 +54,7 @@ export default function WideArticleCard({ post }: { post: ResponseMore }) {
 
         <Link
           href={`${BLOG_ROUTE}/${post.slug}`}
-          className="text-lg font-bold text-base-accent hover:text-hover-accent hover:underline mt-auto"
+          className="text-lg font-bold text-primary-600 hover:text-primary-500 hover:underline mt-auto"
         >
           Read More {"->"}
         </Link>

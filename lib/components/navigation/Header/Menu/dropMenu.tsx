@@ -14,12 +14,6 @@ export default function DropMenu() {
         <MenuIcon className="aspect-square h-[28px] md:h-[44px] fill-always-light hover:fill-base-accent transition-transform duration-300 ease-in-out ui-not-open:rotate-0 ui-open:rotate-90" />
       </Menu.Button>
       <Menu.Items className="bg-always-dark fixed top-under-head left-0 px-6 py-6 min-h-under-head flex flex-col gap-6">
-        <Menu.Item as="div" className="flex gap-4 items-center self-center">
-          <p className="text-always-light text-lg font-bold">
-            {"Color Theme:"}
-          </p>
-          <DarkModeToggle />
-        </Menu.Item>
         <Menu.Item as="div">
           <MenuItems />
         </Menu.Item>

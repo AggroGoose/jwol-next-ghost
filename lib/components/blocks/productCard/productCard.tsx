@@ -24,9 +24,10 @@ export default function BlockProduct({ block }: { block: LexicalProduct }) {
           alt={`Cover image for ${block.productTitle} product review.`}
         />
       </div>
-      <h3 className="col-start-1 col-span-2 row-start-3 text-center md:text-left md:row-start-2 md:col-span-1 leading-none align-middle text-fcolor-base mt-1 -mb-1">
-        {block.productTitle}
-      </h3>
+      <h3
+        className="col-start-1 col-span-2 row-start-3 text-center md:text-left md:row-start-2 md:col-span-1 leading-none align-middle text-fcolor-base mt-1 -mb-1"
+        dangerouslySetInnerHTML={{ __html: block.productTitle }}
+      />
       {block.productRatingEnabled && (
         <div className="col-span-2 row-start-2 md:col-start-2 md:col-span-1 items-center flex gap-1 mx-auto">
           {rating.map((rate, i) => {
@@ -48,7 +49,7 @@ export default function BlockProduct({ block }: { block: LexicalProduct }) {
       {block.productButtonEnabled && (
         <a
           href={block.productUrl}
-          className="bg-base-accent text-center col-start-1 col-end-3 w-full text-sm p-4 rounded-md mx-auto font-bold leading-none hover:bg-hover-accent"
+          className="bg-accent-600 text-center col-start-1 col-end-3 w-full text-sm p-4 rounded-md mx-auto font-semibold leading-none hover:bg-accent-500 secondary-font tracking-wide"
           target="_blank"
         >
           <span className="text-always-light text-sm">

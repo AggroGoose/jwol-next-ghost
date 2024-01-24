@@ -33,7 +33,7 @@ function LinkObj({
     return (
       <Link
         href={url}
-        className="text-fcolor-link font-semibold md:font-bold hover:text-hover-link hover:underline"
+        className="text-accent-500 font-semibold hover:text-accent-600 hover:underline"
       >
         {children}
       </Link>
@@ -41,7 +41,7 @@ function LinkObj({
   return (
     <a
       href={url}
-      className="text-fcolor-link font-semibold md:font-bold hover:text-hover-link hover:underline"
+      className="text-accent-500 font-semibold hover:text-accent-600 hover:underline"
       target="_blank"
     >
       {children}
@@ -61,14 +61,14 @@ function EmphasisCheck({
   const hasBold = level === 1 || level === 3;
   const classBuilder = `${
     level === 1 || level === 3 ? "font-semibold md:font-bold " : ""
-  }${level === 2 || level === 3 ? "italic " : ""}${
-    level === 4 ? "underline " : ""
-  }${level === 5 ? "line-through" : ""}`.trim();
+  }${level === 2 ? "italic " : ""}${level === 4 ? "underline " : ""}${
+    level === 5 ? "line-through" : ""
+  }`.trim();
   if (level > 0) {
     return (
       <span
         className={`${classBuilder}${
-          !hasLink && hasBold ? " text-subtle-flip2" : ""
+          !hasLink && hasBold ? " text-primary-600" : ""
         }`}
       >
         {children}
