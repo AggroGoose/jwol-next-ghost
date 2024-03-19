@@ -1,5 +1,3 @@
-import { AuthContextProvider } from "./authContext";
-import { ModalContextProvider } from "./modalContext";
 import QueryProvider from "./queryClient";
 
 export default function ContextProvider({
