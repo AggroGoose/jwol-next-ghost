@@ -10,10 +10,8 @@ export default function BlockParagraph({
   const { children } = block;
   return (
     <p
-      className={`blmain${
-        dropCap
-          ? " lg:first-of-type:drop-cap md:first-of-type:drop-cap-md first-of-type:drop-cap-sm"
-          : ""
+      className={`block-main max-xl:px-3${
+        dropCap ? " first-of-type:drop-cap" : ""
       }`}
     >
       {children.map((section, i) => (

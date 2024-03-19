@@ -7,11 +7,5 @@ export default function ContextProvider({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <AuthContextProvider>
-      <ModalContextProvider>
-        <QueryProvider>{children}</QueryProvider>
-      </ModalContextProvider>
-    </AuthContextProvider>
-  );
+  return <QueryProvider>{children}</QueryProvider>;
 }

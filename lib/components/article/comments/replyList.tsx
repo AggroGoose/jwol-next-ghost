@@ -2,34 +2,38 @@ import ResponseItem from "./responseItem";
 import DateParse from "../../helpers/date";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { SITE_SERVER } from "@/lib/utils/constants";
 import ConfirmDelete from "./confirmDelete";
 import ResponseMenu from "./responseMenu";
-import { NlUser } from "@/globals";
+import { User } from "next-auth";
 
 export default function ReplyList({
   commentId,
   user,
   setShowReplies,
   commentRefetch,
+  replyCRefetch,
 }: {
   commentId: number;
-  user: NlUser | null;
+  user: User | undefined;
   setShowReplies: React.Dispatch<boolean>;
   commentRefetch: (options?: {
     throwOnError: boolean;
     cancelRefetch: boolean;
   }) => Promise<any>;
+  replyCRefetch: (options?: {
+    throwOnError: boolean;
+    cancelRefetch: boolean;
+  }) => Promise<any>;
 }) {
-  const { data: replies, refetch } = useQuery(
-    [`Replies-${commentId}`],
-    () => fetchReplies(commentId),
-    { initialData: [] }
-  );
+  const { data: replies, refetch } = useQuery({
+    queryKey: [`Replies-${commentId}`],
+    queryFn: () => fetchReplies(commentId),
+    initialData: [],
+  });
   return (
     <div className="ml-6 pl-6 border-l border-solid border-subtle-primary2 flex flex-col gap-8 lg:pl-8">
       <button
-        className="text-fcolor-link text-sm text-left font-bold hover:text-hover-link hover:underline"
+        className="text-primary-400 text-sm text-left font-bold hover:text-primary-200 hover:underline"
         onClick={() => setShowReplies(false)}
       >
         {"^ Hide Replies"}
@@ -39,8 +43,9 @@ export default function ReplyList({
           reply={reply}
           user={user}
           refetch={refetch}
-          key={reply.id}
+          key={reply.reply.id}
           commentRefetch={commentRefetch}
+          replyCRefetch={replyCRefetch}
         />
       ))}
     </div>
@@ -52,14 +57,19 @@ function ReplyItem({
   user,
   refetch,
   commentRefetch,
+  replyCRefetch,
 }: {
-  reply: GansoReplyRes;
-  user: NlUser | null;
+  reply: DBReplyJoin;
+  user: User | undefined;
   refetch: (options?: {
     throwOnError: boolean;
     cancelRefetch: boolean;
   }) => Promise<any>;
   commentRefetch: (options?: {
+    throwOnError: boolean;
+    cancelRefetch: boolean;
+  }) => Promise<any>;
+  replyCRefetch: (options?: {
     throwOnError: boolean;
     cancelRefetch: boolean;
   }) => Promise<any>;
@@ -69,16 +79,17 @@ function ReplyItem({
 
   const handleDelete = async () => {
     const req: GansoCommentRequest = {
-      uid: user!.uid,
+      uid: user!.id!,
       method: "delete",
       type: "reply",
-      content: { id: reply.id },
+      content: { id: reply.reply.id },
     };
-    await fetch(`/api/ganso/comment`, {
+    await fetch(`/api/comment/modify`, {
       method: "POST",
       body: JSON.stringify(req),
     }).catch((err) => console.error(err));
     commentRefetch();
+    replyCRefetch();
     refetch();
     setDeleteOpen(false);
   };
@@ -87,16 +98,19 @@ function ReplyItem({
     <>
       <div className="w-full flex flex-col gap-4">
         <div className="flex gap-4 items-center">
-          <img src={reply.image.String} className="w-9 h-9 rounded-full"></img>
+          <img
+            src={reply.user.image || "/images/Sarcastonaut Fallback.png"}
+            className="w-9 h-9 rounded-full"
+          ></img>
           <div className="flex flex-col gap-1">
-            <p className="text-sm font-semibold text-base-accent leading-none">
-              {reply.username.String}
+            <p className="text-sm font-semibold text-accent-500 leading-none">
+              {reply.user.name || "User"}
             </p>
-            <p className="text-xs italic leading-none">
-              <DateParse dateString={reply.date_time} relative={true} />
+            <p className="text-xs italic text-always-light leading-none">
+              <DateParse dateString={reply.reply.dateTime} relative={true} />
             </p>
           </div>
-          {reply.username.String === user?.username && (
+          {reply.user.id === user?.id && (
             <ResponseMenu
               editFunc={() => setOpenEdit(!openEdit)}
               deleteFunc={() => setDeleteOpen(true)}
@@ -106,16 +120,16 @@ function ReplyItem({
 
         {openEdit ? (
           <ResponseItem
-            elementId={reply.id}
-            userId={user!.uid}
+            elementId={reply.reply.id}
+            userId={user!.id!}
             refetch={refetch}
             isEdit={true}
             isReply={true}
             setOpenEdit={setOpenEdit}
-            editDefault={reply.content}
+            editDefault={reply.reply.content}
           />
         ) : (
-          <p>{reply.content}</p>
+          <p className="text-always-light">{reply.reply.content}</p>
         )}
       </div>
       {deleteOpen && (
@@ -131,15 +145,9 @@ function ReplyItem({
 }
 
 const fetchReplies = async (commentId: number, page_num: number = 1) => {
-  const args: GansoRepliesGet = {
-    comment_id: commentId,
-    limit: 10,
-    page_num,
-  };
-  const res = await fetch(`${SITE_SERVER}comment/GetReplyComment`, {
-    method: "POST",
-    body: JSON.stringify(args),
-  });
-  const data: GansoReplyRes[] = await res.json();
+  const res = await fetch(
+    `/api/comment?id=${commentId}&type=replies&limit=10&page=${page_num}`
+  );
+  const data: DBReplyJoin[] = await res.json();
   return data;
 };

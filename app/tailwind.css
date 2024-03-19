@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
   [type="range"]::-webkit-slider-runnable-track,
   [type="range"]::-webkit-slider-thumb,
@@ -43,12 +42,19 @@
 }
 
 @layer utilities {
-  .blmain {
-    grid-column: main-start/main-end;
-  }
+  .block-grid {
+    --blmain: calc(var(--blog-width) / 8);
+    --blthin: calc(var(--blmain) * 6);
+    --blwide: minmax(0, calc((var(--body-size) - var(--blog-width)) / 2));
+    --blfull: minmax(0, 1fr);
 
-  .blmin {
-    grid-column: min-start/min-end;
+    display: grid;
+    grid-template-columns:
+      [full-start] var(--blfull) [wide-start] var(--blwide) [main-start] var(
+        --blmain
+      )
+      [thin-start] var(--blthin) [thin-end] var(--blmain)
+      [main-end] var(--blwide) [wide-end] var(--blfull) [full-end];
   }
 
   .content-grid {
@@ -59,42 +65,34 @@
   }
 }
 :root {
-  --color-lightest: hsl(257, 100%, 99%);
-  --color-darkest: hsl(256, 100%, 3%);
-  --primary-light: hsl(257, 100%, 98%);
-  --primary-50: hsl(256, 100%, 95%);
-  --primary-100: hsl(256, 100%, 85%);
-  --primary-200: hsl(256, 94%, 67%);
-  --primary-300: hsl(256, 90%, 57%);
-  --primary-400: hsl(256, 84%, 45%);
-  --primary-500: hsl(256, 90%, 36%);
-  --primary-600: hsl(256, 100%, 28%);
-  --primary-700: hsl(256, 100%, 23%);
-  --primary-800: hsl(256, 98%, 20%);
-  --primary-900: hsl(256, 100%, 13%);
-  --primary-1000: hsl(262, 100%, 9%);
-  --primary-dark: hsl(256, 100%, 6%);
-  --accent-light: hsl(345, 100%, 95%);
-  --accent-50: hsl(344, 100%, 87%);
-  --accent-100: hsl(345, 100%, 79%);
-  --accent-200: hsl(345, 100%, 73%);
-  --accent-300: hsl(345, 91%, 68%);
-  --accent-400: hsl(345, 90%, 59%);
-  --accent-500: hsl(345, 80%, 50%);
-  --accent-600: hsl(345, 96%, 42%);
-  --accent-700: hsl(345, 100%, 35%);
-  --accent-800: hsl(345, 100%, 29%);
-  --accent-900: hsl(345, 100%, 21%);
-  --accent-1000: hsl(345, 100%, 18%);
-  --accent-dark: hsl(344, 100%, 11%);
-  --dark-t2: hsla(262, 48%, 20%, 0.4);
-  --dark-subtle: hsl(262, 48%, 16%);
-  --dark-subtle2: hsl(262, 48%, 16%);
-  --light-t2: hsla(257, 100%, 99%, 0.44);
-  --light-subtle: hsl(256, 100%, 95%);
-  --light-subtle2: hsl(256, 100%, 90%);
-  --light-accent: hsl(356, 70%, 67%);
-  --subtle-color-light: hsl(256, 100%, 97%);
+  --color-lightest: hsl(227, 100%, 97%);
+  --color-darkest: hsl(227, 100%, 5%);
+  --primary-light: hsl(227, 100%, 97%);
+  --primary-50: hsl(227, 100%, 94%);
+  --primary-100: hsl(227, 100%, 89%);
+  --primary-200: hsl(227, 100%, 82%);
+  --primary-300: #7995fc;
+  --primary-400: #5679f5;
+  --primary-500: hsl(227, 76%, 55%);
+  --primary-600: hsl(227, 72%, 45%);
+  --primary-700: hsl(227, 99%, 28%);
+  --primary-800: #001561;
+  --primary-900: #000f47;
+  --primary-1000: #000a2e;
+  --primary-dark: #00061a;
+  --accent-light: hsl(333, 100%, 98%);
+  --accent-50: hsl(303, 100%, 94%);
+  --accent-100: hsl(303, 100%, 89%);
+  --accent-200: hsl(303, 100%, 83%);
+  --accent-300: hsl(303, 100%, 75%);
+  --accent-400: #ff57f7;
+  --accent-500: #ff0ff3;
+  --accent-600: hsl(303, 100%, 43%);
+  --accent-700: hsl(303, 100%, 35%);
+  --accent-800: hsl(303, 100%, 25%);
+  --accent-900: hsl(303, 100%, 17%);
+  --accent-1000: hsl(303, 100%, 10%);
+  --accent-dark: hsl(303, 100%, 5%);
 
   --font-tiny: 0.875rem;
   --font-smaller: 1rem;
@@ -103,91 +101,48 @@
   --font-large: 1.375rem;
   --font-larger: 1.5rem;
   --font-xlarge: 1.625rem;
-  --font-head1: 2.8rem;
-  --font-head2: 2.2rem;
-  --font-head3: 1.8rem;
-  --primary-hsla: hsla(256, 79%, 55%, 0.25);
-  --accent-hsla: hsla(356, 87%, 45%, 0.4);
-  --dark-hsla: hsla(256, 100%, 3%, 0.44);
-  --light-hsla: hsla(257, 100%, 98%, 0.44);
-  --grunge-image-dark: url("./texture/grunge.jpg");
+  --font-head1: 3.625rem;
+  --font-head2: 2.875rem;
+  --font-head3: 2.125rem;
+  --font-head4: 1.875rem;
+  --primary-hsla: hsla(244, 63%, 18%, 0.25);
+  --accent-hsla: hsla(4, 86%, 54%, 0.4);
+  --dark-hsla: hsla(244, 69%, 6%, 0.44);
+  --light-hsla: hsla(244, 100%, 93%, 0.44);
 
   --font-weight: 400;
-  /* --font-head-weight: 400; */
-  --font-head-weight: 800;
+  --font-head-weight: 600;
   --font-tertiary-weight: 400;
-  --font-space: 0.02em;
+  --font-space: 0.03em;
   --font-badge-space: 0.1em;
-  /* --font-secondary-space: 0.08em; */
-  --font-secondary-space: 0.01em;
+  --font-secondary-space: 0.02em;
   --font-height: 1.625;
-  --font-head-height: 1;
+  --font-head-height: 1.25;
+  --font-color-head: var(--primary-1000);
+  --font-color-main: var(--color-darkest);
 
-  --header-height: 0px;
-  --sidenav-width: 200px;
-  --body-size: 1250px;
-  --blog-width: 1000px;
+  --body-size: 1200px;
+  --wide-spacer: 175px;
+  --blog-width: 850px;
   --qclip: 12px;
   --qclip2: 78px;
-  --font-testx: Georgia;
-  --font-testy: Garamond;
-
-  --background-base: var(--color-lightest);
-  --background-tier2: var(--light-t2);
-  --background-tier3: var(--color-lightest);
-  --background-primary: var(--primary-500);
-  --background-accent: var(--accent-500);
-  --background-flip: var(--color-darkest);
-  --font-color-main: var(--color-darkest);
-  --font-color-head: var(--accent-600);
-  --font-color-link: var(--primary-500);
-  --font-color-primary: var(--primary-500);
-  --font-color-accent: var(--accent-500);
-  --font-color-flip: var(--color-lightest);
-  --hover-color-base: var(--light-t2);
-  --hover-color-primary: var(--primary-600);
-  --hover-color-accent: var(--accent-600);
-  --hover-color-link: var(--primary-700);
-  --subtle-color-primary: var(--light-subtle);
-  --subtle-color-primary2: var(--light-subtle2);
-  --subtle-color-accent: var(--accent-600);
-  --subtle-color-flip: var(--primary-1000);
-  --subtle-color-flip2: var(--primary-800);
-  --bg-gradient: hsl(256, 100%, 99%), hsl(256, 100%, 97%);
-  --grunge-image: url("./texture/grunge-light.webp");
-  --flip-hsla: hsla(256, 100%, 3%, 0.44);
-}
-
-@media screen and (max-width: 1475px) {
-  :root {
-    --body-size: 975px;
-    --blog-width: 850px;
-  }
 }
 
 @media screen and (max-width: 1200px) {
   :root {
-    --sidenav-width: 0;
-    --header-height: 92px;
-    --blog-width: 100%;
+    --blog-width: 100vw;
+    --body-size: 100vw;
   }
 }
 
 @media screen and (max-width: 575px) {
   :root {
-    --font-tiny: 0.75rem;
-    --font-smaller: 0.875rem;
-    --font-small: 1rem;
-    --font-regular: 1.125rem;
-    --font-large: 1.25rem;
-    --font-larger: 1.375rem;
-    --font-xlarge: 1.5rem;
-    --font-head1: 2.25rem;
-    --font-head2: 1.625rem;
-    --font-head3: 1.5rem;
+    --font-head1: 2.5rem;
+    --font-head2: 2rem;
+    --font-head3: 1.875rem;
+    --font-head4: 1.5rem;
     --font-head-height: 1.15;
 
-    --header-height: 72px;
     --qclip: 16px;
     --qclip2: 74px;
   }
@@ -197,13 +152,6 @@
   --seek-before-width: 0%;
   --volume-before-width: 100%;
   --buffered-width: 0%;
-}
-
-.grungeBack {
-  background: url("./texture/grunge.jpg"),
-    radial-gradient(hsl(263, 100%, 20%), hsl(262, 100%, 10%));
-  background-size: contain;
-  background-blend-mode: multiply;
 }
 
 button,
@@ -227,16 +175,18 @@ body {
   letter-spacing: var(--font-space);
   color: var(--font-color-main);
   font-family: var(--font-primary);
+  background-color: var(--color-lightest);
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   letter-spacing: var(--font-secondary-space);
   line-height: var(--font-head-height);
   font-weight: var(--font-head-weight);
   font-family: var(--font-secondary);
-  color: var(--font-color-head);
+  color: var(--primary-700);
 }
 
 h1 {
@@ -296,6 +246,19 @@ figcaption strong {
     100% 100%,
     100% 0
   );
+}
+
+.head-gradient {
+  background: linear-gradient(
+    174deg,
+    var(--primary-800) 27%,
+    var(--accent-600) 39%,
+    var(--primary-800) 69%
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
 }
 
 @media (prefers-reduced-motion: reduce) {

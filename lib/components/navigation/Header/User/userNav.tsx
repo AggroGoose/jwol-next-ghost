@@ -1,15 +1,18 @@
 "use client";
-import { useAuthContext } from "@/lib/context/authContext";
+
 import UserMenu from "./userMenu";
 import SignIn from "./SignIn";
 import { useEffect, useState } from "react";
+import { Session } from "next-auth";
 
-export default function UserNav() {
-  const { user } = useAuthContext();
-  const [img, setImg] = useState(user?.image || "/images/NoLeaveFallback.png");
+export default function UserNav({ session }: { session: Session | null }) {
+  const user = session?.user;
+  const [img, setImg] = useState(
+    user?.image || "/images/Sarcastonaut Fallback.png"
+  );
 
   useEffect(() => {
-    setImg(user?.image || "/images/NoLeaveFallback.png");
+    setImg(user?.image || "/images/Sarcastonaut Fallback.png");
   }, [user]);
 
   return (

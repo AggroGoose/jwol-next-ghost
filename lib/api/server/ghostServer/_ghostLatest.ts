@@ -1,25 +1,23 @@
 "use server";
 
-import ghost from "../../ghost";
+import ghostAdmin from "../ghostAdmin";
 
 /* 3 Functions: ghostPostsforIndex, ghostLatestFiveGeneral, ghostLatestFiveforTag */
 
 //Returns a list of the latest posts for index pages like the main Journal page or the Tag specific pages. Default is 15 posts but has an optional limit field to increase the number of posts requested. Will eventually look into pagination as blog grows.
 
-export async function ghostPostsforIndex(tag?: string, limit = 15) {
+export async function ghostPostsforIndex(page = 1, limit = 15, tag?: string) {
   const returnPosts: ResponseMore[] = [];
 
-  let filter: string;
-  tag ? (filter = `tag:${tag}`) : (filter = "");
-
-  const res = await ghost.posts
+  const res = await ghostAdmin.posts
     .browse({
       limit,
-      filter,
+      filter: `status:published${tag ? "+tag:" + tag : ""}`,
+      page,
       order: "published_at DESC",
-      include: "tags",
+      include: ["tags", "count.posts"],
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       console.error(err);
     });
 
@@ -29,23 +27,31 @@ export async function ghostPostsforIndex(tag?: string, limit = 15) {
     posts = [...res] as GhostPost[];
   }
 
+  const meta = res.meta as ghostPostMeta;
+
   posts.forEach((post) => {
     const postObj = {
       title: post.title,
       excerpt: post.excerpt,
       slug: post.slug,
-      tag: post.primary_tag.name,
-      tagSlug: post.primary_tag.slug,
+      tag: post.primary_tag?.name || "",
+      tagSlug: post.primary_tag?.slug || "",
       featureImg: post.feature_image,
       featureImgAlt: post.feature_image_alt || "",
-      published: post.created_at,
+      published: post.published_at,
       readTime: post.reading_time,
     };
 
     returnPosts.push(postObj);
   });
 
-  return returnPosts;
+  const returnObj: ResponseIndex = {
+    posts: returnPosts,
+  };
+
+  if (meta) returnObj.meta = meta.pagination;
+
+  return returnObj;
 }
 
 //Gets latest 5 articles for card or side banners. If a slug is provided, the returned articles will skip the current article.
@@ -54,13 +60,14 @@ export async function ghostLatestFiveGeneral(slug?: string) {
   let limit: number;
   slug ? (limit = 6) : (limit = 5);
 
-  const res = await ghost.posts
+  const res = await ghostAdmin.posts
     .browse({
       limit,
+      filter: "status:published",
       order: "published_at DESC",
       include: "tags",
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       console.error(err);
     });
 
@@ -82,14 +89,13 @@ export async function ghostLatestFiveGeneral(slug?: string) {
         tagSlug: post.primary_tag.slug,
         featureImg: post.feature_image,
         featureImgAlt: post.feature_image_alt || "",
-        published: post.created_at,
+        published: post.published_at,
         readTime: post.reading_time,
       };
 
       returnPosts.push(postObj);
     }
   });
-
   return returnPosts;
 }
 
@@ -101,14 +107,14 @@ export async function ghostLatestFiveforTag(tag: string, slug?: string) {
   let limit: number;
   slug ? (limit = 6) : (limit = 5);
 
-  const res = await ghost.posts
+  const res = await ghostAdmin.posts
     .browse({
       limit,
-      filter: `tag:${tag}`,
+      filter: `status:published+tag:${tag}`,
       order: "published_at DESC",
       include: "tags",
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       console.error(err);
     });
 
@@ -128,7 +134,7 @@ export async function ghostLatestFiveforTag(tag: string, slug?: string) {
         tagSlug: post.primary_tag.slug,
         featureImg: post.feature_image,
         featureImgAlt: post.feature_image_alt || "",
-        published: post.created_at,
+        published: post.published_at,
         readTime: post.reading_time,
       };
 

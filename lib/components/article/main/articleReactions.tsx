@@ -23,21 +23,6 @@ export default function ArticleReactions({
   const { user } = useAuthContext();
   const userId = user?.uid || null;
 
-  const { isLoading, refetch } = useQuery(
-    ["likes"],
-    () => fetchLikes(postId, userId),
-    {
-      onSuccess: (data) => {
-        if (data.isLiked) setPostLiked(true);
-        else setPostLiked(false);
-      },
-    }
-  );
-
-  useEffect(() => {
-    if (user) refetch();
-  }, [user]);
-
   const createLike = useMutation({
     mutationFn: ({ userId, postId }: { userId: string; postId: string }) =>
       likePost(postId, userId),
@@ -52,7 +37,6 @@ export default function ArticleReactions({
       setPostLiked(!postLiked);
       return;
     }
-    if (isLoading || createLike.isLoading || removeLike.isLoading) return;
     if (postLiked) {
       setPostLiked(false);
       removeLike.mutate(

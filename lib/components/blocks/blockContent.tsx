@@ -15,11 +15,9 @@ import BlockButton from "./button/blockBtn";
 
 export default function BlockContent({
   content,
-  disableToc = true,
   dropCap = false,
 }: {
   content: LexicalContentArray;
-  disableToc?: boolean;
   dropCap?: boolean;
 }) {
   return (

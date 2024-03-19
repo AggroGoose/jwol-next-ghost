@@ -16,18 +16,20 @@ export async function generateMetadata(): Promise<Metadata> {
     title: meta.meta_title,
     description: meta.meta_description,
     openGraph: {
-      siteName: "No Leave Society",
+      siteName: "Sarcastonaut",
       type: "website",
       title: meta.og_title,
       description: meta.og_description,
-      images: meta.og_image,
+      images:
+        "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
       url: POLICY_URL + slug,
     },
     twitter: {
       card: "summary_large_image",
       title: meta.twitter_title,
       description: meta.twitter_description,
-      images: meta.twitter_image,
+      images:
+        "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
       creator: "@CompletelyJWOL",
     },
   };
@@ -39,7 +41,7 @@ export default async function TermsConditions() {
   const link = { title: "Policies", url: POLICY_ROUTE };
 
   return (
-    <div className="content-grid flex flex-col gap-6 px-3 lg:px-0">
+    <div className="content-grid flex flex-col gap-8 bg-always-dark">
       <PageMain page={page} link={link} includeUpdate={true} />
     </div>
   );

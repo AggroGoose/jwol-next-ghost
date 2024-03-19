@@ -1,7 +1,9 @@
-import { useModalContext } from "@/lib/context/modalContext";
+import { SITE_URI } from "@/lib/utils/constants";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function DisabledResponse() {
-  const { openSignIn } = useModalContext()!;
+  const path = usePathname();
   return (
     <div>
       <label htmlFor="ResponseBox" className="sr-only">
@@ -20,10 +22,11 @@ export default function DisabledResponse() {
         <div className="flex items-center justify-end gap-2 bg-slate-200 p-3">
           <button
             type="button"
-            className="rounded bg-indigo-600 px-3 py-2 text-xs leading-none font-medium text-white hover:bg-indigo-700"
-            onClick={openSignIn}
+            className="rounded bg-primary-500 px-3 py-2 text-sm leading-none tracking-wide text-always-light hover:bg-primary-300"
           >
-            Sign In
+            <Link href={`/api/auth/signin?callbackUrl=${SITE_URI + path}`}>
+              Sign In
+            </Link>
           </button>
         </div>
       </div>

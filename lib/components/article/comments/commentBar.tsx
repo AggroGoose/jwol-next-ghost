@@ -16,11 +16,11 @@ export default function CommentBar({
   closeModal: () => void;
 }) {
   const { user } = useAuthContext();
-  const { data, refetch } = useQuery(
-    [`comments-${postId}`],
-    () => fetchComments(postId),
-    { initialData: [] }
-  );
+  const { data, refetch } = useQuery({
+    queryKey: [`comments-${postId}`],
+    queryFn: () => fetchComments(postId),
+    initialData: [],
+  });
   return (
     <Dialog open={isOpen} onClose={() => closeModal()}>
       <Dialog.Panel className="bg-subtle-primary fixed top-0 right-0 h-screen w-[85vw] max-w-[480px] z-[40] cshadow-lg-primary p-8 overflow-y-scroll no-scrollbar">

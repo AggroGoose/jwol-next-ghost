@@ -1,13 +1,18 @@
 import JoshHeadBoba from "./SVG/joshHeadBoba";
+import Astronaut from "./SVG/Astronaut";
 
 export default function BlockCallout({ block }: { block: LexicalCallout }) {
   return (
-    <div className="text-center items-center justify-center grid grid-cols-6 md:text-lg font-medium tracking-ps col-start-main col-end-main gap-4 md:grid-cols-5 md:gap-0">
-      <JoshHeadBoba className="aspect-[1/2] col-span-2 w-[64px] -scale-x-100 mx-auto fill-primary-900 md:col-span-1 md:w-[75px]" />
-      <div
-        className="col-span-4 border-[3px] border-solid border-fcolor-base w-full px-4 py-6 rounded-lg md:col-span-4 md:px-6 md:py-8"
-        dangerouslySetInnerHTML={{ __html: block.calloutText }}
-      />
-    </div>
+    <figure className="block-main bg-primary-800 rounded-lg">
+      <div className="flex gap-8 px-3 md:px-8">
+        <div className="basis-1/3 md:basis-1/5 flex items-end">
+          <Astronaut className="aspect-[1190/1135] w-full fill-always-light pt-4 md:pt-8" />
+        </div>
+        <div
+          className="italic w-full py-6 md:py-8 basis-2/3 md:basis-4/5 self-center text-center text-always-light text-sm md:text-lg"
+          dangerouslySetInnerHTML={{ __html: block.calloutText }}
+        />
+      </div>
+    </figure>
   );
 }

@@ -32,10 +32,6 @@ const nextConfig = {
       { protocol: "https", hostname: "firebasestorage.googleapis.com" },
     ],
   },
-
-  experimental: {
-    serverActions: true,
-  },
 };
 
 module.exports = nextConfig;

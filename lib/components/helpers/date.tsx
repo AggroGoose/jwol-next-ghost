@@ -7,6 +7,8 @@ export default function DateParse({
   dateString: string;
   relative?: boolean;
 }) {
+  if (!dateString) return;
+
   const date = parseISO(dateString);
   const now = Date.now();
 

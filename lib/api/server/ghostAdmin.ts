@@ -5,11 +5,11 @@ import { GhostAPI } from "@tryghost/content-api";
 type GhostAdminAPI = GhostAPI;
 
 const url = process.env.GHOST_URL || "";
-const key = process.env.GHOST_ADMIN || "";
+const token = process.env.GHOST_ADMIN || "";
 
 const ghostAdmin = new GhostAdminAPI({
   url,
-  key,
+  key: token,
   version: "v5.0",
 });
 

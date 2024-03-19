@@ -12,14 +12,14 @@ export default function PostTags({
   }>;
 }) {
   return (
-    <div className="flex flex-wrap gap-4 justify-center items-center secondary-font">
+    <div className="max-w-[--blog-width] flex flex-wrap gap-4 justify-center font-bold secondary-font self-center max-xl:px-3">
       {tags.map((tag) => (
         <Link
           key={tag.slug}
           href={`${TAG_ROUTE}/${tag.slug}`}
-          className="text-always-light bg-primary-600 font-semibold tracking-wider hover:bg-primary-500 px-3 py-2 rounded-full leading-none"
+          className="text-xl text-accent-500 hover:text-accent-300 transition-colors"
         >
-          {tag.name}
+          {"#" + tag.name}
         </Link>
       ))}
     </div>

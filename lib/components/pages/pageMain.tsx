@@ -6,46 +6,42 @@ export default function PageMain({
   page,
   link,
   includeUpdate = false,
-  disableToc = false,
+  excerpt = false,
 }: {
   page: ResponsePage;
   link: { title: string; url: string };
   includeUpdate?: boolean;
-  disableToc?: boolean;
+  excerpt?: boolean;
 }) {
   const { content } = page;
 
   return (
-    <div className="flex flex-col gap-6 mt-6 max-w-[100vw]">
-      <div className="flex flex-col gap-3">
-        <div className="text-lg font-bold tracking-wider">
-          <Link
-            href={"home"}
-            className="text-fcolor-link hover:text-hover-link hover:underline"
-          >
-            Home
-          </Link>
-          <span className="text-fcolor-base">{` // `}</span>
-          <Link
-            href={link.url}
-            className="text-fcolor-link hover:text-hover-link hover:underline"
-          >
-            {link.title}
-          </Link>
-        </div>
-        <h1>{page.title}</h1>
+    <div className="flex flex-col gap-8 mt-8 max-w-[100vw]">
+      <div className="flex flex-col gap-8 px-3 xl:px-0">
+        <Link
+          href={link.url}
+          className="text-head4 font-bold secondary-font leading-none tracking-wider text-accent-500 hover:text-accent-300 self-center"
+        >
+          #{link.title}
+        </Link>
+        <h1 className="text-primary-50 text-center leading-none">
+          {page.title}
+        </h1>
+        {excerpt && (
+          <p className="w-full max-w-[--body-size] text-center self-center text-always-light text-head4 italic">
+            {page.excerpt}
+          </p>
+        )}
 
         {includeUpdate && (
-          <div className="leading-none">
-            <strong className="text-subtle-flip2">Last Updated: </strong>
+          <div className="leading-normal text-always-light self-center">
+            <strong className="text-accent-500">Last Updated: </strong>
             <Date dateString={page.updated_at} />
           </div>
         )}
       </div>
-      <div className="grid grid-cols-page gap-y-6 py-6">
-        <div className="content-grid grid grid-cols-blockGrid gap-6 self-center px-3 pb-6 xl:px-0">
-          <BlockContent content={content} disableToc={true} />
-        </div>
+      <div className="w-full grid block-grid gap-y-8 self-center py-8 bg-always-light rounded-2xl">
+        <BlockContent content={content} />
       </div>
     </div>
   );

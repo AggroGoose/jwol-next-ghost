@@ -7,7 +7,7 @@ export default function BlockGallery({ block }: { block: LexicalGallery }) {
   const caption = block.caption;
 
   return (
-    <figure className="blmain">
+    <figure className="block-wide">
       <div className="flex flex-col gap-3">
         {rowArr.map((row, i) => {
           return (

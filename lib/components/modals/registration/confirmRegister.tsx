@@ -1,6 +1,6 @@
 import { intakeUser } from "@/lib/api/server/serverActions";
 import { useAuthContext } from "@/lib/context/authContext";
-import { SITE_SERVER, SITE_URL } from "@/lib/utils/constants";
+import { SITE_URL } from "@/lib/utils/constants";
 import { useState } from "react";
 
 type ValidateStatus = "none" | "error" | "success";
