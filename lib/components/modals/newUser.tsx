@@ -16,7 +16,7 @@ export default function NewUser({
 }) {
   const [username, setUsername] = useState(user.username || null);
   const [image, setImage] = useState(
-    user.image || user.photoURL || "/images/NoLeaveFallback.png"
+    user.image || user.photoURL || "/images/Sarcastonaut Fallback.png"
   );
   const [step, setStep] = useState<1 | 2 | 3>(1);
   return (

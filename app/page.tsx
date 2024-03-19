@@ -1,5 +1,5 @@
 import { ghostPostsforIndex } from "@/lib/api/server/ghostServer";
-import PostIndex from "@/lib/components/pages/postIndex";
+import MainPostIndex from "@/lib/components/pages/mainPostIndex";
 import { SITE_URL } from "@/lib/utils/constants";
 import { Metadata } from "next";
 
@@ -7,36 +7,54 @@ export const revalidate = 600;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Home | No Leave Society",
+  title: "Home | Sarcastonaut",
   description:
-    "Society is what we make it, and in this society, you don't need anyone's leave to be who you are. With articles and stories around mental health and society we're hoping to influence society to new levels.",
+    "We're lost in space and it's probably fine. Exploring the meaning of life, the world, and the brain one ship at a time.",
   openGraph: {
-    siteName: "No Leave Society",
+    siteName: "Sarcastonaut",
     type: "website",
-    title: "Home | No Leave Society",
+    title: "Home | Sarcastonaut",
     description:
-      "Society is what we make it. With articles and stories around mental health and society, we hope to influence society to new levels.",
+      "We're lost in space and it's probably fine. Exploring the meaning of life, the world, and the brain one ship at a time.",
     images:
-      "https://ghost.jakosbalay.com/content/images/2023/07/No-Leave-Society-Image-Card.png",
+      "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
     url: "SITE_URL",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Home | No Leave Society",
+    title: "Home | Sarcastonaut",
     description:
-      "Society is what we make it. With articles and stories around mental health and society, we hope to influence society to new levels.",
+      "We're lost in space and it's probably fine. Exploring the meaning of life, the world, and the brain one ship at a time.",
     images:
-      "https://ghost.jakosbalay.com/content/images/2023/07/No-Leave-Society-Image-Card.png",
+      "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
     creator: "@CompletelyJWOL",
   },
 };
 
-export default async function Home() {
-  const indexPosts = await ghostPostsforIndex();
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: {
+    page?: string;
+  };
+}) {
+  const currentPage = Number(searchParams?.page) || 1;
+  const indexPosts = await ghostPostsforIndex(currentPage, 15);
+  const { posts } = indexPosts;
+  let meta: ghostPostMetaData = {
+    limit: 0,
+    next: null,
+    prev: null,
+    page: 1,
+    pages: 1,
+    total: 0,
+  };
+
+  if (indexPosts.meta) meta = indexPosts.meta;
 
   return (
-    <div className="content-grid row-start-2">
-      <PostIndex posts={indexPosts} title={"Here Are the Latest Posts"} />
+    <div className="pb-8 max-w-[100vw] bg-always-dark">
+      <MainPostIndex posts={posts} meta={meta} />
     </div>
   );
 }

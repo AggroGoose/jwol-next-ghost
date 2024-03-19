@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Date from "../helpers/date";
-import { BLOG_ROUTE, TAG_ROUTE } from "@/lib/utils/constants";
+import { BLOG_ROUTE } from "@/lib/utils/constants";
 
 export default function WideArticleCard({ post }: { post: ResponseMore }) {
   let image: string;
@@ -11,14 +10,14 @@ export default function WideArticleCard({ post }: { post: ResponseMore }) {
     image = post.featureImg;
     imageAlt = post.featureImgAlt;
   } else {
-    image = "/images/NoLeaveFallback.png";
+    image = "/images/Sarcastonaut Fallback.png";
     imageAlt = "Fallback image, no Feature Image provided.";
   }
   return (
-    <div className="flex flex-col bg-base-tier2 hover:cshadow-flip lg:flex-row rounded-xl overflow-hidden">
+    <div className="flex flex-col bg-base-tier2 hover:cshadow-flip lg:flex-row rounded-sm overflow-hidden">
       <figure className="flex lg:basis-3/5 justify-center items-center">
         <Link
-          href={`${BLOG_ROUTE}/${post.slug}`}
+          href={`/${post.tagSlug}/${post.slug}`}
           className="aspect-[3/2] relative w-full"
         >
           <Image
@@ -26,35 +25,28 @@ export default function WideArticleCard({ post }: { post: ResponseMore }) {
             alt={imageAlt}
             fill={true}
             priority={true}
-            className="object-cover"
+            className="object-cover hover:opacity-70"
             sizes="(max-width: 950px) 100vw, 50vw"
           />
         </Link>
       </figure>
-      <div className="flex flex-col gap-4 lg:basis-2/5 p-4">
-        <div className="flex justify-between items-center">
-          <p className="text-sm lg:text-base">
-            <Date dateString={post.published} />
-          </p>
-          <Link
-            href={`${TAG_ROUTE}/${post.tagSlug}`}
-            className="leading-none text-primary-600 hover:text-primary-500 hover:underline font-bold text-sm lg:text-base"
-          >
-            {post.tag}
-          </Link>
-        </div>
-        <Link href={`${BLOG_ROUTE}/${post.slug}`}>
-          <h2 className="leading-tight text-xl lg:text-head3 2xl:text-head2 hover:text-hover-accent">
-            {post.title}
-          </h2>
+      <div className="flex flex-col gap-2 lg:basis-2/5 p-2 text-center lg:text-left">
+        <Link
+          href={`/${post.tagSlug}`}
+          className="text-xl secondary-font tracking-wider text-primary-600 leading-none hover:text-primary-500 hover:underline"
+        >
+          {post.tag}
         </Link>
-        <p className="line-clamp-2 md:line-clamp-4 2xl:line-clamp-6 text-sm lg:text-base">
-          {post.excerpt}
-        </p>
+        <Link href={`/${post.tagSlug}/${post.slug}`}>
+          <h3 className="leading-tight hover:text-accent-400 hover:underline">
+            {post.title}
+          </h3>
+        </Link>
+        <p className="line-clamp-4 2xl:line-clamp-6">{post.excerpt}</p>
 
         <Link
           href={`${BLOG_ROUTE}/${post.slug}`}
-          className="text-lg font-bold text-primary-600 hover:text-primary-500 hover:underline mt-auto"
+          className="font-semibold text-primary-600 max-lg:hidden hover:text-primary-500 hover:underline mt-auto"
         >
           Read More {"->"}
         </Link>

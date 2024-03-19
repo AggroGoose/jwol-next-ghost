@@ -5,7 +5,7 @@ import DownloadIcon from "./SVG/downloadIcon";
 export default function FileCard({ block }: { block: LexicalFile }) {
   const { src, fileTitle, fileCaption, fileName, fileSize } = block;
   return (
-    <div className="blmain flex flex-col gap-2">
+    <div className="block-main md:block-thin flex flex-col gap-2">
       <a
         className="flex items-stretch justify-between p-1.5 min-h-[92px] border border-solid rounded-md w-full hover:border-2"
         href={src}

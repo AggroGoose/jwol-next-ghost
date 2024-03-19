@@ -4,17 +4,40 @@ export default function DateParse({
   dateString,
   relative = false,
 }: {
-  dateString: string;
+  dateString: string | Date;
   relative?: boolean;
 }) {
-  const date = parseISO(dateString);
+  if (!dateString) return;
+
+  let date: Date;
+  if (typeof dateString === "string") {
+    date = parseISO(dateString);
+  } else {
+    date = dateString;
+  }
   const now = Date.now();
 
   if (relative)
     return (
-      <time dateTime={dateString}>
+      <time
+        dateTime={
+          typeof dateString === "string"
+            ? `${dateString}`
+            : dateString.toUTCString()
+        }
+      >
         {formatDistance(now, date, { includeSeconds: true }) + " ago"}
       </time>
     );
-  return <time dateTime={dateString}>{format(date, "LLLL	d, yyyy")}</time>;
+  return (
+    <time
+      dateTime={
+        typeof dateString === "string"
+          ? `${dateString}`
+          : dateString.toUTCString()
+      }
+    >
+      {format(date, "LLLL	d, yyyy")}
+    </time>
+  );
 }

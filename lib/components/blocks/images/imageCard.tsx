@@ -5,11 +5,12 @@ import Image from "next/image";
 const BlockImage = ({ block }: { block: LexicalImage }) => {
   const { src, height, width, alt, caption } = block;
 
-  const wideImg = Number(width) > Number(height);
+  const wideImg =
+    Number(width) > Number(height) && Number(width) / Number(height) > 1.3;
 
   return (
     <>
-      <figure className={`mx-auto ${wideImg ? "blmain" : "blmin"}`}>
+      <figure className={`${wideImg ? "block-main" : "block-thin"}`}>
         <Image
           src={src}
           alt={alt || "No alt provided."}

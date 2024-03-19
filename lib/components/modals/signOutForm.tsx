@@ -1,8 +1,7 @@
-import { auth } from "@/lib/api/firebase";
-import NoLeaveSociety from "@/lib/resources/svg/NoLeaveSociety";
-import { SITE_URL } from "@/lib/utils/constants";
+import Sarcastonaut from "@/lib/resources/svg/Sarcastonaut";
 import { Dialog } from "@headlessui/react";
-import { signOut } from "firebase/auth";
+import SignOutButton from "./signOutButton";
+import Link from "next/link";
 
 export default function SignOutForm({
   isOpen,
@@ -21,7 +20,7 @@ export default function SignOutForm({
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="mx-auto max-w-[420px] w-full bg-always-light rounded-xl cshadow-lg-dark">
           <div className="p-6 pt-6 bg-always-dark rounded-t-xl flex flex-col gap-8">
-            <NoLeaveSociety className="fill-always-light aspect-[2/1] h-[60px] mx-auto my-2 leading-0" />
+            <Sarcastonaut className="fill-accent-500 aspect-[3/2] h-[60px] mx-auto my-2 leading-0" />
             <Dialog.Title className="text-center text-head3 text-always-light leading-none">
               Sign Out of Account
             </Dialog.Title>
@@ -31,17 +30,8 @@ export default function SignOutForm({
               Are you sure you want to sign out?
             </Dialog.Description>
 
-            <button
-              className="flex px-6 py-2 items-center justify-center bg-primary-500 text-always-light transition-colors duration-300 transform border rounded-lg hover:bg-primary-600 w-full"
-              onClick={async () => {
-                signOut(auth);
-                fetch(`/api/signin`, {
-                  method: "DELETE",
-                });
-                closeModal();
-              }}
-            >
-              Confirm Sign Out
+            <button className="flex px-6 py-2 items-center justify-center bg-primary-500 text-always-light transition-colors duration-300 transform border rounded-lg hover:bg-primary-600 w-full">
+              <Link href="/api/auth/signout">Confirm Sign Out</Link>
             </button>
 
             <button

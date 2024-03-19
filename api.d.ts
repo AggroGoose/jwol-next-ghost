@@ -9,6 +9,7 @@ type GhostPost = {
   featured: boolean;
   visibility: public;
   created_at: string;
+  published_at: string;
   updated_at: string;
   custom_excerpt: string | null;
   codeinjection_head: null;
@@ -36,6 +37,18 @@ type GhostPost = {
   tags: GhostTag[];
 };
 
+type ghostPostMeta = {
+  pagination: ghostPostMetaData;
+};
+
+type ghostPostMetaData = {
+  page: number;
+  limit: number;
+  pages: number;
+  total: number;
+  next: null | number;
+  prev: null | number;
+};
 interface GhostAdminPost extends GhostPost {
   mobiledoc: string;
   lexical: string;
@@ -74,6 +87,7 @@ type GhostPage = {
   featured: boolean;
   visibility: public;
   created_at: string;
+  published_at: string;
   updated_at: string;
   custom_excerpt: string | null;
   codeinjection_head: null;
@@ -119,6 +133,7 @@ type ResponsePage = {
   feature_image_alt: string;
   feature_image_caption: string | null;
   created_at: string;
+  published_at: string;
   updated_at: string;
   excerpt: string;
   content: LexicalContentArray;
@@ -151,6 +166,11 @@ type ResponseMore = {
   featureImgAlt: string;
   published: string;
   readTime: number;
+};
+
+type ResponseIndex = {
+  posts: ResponseMore[];
+  meta?: ghostPostMetaData;
 };
 
 type ParseElement = {
@@ -210,4 +230,57 @@ type ElemAttribs = {
   height?: string;
   title?: string;
   firstChild?: boolean;
+};
+
+type DBUser = {
+  id: string;
+  image: string | null;
+  name: string | null;
+  email: string;
+  emailVerified: Date | null;
+  banned: boolean;
+};
+
+type DBReply = {
+  id: number;
+  content: string;
+  userId: string;
+  commentId: number;
+  dateTime: Date;
+  edited: boolean;
+};
+
+type DBReplyJoin = {
+  reply: DBReply;
+  user: DBUser;
+};
+
+type DBReplyResponse = {
+  replies: DBReplyJoin[];
+  count: number;
+};
+
+type DBComment = {
+  id: number;
+  userId: string;
+  postId: string;
+  edited: boolean;
+  dateTime: Date;
+  content: string;
+};
+
+type DBCommentJoin = {
+  comment: DBComment;
+  user: DBUser;
+};
+
+type DBCommentResponse = {
+  comments: DBCommentJoin[];
+  count: number;
+};
+
+type DBPost = {
+  id: string;
+  slug?: string;
+  audioUrl: string;
 };

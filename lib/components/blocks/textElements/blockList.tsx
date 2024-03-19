@@ -4,7 +4,7 @@ export default function BlockList({ block }: { block: LexicalList }) {
   const listItems = block.children.map((item, i) => {
     return (
       <li
-        className="pl-2 marker:font-bold marker:text-base-accent md:pl-3"
+        className="marker:font-bold marker:text-primary-700 marker:text-lg marker:my-auto lg:pl-2"
         key={i}
       >
         {item.children.map((richText, i) => (
@@ -15,13 +15,13 @@ export default function BlockList({ block }: { block: LexicalList }) {
   });
   if (block.type === "ol")
     return (
-      <ol className="ml-6 list-decimal flex flex-col gap-3 blmain md:ml-10">
+      <ol className="block-main list-decimal flex flex-col gap-3 ml-8 max-xl:px-2">
         {listItems}
       </ol>
     );
   if (block.type === "ul")
     return (
-      <ul className="ml-6 list-disc flex marker:text-xl flex-col gap-3 blmain md:ml-10">
+      <ul className="block-main list-disc flex flex-col gap-3 ml-8 max-xl:px-2">
         {listItems}
       </ul>
     );

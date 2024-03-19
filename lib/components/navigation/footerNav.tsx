@@ -10,52 +10,52 @@ export default function FooterNav() {
           className="leading-0"
           href="https://www.facebook.com/JoshWithoutLeave"
         >
-          <Facebook className="h-10 w-10 fill-always-light hover:fill-accent-400" />
+          <Facebook className="h-10 w-10 fill-always-light hover:fill-accent-500" />
         </a>
         <a
           className="leading-0"
           href="https://www.instagram.com/joshwithoutleave/"
         >
-          <Instagram className="h-10 w-10 fill-always-light hover:fill-accent-400" />
+          <Instagram className="h-10 w-10 fill-always-light hover:fill-accent-500" />
         </a>
         <a
           className="leading-0"
           href="https://www.pinterest.com/joshwithoutleave/"
         >
-          <Pinterest className="h-10 w-10 fill-always-light hover:fill-accent-400" />
+          <Pinterest className="h-10 w-10 fill-always-light hover:fill-accent-500" />
         </a>
       </div>
-      <nav className="flex flex-wrap items-center justify-center gap-8">
-        <Link href="/about" className="hover:underline hover:text-accent-400">
-          About
+      <nav className="flex flex-wrap items-center justify-center gap-8 secondary-font tracking-wider">
+        <Link href="/about" className="hover:text-accent-500">
+          #About
         </Link>
         <Link
           href={POLICY_ROUTE + "/disclaimer"}
-          className="hover:underline hover:text-accent-400"
+          className="hover:text-accent-500"
         >
-          Disclaimer
+          #Disclaimer
         </Link>
         <Link
           href={POLICY_ROUTE + "/cookies"}
-          className="hover:underline hover:text-accent-400"
+          className="hover:text-accent-500"
         >
-          Cookie Policy
+          #Cookie Policy
         </Link>
         <Link
           href={POLICY_ROUTE + "/privacy-policy"}
-          className="hover:underline hover:text-accent-400"
+          className="hover:text-accent-500"
         >
-          Privacy Policy
+          #Privacy Policy
         </Link>
         <Link
           href={POLICY_ROUTE + "/terms-and-conditions"}
-          className="hover:underline hover:text-accent-400"
+          className="hover:text-accent-500"
         >
-          Terms and Conditions
+          #Terms and Conditions
         </Link>
       </nav>
       <div className="text-center text-xxs">
-        © 2023 JWOL Media LLC. All rights reserved
+        © 2024 JWOL Media LLC. All rights reserved
       </div>
     </div>
   );

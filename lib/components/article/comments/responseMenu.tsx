@@ -11,7 +11,7 @@ export default function ResponseMenu({
   return (
     <Menu as="div" className="relative ml-auto self-start">
       <Menu.Button className="transition-transform duration-300 ease-in-out ui-not-open:rotate-0 ui-open:rotate-90">
-        <EllipsisIcon className="h-6 w-6" />
+        <EllipsisIcon className="h-6 w-6 text-always-light" />
       </Menu.Button>
       <Menu.Items className="absolute right-0 z-10 bg-always-light py-4 cshadow-dark rounded-lg min-w-[128px]">
         <Menu.Item

@@ -5,16 +5,17 @@ import ReplyList from "./replyList";
 import CommentIcon from "@/lib/resources/svg/icons/commentIcon";
 import ResponseMenu from "./responseMenu";
 import ConfirmDelete from "./confirmDelete";
-import { NlUser } from "@/globals";
+import { User } from "next-auth";
+import { useQuery } from "@tanstack/react-query";
 
 export default function CommentItem({
   comment,
   user,
-  refetch,
+  commentRefetch,
 }: {
-  comment: GansoCommentRes;
-  user: NlUser | null;
-  refetch: (options?: {
+  comment: DBCommentJoin;
+  user: User | undefined;
+  commentRefetch: (options?: {
     throwOnError: boolean;
     cancelRefetch: boolean;
   }) => Promise<any>;
@@ -24,23 +25,29 @@ export default function CommentItem({
   const [showReplies, setShowReplies] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
+  const { data, refetch } = useQuery({
+    queryKey: [`comments-${comment.comment.id}-${comment.comment.postId}`],
+    queryFn: () => fetchReplyCount(comment.comment.id),
+    initialData: 0,
+  });
+
   const handleReply = () => {
     if (!user) return;
     setCreateReply(!createReply);
   };
 
   const handleShowReplies = () => {
-    if (comment.count_reply >= 1) setShowReplies(!showReplies);
+    if (data >= 1) setShowReplies(!showReplies);
   };
 
   const handleDelete = async () => {
     const req: GansoCommentRequest = {
-      uid: user!.uid,
+      uid: user!.id!,
       method: "delete",
       type: "comment",
-      content: { id: comment.id },
+      content: { id: comment.comment.id },
     };
-    await fetch(`/api/ganso/comment`, {
+    await fetch(`/api/comment/modify`, {
       method: "POST",
       body: JSON.stringify(req),
     }).catch((err) => console.error(err));
@@ -50,10 +57,10 @@ export default function CommentItem({
   const ReplyLabel = ({ replies }: { replies: number }) => {
     return (
       <button
-        className="group flex text-sm text-fcolor-link font-semibold hover:underline items-center gap-2 hover:text-hover-link"
+        className="group flex text-sm text-primary-400 font-semibold hover:underline items-center gap-2 hover:text-primary-200"
         onClick={handleShowReplies}
       >
-        <CommentIcon className="h-6 w-6 fill-fcolor-link group-hover:fill-hover-link" />
+        <CommentIcon className="h-6 w-6 fill-primary-400 group-hover:fill-primary-200" />
         {replies === 1
           ? "1 Reply"
           : `${replies}${replies > 1 ? " Replies" : ""}`}
@@ -66,18 +73,21 @@ export default function CommentItem({
       <div className="w-full flex flex-col gap-6">
         <div className="flex gap-4 items-center">
           <img
-            src={comment.image.String}
+            src={comment.user.image || "/images/Sarcastonaut Fallback.png"}
             className="w-9 h-9 rounded-full"
           ></img>
           <div className="flex flex-col gap-1">
-            <p className="text-sm font-bold text-base-accent leading-none">
-              {comment.username.String}
+            <p className="text-sm font-bold text-accent-500 leading-none">
+              {comment.user.name || "User"}
             </p>
-            <p className="text-xs italic leading-none">
-              <DateParse dateString={comment.date_time} relative={true} />
+            <p className="text-always-light text-xs italic leading-none">
+              <DateParse
+                dateString={comment.comment.dateTime}
+                relative={true}
+              />
             </p>
           </div>
-          {comment.username.String === user?.username && (
+          {comment.user.id === user?.id && (
             <ResponseMenu
               editFunc={() => setOpenEdit(!openEdit)}
               deleteFunc={() => setDeleteOpen(true)}
@@ -87,20 +97,20 @@ export default function CommentItem({
 
         {openEdit ? (
           <ResponseItem
-            elementId={comment.id}
-            userId={user!.uid}
+            elementId={comment.comment.id}
+            userId={user!.id!}
             refetch={refetch}
             isEdit={true}
             setOpenEdit={setOpenEdit}
-            editDefault={comment.content}
+            editDefault={comment.comment.content}
           />
         ) : (
-          <p>{comment.content}</p>
+          <p className="text-always-light">{comment.comment.content}</p>
         )}
         <div className="flex justify-between">
-          <ReplyLabel replies={comment.count_reply} />
+          <ReplyLabel replies={data} />
           <button
-            className="self-end text-sm font-semibold text-fcolor-link hover:underline hover:text-hover-link"
+            className="self-end text-sm font-semibold text-primary-400 hover:underline hover:text-primary-200"
             onClick={handleReply}
           >
             Reply
@@ -108,20 +118,22 @@ export default function CommentItem({
         </div>
         {createReply && (
           <ResponseItem
-            elementId={comment.id}
-            userId={user!.uid}
-            refetch={refetch}
+            elementId={comment.comment.id}
+            userId={user!.id!}
+            refetch={commentRefetch}
             isReply={true}
             setOpenReply={setCreateReply}
             toggleReplyList={setShowReplies}
+            replyCRefetch={refetch}
           />
         )}
         {showReplies && (
           <ReplyList
             user={user}
-            commentId={comment.id}
+            commentId={comment.comment.id}
             setShowReplies={setShowReplies}
-            commentRefetch={refetch}
+            commentRefetch={commentRefetch}
+            replyCRefetch={refetch}
           />
         )}
         <hr className="h-[1px] bg-subtle-primary2 border-0" />
@@ -137,4 +149,10 @@ export default function CommentItem({
       )}
     </>
   );
+}
+
+async function fetchReplyCount(commentId: number) {
+  const res = await fetch(`/api/comment/count?id=${commentId}&type=replies`);
+  const data: number = await res.json();
+  return data;
 }

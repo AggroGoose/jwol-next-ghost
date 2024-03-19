@@ -33,7 +33,7 @@ function LinkObj({
     return (
       <Link
         href={url}
-        className="text-accent-500 font-semibold hover:text-accent-600 hover:underline"
+        className="font-bold text-primary-700 hover:text-always-light transition-colors link-underline"
       >
         {children}
       </Link>
@@ -41,7 +41,7 @@ function LinkObj({
   return (
     <a
       href={url}
-      className="text-accent-500 font-semibold hover:text-accent-600 hover:underline"
+      className="font-bold text-primary-700 hover:text-always-light transition-colors link-underline"
       target="_blank"
     >
       {children}
@@ -60,7 +60,7 @@ function EmphasisCheck({
 }) {
   const hasBold = level === 1 || level === 3;
   const classBuilder = `${
-    level === 1 || level === 3 ? "font-semibold md:font-bold " : ""
+    level === 1 || level === 3 ? "font-bold secondary-font text-lg " : ""
   }${level === 2 ? "italic " : ""}${level === 4 ? "underline " : ""}${
     level === 5 ? "line-through" : ""
   }`.trim();

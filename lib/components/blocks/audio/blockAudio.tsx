@@ -11,7 +11,7 @@ export default function BlockAudio({ block }: { block: LexicalAudio }) {
   const imgSrc =
     block.thumbnailSrc.length > 0
       ? block.thumbnailSrc
-      : "/images/NoLeaveFallback.png";
+      : "/images/Sarcastonaut Fallback.png";
   const audioSrc = block.src;
   const audioTitle = block.title;
   const audioDuration = block.duration;

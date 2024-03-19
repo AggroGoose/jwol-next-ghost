@@ -6,13 +6,16 @@ import { useState, useEffect } from "react";
 import { POLICY_ROUTE } from "@/lib/utils/constants";
 
 export default function CookieBanner() {
-  const [cookieConsent, setCookieConsent] = useState(false);
+  const [cookieConsent, setCookieConsent] = useState<true | false | null>(
+    false
+  );
+  const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
     const storedCookieConsent = getLocalStorage("cookie_consent", null);
 
     setCookieConsent(storedCookieConsent);
-  }, [setCookieConsent]);
+  }, [cookieConsent, setCookieConsent]);
 
   useEffect(() => {
     const newValue = cookieConsent ? "granted" : "denied";
@@ -20,8 +23,12 @@ export default function CookieBanner() {
     window.gtag("consent", "update", {
       analytics_storage: newValue,
     });
-
-    setLocalStorage("cookie_consent", cookieConsent);
+    if (!initialLoad) {
+      if (cookieConsent === true || cookieConsent === false) {
+        setLocalStorage("cookie_consent", cookieConsent);
+      }
+    }
+    setInitialLoad(false);
 
     //For Testing
     console.log("Cookie Consent: ", cookieConsent);
@@ -30,14 +37,14 @@ export default function CookieBanner() {
   return (
     <section
       className={
-        "fixed z-10 max-w-2xl p-4 mx-10 border md:gap-x-4 right-0 bottom-10 bg-primary-1000 md:items-center border-primary-900 cshadow-flip rounded-2xl" +
+        "fixed z-10 max-w-2xl p-4 mx-10 border md:gap-x-4 right-0 bottom-10 bg-primary-1000 md:items-center border-primary-700 cshadow-dark rounded-2xl" +
         (cookieConsent !== null ? " hidden" : " md:flex")
       }
     >
       <div className="flex items-center gap-x-4">
         <span className="self-start mt-2">
           <svg
-            className="w-6 h-6 lg:w-7 lg:h-7 fill-base-accent"
+            className="w-6 h-6 lg:w-7 lg:h-7 fill-accent-500"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -50,7 +57,7 @@ export default function CookieBanner() {
           website.{" "}
           <Link
             href={POLICY_ROUTE + "/cookies"}
-            className="text-primary-300 font-bold hover:text-primary-200 hover:underline"
+            className="text-primary-300 font-bold hover:text-primary-100 hover:underline"
           >
             Read our cookie policy
           </Link>
@@ -59,13 +66,13 @@ export default function CookieBanner() {
 
       <div className="flex flex-col items-center mt-6 gap-2 shrink-0 lg:mt-0">
         <button
-          className="text-sm font-medium bg-base-accent rounded-lg hover:bg-hover-accent text-always-light leading-none px-4 py-2.5 duration-300 transition-colors focus:outline-none"
+          className="text-sm font-medium bg-accent-600 rounded-lg hover:bg-accent-800 text-always-light leading-none px-4 py-2.5 duration-300 transition-colors focus:outline-none"
           onClick={() => setCookieConsent(true)}
         >
           Allow Cookies
         </button>
         <button
-          className="text-xs tracking-wider underline transition-colors duration-300 md:w-auto text-always-light hover:text-primary-100 focus:outline-none"
+          className="text-xs tracking-wider underline transition-colors duration-300 md:w-auto text-always-light hover:text-primary-200 focus:outline-none"
           onClick={() => setCookieConsent(false)}
         >
           Decline Cookies

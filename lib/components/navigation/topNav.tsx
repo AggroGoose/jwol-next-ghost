@@ -1,18 +1,23 @@
+"use server";
+
 import Link from "next/link";
 import RightNav from "./Header/rightNav";
-import NoLeaveSociety from "@/lib/resources/svg/NoLeaveSociety";
-import DropMenu from "./Header/Menu/dropMenu";
+import Sarcastonaut from "@/lib/resources/svg/Sarcastonaut";
+import CategoryNav from "./categoryNav";
 
-export default function TopNav() {
+export default async function TopNav() {
   return (
-    <div className="w-full z-10 h-[var(--header-height)] sticky top-0 col-span-3 bg-always-dark xl:bg-transparent xl:col-span-3">
-      <div className="grid grid-cols-3 h-full items-center">
-        <DropMenu />
-        <button className="col-start-2 col-end-3 justify-self-center h-full xl:hidden">
-          <Link href="/" className="flex">
-            <NoLeaveSociety className="aspect-[2/1] h-[40px] md:h-[60px] fill-always-light hover:fill-accent-400" />
-          </Link>
-        </button>
+    <div className={`bg-always-dark`}>
+      <div className="w-full max-w-[--body-size] mx-auto grid grid-cols-2 lg:grid-cols-nav h-full items-center">
+        <div className="col-span-1 col-start-1 flex gap-4 items-center">
+          <button className="h-max ml-4 md:ml-[40px] xl:ml-0">
+            <Link href="/" className="flex">
+              <Sarcastonaut className="aspect-[3/2] h-[40px] my-3 md:h-[52px] fill-accent-500 hover:fill-accent-400" />
+            </Link>
+          </button>
+        </div>
+        <CategoryNav />
+
         <RightNav />
       </div>
     </div>

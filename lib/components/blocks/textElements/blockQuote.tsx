@@ -3,7 +3,7 @@ import RichText from "./helpers/richText";
 
 export default function BlockQuote({ block }: { block: LexicalQuote }) {
   return (
-    <blockquote className="relative blmain">
+    <blockquote className="relative block-main max-md:px-2">
       <div className="absolute top-0 left-7 px-3 leading-[0] z-[2]">
         <QuoteTop className="aspect-[17/11] w-9 fill-accent-400" />
       </div>

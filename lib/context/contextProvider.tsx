@@ -1,5 +1,3 @@
-import { AuthContextProvider } from "./authContext";
-import { ModalContextProvider } from "./modalContext";
 import QueryProvider from "./queryClient";
 
 export default function ContextProvider({
@@ -7,11 +5,5 @@ export default function ContextProvider({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <AuthContextProvider>
-      <ModalContextProvider>
-        <QueryProvider>{children}</QueryProvider>
-      </ModalContextProvider>
-    </AuthContextProvider>
-  );
+  return <QueryProvider>{children}</QueryProvider>;
 }

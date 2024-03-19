@@ -23,28 +23,28 @@ export default async function Policies() {
           </div>
           <h1>Here Are Our Current Policies:</h1>
         </div>
-        <div className="flex flex-col gap-6 px-3 pb-6 xl:px-0 text-head3 font-bold text-fcolor-link ml-8">
+        <div className="flex flex-col gap-6 px-3 pb-6 xl:px-0 text-head3 font-bold text-primary-500 ml-8">
           <Link
             href={POLICY_ROUTE + "/cookies"}
-            className="hover:text-hover-link hover:underline"
+            className="hover:text-primary-700 hover:underline"
           >
             Cookie Policy
           </Link>
           <Link
             href={POLICY_ROUTE + "/privacy-policy"}
-            className="hover:text-hover-link hover:underline"
+            className="hover:text-primary-700 hover:underline"
           >
             Privacy Policy
           </Link>
           <Link
             href={POLICY_ROUTE + "/disclaimer"}
-            className="hover:text-hover-link hover:underline"
+            className="hover:text-primary-700 hover:underline"
           >
             Disclaimer
           </Link>
           <Link
             href={POLICY_ROUTE + "/terms-and-conditions"}
-            className="hover:text-hover-link hover:underline"
+            className="hover:text-primary-700 hover:underline"
           >
             Terms and Conditions
           </Link>

@@ -6,7 +6,7 @@ export function UserAvatar({ imgSrc }: { imgSrc: string }) {
       src={imgSrc}
       height={56}
       width={56}
-      className={"rounded-full w-[32px] h-[32px] md:h-[42px] md:w-[42px]"}
+      className={"rounded-full object-cover"}
       alt={"User Profile Picture"}
     />
   );

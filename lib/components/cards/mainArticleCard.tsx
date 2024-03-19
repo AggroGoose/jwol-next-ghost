@@ -1,14 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import Date from "../helpers/date";
-import { BLOG_ROUTE, TAG_ROUTE } from "@/lib/utils/constants";
 
 export default function MainArticleCard({
   post,
   priority = false,
+  badge = true,
+  dark = true,
 }: {
   post: ResponseMore;
   priority?: boolean;
+  badge?: boolean;
+  dark?: boolean;
 }) {
   let image: string;
   let imageAlt: string;
@@ -17,48 +20,60 @@ export default function MainArticleCard({
     image = post.featureImg;
     imageAlt = post.featureImgAlt;
   } else {
-    image = "/images/NoLeaveFallback.png";
+    image = "/images/Sarcastonaut Fallback.png";
     imageAlt = "Fallback image, no Feature Image provided.";
   }
 
   return (
-    <div className="flex flex-col w-full rounded-xl bg-base-tier2 relative hover:cshadow-flip overflow-hidden">
-      <Link href={`${BLOG_ROUTE}/${post.slug}`}>
-        <figure className="relative aspect-[3/2]">
+    <div className="flex w-full relative overflow-hidden gap-4 items-center">
+      <Link href={`/${post.tagSlug}/${post.slug}`} className="basis-2/5">
+        <figure className="relative aspect-[1/1]">
           <Image
             src={image}
             alt={imageAlt}
             fill={true}
             priority={priority}
-            className="object-cover"
+            className="object-cover hover:opacity-70"
             sizes="(max-width: 950px) 100vw, 50vw"
           />
         </figure>
       </Link>
-      <div className="flex flex-col p-4 gap-4 text-left h-full">
-        <div className="flex justify-between w-full items-center">
-          <p className="text-xs">
-            <Date dateString={post.published} />
-          </p>
+      <div className="basis-3/5 flex flex-col gap-2 pr-3 xl:pr-0">
+        {badge && (
           <Link
-            href={`${TAG_ROUTE}/${post.tagSlug}`}
-            className="text-sm font-bold text-primary-600 leading-none hover:text-primary-500 hover:underline"
+            href={`/${post.tagSlug}`}
+            className={`text-xs md:text-sm secondary-font tracking-wide font-bold leading-none hover:text-accent-300 ${
+              dark ? "text-accent-500" : "text-accent-600"
+            }`}
           >
-            {post.tag}
+            #{post.tag}
           </Link>
-        </div>
-        <Link href={`${BLOG_ROUTE}/${post.slug}`}>
-          <h3 className="leading-tight text-xl hover:text-accent-500 -mb-1">
+        )}
+        <Link href={`/${post.tagSlug}/${post.slug}`}>
+          <h3
+            className={`leading-tight text-base md:text-lg line-clamp-3 md:line-clamp-2 tracking-wider ${
+              dark
+                ? "text-primary-200 hover:text-primary-100"
+                : "hover:text-primary-400"
+            }`}
+          >
             {post.title}
           </h3>
         </Link>
-        <p className="text-sm line-clamp-2">{post.excerpt}</p>
-        <Link
-          href={`${BLOG_ROUTE}/${post.slug}`}
-          className="mt-auto font-bold text-primary-600 hover:text-primary-500 hover:underline"
+        <p
+          className={`text-sm line-clamp-3 max-md:hidden ${
+            dark ? "text-always-light" : "text-always-dark"
+          }`}
         >
-          Read More {"->"}
-        </Link>
+          {post.excerpt}
+        </p>
+        <p
+          className={`text-xs font-bold ${
+            dark ? "text-accent-500" : "text-accent-600"
+          }`}
+        >
+          <Date dateString={post.published} />
+        </p>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ export default function BlockToggle({ block }: { block: LexicalToggle }) {
 
   return (
     <div
-      className="blmain p-6 cshadow-dark rounded-lg bg-base-tier2"
+      className="block-main p-6 cshadow-dark rounded-lg bg-base-tier2"
       data-block-toggle={isExpanded ? "open" : "close"}
     >
       <div

@@ -47,6 +47,7 @@ export async function ghostGetSinglePost(slug: string) {
     feature_image_alt: post.feature_image_alt || "Post feature image",
     feature_image_caption: post.feature_image_caption,
     created_at: post.created_at,
+    published_at: post.published_at,
     updated_at: post.updated_at,
     excerpt: post.excerpt,
     reading_time: post.reading_time,

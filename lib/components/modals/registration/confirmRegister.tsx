@@ -1,6 +1,5 @@
 import { intakeUser } from "@/lib/api/server/serverActions";
-import { useAuthContext } from "@/lib/context/authContext";
-import { SITE_SERVER, SITE_URL } from "@/lib/utils/constants";
+import { SITE_URL } from "@/lib/utils/constants";
 import { useState } from "react";
 
 type ValidateStatus = "none" | "error" | "success";
@@ -21,7 +20,7 @@ export default function ConfirmRegister({
   const [userStatus, setUserStatus] = useState<ValidateStatus>("none");
   const [feedback, setFeedback] = useState<string>("");
 
-  const { intake } = useAuthContext();
+  const intake = false;
 
   const giveFeedback = (status: ValidateStatus, message: string) => {
     setUserStatus(status);
@@ -51,7 +50,6 @@ export default function ConfirmRegister({
       return;
     }
     fetch(`${SITE_URL}api/revalidate/${userId}`, { method: "POST" });
-    intake!(username, image);
     setNewUser(false);
   };
   return (

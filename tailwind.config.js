@@ -22,10 +22,11 @@ module.exports = {
       head1: "var(--font-head1)",
       head2: "var(--font-head2)",
       head3: "var(--font-head3)",
+      head4: "var(--font-head4)",
     },
     screens: {
       sm: "360px",
-      md: "575px",
+      md: "550px",
       lg: "950px",
       xl: "1200px",
       xxl: "1475px",
@@ -50,36 +51,8 @@ module.exports = {
           dark: "var(--color-darkest)",
           light: "var(--color-lightest)",
         },
-        base: {
-          main: "var(--background-base)",
-          tier2: "var(--background-tier2)",
-          tier3: "var(--background-tier3)",
-          primary: "var(--background-primary)",
-          accent: "var(--background-accent)",
-          flip: "var(--background-flip)",
-        },
-        fcolor: {
-          base: "var(--font-color-main)",
-          head: "var(--font-color-head)",
-          link: "var(--font-color-link)",
-          flip: "var(--font-color-flip)",
-        },
-        subtle: {
-          light: "var(--subtle-color-light)",
-          primary: "var(--subtle-color-primary)",
-          primary2: "var(--subtle-color-primary2)",
-          accent: "var(--subtle-color-accent)",
-          flip: "var(--subtle-color-flip)",
-          flip2: "var(--subtle-color-flip2)",
-        },
-        hover: {
-          base: "var(--hover-color-base)",
-          primary: "var(--hover-color-primary)",
-          accent: "var(--hover-color-accent)",
-          link: "var(--hover-color-link)",
-          warning: "#ac000e",
-        },
         primary: {
+          light: "var(--primary-light)",
           50: "var(--primary-50)",
           100: "var(--primary-100)",
           200: "var(--primary-200)",
@@ -94,6 +67,7 @@ module.exports = {
           dark: "var(--primary-dark)",
         },
         accent: {
+          light: "var(--accent-light)",
           50: "var(--accent-50)",
           100: "var(--accent-100)",
           200: "var(--accent-200)",
@@ -131,6 +105,7 @@ module.exports = {
         feature: "3fr 1fr",
         product: "1fr max-content",
         quote: "12px 1fr 12px",
+        nav: "1fr 6fr 1fr",
       },
       gridTemplateRows: {
         quote: "12px 1fr 12px",
@@ -180,7 +155,7 @@ module.exports = {
       gradients: {
         "conic-silver":
           "conic-gradient(#8a8a8a, #e0e0e0, #909090, #f1f2f1, #949392, #cfcfcf, #8a8a8a)",
-        main: "linear-gradient(135deg, var(--primary-500), var(--accent-500) 60%,var(--primary-500))",
+        main: "linear-gradient(175deg, var(--primary-dark) 25%, var(--primary-800) 55%, var(--primary-dark) 69%)",
         "main-rotate":
           "linear-gradient(-45deg, var(--primary-500), var(--accent-500))",
       },
@@ -201,39 +176,55 @@ module.exports = {
         ".drop-cap": {
           "&::first-letter": {
             float: "left",
-            lineHeight: "0.69",
-            fontSize: "4.125rem",
-            marginRight: "0.14em",
-            marginTop: "0.14em",
-            color: "var(--accent-600)",
+            lineHeight: "1",
+            fontSize: "4.25rem",
+            marginRight: "0.18em",
+            marginTop: "0.1em",
+            color: "var(--primary-600)",
+            borderBottom: "4px solid var(--primary-500)",
+            borderRight: "4px solid var(--accent-500)",
+            padding: "0.4rem 0.8rem",
+            fontFamily: "var(--font-secondary)",
+            fontWeight: "700",
           },
         },
-        ".drop-cap-md": {
-          "&::first-letter": {
-            float: "left",
-            lineHeight: "0.69",
-            fontSize: "3.875rem",
-            marginRight: "0.14em",
-            marginTop: "0.14em",
-            color: "var(--accent-600)",
+        ".link-underline": {
+          position: "relative",
+          lineHeight: "1.25",
+          zIndex: "0",
+          "&::after": {
+            backgroundColor: "var(--accent-500)",
+            bottom: "0",
+            content: `""`,
+            left: "-3px",
+            position: "absolute",
+            right: "-3px",
+            top: "85%",
+            zIndex: "-1",
+            transitionDuration: "0.5s",
+            transitionProperty: "top",
+          },
+          "&:hover::after": {
+            top: "0",
           },
         },
-        ".drop-cap-sm": {
-          "&::first-letter": {
-            float: "left",
-            lineHeight: "0.69",
-            fontSize: "3.6rem",
-            marginRight: "0.14em",
-            marginTop: "0.14em",
-            color: "var(--accent-600)",
-          },
-        },
-        ".bg-texture": {
-          background: "var(--grunge-image)",
-          backgroundSize: "cover",
+        ".primary-font": {
+          fontFamily: "var(--font-primary)",
         },
         ".secondary-font": {
           fontFamily: "var(--font-secondary)",
+        },
+        ".block-full": {
+          gridColumn: "full",
+        },
+        ".block-wide": {
+          gridColumn: "wide",
+        },
+        ".block-main": {
+          gridColumn: "main",
+        },
+        ".block-thin": {
+          gridColumn: "thin",
         },
       });
       matchUtilities(

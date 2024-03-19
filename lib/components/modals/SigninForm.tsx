@@ -1,5 +1,5 @@
 import { auth } from "@/lib/api/firebase";
-import NoLeaveSociety from "@/lib/resources/svg/NoLeaveSociety";
+import Sarcastonaut from "@/lib/resources/svg/Sarcastonaut";
 import GoogleLogo from "@/lib/resources/svg/social/google";
 import { SITE_URL } from "@/lib/utils/constants";
 import { Dialog } from "@headlessui/react";
@@ -79,14 +79,14 @@ export default function SignInForm({
     <Dialog open={isOpen} className="relative z-50" onClose={() => setIsOpen()}>
       <div className="fixed inset-0 bg-black/20" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="mx-auto max-w-[420px] w-full bg-always-light rounded-xl shadow-darklg">
-          <div className="p-6 pt-6 bg-always-dark rounded-t-xl flex flex-col gap-8">
-            <NoLeaveSociety className="fill-always-light aspect-[2/1] h-[60px] mx-auto my-2 leading-0" />
+        <Dialog.Panel className="mx-auto max-w-[420px] w-full rounded-xl bg-always-dark shadow-darklg">
+          <div className="p-6 pt-6 rounded-t-xl flex flex-col gap-8">
+            <Sarcastonaut className="fill-accent-500 aspect-[3/2] h-[60px] mx-auto my-2 leading-0" />
             <Dialog.Title className="text-center text-head3 text-always-light leading-none">
               Sign Into Your Account
             </Dialog.Title>
           </div>
-          <div className="flex flex-col justify-center gap-6 p-6">
+          <div className="flex flex-col justify-center gap-6 p-6 bg-always-light">
             <Dialog.Description className="text-center text-always-dark">
               Please sign in with one of the options below:
             </Dialog.Description>

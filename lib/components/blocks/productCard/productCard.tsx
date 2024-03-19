@@ -15,7 +15,7 @@ export default function BlockProduct({ block }: { block: LexicalProduct }) {
   }
 
   return (
-    <div className="grid grid-cols-product items-center gap-y-4 w-full max-w-[550px] p-6 rounded-xl cshadow-flip hover:cshadow-lg-flip blmain md:blmin justify-self-center bg-base-tier2">
+    <div className="block-main grid grid-cols-product items-center gap-y-4 w-full max-w-[550px] p-6 rounded-xl cshadow-flip hover:cshadow-lg-flip md:block-thin justify-self-center bg-base-tier2">
       <div className="col-span-2 justify-self-center w-full h-auto">
         <Image
           src={block.productImageSrc}
@@ -49,12 +49,10 @@ export default function BlockProduct({ block }: { block: LexicalProduct }) {
       {block.productButtonEnabled && (
         <a
           href={block.productUrl}
-          className="bg-accent-600 text-center col-start-1 col-end-3 w-full text-sm p-4 rounded-md mx-auto font-semibold leading-none hover:bg-accent-500 secondary-font tracking-wide"
+          className="col-start-1 col-end-3 w-full text-center px-4 py-3 bg-accent-600 text-always-light leading-none rounded-md mx-auto text-lg hover:bg-accent-500 secondary-font tracking-widest"
           target="_blank"
         >
-          <span className="text-always-light text-sm">
-            {block.productButton}
-          </span>
+          <span className="text-always-light">{block.productButton}</span>
         </a>
       )}
     </div>

@@ -1,16 +1,17 @@
-import { useModalContext } from "@/lib/context/modalContext";
+"use client";
+
+import { SITE_URI, SITE_URL } from "@/lib/utils/constants";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SignIn() {
-  const { openSignIn } = useModalContext()!;
+  const path = usePathname();
 
   return (
-    <>
-      <button
-        className="text-lg font-head font-hdw tracking-hs cursor-pointer hover:text-primary hover:underline leading-none"
-        onClick={openSignIn}
-      >
+    <button className="secondary-font tracking-wider cursor-pointer hover:text-accent-500 leading-none">
+      <Link href={`/api/auth/signin?callbackUrl=${SITE_URI + path}`}>
         Sign In
-      </button>
-    </>
+      </Link>
+    </button>
   );
 }
