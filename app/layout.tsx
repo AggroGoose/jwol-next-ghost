@@ -6,7 +6,6 @@ import CookieBanner from "@/lib/components/banners/cookieBanner";
 import FooterNav from "@/lib/components/navigation/footerNav";
 import { Metadata } from "next";
 import TopNav from "@/lib/components/navigation/topNav";
-import ModalCheck from "@/lib/components/modals/modalCheck";
 import ContextProvider from "@/lib/context/contextProvider";
 
 const australSans = localFont({
