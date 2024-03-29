@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       "We're lost in space and it's probably fine. Exploring the meaning of life, the world, and the brain one ship at a time.",
     images:
       "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
-    url: "SITE_URL",
+    url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
