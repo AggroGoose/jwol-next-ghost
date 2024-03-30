@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === "production") {
   if (process.env.VERCEL_ENV === "preview") {
     SITE_URI = "https://no-leave-society-git-localdev-stoicgoose.vercel.app";
   } else {
-    SITE_URI = "https://www.noleavesociety.com";
+    SITE_URI = "https://www.sarcastonaut.com";
   }
 } else {
   SITE_URI = "http://localhost:3000";

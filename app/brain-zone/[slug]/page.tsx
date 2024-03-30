@@ -31,7 +31,7 @@ export async function generateMetadata({
   const meta = await ghostMetaSingle(slug);
 
   return {
-    metadataBase: new URL(SITE_URL + tag + slug),
+    metadataBase: new URL(SITE_URL + tag + "/" + slug),
     title: meta.meta_title,
     description: meta.meta_description,
     openGraph: {
@@ -40,7 +40,7 @@ export async function generateMetadata({
       title: meta.og_title,
       description: meta.og_description,
       images: meta.og_image,
-      url: SITE_URL + tag + slug,
+      url: SITE_URL + tag + "/" + slug,
     },
     twitter: {
       card: "summary_large_image",
