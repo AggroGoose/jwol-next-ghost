@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       "We're lost in space and it's probably fine. Exploring the meaning of life, the world, and the brain one ship at a time.",
     images: [
       {
-        url: "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+        url: "https://write.sarcastonaut.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
         width: 1600,
         height: 800,
         alt: "Letter S logo overlaying a planet floating in space.",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       "We're lost in space and it's probably fine. Exploring the meaning of life, the world, and the brain one ship at a time.",
     images: [
       {
-        url: "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+        url: "https://write.sarcastonaut.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
         width: 1600,
         height: 800,
         alt: "Letter S logo overlaying a planet floating in space.",

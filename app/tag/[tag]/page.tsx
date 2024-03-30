@@ -26,7 +26,7 @@ export async function generateMetadata({
       description: meta.og_description,
       images: [
         {
-          url: "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+          url: "https://write.sarcastonaut.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
           width: 1600,
           height: 800,
           alt: "Letter S logo overlaying a planet floating in space.",
@@ -40,7 +40,7 @@ export async function generateMetadata({
       description: meta.twitter_description,
       images: [
         {
-          url: "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+          url: "https://write.sarcastonaut.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
           width: 1600,
           height: 800,
           alt: "Letter S logo overlaying a planet floating in space.",
@@ -52,6 +52,7 @@ export async function generateMetadata({
 }
 
 export const revalidate = 600;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const tags = await ghostRouteParams("tag");
