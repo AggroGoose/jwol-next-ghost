@@ -21,7 +21,7 @@ export async function ghostMetaSingle(
     og_image:
       post.og_image ||
       post.feature_image ||
-      "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+      "https://write.sarcastonaut.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
     og_title: post.og_title || post.title,
     og_description:
       post.og_description || post.meta_description || post.excerpt,
@@ -29,7 +29,7 @@ export async function ghostMetaSingle(
       post.twitter_image ||
       post.og_image ||
       post.feature_image ||
-      "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+      "https://write.sarcastonaut.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
     twitter_title: post.twitter_title || post.meta_title || post.title,
     twitter_description:
       post.twitter_description ||
@@ -58,7 +58,7 @@ export async function ghostMetaTag(tag: string) {
     og_image:
       post.og_image ||
       post.feature_image ||
-      "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+      "https://write.sarcastonaut.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
     og_title:
       post.og_title ||
       post.meta_title ||
@@ -72,7 +72,7 @@ export async function ghostMetaTag(tag: string) {
       post.twitter_image ||
       post.og_image ||
       post.feature_image ||
-      "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+      "https://write.sarcastonaut.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
     twitter_title:
       post.twitter_title ||
       post.meta_title ||

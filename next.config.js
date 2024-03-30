@@ -27,6 +27,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.jakosbalay.com",
       },
+      { protocol: "https", hostname: "**.sarcastonaut.com" },
       { protocol: "https", hostname: "**.ghost.org" },
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "firebasestorage.googleapis.com" },
