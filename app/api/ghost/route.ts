@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import ghostAdmin from "@/lib/api/server/ghostAdmin";
-import { ghostPostsforIndex } from "@/lib/api/server/ghostServer";
 
 export async function GET() {
   const res = await ghostAdmin.posts

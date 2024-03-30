@@ -2,7 +2,6 @@ import {
   ghostGetTag,
   ghostMetaTag,
   ghostPostsforIndex,
-  ghostRouteParams,
 } from "@/lib/api/server/ghostServer";
 import TagPostIndex from "@/lib/components/pages/tagPostIndex";
 import { TAG_URL } from "@/lib/utils/constants";
