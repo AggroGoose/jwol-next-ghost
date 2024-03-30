@@ -2,7 +2,6 @@ import {
   ghostGetTag,
   ghostMetaTag,
   ghostPostsforIndex,
-  ghostRouteParams,
 } from "@/lib/api/server/ghostServer";
 import TagPostIndex from "@/lib/components/pages/tagPostIndex";
 import { TAG_URL } from "@/lib/utils/constants";
@@ -52,15 +51,7 @@ export async function generateMetadata({
 }
 
 export const revalidate = 600;
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const tags = await ghostRouteParams("tag");
-
-  return tags.map((tag) => {
-    tag: tag.slug;
-  });
-}
+export const dynamicParams = true;
 
 export default async function TagPage({
   params: { tag },
