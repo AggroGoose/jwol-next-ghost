@@ -11,7 +11,7 @@ import {
 import MorePagePosts from "@/lib/components/article/main/morePagePosts";
 import BlockContent from "@/lib/components/blocks/blockContent";
 import { Metadata } from "next";
-import { BLOG_URL, SITE_SERVER, SITE_URL } from "@/lib/utils/constants";
+import { SITE_URL } from "@/lib/utils/constants";
 import PostComments from "@/lib/components/article/comments/postComments";
 import PostTags from "@/lib/components/article/heading/postTags";
 import TagPagePosts from "@/lib/components/article/main/tagPagePosts";
@@ -39,8 +39,11 @@ export async function generateMetadata({
       type: "article",
       title: meta.og_title,
       description: meta.og_description,
-      images: meta.og_image,
+      images: [{ url: meta.og_image, alt: meta.og_alt }],
       url: SITE_URL + tag + "/" + slug,
+      authors: ["Josh Walter"],
+      publishedTime: meta.published_at,
+      modifiedTime: meta.updated_at,
     },
     twitter: {
       card: "summary_large_image",
@@ -59,8 +62,6 @@ export async function generateStaticParams() {
   }));
 }
 
-const API_KEY = process.env.GANSO_TOKEN || "";
-
 export default async function PostPage({
   params: { slug },
 }: {
@@ -78,7 +79,7 @@ export default async function PostPage({
   const user = session?.user;
 
   const { content } = post;
-  const url = BLOG_URL + slug;
+  const url = SITE_URL + tag + "/" + slug;
 
   return (
     <div className="pb-8 flex flex-col gap-8 max-w-[100vw] bg-always-dark">

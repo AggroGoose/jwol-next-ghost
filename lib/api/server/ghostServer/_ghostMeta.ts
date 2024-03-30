@@ -15,7 +15,7 @@ export async function ghostMetaSingle(
     console.error(err);
   })) as GhostPost;
 
-  const metaData: ResponseMeta = {
+  const metaData: ResponseMetaPost = {
     meta_title: post.meta_title || post.title,
     meta_description: post.meta_description || post.excerpt,
     og_image:
@@ -36,6 +36,9 @@ export async function ghostMetaSingle(
       post.og_description ||
       post.meta_description ||
       post.excerpt,
+    og_alt: post.feature_image_alt || "Article feature image",
+    published_at: post.published_at,
+    updated_at: post.updated_at,
   };
 
   return metaData;

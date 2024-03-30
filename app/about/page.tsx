@@ -18,16 +18,28 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       title: meta.og_title,
       description: meta.og_description,
-      images:
-        "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+      images: [
+        {
+          url: "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+          width: 1600,
+          height: 800,
+          alt: "Letter S logo overlaying a planet floating in space.",
+        },
+      ],
       url: ABOUT_URL,
     },
     twitter: {
       card: "summary_large_image",
       title: meta.twitter_title,
       description: meta.twitter_description,
-      images:
-        "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+      images: [
+        {
+          url: "https://ghost.jakosbalay.com/content/images/2024/03/Sarcastonaut-Social-Media.png",
+          width: 1600,
+          height: 800,
+          alt: "Letter S logo overlaying a planet floating in space.",
+        },
+      ],
       creator: "@CompletelyJWOL",
     },
   };

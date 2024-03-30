@@ -156,6 +156,12 @@ type ResponseMeta = {
   twitter_description: string;
 };
 
+interface ResponseMetaPost extends ResponseMeta {
+  og_alt: string;
+  published_at: string;
+  updated_at: string;
+}
+
 type ResponseMore = {
   title: string;
   excerpt: string;
