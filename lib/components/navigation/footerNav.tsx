@@ -25,7 +25,7 @@ export default function FooterNav() {
           <Pinterest className="h-10 w-10 fill-always-light hover:fill-accent-500" />
         </a>
       </div>
-      <nav className="flex flex-wrap items-center justify-center gap-8 secondary-font tracking-wider">
+      <nav className="flex flex-wrap items-center justify-center gap-8 font-secondary tracking-wider">
         <Link href="/about" className="hover:text-accent-500">
           #About
         </Link>

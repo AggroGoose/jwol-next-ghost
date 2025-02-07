@@ -11,7 +11,7 @@ export default function LatestPagePosts({
   tag?: { id: string; name: string; slug: string };
 }) {
   return (
-    <section className=" flex flex-col gap-6 w-full max-w-[--body-size] mx-auto">
+    <section className=" flex flex-col gap-6 w-full max-w-(--body-size) mx-auto">
       <h3 className="text-center text-always-light font-normal">
         Recent Articles
       </h3>

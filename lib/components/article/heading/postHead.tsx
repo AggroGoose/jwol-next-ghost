@@ -27,7 +27,7 @@ export default function PostHead({
   url: string;
 }) {
   return (
-    <div className="flex flex-col gap-8 py-8 max-w-[--body-size] mx-auto">
+    <div className="flex flex-col gap-8 py-8 max-w-(--body-size) mx-auto">
       <PostTitle
         className="w-full flex flex-col gap-4"
         primary_tag={primary_tag}

@@ -8,7 +8,7 @@ import CategoryNav from "./categoryNav";
 export default async function TopNav() {
   return (
     <div className={`bg-always-dark`}>
-      <div className="w-full max-w-[--body-size] mx-auto grid grid-cols-2 lg:grid-cols-nav h-full items-center">
+      <div className="w-full max-w-(--body-size) mx-auto grid grid-cols-2 lg:grid-cols-nav h-full items-center">
         <div className="col-span-1 col-start-1 flex gap-4 items-center">
           <button className="h-max ml-4 md:ml-[40px] xl:ml-0">
             <Link href="/" className="flex">

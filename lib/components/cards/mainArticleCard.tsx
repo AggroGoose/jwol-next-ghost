@@ -42,7 +42,7 @@ export default function MainArticleCard({
         {badge && (
           <Link
             href={`/${post.tagSlug}`}
-            className={`text-xs md:text-sm secondary-font tracking-wide font-bold leading-none hover:text-accent-300 ${
+            className={`text-xs md:text-sm font-secondary tracking-wide font-bold leading-none hover:text-accent-300 ${
               dark ? "text-accent-500" : "text-accent-600"
             }`}
           >

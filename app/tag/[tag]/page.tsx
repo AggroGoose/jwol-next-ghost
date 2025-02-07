@@ -8,10 +8,12 @@ import { TAG_URL } from "@/lib/utils/constants";
 import { Metadata } from "next";
 
 export async function generateMetadata({
-  params: { tag },
+  params,
 }: {
   params: { tag: string };
 }): Promise<Metadata> {
+  const parama = await params;
+  const tag = parama.tag;
   const meta = await ghostMetaTag(tag);
 
   return {
@@ -54,7 +56,7 @@ export const revalidate = 600;
 export const dynamicParams = true;
 
 export default async function TagPage({
-  params: { tag },
+  params,
   searchParams,
 }: {
   params: { tag: string };
@@ -62,7 +64,10 @@ export default async function TagPage({
     page?: string;
   };
 }) {
-  const currentPage = Number(searchParams?.page) || 1;
+  const parama = await params;
+  const tag = parama.tag;
+  const searcha = await searchParams;
+  const currentPage = Number(searcha?.page) || 1;
   const indexPosts = await ghostPostsforIndex(currentPage, 15, tag);
   const tagObj = await ghostGetTag(tag);
   const { posts } = indexPosts;

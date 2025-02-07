@@ -50,8 +50,9 @@ export default async function Home({
     page?: string;
   };
 }) {
-  const currentPage = Number(searchParams?.page) || 1;
-  const indexPosts = await ghostPostsforIndex(currentPage, 15);
+  const searching = await searchParams;
+  const currentPage = Number(searching?.page) || 1;
+  const indexPosts = await ghostPostsforIndex(currentPage, 14);
   const { posts } = indexPosts;
   let meta: ghostPostMetaData = {
     limit: 0,

@@ -28,7 +28,7 @@ export default function PageMain({
           {page.title}
         </h1>
         {excerpt && (
-          <p className="w-full max-w-[--body-size] text-center self-center text-always-light text-head4 italic">
+          <p className="w-full max-w-(--body-size) text-center self-center text-always-light text-head4 italic">
             {page.excerpt}
           </p>
         )}

@@ -42,7 +42,7 @@ export default function ListArticleCard({
         {badge && (
           <Link
             href={`/${post.tagSlug}`}
-            className="text-xxs lg:text-xs secondary-font tracking-wider text-always-light leading-none bg-accent-600 hover:opacity-75 px-2 py-1 lg:px-2.5 lg:py-1.5 uppercase font-bold absolute top-0 left-0 lg:top-1 lg:left-1 text-center"
+            className="text-xxs lg:text-xs font-secondary tracking-wider text-always-light leading-none bg-accent-600 hover:opacity-75 px-2 py-1 lg:px-2.5 lg:py-1.5 uppercase font-bold absolute top-0 left-0 lg:top-1 lg:left-1 text-center"
           >
             {post.tag}
           </Link>
