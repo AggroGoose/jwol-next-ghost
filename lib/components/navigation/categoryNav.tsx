@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CategoryNav() {
   return (
-    <div className="max-xl:hidden w-full col-span-1 col-start-2 secondary-font text-sm tracking-wider h-full text-always-light">
+    <div className="max-xl:hidden w-full col-span-1 col-start-2 font-secondary text-sm tracking-wider h-full text-always-light">
       <nav className="w-max mx-auto flex h-full items-center gap-4">
         <Link className="hover:text-accent-500" href="/brain-zone">
           #Brain Zone

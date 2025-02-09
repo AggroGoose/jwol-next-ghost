@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-const ModalPortal = ({ children }: { children: JSX.Element }) => {
+const ModalPortal = ({ children }: { children: React.JSX.Element }) => {
   const [mounted, setMounted] = useState(false);
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
 

@@ -25,10 +25,12 @@ export const revalidate = 600;
 export const dynamicParams = false;
 
 export async function generateMetadata({
-  params: { slug },
+  params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  const parama = await params;
+  const slug = parama.slug;
   const meta = await ghostMetaSingle(slug);
 
   return {
@@ -50,7 +52,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: meta.twitter_title,
       description: meta.twitter_description,
-      images: [meta.twitter_image],
+      images: meta.twitter_image,
       creator: "@CompletelyJWOL",
     },
   };
@@ -64,19 +66,19 @@ export async function generateStaticParams() {
 }
 
 export default async function PostPage({
-  params: { slug },
+  params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const parama = await params;
+  const slug = parama.slug;
   const post = await ghostGetSinglePost(slug);
   await db
     .insert(posts)
     .values({ id: post.id, slug: post.slug })
     .onConflictDoNothing();
-
   const morePosts = await ghostLatestFiveGeneral(slug);
   const tagPosts = await ghostLatestFiveforTag(post.primary_tag.slug, slug);
-
   const session = await auth();
 
   const user = session?.user;

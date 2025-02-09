@@ -11,7 +11,7 @@ export default function TagPagePosts({
 }) {
   return (
     <section className="bg-primary-900 py-6">
-      <div className=" flex flex-col gap-6 w-full max-w-[--body-size] mx-auto">
+      <div className=" flex flex-col gap-6 w-full max-w-(--body-size) mx-auto">
         <h3 className="text-center max-md:text-head4 text-primary-100 font-normal">
           More From{" "}
           <Link

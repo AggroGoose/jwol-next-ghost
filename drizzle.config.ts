@@ -10,8 +10,9 @@ dotenv.config({
 export default {
   schema: "./lib/api/drizzle/schema.ts",
   out: "./drizzle",
-  driver: "pg",
+  dialect: "postgresql",
+  driver: "pglite",
   dbCredentials: {
-    connectionString: dbURL,
+    url: dbURL,
   },
 } satisfies Config;

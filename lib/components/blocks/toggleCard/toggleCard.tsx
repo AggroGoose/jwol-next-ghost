@@ -33,7 +33,6 @@ export default function BlockToggle({ block }: { block: LexicalToggle }) {
       </div>
       <Transition
         show={isExpanded}
-        className="overflow-hidden"
         enter="transition transition-[max-height] duration-1000 ease-in-out"
         enterFrom="transform max-h-0"
         enterTo="transform max-h-screen"

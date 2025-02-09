@@ -54,11 +54,10 @@ export const dynamicParams = false;
 export default async function TagPage({
   searchParams,
 }: {
-  searchParams?: {
-    page?: string;
-  };
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const currentPage = Number(searchParams?.page) || 1;
+  const searcha = await searchParams;
+  const currentPage = Number(searcha?.page) || 1;
   const indexPosts = await ghostPostsforIndex(currentPage, 15, tag);
   const tagObj = await ghostGetTag(tag);
   const { posts } = indexPosts;

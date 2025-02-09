@@ -60,7 +60,7 @@ function EmphasisCheck({
 }) {
   const hasBold = level === 1 || level === 3;
   const classBuilder = `${
-    level === 1 || level === 3 ? "font-bold secondary-font text-lg " : ""
+    level === 1 || level === 3 ? "font-bold font-secondary text-lg " : ""
   }${level === 2 ? "italic " : ""}${level === 4 ? "underline " : ""}${
     level === 5 ? "line-through" : ""
   }`.trim();

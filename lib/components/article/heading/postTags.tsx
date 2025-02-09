@@ -12,7 +12,7 @@ export default function PostTags({
   }>;
 }) {
   return (
-    <div className="max-w-[--blog-width] flex flex-wrap gap-4 justify-center font-bold secondary-font self-center max-xl:px-3">
+    <div className="max-w-(--blog-width) flex flex-wrap gap-4 justify-center font-bold font-secondary self-center max-xl:px-3">
       {tags.map((tag) => (
         <Link
           key={tag.slug}

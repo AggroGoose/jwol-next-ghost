@@ -38,8 +38,8 @@ export default function Pagination({ meta }: { meta: ghostPostMetaData }) {
       {pageArray.map((page, i) => (
         <Link
           href={pathname + "?page=" + page}
-          key="i"
-          className={`text-lg secondary-font ${
+          key={i}
+          className={`text-lg font-secondary ${
             page == meta.page
               ? "font-bold text-primary-700"
               : "text-primary-500 hover:text-primary-700"

@@ -24,10 +24,12 @@ const tag = "brain-zone";
 export const revalidate = 600;
 
 export async function generateMetadata({
-  params: { slug },
+  params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  const parama = await params;
+  const slug = parama.slug;
   const meta = await ghostMetaSingle(slug);
 
   return {
@@ -63,10 +65,12 @@ export async function generateStaticParams() {
 }
 
 export default async function PostPage({
-  params: { slug },
+  params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const parama = await params;
+  const slug = parama.slug;
   const post = await ghostGetSinglePost(slug);
   await db
     .insert(posts)

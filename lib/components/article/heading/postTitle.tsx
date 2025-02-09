@@ -20,7 +20,7 @@ export default function PostTitle({
     <div className={className}>
       <Link
         href={"/" + primary_tag.slug}
-        className="w-max text-head4 tracking-wider text-accent-500 font-bold secondary-font hover:text-accent-300 transition-colors self-center"
+        className="w-max text-head4 tracking-wider text-accent-500 font-bold font-secondary leading-primary hover:text-accent-300 transition-colors self-center"
       >
         {"#" + primary_tag.name}
       </Link>

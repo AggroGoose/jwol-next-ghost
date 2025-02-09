@@ -20,7 +20,7 @@ export default function PostComments({
   });
 
   return (
-    <div className="mb-6 flex flex-col gap-6 w-full max-w-[--blog-width] mx-auto max-xl:px-3">
+    <div className="mb-6 flex flex-col gap-6 w-full max-w-(--blog-width) mx-auto max-xl:px-3">
       <h2 className="text-always-light">Comments</h2>
       <div>
         {user ? (
