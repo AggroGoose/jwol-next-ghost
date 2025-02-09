@@ -46,9 +46,7 @@ export const metadata: Metadata = {
 export default async function Home({
   searchParams,
 }: {
-  searchParams?: {
-    page?: string;
-  };
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const searching = await searchParams;
   const currentPage = Number(searching?.page) || 1;
