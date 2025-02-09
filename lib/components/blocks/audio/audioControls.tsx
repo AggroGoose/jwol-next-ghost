@@ -14,8 +14,8 @@ export default function AudioControls({
   audioContainer,
   audioMaxDuration,
 }: {
-  audioRef: React.RefObject<HTMLAudioElement>;
-  audioContainer: React.RefObject<HTMLDivElement>;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
+  audioContainer: React.RefObject<HTMLDivElement | null>;
   audioMaxDuration: number;
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
