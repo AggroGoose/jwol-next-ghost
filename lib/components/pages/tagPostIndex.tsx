@@ -1,5 +1,6 @@
 "use client";
 
+import MainPagePosts from "../article/main/mainPagePosts";
 import MainArticleCard from "../cards/mainArticleCard";
 import Pagination from "../navigation/pagination";
 
@@ -34,17 +35,7 @@ export default function TagPostIndex({
         )}
       </div>
       <div className="flex flex-col gap-8 py-8 bg-always-light rounded-xl">
-        <h2 className="self-center">Recent Posts</h2>
-        <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 w-full max-w-(--body-size) mx-auto">
-          {posts.map((post) => (
-            <MainArticleCard
-              post={post}
-              key={post.slug}
-              badge={false}
-              dark={false}
-            />
-          ))}
-        </div>
+        <MainPagePosts posts={posts} badge={false} />
         <Pagination meta={meta} />
       </div>
     </div>

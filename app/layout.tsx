@@ -7,6 +7,7 @@ import FooterNav from "@/lib/components/navigation/footerNav";
 import { Metadata } from "next";
 import TopNav from "@/lib/components/navigation/topNav";
 import ContextProvider from "@/lib/context/contextProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const australSans = localFont({
   src: [{ path: "/font/austral-sans_blur.woff2" }],
@@ -39,6 +40,7 @@ export default function RootLayout({
           <main className="min-h-screen flex flex-col">
             <TopNav />
             {children}
+            <Analytics />
           </main>
           <FooterNav />
           <CookieBanner />
