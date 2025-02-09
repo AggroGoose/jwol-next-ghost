@@ -54,7 +54,7 @@ export const dynamicParams = false;
 export default async function TagPage({
   searchParams,
 }: {
-  searchParams?: Promise<any>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const searcha = await searchParams;
   const currentPage = Number(searcha?.page) || 1;
