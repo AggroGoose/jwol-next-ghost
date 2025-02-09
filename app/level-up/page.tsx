@@ -53,9 +53,7 @@ export const revalidate = 600;
 export default async function TagPage({
   searchParams,
 }: {
-  searchParams?: {
-    page?: string;
-  };
+  searchParams?: Promise<any>;
 }) {
   const searcha = await searchParams;
   const currentPage = Number(searcha?.page) || 1;

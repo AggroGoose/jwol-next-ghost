@@ -10,7 +10,7 @@ import { Metadata } from "next";
 export async function generateMetadata({
   params,
 }: {
-  params: { tag: string };
+  params: Promise<any>;
 }): Promise<Metadata> {
   const parama = await params;
   const tag = parama.tag;
@@ -59,10 +59,8 @@ export default async function TagPage({
   params,
   searchParams,
 }: {
-  params: { tag: string };
-  searchParams?: {
-    page?: string;
-  };
+  params: Promise<any>;
+  searchParams?: Promise<any>;
 }) {
   const parama = await params;
   const tag = parama.tag;

@@ -26,7 +26,7 @@ export const revalidate = 600;
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<any>;
 }): Promise<Metadata> {
   const parama = await params;
   const slug = parama.slug;
@@ -64,11 +64,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function PostPage({ params }: { params: Promise<any> }) {
   const parama = await params;
   const slug = parama.slug;
   const post = await ghostGetSinglePost(slug);

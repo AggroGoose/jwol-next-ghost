@@ -27,7 +27,7 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<any>;
 }): Promise<Metadata> {
   const parama = await params;
   const slug = parama.slug;
@@ -65,11 +65,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function PostPage({ params }: { params: Promise<any> }) {
   const parama = await params;
   const slug = parama.slug;
   const post = await ghostGetSinglePost(slug);
@@ -79,7 +75,6 @@ export default async function PostPage({
     .onConflictDoNothing();
   const morePosts = await ghostLatestFiveGeneral(slug);
   const tagPosts = await ghostLatestFiveforTag(post.primary_tag.slug, slug);
-
   const session = await auth();
 
   const user = session?.user;
