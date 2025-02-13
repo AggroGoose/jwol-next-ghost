@@ -7,7 +7,7 @@ import TagPostIndex from "@/lib/components/pages/tagPostIndex";
 import { SITE_URL } from "@/lib/utils/constants";
 import { Metadata } from "next";
 
-const tag = "brain-zone";
+const tag = "mission-control";
 
 export async function generateMetadata(): Promise<Metadata> {
   const meta = await ghostMetaTag(tag);
@@ -49,7 +49,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const revalidate = 600;
-export const dynamicParams = false;
 
 export default async function TagPage({
   searchParams,
