@@ -19,8 +19,8 @@ export default function DropMenu() {
           <CloseIcon className="w-8 fill-always-light hover:fill-accent-500" />
         </MenuItem>
         <MenuItem>
-          <Link className="hover:text-accent-500" href="/brain-zone">
-            #Brain Zone
+          <Link className="hover:text-accent-500" href="/level-up">
+            #Level Up
           </Link>
         </MenuItem>
         <MenuItem>
@@ -34,11 +34,6 @@ export default function DropMenu() {
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link className="hover:text-accent-500" href="/level-up">
-            #Level Up
-          </Link>
-        </MenuItem>
-        <MenuItem>
           <Link className="hover:text-accent-500" href="/human-orbit">
             #Human Orbit
           </Link>
@@ -46,6 +41,11 @@ export default function DropMenu() {
         <MenuItem>
           <Link className="hover:text-accent-500" href="/tech-hole">
             #Tech Hole
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link className="hover:text-accent-500" href="/mission-control">
+            #Mission Control
           </Link>
         </MenuItem>
         <MenuItem>

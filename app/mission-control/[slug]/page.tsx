@@ -19,9 +19,10 @@ import { auth } from "@/lib/api/auth";
 import { db } from "@/lib/api/drizzle";
 import { posts } from "@/lib/api/drizzle/schema";
 
-const tag = "brain-zone";
+const tag = "mission-control";
 
 export const revalidate = 600;
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
